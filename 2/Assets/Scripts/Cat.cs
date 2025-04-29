@@ -52,8 +52,9 @@ public class Cat : MonoBehaviour
         if (lifeCounter == 0)
         {
             animator.SetBool("isDead", true);  // показываем анимацию DeadCat из Аниматора
-                                               //GetComponent<Animation>().Play("DeadCat"); // показываем анимацию DeadCat
+                                                //GetComponent<Animation>().Play("DeadCat"); // показываем анимацию DeadCat
             StartCoroutine(LoadSceneAfterDelay(1f));
+           
         }
 
     }
@@ -61,7 +62,8 @@ public class Cat : MonoBehaviour
     IEnumerator LoadSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        loseMenu.SetActive(true); 
+        loseMenu.SetActive(true);
+        animator.SetBool("isDead", false);
         //SceneManager.LoadScene("GameOverScene");
     }
 
