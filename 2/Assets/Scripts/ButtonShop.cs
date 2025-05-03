@@ -3,18 +3,19 @@ using Unity.Android.Gradle;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shop : MonoBehaviour
+public class ButtonShop : MonoBehaviour
 {
     public string objectName;
     public int price;
     public int access;
+    public int select;
     public GameObject block;
     public TextMeshProUGUI objectPriceText;
     public TextMeshProUGUI coinsText;
 
     void Start()
     {
-        PlayerPrefs.DeleteKey(objectName + "Access");
+        PlayerPrefs.DeleteKey(objectName + "Access"); // для теста сбрасываем сохранение покупки
         //PlayerPrefs.SetInt("coins", 10);
         coinsText.text = PlayerPrefs.GetInt("coins").ToString();
         AccessUpdate();
@@ -29,6 +30,10 @@ public class Shop : MonoBehaviour
             block.SetActive(false);
             objectPriceText.gameObject.SetActive(false);
         }
+    }
+    void SelectUpdate()
+    {
+        select = 1;
     }
     public void OnBuy()
     {

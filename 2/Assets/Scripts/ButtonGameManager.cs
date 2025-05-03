@@ -2,8 +2,12 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class ButtonGameManager : MonoBehaviour
 {
+    public GameObject shop;
+    public GameObject catShop;
+    public GameObject mainMenu;
+
     public void onGameStart()
     {
         SceneManager.LoadScene("GameScene");
@@ -20,4 +24,17 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Start");
     }
+    public void CloseShop()
+    {
+        shop.SetActive(false);
+    }
+    public void CatShop()
+    {
+        shop.SetActive(true);
+    }
+    public void MainMenu()
+    {
+        shop.SetActive(false);
+    }
+
 }
