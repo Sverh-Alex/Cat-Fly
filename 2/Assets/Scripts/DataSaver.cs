@@ -8,6 +8,6 @@ public class DataSaver : MonoBehaviour
 
     public void SaveInt()
     {
-        PlayerPrefs.SetInt(objectName, id);
+        PlayerPrefs.SetInt("skin", id);
     }
 }
