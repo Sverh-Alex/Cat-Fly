@@ -1202,7 +1202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 116, y: 627}
+  m_AnchoredPosition: {x: 132, y: 594.38}
   m_SizeDelta: {x: 159.14, y: 194.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896423218
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: "\u041B\u0412\u041B1"
-  price: 5
+  price: 0
   access: 0
   select: 0
   block: {fileID: 0}
@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2161391322909615847, guid: 17c235d6ee0cfad4c9b17305324589c6, type: 3}
+  m_Sprite: {fileID: 2579944380536627387, guid: 5eb27440e5ea3234285a37c4687e7548, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1443,6 +1443,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: DataSaver, Assembly-CSharp
         m_MethodName: SaveInt
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1189939340}
+        m_TargetAssemblyTypeName: ButtonToggleManager, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1629,14 +1641,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1189939336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d11b4b6f08e0e449711dae2a67c5e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 10a75a360b4b30648b383cb3ee081362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activSkins:
-  - {fileID: 1051085498}
-  - {fileID: 1300311762}
-  skinsId: 0
-  newSkinID: 0
+  buttons:
+  - {fileID: 1051085502}
+  - {fileID: 1300311767}
+  id: 0
+  selectId: 0
 --- !u!1 &1196835885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,7 +1821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 316, y: 627}
+  m_AnchoredPosition: {x: 312, y: 594.38}
   m_SizeDelta: {x: 159.14, y: 194.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276274373
@@ -1907,7 +1919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1217721316605079849, guid: b18612e030fea3945b9b2fefbd47504b, type: 3}
+  m_Sprite: {fileID: 1594682525987452893, guid: 8fcc9a3a0bdaef24a96c155a3a4894a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1984,7 +1996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2161391322909615847, guid: 17c235d6ee0cfad4c9b17305324589c6, type: 3}
+  m_Sprite: {fileID: 2579944380536627387, guid: 5eb27440e5ea3234285a37c4687e7548, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2069,6 +2081,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1189939340}
+        m_TargetAssemblyTypeName: ButtonToggleManager, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2858,7 +2882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 896}
+  m_AnchoredPosition: {x: 0, y: 836}
   m_SizeDelta: {x: 246.44, y: 107.26999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2001765770

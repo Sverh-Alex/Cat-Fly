@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 17c235d6ee0cfad4c9b17305324589c6
+guid: 5eb27440e5ea3234285a37c4687e7548
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2161391322909615847
-    second: progress_card (1)_0
+      213: 2579944380536627387
+    second: progress_card (4)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: progress_card (1)_0
+      name: progress_card (4)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e6a3a6e4fdcefd10800000000000000
-      internalID: 2161391322909615847
+      spriteID: bb0a626bebdcdc320800000000000000
+      internalID: 2579944380536627387
       vertices: []
       indices: 
       edges: []
