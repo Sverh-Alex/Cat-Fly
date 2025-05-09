@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4ea562a812264554dbeb4f73cc5c9f8d
+guid: 97d2f28f57dbac24ba6811d88a6c95ae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1852337387731634771
-    second: Section Title - Button (2)_0
+      213: 4846810271030209551
+    second: bonus_btn (9)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Section Title - Button (2)_0
+      name: bonus_btn (9)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 948
-        height: 1348
+        width: 295
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da5b410c5fc2b46e0800000000000000
-      internalID: -1852337387731634771
+      spriteID: f0c68721344534340800000000000000
+      internalID: 4846810271030209551
       vertices: []
       indices: 
       edges: []
