@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI score;
     //[SerializeField] private TextMeshProUGUI scorePrefs;
     private Cat catScript;
+    [SerializeField] private int addBonus = 0;
 
     void Start()
     {
@@ -27,7 +28,11 @@ public class ScoreManager : MonoBehaviour
         int coins = PlayerPrefs.GetInt("coins");
         PlayerPrefs.SetInt("coins", coins + 1); // сохраняем счет игрока
         score.text = (coins + 1).ToString();
-
-
+    }
+    public void AddBonus()
+    {
+        int coins = PlayerPrefs.GetInt("coins");
+        PlayerPrefs.SetInt("coins", coins + addBonus); // сохраняем счет игрока
+        score.text = (coins + addBonus).ToString();
     }
 }

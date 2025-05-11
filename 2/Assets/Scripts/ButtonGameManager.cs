@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ButtonGameManager : MonoBehaviour
 {
     public GameObject shop;
     public GameObject catShop;
     public GameObject mainMenu;
+    public GameObject bonusMenu;
 
     public void onGameStart()
     {
@@ -30,11 +32,24 @@ public class ButtonGameManager : MonoBehaviour
     }
     public void CatShop()
     {
+        bonusMenu.SetActive(false); 
         shop.SetActive(true);
     }
     public void MainMenu()
     {
         shop.SetActive(false);
+        bonusMenu.SetActive(false);
     }
+    public void BonusMenu()
+    {
+        shop.SetActive(false); 
+        bonusMenu.SetActive(true);
+
+    }
+    public void CloseBonus()
+    {
+        bonusMenu.SetActive(false);
+    }
+
 
 }
