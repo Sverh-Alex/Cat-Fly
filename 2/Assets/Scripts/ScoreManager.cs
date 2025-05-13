@@ -12,16 +12,19 @@ public class ScoreManager : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI scorePrefs;
     private Cat catScript;
     [SerializeField] private int addBonus = 0;
+    [SerializeField] private int addBonusADS = 0;
+    [SerializeField] GameObject effectPSClick;
+    [SerializeField] GameObject effectPSCoin;
 
     void Start()
     {
-
+        effectPSCoin.SetActive(false);
         score.text = PlayerPrefs.GetInt("coins").ToString();
 
         //scorePrefs.text = PlayerPrefs.GetInt("prefsCounter").ToString();
     }
 
-    public void addToScore()
+    public void AddToScore()
     {
         //scoreCounter++;
         
@@ -34,5 +37,15 @@ public class ScoreManager : MonoBehaviour
         int coins = PlayerPrefs.GetInt("coins");
         PlayerPrefs.SetInt("coins", coins + addBonus); // сохраняем счет игрока
         score.text = (coins + addBonus).ToString();
+        Instantiate(effectPSClick); // партикл клика
+        effectPSCoin.SetActive(true); // создаем партикл монеток
+    }
+    public void AddBonusADS()
+    {
+        int coins = PlayerPrefs.GetInt("coins");
+        PlayerPrefs.SetInt("coins", coins + addBonusADS); // сохраняем счет игрока
+        score.text = (coins + addBonusADS).ToString();
+        Instantiate(effectPSClick); // партикл клика
+        effectPSCoin.SetActive(true); // создаем партикл монеток
     }
 }

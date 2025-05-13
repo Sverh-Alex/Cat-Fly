@@ -132,7 +132,7 @@ public class Cat : MonoBehaviour
         if (collision.gameObject.tag.Equals("feather"))
         {
             featherSound.Play();
-            scoreManager.GetComponent<ScoreManager>().addToScore();
+            scoreManager.GetComponent<ScoreManager>().AddToScore();
             
             GameObject particleObject = Instantiate(effect, transform.position, Quaternion.identity);
 
