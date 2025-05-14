@@ -9949,7 +9949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7710086954383210093, guid: acdb90624a404aa438447006f1026065, type: 3}
       propertyPath: m_Intensity
-      value: 2.5282698
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8986935675043883179, guid: acdb90624a404aa438447006f1026065, type: 3}
       propertyPath: m_Materials.Array.size
@@ -18485,7 +18485,7 @@ MonoBehaviour:
   buttonBonus: {fileID: 871430566}
   buttonTimerBonus: {fileID: 1812540585}
   textTimerBonus: {fileID: 972809133}
-  cdTime: 1
+  cdTime: 15
 --- !u!4 &1964856142
 Transform:
   m_ObjectHideFlags: 0

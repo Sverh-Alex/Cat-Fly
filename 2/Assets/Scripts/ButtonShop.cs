@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class ButtonShop : MonoBehaviour
 {
-    public string objectName;
-    public int price;
+    public string objectName; // Уникальное имя товара для сохранения доступа
+    public int price; // Цена товара
     public int access;
     public int select;
-    public GameObject block;
-    public TextMeshProUGUI objectPriceText;
-    public TextMeshProUGUI coinsText;
+    public GameObject block; // Объект, который блокирует покупку (например, затемнённая панель)
+    public TextMeshProUGUI objectPriceText; // Текст, отображающий цену товара
+    public TextMeshProUGUI coinsText; // Текст, отображающий количество монет игрока
+    private Color normalColor = Color.white;
+    private Color notEnoughColor = Color.red;
 
     void Start()
     {
@@ -19,6 +21,13 @@ public class ButtonShop : MonoBehaviour
         //PlayerPrefs.SetInt("coins", 10);
         coinsText.text = PlayerPrefs.GetInt("coins").ToString();
         AccessUpdate();
+        UpdatePriceUI();
+    }
+    void UpdatePriceUI()
+    {
+        int coins = PlayerPrefs.GetInt("coins");
+        objectPriceText.text = price.ToString();
+        objectPriceText.color = coins < price ? notEnoughColor : normalColor;
     }
     void AccessUpdate()
     {
@@ -47,7 +56,9 @@ public class ButtonShop : MonoBehaviour
                 PlayerPrefs.SetInt("coins", coins - price);
                 coinsText.text = PlayerPrefs.GetInt("coins").ToString();
                 AccessUpdate();
+
             }
         }
+        UpdatePriceUI();
     }
 }
