@@ -44,6 +44,7 @@ public class ScoreManager : MonoBehaviour
     {
         int coins = PlayerPrefs.GetInt("coins") + 1;
         UpdateCoins(coins);
+        ScoreManager.SendCoinsChanged();
     }
 
     public void AddBonus() // Добавляет бонусные монеты (например, за действие)
@@ -53,6 +54,7 @@ public class ScoreManager : MonoBehaviour
 
         Instantiate(effectPSClick); // создаём эффект клика
         effectPSCoin.SetActive(true); // включаем эффект монеток
+        ScoreManager.SendCoinsChanged();
     }
 
     public void AddBonusADS() // Добавляет бонусные монеты за просмотр рекламы
@@ -62,5 +64,6 @@ public class ScoreManager : MonoBehaviour
 
         Instantiate(effectPSClick); // создаём эффект клика
         effectPSCoin.SetActive(true); // включаем эффект монеток
+        SendCoinsChanged();
     }
 }

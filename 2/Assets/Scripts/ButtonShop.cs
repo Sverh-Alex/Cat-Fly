@@ -15,6 +15,9 @@ public class ButtonShop : MonoBehaviour
     public GameObject block; // Объект, который блокирует покупку (например, затемнённая панель)
     public TextMeshProUGUI objectPriceText; // Текст, отображающий цену товара
     public TextMeshProUGUI coinsText; // Текст, отображающий количество монет игрока
+    private Color normalColor = Color.white;
+    private Color notEnoughColor = Color.red;
+
 
 
     void Start()
@@ -23,8 +26,8 @@ public class ButtonShop : MonoBehaviour
         //PlayerPrefs.SetInt("coins", 10);
         coinsText.text = PlayerPrefs.GetInt("coins").ToString();
         AccessUpdate();
+        ScoreManager.OnCoinsChanged += ChangeColor;
 
-        
     }
 
     void AccessUpdate()
@@ -50,8 +53,21 @@ public class ButtonShop : MonoBehaviour
                 PlayerPrefs.SetInt("coins", coins - price);
                 coinsText.text = PlayerPrefs.GetInt("coins").ToString();
                 AccessUpdate();
-                ScoreManager.SendCoinsChanged(); // Оповещаем всех подписчиков о текущем количестве монет при старте
+                ScoreManager.SendCoinsChanged(); // Оповещаем всех подписчиков о изменении монет
             }
         }
+    }
+    private void ChangeColor()
+    {
+        int coins = PlayerPrefs.GetInt("coins");
+        if (coins >= price)
+        {
+            objectPriceText.color = normalColor;
+        }
+        else
+        {
+            objectPriceText.color = notEnoughColor;
+        }
+            
     }
 }

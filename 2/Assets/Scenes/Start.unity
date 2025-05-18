@@ -9314,7 +9314,6 @@ GameObject:
   - component: {fileID: 788914392}
   - component: {fileID: 788914394}
   - component: {fileID: 788914393}
-  - component: {fileID: 788914395}
   m_Layer: 5
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -9440,19 +9439,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788914391}
   m_CullTransparentMesh: 1
---- !u!114 &788914395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788914391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1689fefc912a759489e16eabf0ee9b01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinsText: {fileID: 788914393}
 --- !u!1 &805611287
 GameObject:
   m_ObjectHideFlags: 0
@@ -10672,7 +10658,6 @@ GameObject:
   - component: {fileID: 910635513}
   - component: {fileID: 910635515}
   - component: {fileID: 910635514}
-  - component: {fileID: 910635516}
   m_Layer: 5
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -10798,19 +10783,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910635512}
   m_CullTransparentMesh: 1
---- !u!114 &910635516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910635512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1689fefc912a759489e16eabf0ee9b01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinsText: {fileID: 910635514}
 --- !u!1 &944128246
 GameObject:
   m_ObjectHideFlags: 0
@@ -13866,7 +13838,6 @@ GameObject:
   - component: {fileID: 1437687307}
   - component: {fileID: 1437687309}
   - component: {fileID: 1437687308}
-  - component: {fileID: 1437687310}
   m_Layer: 5
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -13992,19 +13963,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437687306}
   m_CullTransparentMesh: 1
---- !u!114 &1437687310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437687306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1689fefc912a759489e16eabf0ee9b01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinsText: {fileID: 1437687308}
 --- !u!1 &1446688960
 GameObject:
   m_ObjectHideFlags: 0

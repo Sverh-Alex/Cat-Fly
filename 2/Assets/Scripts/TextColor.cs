@@ -10,11 +10,14 @@ public class TextColor : MonoBehaviour
     void Start()
     {
         coinsText.text = PlayerPrefs.GetInt("coins").ToString();
-        ScoreManager.OnCoinsChanged += ChangeColor;
+        // ScoreManager.OnCoinsChanged += ChangeColor;
     }
     private void ChangeColor()
     {
-        coinsText.color = notEnoughColor;
+        int coins = PlayerPrefs.GetInt("coins");
+        if (coins > 0)
+
+            coinsText.color = notEnoughColor;
     }
     void UpdatePriceUI()
     {

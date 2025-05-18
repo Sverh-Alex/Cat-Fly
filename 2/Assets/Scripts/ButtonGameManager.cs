@@ -34,6 +34,7 @@ public class ButtonGameManager : MonoBehaviour
     {
         bonusMenu.SetActive(false); 
         shop.SetActive(true);
+        ScoreManager.SendCoinsChanged();
     }
     public void MainMenu()
     {
