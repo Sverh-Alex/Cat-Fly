@@ -2,6 +2,7 @@ using System;
 using JetBrains.Annotations;
 using TMPro;
 using Unity.Android.Gradle;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,13 +34,21 @@ public class ButtonShop : MonoBehaviour
     void AccessUpdate()
     {
         access = PlayerPrefs.GetInt(objectName + "Access");
-        objectPriceText.text = price.ToString();
-
-        if (access == 1)
+        if (objectPriceText != null)
         {
-            block.SetActive(false);
-            objectPriceText.gameObject.SetActive(false);
+            objectPriceText.text = price.ToString();
+            if (access == 1)
+            {
+                block.SetActive(false);
+                objectPriceText.gameObject.SetActive(false);
+            }
         }
+        else
+        {
+            return;
+        }
+
+
     }
     public void OnBuy()
     {
