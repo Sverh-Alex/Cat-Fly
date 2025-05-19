@@ -10644,7 +10644,7 @@ MonoBehaviour:
   price: 0
   access: 0
   select: 0
-  block: {fileID: 0}
+  block: {fileID: 1678509770}
   objectPriceText: {fileID: 1437687308}
   coinsText: {fileID: 1626194120}
 --- !u!1 &910635512

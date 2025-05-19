@@ -39,7 +39,7 @@ public class TestMove : MonoBehaviour
         targetPosition.y = Mathf.Clamp(targetPosition.y, DownStop.transform.position.y, UpStop.transform.position.y);
         // Применяем новую позицию
         transform.position = targetPosition;
-        Screen.
+      
     }
 
     void FixedUpdate()

@@ -34,18 +34,11 @@ public class ButtonShop : MonoBehaviour
     void AccessUpdate()
     {
         access = PlayerPrefs.GetInt(objectName + "Access");
-        if (objectPriceText != null)
+        objectPriceText.text = price.ToString();
+        if (access == 1)
         {
-            objectPriceText.text = price.ToString();
-            if (access == 1)
-            {
-                block.SetActive(false);
-                objectPriceText.gameObject.SetActive(false);
-            }
-        }
-        else
-        {
-            return;
+            block.SetActive(false);
+            objectPriceText.gameObject.SetActive(false);
         }
 
 
