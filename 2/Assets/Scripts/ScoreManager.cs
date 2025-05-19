@@ -10,15 +10,16 @@ public class ScoreManager : MonoBehaviour
     public static event Action OnCoinsChanged; // —обытие, которое уведомл€ет подписчиков об изменении количества монет
 
     [SerializeField] private TextMeshProUGUI score; // UI текст дл€ отображени€ монет
-    [SerializeField] private int addBonus = 0; // бонус за обычное действие
+    [SerializeField] public int addBonus = 0; // бонус за обычное действие
     [SerializeField] private int addBonusADS = 0; // бонус за просмотр рекламы
     [SerializeField] private GameObject effectPSClick; // эффект при клике
     [SerializeField] private GameObject effectPSCoin; // эффект монеток
+    [SerializeField] private TextMeshProUGUI isAddBonusText; // UI текст дл€ отображени€ монет
 
     public static void SendCoinsChanged()
     {
         OnCoinsChanged.Invoke();
-
+    
     }
     void Start()
     {
@@ -26,13 +27,10 @@ public class ScoreManager : MonoBehaviour
 
         int coins = PlayerPrefs.GetInt("coins"); // ѕолучаем текущее количество монет из сохранений
         score.text = coins.ToString();
-                
+        isAddBonusText.text = $"+{addBonus}";
+
     }
-    private void Test()
-    {
-        Debug.Log("ѕередал сообщение");
-       
-    }
+
     private void UpdateCoins(int newCoins) // ¬спомогательный метод обновлени€ монет и вызова событи€
     {
         PlayerPrefs.SetInt("coins", newCoins); // сохран€ем новое значение монет

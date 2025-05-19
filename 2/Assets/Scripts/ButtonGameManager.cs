@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -10,9 +11,17 @@ public class ButtonGameManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject bonusMenu;
 
+    void Start()
+    {
+        shop.SetActive(false);
+        bonusMenu.SetActive(false);
+
+
+    }
     public void onGameStart()
     {
         SceneManager.LoadScene("GameScene");
+
     }
     public void onRestartScene()
     {
