@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private GameObject menuUI;
+    [SerializeField] private GameObject loseMenu;
 
 
     void Start()
@@ -15,7 +16,13 @@ public class Menu : MonoBehaviour
         menuUI.SetActive(true);
         Time.timeScale = 0;
     }
+    public void OnContinue()
+    {
+        Time.timeScale = 1;
+        loseMenu.SetActive(false);
+        ScoreManager.SendContinue();
 
+    }
     public void OnPlay()
     {
         menuUI.SetActive(false);

@@ -41,7 +41,7 @@ public class Cat : MonoBehaviour
     {
         return lifeCounter;
     }
-    public void updateLife(int life)
+    public void UpdateLife(int life)
     {
         lifeCounter += life; // обновляем жизни
         // lifeStatus.text = lifeCounter.ToString();
@@ -54,17 +54,34 @@ public class Cat : MonoBehaviour
             animator.SetBool("isDead", true);  // показываем анимацию DeadCat из Аниматора
                                                 //GetComponent<Animation>().Play("DeadCat"); // показываем анимацию DeadCat
             StartCoroutine(LoadSceneAfterDelay(1f));
-           
+            
         }
 
     }
-
-    IEnumerator LoadSceneAfterDelay(float delay)
+    public void AddLife()
+    {
+        int life = 1;
+        lifeCounter += life;
+        for (int i = 0; i < hearts.Length; i++) // для кадой картинки перебираем значение (если 5 жизней показываем 5 сердечек)
+        {
+            hearts[i].enabled = i < lifeCounter; // показываем картинки
+        }
+    }
+        IEnumerator LoadSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         loseMenu.SetActive(true);
         animator.SetBool("isDead", false);
-        //SceneManager.LoadScene("GameOverScene");
+        //gameObject.transform.position = new Vector3 (0, 0, 0);
+        Timer.Pause();
+        ScoreManager.OnAlive += OnContinue;
+
+    }
+    private void OnContinue()
+    {
+        AddLife();
+        animator.SetBool("isAlive", true);
+        animator.SetBool("isMoving", true);
     }
 
     public void fire()
@@ -89,6 +106,7 @@ public class Cat : MonoBehaviour
     {
         bulletCounter += bulletGift; // сколько патронов добавляет 
         bulletCounterText.text = bulletCounter.ToString(); // обнавляем текст на экране 
+
     }
 
 
@@ -109,7 +127,7 @@ public class Cat : MonoBehaviour
         if(collision.gameObject.tag.Equals("slipper"))
         {
             explosionSound.Play(); 
-            updateLife(collision.gameObject.GetComponent<Slipper>().damage);
+            UpdateLife(collision.gameObject.GetComponent<Slipper>().damage);
             gameObject.GetComponent<ParticleSystem>().Play(); // путь до значения жизней
             animator.SetBool("isMoving", true); // передаем значение из аниматора
         }

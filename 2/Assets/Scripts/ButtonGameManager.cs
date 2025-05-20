@@ -15,8 +15,6 @@ public class ButtonGameManager : MonoBehaviour
     {
         shop.SetActive(false);
         bonusMenu.SetActive(false);
-
-
     }
     public void onGameStart()
     {

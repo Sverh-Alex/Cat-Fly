@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +14,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private GameObject victory3Lives; // интерфейс при 3 жизнях
     [SerializeField] private GameObject victory2Lives; // интерфейс при 2 жизнях
     [SerializeField] private GameObject victory1Life;  // интерфейс при 1 жизни
+    [SerializeField] private GameObject loseMenu;  // интерфейс при 1 жизни
     [SerializeField] AudioSource victory;
 
     void Start()
@@ -23,6 +26,16 @@ public class Timer : MonoBehaviour
        victory1Life.SetActive(false);
     }
 
+    public static void Pause()
+    {
+        Time.timeScale = 0;
+    }
+    public static void Continue()
+    {
+        Time.timeScale = 1;
+
+
+    }
     void Update()
     {
         lifeTime -= Time.deltaTime;

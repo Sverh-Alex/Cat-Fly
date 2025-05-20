@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static event Action OnCoinsChanged; // Событие, которое уведомляет подписчиков об изменении количества монет
+    public static event Action OnAlive; // Событие, которое уведомляет подписчиков об изменении количества монет
 
     [SerializeField] private TextMeshProUGUI score; // UI текст для отображения монет
     [SerializeField] public int addBonus = 0; // бонус за обычное действие
@@ -20,6 +21,11 @@ public class ScoreManager : MonoBehaviour
     {
         OnCoinsChanged.Invoke();
     
+    }
+    public static void SendContinue()
+    {
+        OnAlive.Invoke();
+
     }
     void Start()
     {
