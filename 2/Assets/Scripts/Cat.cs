@@ -47,12 +47,14 @@ public class Cat : MonoBehaviour
         // lifeStatus.text = lifeCounter.ToString();
         for (int i = 0; i < hearts.Length; i++) // для кадой картинки перебираем значение (если 5 жизней показываем 5 сердечек)
         {
-                hearts[i].enabled = i < lifeCounter; // показываем картинки
+            hearts[i].enabled = i < lifeCounter; // показываем картинки
+            animator.SetBool("isAlive", false);
         }
         if (lifeCounter == 0)
         {
             animator.SetBool("isDead", true);  // показываем анимацию DeadCat из Аниматора
-                                                //GetComponent<Animation>().Play("DeadCat"); // показываем анимацию DeadCat
+                                               //GetComponent<Animation>().Play("DeadCat"); // показываем анимацию DeadCat
+            
             StartCoroutine(LoadSceneAfterDelay(1f));
             
         }
@@ -62,7 +64,7 @@ public class Cat : MonoBehaviour
     {
         int life = 1;
         lifeCounter += life;
-        for (int i = 0; i < hearts.Length; i++) // для кадой картинки перебираем значение (если 5 жизней показываем 5 сердечек)
+        for (int i = 0; i < lifeCounter; i++) // для кадой картинки перебираем значение (если 5 жизней показываем 5 сердечек)
         {
             hearts[i].enabled = i < lifeCounter; // показываем картинки
         }
@@ -72,16 +74,21 @@ public class Cat : MonoBehaviour
         yield return new WaitForSeconds(delay);
         loseMenu.SetActive(true);
         animator.SetBool("isDead", false);
-        //gameObject.transform.position = new Vector3 (0, 0, 0);
+        
         Timer.Pause();
         ScoreManager.OnAlive += OnContinue;
 
     }
     private void OnContinue()
     {
+
+        lifeCounter = 0;
+        //animator.SetBool("isMoving", true);
         AddLife();
+        //gameObject.transform.position = new Vector3(0, 0, 0);
         animator.SetBool("isAlive", true);
-        animator.SetBool("isMoving", true);
+        
+
     }
 
     public void fire()
@@ -112,11 +119,11 @@ public class Cat : MonoBehaviour
 
     public void Update()
     {
-        if (transform.position.y < -4.0f)
-        {
-            loseMenu.SetActive(true);
-            //SceneManager.LoadScene("GameOverScene");
-        }
+        //if (transform.position.y < -4.0f)
+        //{
+        //    loseMenu.SetActive(true);
+        //    SceneManager.LoadScene("GameOverScene");
+        //}
     }
     private void OnTriggerEnter2D(Collider2D collision) // объект с которым столкнулись, мы его разрушаем
     {

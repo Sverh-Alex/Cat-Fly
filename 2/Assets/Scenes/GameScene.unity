@@ -12677,7 +12677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: f2dcf029949142e28b974630369c8b4e, type: 2}
@@ -12704,10 +12704,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 47
   m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -12772,8 +12772,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.2, y: 0}
-  m_SizeDelta: {x: 72.15, y: 50}
+  m_AnchoredPosition: {x: 29.28, y: 0}
+  m_SizeDelta: {x: 92.31, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &902246017
 GameObject:
@@ -20791,7 +20791,7 @@ MonoBehaviour:
   cloud: {fileID: 2342276463919375618, guid: 673f878d79b58174584b10bcae83b67b, type: 3}
   spamInterval: 1
   slipper: {fileID: 947930908925686483, guid: 47e1a2db4a57e78419e9a2fa591c74cb, type: 3}
-  spamSlipperInterval: 3
+  spamSlipperInterval: 1
   gift: {fileID: 4013341186137885221, guid: 456b623eee4eb6a49a03f434b97c47ed, type: 3}
   spamGiftInterval: 1
   feather: {fileID: 1440637531209691941, guid: a3b5afa3dd5e7c541a81656efb7566c6, type: 3}
