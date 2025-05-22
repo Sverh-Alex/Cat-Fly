@@ -9,6 +9,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static event Action OnCoinsChanged; // Событие, которое уведомляет подписчиков об изменении количества монет
     public static event Action OnAlive; // Событие, которое уведомляет подписчиков о проолжении игры
+    public static event Action OnTutorWeb; // Событие, о включеной клавиатуре
+    public static event Action OnTutorApp; // Событие, о включенном джостике
 
     [SerializeField] private TextMeshProUGUI score; // UI текст для отображения монет
     [SerializeField] public int addBonus = 0; // бонус за обычное действие
@@ -25,6 +27,16 @@ public class ScoreManager : MonoBehaviour
     public static void SendContinue()
     {
         OnAlive.Invoke();
+
+    }
+    public static void SendTutorialWeb()
+    {
+        OnTutorWeb.Invoke();
+
+    }
+    public static void SendTutorialApp()
+    {
+        OnTutorApp.Invoke();
 
     }
     void Start()

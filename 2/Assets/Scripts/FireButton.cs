@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class FireButton : MonoBehaviour, IPointerDownHandler
+public class FireButton : MonoBehaviour
 {
     [SerializeField] private GameObject cat;
     private Cat catScript;
 
-    public void OnPointerDown(PointerEventData eventData) // что происходит при нажатии на кнопку
+    public void OnPointerDown() // что происходит при нажатии на кнопку
     {
         catScript.fire();
     }

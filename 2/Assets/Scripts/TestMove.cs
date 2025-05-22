@@ -18,6 +18,7 @@ public class TestMove : MonoBehaviour
     public GameObject fixedJoystick;
     public bool isJoystickActive = true;
     [SerializeField] private float speedJoystick = 1f;
+    [SerializeField] private GameObject buttonFire;
 
 
     // private Vector2 moveVector;
@@ -27,6 +28,7 @@ public class TestMove : MonoBehaviour
         catScript = cat.GetComponent<Cat>(); // "cat" указываем на каком конкретно объекте ищем скрипт
         animator = cat.GetComponent<Animator>();
         fixedJoystick.SetActive(false);
+        buttonFire.SetActive(false);
 
     }
     void MoveWithLimits(float horizontal, float vertical) // ограничения на передвижение для Джостика
@@ -54,11 +56,15 @@ public class TestMove : MonoBehaviour
         {
             fixedJoystick.SetActive(false);
             isKeyboardActive = true;
+            ScoreManager.SendTutorialWeb();
+            buttonFire.SetActive(false);
         }
         if (screenWidth <= 800)
         {
             fixedJoystick.SetActive(true);
             isKeyboardActive = false;
+            ScoreManager.SendTutorialApp();
+            buttonFire.SetActive(true);
         }
 
         if (isJoystickActive)

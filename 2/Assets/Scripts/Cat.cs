@@ -83,11 +83,16 @@ public class Cat : MonoBehaviour
     {
 
         lifeCounter = 0;
-        //animator.SetBool("isMoving", true);
+
         AddLife();
-        //gameObject.transform.position = new Vector3(0, 0, 0);
+
         animator.SetBool("isAlive", true);
-        
+        // удаляет все префабы Тапков со сцены
+        GameObject[] slippers = GameObject.FindGameObjectsWithTag("slipper");
+        foreach (GameObject slipper in slippers)
+        {
+            Destroy(slipper);
+        }
 
     }
 
