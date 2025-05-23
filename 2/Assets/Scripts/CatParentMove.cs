@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class CatParentMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 5.0f;  // Показываем на панели скорость
+    //[SerializeField] private float speed = 5.0f;  // Показываем на панели скорость
     private Vector3 moveVector; // 
     public int moveDirection = 0;
 

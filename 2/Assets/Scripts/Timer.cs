@@ -46,7 +46,7 @@ public class Timer : MonoBehaviour
         }
         if (lifeTime < 25)
         {
-            timer.color = Color.red;
+            timer.color = Color.green;
         }
         if (lifeTime <= 0)
         {

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Rainbow : MonoBehaviour
 {
     [SerializeField] private float speed = 9.0f;  // Показываем на панели скорость
-    [SerializeField] private int damage = -1;  // Показываем на панели вред от столкновения
+    //[SerializeField] private int damage = -1;  // Показываем на панели вред от столкновения
     private Vector3 moveVector; // 
     private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
 

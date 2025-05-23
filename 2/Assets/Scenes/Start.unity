@@ -2764,7 +2764,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1222751676}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.472217
+  m_Size: 0.4786395
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8940,6 +8940,8 @@ MonoBehaviour:
   catShop: {fileID: 1387411302}
   mainMenu: {fileID: 672267168}
   bonusMenu: {fileID: 1906633547}
+  menuUI: {fileID: 0}
+  loseMenu: {fileID: 0}
 --- !u!1 &779723299
 GameObject:
   m_ObjectHideFlags: 0
@@ -12309,7 +12311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 47.31, y: 75}
+  m_AnchoredPosition: {x: 47.309998, y: 75}
   m_SizeDelta: {x: -428.72, y: -238.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1156986252
@@ -14864,8 +14866,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 759505814}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: onGameStart
+        m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
+        m_MethodName: LVL_1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15269,7 +15271,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.4
+  m_fontSize: 67.75
   m_fontSizeBase: 73.7
   m_fontWeight: 400
   m_enableAutoSizing: 1

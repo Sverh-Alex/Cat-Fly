@@ -10,16 +10,28 @@ public class ButtonGameManager : MonoBehaviour
     public GameObject catShop;
     public GameObject mainMenu;
     public GameObject bonusMenu;
+    public GameObject menuInGame;
+    public GameObject loseMenu;
 
     void Start()
     {
-        shop.SetActive(false);
-        bonusMenu.SetActive(false);
+        if (shop)
+        {
+            shop.SetActive(false);
+        }
+        if (bonusMenu)
+        {
+            bonusMenu.SetActive(false);
+        }
+        if (menuInGame)
+        {
+            menuInGame.SetActive(false);
+        }
+        
     }
     public void onGameStart()
     {
         SceneManager.LoadScene("GameScene");
-
     }
     public void onRestartScene()
     {
@@ -29,9 +41,14 @@ public class ButtonGameManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameOverScene");
     }
-    public void LVL1()
+    public void LVL_1()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("LVL_1");
+        Time.timeScale = 1;
+    }
+    public void LVL_2()
+    {
+        SceneManager.LoadScene("LVL_2");
     }
     public void CloseShop()
     {
@@ -52,12 +69,44 @@ public class ButtonGameManager : MonoBehaviour
     {
         shop.SetActive(false); 
         bonusMenu.SetActive(true);
-
     }
     public void CloseBonus()
     {
         bonusMenu.SetActive(false);
     }
-
+    public void OnClickMenu()
+    {
+        menuInGame.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void OnContinue()
+    {
+        Time.timeScale = 1;
+        menuInGame.SetActive(false);
+    }
+    public void OnAlive()
+    {
+        Time.timeScale = 1;
+        if (loseMenu)
+        {
+            loseMenu.SetActive(false);
+        }
+        ScoreManager.SendContinue();
+    }
+    public void OnPlay()
+    {
+        menuInGame.SetActive(false);
+        Time.timeScale = 1;
+    }
+    public void OnMenu()
+    {
+        SceneManager.LoadScene("Start");
+        Time.timeScale = 1;
+    }
+    public void OnRestart()
+    {
+        SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1;
+    }
 
 }
