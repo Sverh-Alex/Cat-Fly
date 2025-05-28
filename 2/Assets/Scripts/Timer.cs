@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timer;
+    public string levelName;
+    public string nextlevelName;
     public float lifeTime = 60;
     private Cat catScript;
     [SerializeField] GameObject cat;
@@ -51,6 +53,9 @@ public class Timer : MonoBehaviour
         if (lifeTime <= 0)
         {
             int lives = catScript.GetLifeCounter();
+            
+            PlayerPrefs.SetFloat(nextlevelName + "open", 1); // разблокируем следующий уровень
+            Debug.Log("открыл уровень " + nextlevelName);
 
             cat.SetActive(false);  // Отключаем кота
             lifeTime = 0;
@@ -60,14 +65,18 @@ public class Timer : MonoBehaviour
                 case 3:
                     victory3Lives.SetActive(true);
                     victory.Play();
+                    PlayerPrefs.SetInt(levelName + "stars", 3);
+                   
                     break;
                 case 2:
                     victory2Lives.SetActive(true);
                     victory.Play();
+                    PlayerPrefs.SetInt(levelName + "stars", 2);
                     break;
                 case 1:
                     victory1Life.SetActive(true);
                     victory.Play();
+                    PlayerPrefs.SetInt(levelName + "stars", 1);
                     break;
                 default:
                     // Если жизней нет или больше 3, можно показать какой-то дефолтный интерфейс или ничего

@@ -10219,6 +10219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 902246020}
+  levelName: LVL1
+  nextlevelName: LVL2
   lifeTime: 10
   cat: {fileID: 142573504}
   victory3Lives: {fileID: 1608029898}
@@ -10501,6 +10503,7 @@ MonoBehaviour:
   bonusMenu: {fileID: 0}
   menuInGame: {fileID: 0}
   loseMenu: {fileID: 0}
+  levels: {fileID: 0}
 --- !u!1 &1309335207
 GameObject:
   m_ObjectHideFlags: 0
@@ -11824,6 +11827,7 @@ MonoBehaviour:
   bonusMenu: {fileID: 0}
   menuInGame: {fileID: 162621045}
   loseMenu: {fileID: 457924364}
+  levels: {fileID: 0}
 --- !u!4 &1577278534
 Transform:
   m_ObjectHideFlags: 0

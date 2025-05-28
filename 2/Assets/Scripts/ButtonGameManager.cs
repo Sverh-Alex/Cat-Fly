@@ -12,6 +12,7 @@ public class ButtonGameManager : MonoBehaviour
     public GameObject bonusMenu;
     public GameObject menuInGame;
     public GameObject loseMenu;
+    public GameObject levels;
 
     void Start()
     {
@@ -27,7 +28,11 @@ public class ButtonGameManager : MonoBehaviour
         {
             menuInGame.SetActive(false);
         }
-        
+        if (levels)
+        {
+            levels.SetActive(false);
+        }
+
     }
     public void onGameStart()
     {
@@ -36,6 +41,10 @@ public class ButtonGameManager : MonoBehaviour
     public void onRestartScene()
     {
         SceneManager.LoadScene("Start");
+    }
+    public void OnLevels()
+    {
+        levels.SetActive(true);
     }
     public void onGameOver()
     {
@@ -52,7 +61,14 @@ public class ButtonGameManager : MonoBehaviour
     }
     public void CloseShop()
     {
-        shop.SetActive(false);
+        if(shop)
+        {
+            shop.SetActive(false);
+        }
+        if (levels)
+        {
+            levels.SetActive(false);
+        }
     }
     public void CatShop()
     {
