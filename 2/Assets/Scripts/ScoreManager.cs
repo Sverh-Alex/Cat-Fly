@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
 
     public static void SendCoinsChanged()
     {
-        OnCoinsChanged.Invoke();
+        OnCoinsChanged?.Invoke();
     
     }
     public static void SendContinue()

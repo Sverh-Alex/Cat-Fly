@@ -43,30 +43,39 @@ public class Cat : MonoBehaviour
     }
     public void UpdateLife(int life)
     {
-        lifeCounter += life; // обновляем жизни
-        // lifeStatus.text = lifeCounter.ToString();
-        for (int i = 0; i < hearts.Length; i++) // для кадой картинки перебираем значение (если 5 жизней показываем 5 сердечек)
+        lifeCounter += life;
+
+        for (int i = 0; i < hearts.Length; i++)
         {
-            hearts[i].enabled = i < lifeCounter; // показываем картинки
-            animator.SetBool("isAlive", false);
+            if (hearts[i] != null)
+            {
+                hearts[i].gameObject.SetActive(i < lifeCounter);
+            }
         }
-        if (lifeCounter == 0)
+
+        animator.SetBool("isAlive", false);
+
+        if (lifeCounter <= 0)
         {
-            animator.SetBool("isDead", true);  // показываем анимацию DeadCat из Аниматора
-                                               //GetComponent<Animation>().Play("DeadCat"); // показываем анимацию DeadCat
-            
-            StartCoroutine(LoadSceneAfterDelay(1f));
-            
+            lifeCounter = 0;
+           // animator.SetBool("isDead", true);
+            loseMenu.SetActive(true);
+            Timer.Pause();
+            ScoreManager.OnAlive += OnContinue;
+            //StartCoroutine(LoadSceneAfterDelay(1f));
         }
 
     }
     public void AddLife()
     {
-        int life = 1;
-        lifeCounter += life;
-        for (int i = 0; i < lifeCounter; i++) // для кадой картинки перебираем значение (если 5 жизней показываем 5 сердечек)
+        lifeCounter += 1;
+
+        for (int i = 0; i < hearts.Length; i++)
         {
-            hearts[i].enabled = i < lifeCounter; // показываем картинки
+            if (hearts[i] != null)
+            {
+                hearts[i].gameObject.SetActive(i < lifeCounter);
+            }
         }
     }
         IEnumerator LoadSceneAfterDelay(float delay)
@@ -81,12 +90,10 @@ public class Cat : MonoBehaviour
     }
     private void OnContinue()
     {
-
+        //animator.SetBool("isAlive", true);
         lifeCounter = 0;
-
         AddLife();
 
-        animator.SetBool("isAlive", true);
         // удаляет все префабы Тапков со сцены
         GameObject[] slippers = GameObject.FindGameObjectsWithTag("slipper");
         foreach (GameObject slipper in slippers)

@@ -34,14 +34,20 @@ public class ButtonShop : MonoBehaviour
     void AccessUpdate()
     {
         access = PlayerPrefs.GetInt(objectName + "Access");
-        objectPriceText.text = price.ToString();
-        if (access == 1)
+
+        if (objectPriceText != null)
         {
-            block.SetActive(false);
-            objectPriceText.gameObject.SetActive(false);
+            objectPriceText.text = price.ToString();
         }
 
+        if (access == 1)
+        {
+            if (block != null)
+                block.SetActive(false);
 
+            if (objectPriceText != null)
+                objectPriceText.gameObject.SetActive(false);
+        }
     }
     public void OnBuy()
     {
@@ -62,6 +68,9 @@ public class ButtonShop : MonoBehaviour
     private void ChangeColor()
     {
         int coins = PlayerPrefs.GetInt("coins");
+        if (objectPriceText == null)
+            return;
+
         if (coins >= price)
         {
             objectPriceText.color = normalColor;
@@ -70,6 +79,5 @@ public class ButtonShop : MonoBehaviour
         {
             objectPriceText.color = notEnoughColor;
         }
-            
     }
 }

@@ -14,6 +14,7 @@ public class ButtonGameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject levels;
 
+
     void Start()
     {
         if (shop)
@@ -61,7 +62,7 @@ public class ButtonGameManager : MonoBehaviour
     }
     public void CloseShop()
     {
-        if(shop)
+        if (shop)
         {
             shop.SetActive(false);
         }
@@ -72,7 +73,8 @@ public class ButtonGameManager : MonoBehaviour
     }
     public void CatShop()
     {
-        bonusMenu.SetActive(false); 
+        bonusMenu.SetActive(false);
+        levels.SetActive(false);
         shop.SetActive(true);
         ScoreManager.SendCoinsChanged();
     }
@@ -99,6 +101,7 @@ public class ButtonGameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         menuInGame.SetActive(false);
+        
     }
     public void OnAlive()
     {

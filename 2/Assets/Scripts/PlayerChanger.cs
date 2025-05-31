@@ -19,7 +19,7 @@ public class PlayerChanger : MonoBehaviour
     }
     public void UpdateSkin()
     {
-        for (int i = 0; i <= skins.Length; i++)
+        for (int i = 0; i < skins.Length; i++)
         {
             if (skins[i] !=null)
             {

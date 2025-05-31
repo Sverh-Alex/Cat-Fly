@@ -39,8 +39,16 @@ public class Tutorial : MonoBehaviour
     {
 
         yield return new WaitForSeconds(closeTutorial);
-        tutorWeb.SetActive(false);
-        tutorApp.SetActive(false);
+        if(tutorApp)
+        {
+            
+            tutorApp.SetActive(false);
+        }
+       if(tutorWeb)
+        {
+            tutorWeb.SetActive(false);
+        }
+        
         Debug.Log("Закрыл Туториал");
         
     }
