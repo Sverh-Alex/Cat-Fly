@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CryCat 2
+  m_Name: CryCat 3
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -2649034852308274690, guid: bc3ce00398dcdfb4db3bfb2d0631a314, type: 3}
+      value: {fileID: -5350977284328799113, guid: fb49257ddf0f3af4c9eddc81f8b73637, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -2649034852308274690, guid: bc3ce00398dcdfb4db3bfb2d0631a314, type: 3}
+    - {fileID: -5350977284328799113, guid: fb49257ddf0f3af4c9eddc81f8b73637, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

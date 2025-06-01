@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: bc3ce00398dcdfb4db3bfb2d0631a314
+guid: fb49257ddf0f3af4c9eddc81f8b73637
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2649034852308274690
-    second: Cat 2 Cry_0
+      213: -5350977284328799113
+    second: Cat 3 cry_0
   - first:
-      213: -7017822443336928491
-    second: Cat 2 Cry_1
+      213: 5512082003393426240
+    second: Cat 3 cry_1
   - first:
-      213: -1906851814273581864
-    second: Cat 2 Cry_2
+      213: 5121444782068922694
+    second: Cat 3 cry_2
   - first:
-      213: -8515153250756150888
-    second: Cat 2 Cry_3
+      213: 5735297935443482051
+    second: Cat 3 cry_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -135,23 +135,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat 2 Cry_0
+      name: Cat 3 cry_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 325
-        height: 269
+        x: 0
+        y: 37
+        width: 429
+        height: 332
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef1398646dcbc3bd0800000000000000
-      internalID: -2649034852308274690
+      spriteID: 774c566b2828db5b0800000000000000
+      internalID: -5350977284328799113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 3 cry_1
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 235
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043b619b069de7c40800000000000000
+      internalID: 5512082003393426240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 3 cry_2
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 212
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649fefb05e6031740800000000000000
+      internalID: 5121444782068922694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 3 cry_3
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 15
+        width: 39
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5d32bd51fd79f40800000000000000
+      internalID: 5735297935443482051
       vertices: []
       indices: 
       edges: []
@@ -160,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a46d9a31c8e68234c958b9b6775bae3b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -169,8 +235,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Cat 2 Cry_0: -2649034852308274690
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: bc3ce00398dcdfb4db3bfb2d0631a314
+guid: 3235b413d71884849bb5c4ac0529ede3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2649034852308274690
-    second: Cat 2 Cry_0
+      213: -3643568118219971584
+    second: Cat 2 idle_0
   - first:
-      213: -7017822443336928491
-    second: Cat 2 Cry_1
+      213: 189376727877009822
+    second: Cat 2 idle_1
   - first:
-      213: -1906851814273581864
-    second: Cat 2 Cry_2
+      213: 5431321180484834920
+    second: Cat 2 idle_2
   - first:
-      213: -8515153250756150888
-    second: Cat 2 Cry_3
+      213: -8579779633702410577
+    second: Cat 2 idle_3
+  - first:
+      213: -6534549138012700943
+    second: Cat 2 idle_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -135,23 +138,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat 2 Cry_0
+      name: Cat 2 idle_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 325
-        height: 269
+        x: 12
+        y: 42
+        width: 279
+        height: 255
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ef1398646dcbc3bd0800000000000000
-      internalID: -2649034852308274690
+      spriteID: b131091ae3e0a964c8374e112ea3c3ec
+      internalID: 259479951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 2 idle_1
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 42
+        width: 280
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fbba8649a3a6d409cf51bca456ca09
+      internalID: -1201128165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 2 idle_2
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 42
+        width: 272
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0ed3a76308ba44f91e06b58d03ec43
+      internalID: 931495309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 2 idle_3
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 42
+        width: 265
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f024199c724b74e820a35673ce4391
+      internalID: -1465167742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 2 idle_4
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 42
+        width: 258
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088970ece6ae62540ab454c38cac156f
+      internalID: 76810998
       vertices: []
       indices: 
       edges: []
@@ -160,7 +251,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a46d9a31c8e68234c958b9b6775bae3b
+    spriteID: a1861e784159dfa41923c05618bfccb5
     internalID: 0
     vertices: []
     indices: 
@@ -170,7 +261,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cat 2 Cry_0: -2649034852308274690
+      Cat 2 idle_0: 259479951
+      Cat 2 idle_1: -1201128165
+      Cat 2 idle_2: 931495309
+      Cat 2 idle_3: -1465167742
+      Cat 2 idle_4: 76810998
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
