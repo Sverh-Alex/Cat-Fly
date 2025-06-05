@@ -1,10 +1,5 @@
-using System;
-using JetBrains.Annotations;
 using TMPro;
-using Unity.Android.Gradle;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ButtonShop : MonoBehaviour
 {
