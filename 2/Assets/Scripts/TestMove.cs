@@ -1,123 +1,144 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class TestMove : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 5f;
     public GameObject UpStop;
     public GameObject DownStop;
     public GameObject LeftStop;
     public GameObject RightStop;
-    [SerializeField] private GameObject cat;
-    private Cat catScript;
-    public Animator animator;
-    public bool isKeyboardActive = true; // Флаг для блокировки клавиатуры
-    private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
-    public Joystick joystick;
-    public GameObject fixedJoystick;
-    public bool isJoystickActive = true;
-    [SerializeField] private float speedJoystick = 1f;
+    [SerializeField] private Cat catScript;
+    [SerializeField] private Animator animator;
     [SerializeField] private GameObject buttonFire;
 
-
-    // private Vector2 moveVector;
+    private Vector2 baseResolution = new Vector2(1920, 1080);
+    private Vector2 touchStartPosition;
+    private Vector2 moveDirection;
+    private Vector2 touchMoveDirection = Vector2.zero;
+    private Vector2 keyboardMoveDirection = Vector2.zero;
 
     void Start()
     {
-        catScript = cat.GetComponent<Cat>(); // "cat" указываем на каком конкретно объекте ищем скрипт
-        animator = cat.GetComponent<Animator>();
-        fixedJoystick.SetActive(false);
-        buttonFire.SetActive(false);
+        bool isMobile = Application.platform == RuntimePlatform.Android ||
+                      Application.platform == RuntimePlatform.WindowsEditor;
 
+        buttonFire.SetActive(isMobile);
     }
-    void MoveWithLimits(float horizontal, float vertical) // ограничения на передвижение для Джостика
+
+    void Update()
     {
-        // Рассчитываем новую позицию
-        Vector3 targetPosition = transform.position + new Vector3(horizontal * Time.deltaTime, vertical * Time.deltaTime, 0);
-        // Ограничиваем позицию по горизонтали
-        targetPosition.x = Mathf.Clamp(targetPosition.x, LeftStop.transform.position.x, RightStop.transform.position.x);
-        // Ограничиваем позицию по вертикали
-        targetPosition.y = Mathf.Clamp(targetPosition.y, DownStop.transform.position.y, UpStop.transform.position.y);
-        // Применяем новую позицию
-        transform.position = targetPosition;
-      
+        HandleTouchInput();
+        HandleKeyboardInput();
     }
 
     void FixedUpdate()
     {
+        float scale = GetScreenScale();
+        MoveCharacter(scale);
+        HandleKeyboardInput();
+    }
+
+    void HandleTouchInput()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    touchStartPosition = touch.position;
+                    break;
+
+                case TouchPhase.Moved:
+                    Vector2 delta = touch.position - touchStartPosition;
+                    touchMoveDirection = delta.normalized;
+                    break;
+
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    touchMoveDirection = Vector2.zero;
+                    break;
+            }
+        }
+        else
+        {
+            touchMoveDirection = Vector2.zero;
+        }
+    }
+
+    void HandleKeyboardInput()
+    {
+        Vector2 keyboardInput = Vector2.zero;
+
+        if (Input.GetKey(KeyCode.W)) keyboardInput.y += 1;
+        if (Input.GetKey(KeyCode.S)) keyboardInput.y -= 1;
+        if (Input.GetKey(KeyCode.A)) keyboardInput.x -= 1;
+        if (Input.GetKey(KeyCode.D)) keyboardInput.x += 1;
+
+        if (keyboardInput != Vector2.zero)
+        {
+            keyboardMoveDirection = keyboardInput.normalized;
+        }
+        else
+        {
+            keyboardMoveDirection = Vector2.zero;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            catScript.fire();
+        }
+    }
+
+    void MoveCharacter(float scale)
+    {
+        // Приоритет — касание, если есть движение пальцем, иначе клавиатура
+        if (touchMoveDirection != Vector2.zero)
+            moveDirection = touchMoveDirection;
+        else
+            moveDirection = keyboardMoveDirection;
+
+        float horizontal = moveDirection.x * speed * scale * Time.deltaTime;
+        float vertical = moveDirection.y * speed * scale * Time.deltaTime;
+
+        MoveWithLimits(horizontal, vertical);
+        UpdateAnimations(horizontal, vertical);
+    }
+
+    void MoveWithLimits(float horizontal, float vertical)
+    {
+        Vector3 targetPosition = transform.position +
+            new Vector3(horizontal, vertical, 0);
+
+        targetPosition.x = Mathf.Clamp(targetPosition.x,
+            LeftStop.transform.position.x,
+            RightStop.transform.position.x);
+
+        targetPosition.y = Mathf.Clamp(targetPosition.y,
+            DownStop.transform.position.y,
+            UpStop.transform.position.y);
+
+        transform.position = targetPosition;
+    }
+
+    void UpdateAnimations(float horizontal, float vertical)
+    {
+        bool isMoving = Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f;
+        animator.SetBool("isMoving", false);
+
+        /*if (isMoving)
+        {
+            animator.SetFloat("Horizontal", horizontal);
+            animator.SetFloat("Vertical", vertical);
+        }
+        */
+    }
+
+    float GetScreenScale()
+    {
         float screenWidth = Screen.width;
-        float screenHeight = Screen.height; 
-        float scale = Mathf.Min(screenWidth / baseResolution.x, screenHeight / baseResolution.y);
-        float HorizontalInput = 0;
-        float VerticalInput = 0;
-
-        if (screenWidth > 800)
-        {
-            fixedJoystick.SetActive(false);
-            isKeyboardActive = true;
-            ScoreManager.SendTutorialWeb();
-            buttonFire.SetActive(false);
-        }
-        if (screenWidth <= 800)
-        {
-            fixedJoystick.SetActive(true);
-            isKeyboardActive = false;
-            ScoreManager.SendTutorialApp();
-            buttonFire.SetActive(true);
-        }
-
-        if (isJoystickActive)
-        {
-            HorizontalInput = joystick.Horizontal * speedJoystick * speed * scale;
-            VerticalInput = joystick.Vertical * speedJoystick * speed * scale;
-            MoveWithLimits(HorizontalInput, VerticalInput);
-        }
-
-        if (isKeyboardActive)
-        {
-
-            if (Input.GetKey(KeyCode.W))
-            {
-                animator.SetBool("isMoving", false); // блокируем управление аниматором
-                if (transform.position.y < UpStop.transform.position.y)
-                {
-                    // gameObject.transform.position += new Vector3(0, speed * 0.1f, 0);
-                    transform.Translate(Vector2.up * scale * speed *  Time.deltaTime);
-                }  
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                animator.SetBool("isMoving", false);
-                if (transform.position.y > DownStop.transform.position.y)
-                {
-                    // gameObject.transform.position -= new Vector3(0, speed * 0.1f, 0);
-                    transform.Translate(Vector2.down * scale * speed * Time.deltaTime);
-                }
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                animator.SetBool("isMoving", false);
-                if (transform.position.x > LeftStop.transform.position.x)
-                {
-                    // gameObject.transform.position -= new Vector3(0, speed * 0.1f, 0);
-                    transform.Translate(Vector2.left * scale * speed * Time.deltaTime);
-                }
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                animator.SetBool("isMoving", false);
-                if (transform.position.x < RightStop.transform.position.x)
-                {
-                    // gameObject.transform.position -= new Vector3(0, speed * 0.1f, 0);
-                    transform.Translate(Vector2.right * scale * speed * Time.deltaTime);
-                }
-            }
-            if (Input.GetKey(KeyCode.Space))
-            {
-                catScript.fire();
-            }
-        
-        }
+        float screenHeight = Screen.height;
+        return Mathf.Min(screenWidth / baseResolution.x, screenHeight / baseResolution.y);
     }
 }

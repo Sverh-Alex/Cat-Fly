@@ -23,6 +23,7 @@ public class Timer : MonoBehaviour
         timer.text = lifeTime.ToString();
         // Находим кота в сцене автоматически
         catScript = FindObjectOfType<Cat>();
+        
 
         if (catScript == null)
         {

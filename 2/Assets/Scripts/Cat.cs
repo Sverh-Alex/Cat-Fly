@@ -20,7 +20,7 @@ public class Cat : MonoBehaviour
     [SerializeField] AudioSource explosionSound;
     [SerializeField] AudioSource featherSound;
     [SerializeField] AudioSource woolSound;
-    [SerializeField] public float reloadTime = 0.01f;
+    [SerializeField] public float reloadTime = 0.1f;
     public Animator animator;
     private bool canFire = true; // Флаг готовности к выстрелу
     private GameObject scoreManager;
