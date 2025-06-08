@@ -19,10 +19,19 @@ public class TestMove : MonoBehaviour
 
     void Start()
     {
-        bool isMobile = Application.platform == RuntimePlatform.Android ||
-                      Application.platform == RuntimePlatform.WindowsEditor;
-
-        buttonFire.SetActive(isMobile);
+        bool isMobile =
+            Application.platform == RuntimePlatform.Android
+            || Application.platform == RuntimePlatform.IPhonePlayer
+            || Application.platform == RuntimePlatform.WindowsEditor;
+        if (isMobile)
+        {
+            ScoreManager.SendTutorialApp();
+        }
+        else
+        {
+            ScoreManager.SendTutorialWeb();
+        }
+            buttonFire.SetActive(isMobile);
     }
 
     void Update()
@@ -71,10 +80,17 @@ public class TestMove : MonoBehaviour
     {
         Vector2 keyboardInput = Vector2.zero;
 
+        // WASD
         if (Input.GetKey(KeyCode.W)) keyboardInput.y += 1;
         if (Input.GetKey(KeyCode.S)) keyboardInput.y -= 1;
         if (Input.GetKey(KeyCode.A)) keyboardInput.x -= 1;
         if (Input.GetKey(KeyCode.D)) keyboardInput.x += 1;
+
+        // Стрелки
+        if (Input.GetKey(KeyCode.UpArrow)) keyboardInput.y += 1;
+        if (Input.GetKey(KeyCode.DownArrow)) keyboardInput.y -= 1;
+        if (Input.GetKey(KeyCode.LeftArrow)) keyboardInput.x -= 1;
+        if (Input.GetKey(KeyCode.RightArrow)) keyboardInput.x += 1;
 
         if (keyboardInput != Vector2.zero)
         {

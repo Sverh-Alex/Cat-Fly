@@ -129,13 +129,13 @@ TextureImporter:
       name: ok_btn (2)_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 601
+        width: 599
         height: 164
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 132, y: 20, z: 113, w: 12}
       customData: 
       outline: []
       physicsShape: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e841059f197b58d4ea0c2ec401a1566d
     internalID: 0
     vertices: []
     indices: 

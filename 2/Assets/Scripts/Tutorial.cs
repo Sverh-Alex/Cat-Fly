@@ -8,6 +8,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] GameObject tutorApp;
     [SerializeField] float closeTutorial = 10f;
     private bool isTutorialShown = false;
+
     void Start()
     {
         tutorWeb.SetActive(false);
@@ -22,9 +23,7 @@ public class Tutorial : MonoBehaviour
             isTutorialShown = true;
             tutorWeb.SetActive(true); 
             StartCoroutine(HidenTutorial());
-        }
-        
-        
+        }      
     }
     private void isTutorApp()
     {
@@ -37,7 +36,6 @@ public class Tutorial : MonoBehaviour
     }
     private IEnumerator HidenTutorial()
     {
-
         yield return new WaitForSeconds(closeTutorial);
         if(tutorApp)
         {
@@ -48,9 +46,7 @@ public class Tutorial : MonoBehaviour
         {
             tutorWeb.SetActive(false);
         }
-        
         Debug.Log("Закрыл Туториал");
-        
     }
 
 }

@@ -27,6 +27,9 @@ public class Cat : MonoBehaviour
     public GameObject effect; // Ссылка на объект с Particle System Перо
     public GameObject effectWool; // Ссылка на объект с Particle System Шерсть
 
+    public int coinCounter = 0;
+    [SerializeField] private TextMeshProUGUI textCoinCounter; // UI текст для отображения монет
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -164,6 +167,7 @@ public class Cat : MonoBehaviour
                 //particleSystem.Play(); // Запуск системы частиц
                 Destroy(particleObject, particleSystem.main.duration); // Удаление объекта частиц после завершения
             }
+
         }
 
         if (collision.gameObject.tag.Equals("feather"))
@@ -181,6 +185,10 @@ public class Cat : MonoBehaviour
                 //particleSystem.Play(); // Запуск системы частиц
                 Destroy(particleObject, particleSystem.main.duration); // Удаление объекта частиц после завершения
             }
+            coinCounter += 1;
+            textCoinCounter.text = $"+{coinCounter}";
+
+            Debug.Log("Coin +1 " + coinCounter);
         }
     }
 }

@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     public string nextlevelName;
     public float lifeTime = 60;
     private Cat catScript;
+    [SerializeField] private GameObject victoryMenu; // интерфейс при 3 жизнях
     [SerializeField] private GameObject victory3Lives; // интерфейс при 3 жизнях
     [SerializeField] private GameObject victory2Lives; // интерфейс при 2 жизнях
     [SerializeField] private GameObject victory1Life;  // интерфейс при 1 жизни
@@ -29,7 +30,7 @@ public class Timer : MonoBehaviour
         {
             Debug.LogError("Cat not found in scene!");
         }
-
+        victoryMenu.SetActive(false);
         victory3Lives.SetActive(false);
         victory2Lives.SetActive(false);
         victory1Life.SetActive(false);
@@ -57,6 +58,7 @@ public class Timer : MonoBehaviour
         if (lifeTime <= 0)
         {
             if (catScript == null) return; // Защита от отсутствия кота
+            victoryMenu.SetActive(true);
 
             int lives = catScript.GetLifeCounter();
             PlayerPrefs.SetFloat(nextlevelName + "open", 1);
