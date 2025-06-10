@@ -73,7 +73,7 @@ public class ScoreManager : MonoBehaviour
         int coins = PlayerPrefs.GetInt("coins") + addBonus;
         UpdateCoins(coins);
 
-        Instantiate(effectPSClick); // создаём эффект клика
+        EffectClick();
         effectPSCoin.SetActive(true); // включаем эффект монеток
         ScoreManager.SendCoinsChanged();
     }
