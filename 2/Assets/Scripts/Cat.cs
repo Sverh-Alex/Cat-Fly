@@ -26,8 +26,8 @@ public class Cat : MonoBehaviour
     private GameObject scoreManager;
     public GameObject effect; // Ссылка на объект с Particle System Перо
     public GameObject effectWool; // Ссылка на объект с Particle System Шерсть
-
-    public int coinCounter = 0;
+    
+    public static int coinCounterLevel = 0;
     [SerializeField] private TextMeshProUGUI textCoinCounter; // UI текст для отображения монет
 
     void Start()
@@ -38,6 +38,7 @@ public class Cat : MonoBehaviour
         bulletCounterText.text = bulletCounter.ToString();
         scoreManager = GameObject.Find("ScoreManager");
         loseMenu.SetActive(false);
+        PlayerPrefs.SetInt("coinCounter", 0);
 
     }
     public int GetLifeCounter()
@@ -185,10 +186,10 @@ public class Cat : MonoBehaviour
                 //particleSystem.Play(); // Запуск системы частиц
                 Destroy(particleObject, particleSystem.main.duration); // Удаление объекта частиц после завершения
             }
-            coinCounter += 1;
-            textCoinCounter.text = $"+{coinCounter}";
+            coinCounterLevel += 1;
+            textCoinCounter.text = $"+{coinCounterLevel}";
 
-            Debug.Log("Coin +1 " + coinCounter);
+            Debug.Log("Coin +1 " + coinCounterLevel);
         }
     }
 }

@@ -1,9 +1,10 @@
 using System;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject effectPSClick; // эффект при клике
     [SerializeField] private GameObject effectPSCoin; // эффект монеток
     [SerializeField] private TextMeshProUGUI isAddBonusText; // UI текст для отображения монет
+    [SerializeField] private GameObject revard; // меню получения х2 монеток
+    [SerializeField] private TextMeshProUGUI textCatCoinValue; // текст монет полученных за уровень
+
 
     public static void SendCoinsChanged()
     {
@@ -41,8 +45,9 @@ public class ScoreManager : MonoBehaviour
     }
     void Start()
     {
+        revard.SetActive(false);
         effectPSCoin.SetActive(false); // изначально эффект монеток выключен
-
+        
         int coins = PlayerPrefs.GetInt("coins"); // Получаем текущее количество монет из сохранений
         score.text = coins.ToString();
         isAddBonusText.text = $"+{addBonus}";
@@ -78,8 +83,50 @@ public class ScoreManager : MonoBehaviour
         int coins = PlayerPrefs.GetInt("coins") + addBonusADS;
         UpdateCoins(coins);
 
-        Instantiate(effectPSClick); // создаём эффект клика
         effectPSCoin.SetActive(true); // включаем эффект монеток
+
+        EffectClick();
+
         SendCoinsChanged();
     }
+    public void OnOpenX2()
+    {
+        if (revard)
+        {
+            revard.SetActive(true);
+            int value = Cat.coinCounterLevel;
+            int valueX2 = value * 2;
+            Debug.Log("catCoinValue" + valueX2);
+            PlayerPrefs.SetInt("valueX2", valueX2);
+            textCatCoinValue.text = $"+{valueX2}";
+
+            EffectClick();
+        }
+    }
+    public void CloseOnOpenX2()
+    {
+        if (revard)
+        {
+            revard.SetActive(false);
+            int valuX2 = PlayerPrefs.GetInt("valueX2");
+            int coins = PlayerPrefs.GetInt("coins") + valuX2;
+            UpdateCoins(coins);
+            effectPSCoin.SetActive(true); // включаем эффект монеток
+
+            EffectClick();
+        }
+
+    }
+    public void EffectClick()
+    {
+        // Получаем позицию мыши в мировых координатах
+        Vector3 mouseScreenPos = Input.mousePosition;
+        mouseScreenPos.z = 10f; // расстояние от камеры до плоскости, на которой создаём объект (подбери под свою сцену)
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        worldPos.z = 0f; // если у тебя 2D, чтобы объект был на нужном слое
+
+        // Создаём эффект в позиции мыши
+        Instantiate(effectPSClick, worldPos, Quaternion.identity);
+    }
+   
 }
