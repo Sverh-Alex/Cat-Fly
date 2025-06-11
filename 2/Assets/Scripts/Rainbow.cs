@@ -6,6 +6,7 @@ public class Rainbow : MonoBehaviour
     //[SerializeField] private int damage = -1;  // Показываем на панели вред от столкновения
     private Vector3 moveVector; // 
     private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
+    [SerializeField] private GameObject effectDestroy; // эффект при клике
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class Rainbow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Instantiate(effectDestroy, collision.transform.position, Quaternion.identity); // содает префаб взрыва в месте соприкосновения
         Destroy(gameObject);
     }
 

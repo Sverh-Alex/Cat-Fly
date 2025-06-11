@@ -19,6 +19,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private GameObject loseMenu;  // интерфейс при 1 жизни
     [SerializeField] AudioSource victory;
 
+
     void Start()
     {
         timer.text = lifeTime.ToString();
@@ -66,6 +67,7 @@ public class Timer : MonoBehaviour
             // Отключаем найденного кота
             catScript.gameObject.SetActive(false);
             lifeTime = 0;
+
 
             // Активация интерфейса
             switch (lives)

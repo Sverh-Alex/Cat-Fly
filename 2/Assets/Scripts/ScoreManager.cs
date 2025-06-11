@@ -45,7 +45,10 @@ public class ScoreManager : MonoBehaviour
     }
     void Start()
     {
-        revard.SetActive(false);
+        if (revard)
+        {
+            revard.SetActive(false);
+        }
         effectPSCoin.SetActive(false); // изначально эффект монеток выключен
         
         int coins = PlayerPrefs.GetInt("coins"); // Получаем текущее количество монет из сохранений

@@ -40,6 +40,7 @@ public class ButtonGameManager : MonoBehaviour
     public void onGameStart()
     {
         SceneManager.LoadScene("GameScene");
+        EffectClick();
     }
     public void onRestartScene()
     {
@@ -54,15 +55,18 @@ public class ButtonGameManager : MonoBehaviour
     public void onGameOver()
     {
         SceneManager.LoadScene("GameOverScene");
+        EffectClick();
     }
     public void LVL_1()
     {
         SceneManager.LoadScene("LVL_1");
         Time.timeScale = 1;
+        EffectClick();
     }
     public void LVL_2()
     {
         SceneManager.LoadScene("LVL_2");
+        EffectClick();
     }
     public void CloseShop()
     {
@@ -79,14 +83,17 @@ public class ButtonGameManager : MonoBehaviour
 
     public void CatShop()
     {
+        
         bonusMenu.SetActive(false);
         levels.SetActive(false);
         shop.SetActive(true);
         ScoreManager.SendCoinsChanged();
         EffectClick();
+
     }
     public void MainMenu()
     {
+         
         shop.SetActive(false);
         bonusMenu.SetActive(false);
         EffectClick();
@@ -146,9 +153,9 @@ public class ButtonGameManager : MonoBehaviour
     {
         // Получаем позицию мыши в мировых координатах
         Vector3 mouseScreenPos = Input.mousePosition;
-        mouseScreenPos.z = 10f; // расстояние от камеры до плоскости, на которой создаём объект (подбери под свою сцену)
+        mouseScreenPos.z = 10f; // расстояние от камеры до плоскости, на которой создаём объект
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-        worldPos.z = 0f; // если у тебя 2D, чтобы объект был на нужном слое
+        worldPos.z = 0f; // чтобы объект был на нужном слое
 
         // Создаём эффект в позиции мыши
         Instantiate(effectPSClick, worldPos, Quaternion.identity);
