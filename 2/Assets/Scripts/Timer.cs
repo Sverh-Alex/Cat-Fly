@@ -24,13 +24,16 @@ public class Timer : MonoBehaviour
     {
         timer.text = lifeTime.ToString();
         // Находим кота в сцене автоматически
-        catScript = FindObjectOfType<Cat>();
-        
-
-        if (catScript == null)
+        GameObject catObject = GameObject.Find("Cat"); // замените на имя объекта
+        if (catObject != null)
         {
-            Debug.LogError("Cat not found in scene!");
+            catScript = catObject.GetComponent<Cat>();
         }
+        else
+        {
+            Debug.LogError("GameObject с именем Cat не найден!");
+        }
+
         victoryMenu.SetActive(false);
         victory3Lives.SetActive(false);
         victory2Lives.SetActive(false);
@@ -62,7 +65,7 @@ public class Timer : MonoBehaviour
             victoryMenu.SetActive(true);
 
             int lives = catScript.GetLifeCounter();
-            PlayerPrefs.SetFloat(nextlevelName + "open", 1);
+            UnityEngine.PlayerPrefs.SetFloat(nextlevelName + "open", 1);
 
             // Отключаем найденного кота
             catScript.gameObject.SetActive(false);
@@ -75,18 +78,17 @@ public class Timer : MonoBehaviour
                 case 3:
                     victory3Lives.SetActive(true);
                     victory.Play();
-                    PlayerPrefs.SetInt(levelName + "stars", 3);
-
+                    UnityEngine.PlayerPrefs.SetInt(levelName + "stars", 3);
                     break;
                 case 2:
                     victory2Lives.SetActive(true);
                     victory.Play();
-                    PlayerPrefs.SetInt(levelName + "stars", 2);
+                    UnityEngine.PlayerPrefs.SetInt(levelName + "stars", 2);
                     break;
                 case 1:
                     victory1Life.SetActive(true);
                     victory.Play();
-                    PlayerPrefs.SetInt(levelName + "stars", 1);
+                    UnityEngine.PlayerPrefs.SetInt(levelName + "stars", 1);
                     break;
                 default:
                     // Если жизней нет или больше 3, можно показать какой-то дефолтный интерфейс или ничего

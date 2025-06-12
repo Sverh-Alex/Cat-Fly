@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int addBonusADS = 0; // бонус за просмотр рекламы
     [SerializeField] private GameObject effectPSClick; // эффект при клике
     [SerializeField] private GameObject effectPSCoin; // эффект монеток
+    [SerializeField] private GameObject effectPSCoinADS; // эффект монеток для кнопки рекламы
     [SerializeField] private TextMeshProUGUI isAddBonusText; // UI текст для отображения монет
     [SerializeField] private GameObject revard; // меню получения х2 монеток
     [SerializeField] private TextMeshProUGUI textCatCoinValue; // текст монет полученных за уровень
@@ -51,7 +52,7 @@ public class ScoreManager : MonoBehaviour
         }
         effectPSCoin.SetActive(false); // изначально эффект монеток выключен
         
-        int coins = PlayerPrefs.GetInt("coins"); // Получаем текущее количество монет из сохранений
+        int coins = UnityEngine.PlayerPrefs.GetInt("coins"); // Получаем текущее количество монет из сохранений
         score.text = coins.ToString();
         isAddBonusText.text = $"+{addBonus}";
 
@@ -59,37 +60,51 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateCoins(int newCoins) // Вспомогательный метод обновления монет и вызова события
     {
-        PlayerPrefs.SetInt("coins", newCoins); // сохраняем новое значение монет
+        UnityEngine.PlayerPrefs.SetInt("coins", newCoins); // сохраняем новое значение монет
         score.text = newCoins.ToString(); // обновляем UI
        // OnCoinsChanged?.Invoke(newCoins); // вызываем событие для подписчиков
     }
 
     public void AddToScore() // Добавляет 1 монету и обновляет UI и событие
     {
-        int coins = PlayerPrefs.GetInt("coins") + 1;
+        int coins = UnityEngine.PlayerPrefs.GetInt("coins") + 1;
         UpdateCoins(coins);
         ScoreManager.SendCoinsChanged();
     }
 
     public void AddBonus() // Добавляет бонусные монеты (например, за действие)
     {
-        int coins = PlayerPrefs.GetInt("coins") + addBonus;
+        int coins = UnityEngine.PlayerPrefs.GetInt("coins") + addBonus;
         UpdateCoins(coins);
 
         EffectClick();
         effectPSCoin.SetActive(true); // включаем эффект монеток
+        ParticleSystem particleSystem = effectPSCoin.GetComponent<ParticleSystem>();
+        if (particleSystem != null) // Если компонент Particle System найден
+        {
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
+            particleSystem.Play(); // Запустить заново
+            //particleSystem.Emit(30); // Выпустить частицы
+        }
         ScoreManager.SendCoinsChanged();
     }
 
     public void AddBonusADS() // Добавляет бонусные монеты за просмотр рекламы
     {
-        int coins = PlayerPrefs.GetInt("coins") + addBonusADS;
+        int coins = UnityEngine.PlayerPrefs.GetInt("coins") + addBonusADS;
         UpdateCoins(coins);
-
-        effectPSCoin.SetActive(true); // включаем эффект монеток
+        //effectPSCoinADS.GetComponent<ParticleSystem>().Play();
+        //effectPSCoinADS.Play(); // включаем эффект монеток
+        effectPSCoinADS.SetActive(true);
+        ParticleSystem particleSystem = effectPSCoinADS.GetComponent<ParticleSystem>();
+        if (particleSystem != null) // Если компонент Particle System найден
+        {
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
+            particleSystem.Play(); // Запустить заново
+            //particleSystem.Emit(30); // Выпустить частицы
+        }
 
         EffectClick();
-
         SendCoinsChanged();
     }
     public void OnOpenX2()
@@ -100,7 +115,7 @@ public class ScoreManager : MonoBehaviour
             int value = Cat.coinCounterLevel;
             int valueX2 = value * 2;
             Debug.Log("catCoinValue" + valueX2);
-            PlayerPrefs.SetInt("valueX2", valueX2);
+            UnityEngine.PlayerPrefs.SetInt("valueX2", valueX2);
             textCatCoinValue.text = $"+{valueX2}";
 
             EffectClick();
@@ -110,13 +125,21 @@ public class ScoreManager : MonoBehaviour
     {
         if (revard)
         {
-            revard.SetActive(false);
-            int valuX2 = PlayerPrefs.GetInt("valueX2");
-            int coins = PlayerPrefs.GetInt("coins") + valuX2;
+            
+            int valuX2 = UnityEngine.PlayerPrefs.GetInt("valueX2");
+            int coins = UnityEngine.PlayerPrefs.GetInt("coins") + valuX2;
             UpdateCoins(coins);
             effectPSCoin.SetActive(true); // включаем эффект монеток
-
+            ParticleSystem particleSystem = effectPSCoin.GetComponent<ParticleSystem>();
+            if (particleSystem != null) // Если компонент Particle System найден
+            {
+                particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
+                particleSystem.Play(); // Запустить заново
+                                       //particleSystem.Emit(30); // Выпустить частицы
+            }
             EffectClick();
+            revard.SetActive(false);
+
         }
 
     }

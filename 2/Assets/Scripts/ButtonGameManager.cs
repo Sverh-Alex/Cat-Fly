@@ -15,6 +15,7 @@ public class ButtonGameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject levels;
     [SerializeField] private GameObject effectPSClick; // эффект при клике
+    [SerializeField] private GameObject[] objectOff; // объекты которые отключаютс€
 
 
     void Start()
@@ -112,12 +113,35 @@ public class ButtonGameManager : MonoBehaviour
     public void OnClickMenu()
     {
         menuInGame.SetActive(true);
+        DisableAll();
+        // ¬ключаем или выключаем звуковые эффекты
         Time.timeScale = 0;
+    }
+    public void DisableAll()
+    {
+        foreach(GameObject i in objectOff)
+        {
+            if (i != null)
+            {
+               i.SetActive(false);
+            }
+        }
+    }
+    public void ActiveAll()
+    {
+        foreach (GameObject i in objectOff)
+        {
+            if (i != null)
+            {
+                i.SetActive(true);
+            }
+        }
     }
     public void OnContinue()
     {
         Time.timeScale = 1;
         menuInGame.SetActive(false);
+        ActiveAll();
         EffectClick();
 
     }

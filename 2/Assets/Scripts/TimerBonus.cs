@@ -17,9 +17,9 @@ public class TimerBonus : MonoBehaviour
         buttonBonus.SetActive(false);
         buttonTimerBonus.SetActive(true);
 
-        if (PlayerPrefs.HasKey(TimerEndTimeKey))
+        if (UnityEngine.PlayerPrefs.HasKey(TimerEndTimeKey))
         {
-            string savedEndTimeStr = PlayerPrefs.GetString(TimerEndTimeKey);
+            string savedEndTimeStr = UnityEngine.PlayerPrefs.GetString(TimerEndTimeKey);
             DateTime endTime = DateTime.Parse(savedEndTimeStr);
 
             TimeSpan timeLeft = endTime - DateTime.Now;
@@ -31,7 +31,7 @@ public class TimerBonus : MonoBehaviour
                 remainingTime = 0;
                 buttonBonus.SetActive(true);
                 buttonTimerBonus.SetActive(false);
-                PlayerPrefs.DeleteKey(TimerEndTimeKey);
+                UnityEngine.PlayerPrefs.DeleteKey(TimerEndTimeKey);
             }
         }
         else
@@ -49,8 +49,8 @@ public class TimerBonus : MonoBehaviour
 
         // Сохраняем время окончания таймера
         DateTime endTime = DateTime.Now.AddSeconds(remainingTime);
-        PlayerPrefs.SetString(TimerEndTimeKey, endTime.ToString());
-        PlayerPrefs.Save();
+        UnityEngine.PlayerPrefs.SetString(TimerEndTimeKey, endTime.ToString());
+        UnityEngine.PlayerPrefs.Save();
 
         buttonBonus.SetActive(false);
         buttonTimerBonus.SetActive(true);
@@ -68,7 +68,7 @@ public class TimerBonus : MonoBehaviour
                 remainingTime = 0;
                 buttonBonus.SetActive(true);
                 buttonTimerBonus.SetActive(false);
-                PlayerPrefs.DeleteKey(TimerEndTimeKey);
+                UnityEngine.PlayerPrefs.DeleteKey(TimerEndTimeKey);
             }
 
             int minutes = Mathf.FloorToInt(remainingTime / 60);

@@ -12,7 +12,7 @@ public class SoundControl : MonoBehaviour
     void Start()
     {
         // Загружаем сохранённое состояние, по умолчанию звук включён
-        isSoundOn = PlayerPrefs.GetInt("SoundOn", 1) == 1;
+        isSoundOn = UnityEngine.PlayerPrefs.GetInt("SoundOn", 1) == 1;
 
         ApplySoundState();
 
@@ -23,8 +23,8 @@ public class SoundControl : MonoBehaviour
     void ToggleSound()
     {
         isSoundOn = !isSoundOn;
-        PlayerPrefs.SetInt("SoundOn", isSoundOn ? 1 : 0);
-        PlayerPrefs.Save();
+        UnityEngine.PlayerPrefs.SetInt("SoundOn", isSoundOn ? 1 : 0);
+        UnityEngine.PlayerPrefs.Save();
 
         ApplySoundState();
     }

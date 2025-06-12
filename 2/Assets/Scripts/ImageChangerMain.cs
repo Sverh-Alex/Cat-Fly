@@ -4,32 +4,41 @@ using UnityEngine.UI;
 
 public class ImageChangerMain : MonoBehaviour
 {
-    public Sprite[] imgMain; // массив спрайтов для скинов
-    public int imageMainId = 0;
-    [SerializeField] Image imgMainCat; // компонент Image, а не GameObject
+    public GameObject[] skins; // Массив GameObject скинов
+
+    private int currentSkinId = 0;
 
     void Start()
     {
-        LoadImageMain();
-        UpdateImageMain();
+        // Загружаем сохранённый скин, по умолчанию 0
+        currentSkinId = PlayerPrefs.GetInt("skin", 0);
+
+        ShowSkin(currentSkinId);
     }
 
-    private void LoadImageMain()
+    public void ShowSkin(int skinId)
     {
-        imageMainId = PlayerPrefs.GetInt("skin", 0);
-    }
+        if (skins == null || skins.Length == 0)
+            return;
 
-    public void UpdateImageMain()
-    {
-        if (imgMainCat != null && imgMain != null && imageMainId < imgMain.Length)
+        // Ограничиваем индекс в пределах массива
+        skinId = Mathf.Clamp(skinId, 0, skins.Length - 1);
+
+        // Перебираем все скины и включаем только выбранный
+        for (int i = 0; i < skins.Length; i++)
         {
-            imgMainCat.sprite = imgMain[imageMainId];
+            if (skins[i] != null)
+                skins[i].SetActive(i == skinId);
         }
-
     }
-    private void Update()
+
+    // Метод для смены скина и сохранения выбора
+    public void SetSkin(int skinId)
     {
-        LoadImageMain();
-        UpdateImageMain();
+        currentSkinId = Mathf.Clamp(skinId, 0, skins.Length - 1);
+        PlayerPrefs.SetInt("skin", currentSkinId);
+        PlayerPrefs.Save();
+
+        ShowSkin(currentSkinId);
     }
 }

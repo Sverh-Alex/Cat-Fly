@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: f0a3d76a484b9be4e9169ac6da097dde
+guid: e9463bc816196aa48b41ac12ab4fa275
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4527085844691984478
-    second: "Mini\u041A\u043E\u043C\u043E\u043A_0"
+      213: 3838705519469800439
+    second: Cat 3 cry 1_0
+  - first:
+      213: 2694364704901798163
+    second: Cat 3 cry 1_1
+  - first:
+      213: 4936273347162693723
+    second: Cat 3 cry 1_2
+  - first:
+      213: 1470410083274896531
+    second: Cat 3 cry 1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Mini\u041A\u043E\u043C\u043E\u043A_0"
+      name: Cat 3 cry 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 193
-        height: 172
+        y: 27
+        width: 323
+        height: 249
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e50a098179073de30800000000000000
-      internalID: 4527085844691984478
+      spriteID: 7fb2455e452d54530800000000000000
+      internalID: 3838705519469800439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 3 cry 1_1
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 176
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319950b7c6e446520800000000000000
+      internalID: 2694364704901798163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 3 cry 1_2
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 159
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b506cdba47a218440800000000000000
+      internalID: 4936273347162693723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 3 cry 1_3
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 10
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 394b0cf1e22f76410800000000000000
+      internalID: 1470410083274896531
       vertices: []
       indices: 
       edges: []
@@ -161,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Mini\u041A\u043E\u043C\u043E\u043A_0": 4527085844691984478
+      Cat 3 cry 1_0: 3838705519469800439
+      Cat 3 cry 1_1: 2694364704901798163
+      Cat 3 cry 1_2: 4936273347162693723
+      Cat 3 cry 1_3: 1470410083274896531
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

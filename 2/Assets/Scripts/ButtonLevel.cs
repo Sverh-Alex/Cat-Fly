@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,9 +16,13 @@ public class ButtonLevel : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.DeleteKey(levelName + "stars"); // для теста сбрасываем сохранение звезд
+        PlayerPrefs.DeleteKey(levelName + "open"); // для теста сбрасываем сохранение открытого уровня
         PlayerPrefs.SetFloat(nextlevelName + "open", 0); // для теста закрываю блок следующего уровня
-        PlayerPrefs.GetFloat(levelName);
-        PlayerPrefs.GetInt(levelName + "stars");
+
+        UnityEngine.PlayerPrefs.GetFloat(nextlevelName + "open"); // для теста закрываю блок следующего уровня
+        UnityEngine.PlayerPrefs.GetFloat(levelName);
+        UnityEngine.PlayerPrefs.GetInt(levelName + "stars");
         LevelUpdate();
         StarsUpdate();
     }
@@ -30,8 +35,8 @@ public class ButtonLevel : MonoBehaviour
             Debug.Log(levelName + " включил Block при старте");
             myButton.interactable = false;
         }
-        
-        isLevelOpen = PlayerPrefs.GetFloat(levelName + "open");
+
+        isLevelOpen = UnityEngine.PlayerPrefs.GetFloat(levelName + "open");
         if(isLevelOpen == 1)
         {
             if (block)
@@ -60,7 +65,7 @@ public class ButtonLevel : MonoBehaviour
         stars2.SetActive(false);
         stars3.SetActive(false);
 
-        lavelStars = PlayerPrefs.GetInt(levelName + "stars");
+        lavelStars = UnityEngine.PlayerPrefs.GetInt(levelName + "stars");
         if (lavelStars == 3)
         {
             stars3.SetActive(true);

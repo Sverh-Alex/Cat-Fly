@@ -38,7 +38,7 @@ public class Cat : MonoBehaviour
         bulletCounterText.text = bulletCounter.ToString();
         scoreManager = GameObject.Find("ScoreManager");
         loseMenu.SetActive(false);
-        PlayerPrefs.SetInt("coinCounter", 0);
+        UnityEngine.PlayerPrefs.SetInt("coinCounter", 0);
 
     }
     public int GetLifeCounter()

@@ -8,7 +8,7 @@ public class DataSaver : MonoBehaviour
     
     public void SaveInt()
     {
-        PlayerPrefs.SetInt("skin", id);
+        UnityEngine.PlayerPrefs.SetInt("skin", id);
     }
 
 }

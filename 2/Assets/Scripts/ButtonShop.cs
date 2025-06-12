@@ -19,6 +19,7 @@ public class ButtonShop : MonoBehaviour
     void Start()
     {
         PlayerPrefs.DeleteKey(objectName + "Access"); // для теста сбрасываем сохранение покупки
+
         //PlayerPrefs.SetInt("coins", 10);
         coinsText.text = PlayerPrefs.GetInt("coins").ToString();
         AccessUpdate();

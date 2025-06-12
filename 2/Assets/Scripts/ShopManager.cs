@@ -10,7 +10,7 @@ public class ButtonToggleManager : MonoBehaviour
     void Start()
     {
         // Загружаем индекс отключённой кнопки из памяти (если есть)
-        selectId = PlayerPrefs.GetInt("SelectButton", 0);
+        selectId = UnityEngine.PlayerPrefs.GetInt("SelectButton", 0);
         UpdateButtons();
     }
 
@@ -18,8 +18,8 @@ public class ButtonToggleManager : MonoBehaviour
     public void OnButtonClick(int buttonIndex)
     {
         selectId = buttonIndex;  // Запоминаем, какую кнопку отключить
-        PlayerPrefs.SetInt("SelectButton", selectId);  // Сохраняем в память
-        PlayerPrefs.Save();
+        UnityEngine.PlayerPrefs.SetInt("SelectButton", selectId);  // Сохраняем в память
+        UnityEngine.PlayerPrefs.Save();
 
         UpdateButtons();  // Обновляем состояние кнопок
     }

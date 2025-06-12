@@ -30,7 +30,11 @@ public class Tutorial : MonoBehaviour
         if(!isTutorialShown)
         {
             isTutorialShown = true;
-            tutorApp.SetActive(true);
+            if(tutorApp)
+            {
+                tutorApp.SetActive(true);
+            }
+            
             StartCoroutine(HidenTutorial());
         }
     }

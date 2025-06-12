@@ -9,12 +9,12 @@ public class TextColor : MonoBehaviour
     private Color notEnoughColor = Color.green;
     void Start()
     {
-        coinsText.text = PlayerPrefs.GetInt("coins").ToString();
+        coinsText.text = UnityEngine.PlayerPrefs.GetInt("coins").ToString();
         // ScoreManager.OnCoinsChanged += ChangeColor;
     }
     private void ChangeColor()
     {
-        int coins = PlayerPrefs.GetInt("coins");
+        int coins = UnityEngine.PlayerPrefs.GetInt("coins");
         if (coins > 0)
 
             coinsText.color = notEnoughColor;

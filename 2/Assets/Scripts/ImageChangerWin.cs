@@ -17,7 +17,7 @@ public class ImageChangerWin : MonoBehaviour
 
     private void LoadImageWin()
     {
-        imageId = PlayerPrefs.GetInt("skin", 0);
+        imageId = UnityEngine.PlayerPrefs.GetInt("skin", 0);
     }
 
     public void UpdateImageWin()

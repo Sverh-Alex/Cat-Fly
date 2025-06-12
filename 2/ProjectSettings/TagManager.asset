@@ -8,6 +8,7 @@ TagManager:
   - gift
   - rainbow
   - feather
+  - CatTag
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1373133565
+    locked: 0
+  - name: 2
+    uniqueID: 1464767535
     locked: 0
   m_RenderingLayers:
   - Default
