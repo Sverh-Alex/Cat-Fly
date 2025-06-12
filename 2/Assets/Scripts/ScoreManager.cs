@@ -129,19 +129,23 @@ public class ScoreManager : MonoBehaviour
             int valuX2 = UnityEngine.PlayerPrefs.GetInt("valueX2");
             int coins = UnityEngine.PlayerPrefs.GetInt("coins") + valuX2;
             UpdateCoins(coins);
-            effectPSCoin.SetActive(true); // включаем эффект монеток
-            ParticleSystem particleSystem = effectPSCoin.GetComponent<ParticleSystem>();
-            if (particleSystem != null) // Если компонент Particle System найден
-            {
-                particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
-                particleSystem.Play(); // Запустить заново
-                                       //particleSystem.Emit(30); // Выпустить частицы
-            }
+            PSCoin();
             EffectClick();
             revard.SetActive(false);
 
         }
 
+    }
+    public void PSCoin()
+    {
+        effectPSCoin.SetActive(true); // включаем эффект монеток
+        ParticleSystem particleSystem = effectPSCoin.GetComponent<ParticleSystem>();
+        if (particleSystem != null) // Если компонент Particle System найден
+        {
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
+            particleSystem.Play(); // Запустить заново
+                                   //particleSystem.Emit(30); // Выпустить частицы
+        }
     }
     public void EffectClick()
     {

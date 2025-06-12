@@ -23,17 +23,52 @@ public class Timer : MonoBehaviour
     void Start()
     {
         timer.text = lifeTime.ToString();
-        // Находим кота в сцене автоматически
-        GameObject catObject = GameObject.Find("Cat"); // замените на имя объекта
-        if (catObject != null)
+        // Находим объект PlayerChanger
+        GameObject playerChangerObj = GameObject.Find("PlayerChanger");
+        if (playerChangerObj != null)
         {
-            catScript = catObject.GetComponent<Cat>();
+            PlayerChanger playerChanger = playerChangerObj.GetComponent<PlayerChanger>();
+            if (playerChanger != null)
+            {
+                // Получаем выбранный скин
+                if (playerChanger.skins != null && playerChanger.skins.Length > 0 && playerChanger.skinsId < playerChanger.skins.Length)
+                {
+                    GameObject selectedSkin = playerChanger.skins[playerChanger.skinsId];
+                    if (selectedSkin != null)
+                    {
+                        Transform catChild = selectedSkin.transform.Find("Cat");
+                        if (catChild != null)
+                        {
+                            catScript = catChild.GetComponent<Cat>();
+                            if (catScript == null)
+                            {
+                                Debug.LogError("Компонент Cat не найден на дочернем объекте 'Cat'");
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogError("Дочерний объект с именем 'Cat' не найден в выбранном скине");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError("Выбранный скин равен null!");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("Массив скинов пуст или индекс выбранного скина некорректен!");
+                }
+            }
+            else
+            {
+                Debug.LogError("Компонент PlayerChanger не найден на объекте PlayerChanger!");
+            }
         }
         else
         {
-            Debug.LogError("GameObject с именем Cat не найден!");
+            Debug.LogError("Объект PlayerChanger не найден в сцене!");
         }
-
         victoryMenu.SetActive(false);
         victory3Lives.SetActive(false);
         victory2Lives.SetActive(false);
@@ -61,14 +96,39 @@ public class Timer : MonoBehaviour
 
         if (lifeTime <= 0)
         {
+            GameObject playerChangerObj = GameObject.Find("PlayerChanger");
+            if (playerChangerObj != null)
+            {
+                PlayerChanger playerChanger = playerChangerObj.GetComponent<PlayerChanger>();
+                if (playerChanger != null)
+                {
+                    // Получаем выбранный скин
+                    if (playerChanger.skins != null && playerChanger.skins.Length > 0 && playerChanger.skinsId < playerChanger.skins.Length)
+                    {
+                        GameObject selectedSkin = playerChanger.skins[playerChanger.skinsId];
+                        if (selectedSkin != null)
+                        {
+                            selectedSkin.SetActive(false);
+
+                        }
+                        else
+                        {
+                            Debug.LogError("Не могу отклчить Кота после выигрыша");
+                        }
+                    }
+                }
+            }
+
             if (catScript == null) return; // Защита от отсутствия кота
+            Debug.LogError("Не могу найти жизни кота");
             victoryMenu.SetActive(true);
 
-            int lives = catScript.GetLifeCounter();
-            UnityEngine.PlayerPrefs.SetFloat(nextlevelName + "open", 1);
 
-            // Отключаем найденного кота
-            catScript.gameObject.SetActive(false);
+            int lives = catScript.GetLifeCounter();
+            Debug.Log($"[Timer] Получено жизней: {lives} у объекта {catScript.gameObject.name}");
+
+            PlayerPrefs.SetFloat(nextlevelName + "open", 1);
+
             lifeTime = 0;
 
 
