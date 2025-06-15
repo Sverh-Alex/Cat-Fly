@@ -16,7 +16,7 @@ public class ImageChangerLose : MonoBehaviour
 
     private void LoadImageLose()
     {
-        imageId = UnityEngine.PlayerPrefs.GetInt("skin", 0);
+        imageId = PlayerPrefs.GetInt("skin", 0);
     }
 
     public void UpdateImageLose()

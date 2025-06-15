@@ -11,68 +11,53 @@ public class Timer : MonoBehaviour
     public string levelName;
     public string nextlevelName;
     public float lifeTime = 60;
-    private Cat catScript;
+    public Cat catScript;
     [SerializeField] private GameObject victoryMenu; // интерфейс при 3 жизнях
     [SerializeField] private GameObject victory3Lives; // интерфейс при 3 жизнях
     [SerializeField] private GameObject victory2Lives; // интерфейс при 2 жизнях
     [SerializeField] private GameObject victory1Life;  // интерфейс при 1 жизни
-    [SerializeField] private GameObject loseMenu;  // интерфейс при 1 жизни
+    [SerializeField] private GameObject loseMenu;  // интерфейс при 0 жизни
     [SerializeField] AudioSource victory;
 
 
     void Start()
     {
         timer.text = lifeTime.ToString();
-        // Находим объект PlayerChanger
-        GameObject playerChangerObj = GameObject.Find("PlayerChanger");
-        if (playerChangerObj != null)
+        InitializeCatScript();
+        DeactivateAllVictoryUI();
+    }
+
+    private void InitializeCatScript()
+    {
+        PlayerChanger playerChanger = FindObjectOfType<PlayerChanger>();
+        if (playerChanger == null)
         {
-            PlayerChanger playerChanger = playerChangerObj.GetComponent<PlayerChanger>();
-            if (playerChanger != null)
-            {
-                // Получаем выбранный скин
-                if (playerChanger.skins != null && playerChanger.skins.Length > 0 && playerChanger.skinsId < playerChanger.skins.Length)
-                {
-                    GameObject selectedSkin = playerChanger.skins[playerChanger.skinsId];
-                    if (selectedSkin != null)
-                    {
-                        Transform catChild = selectedSkin.transform.Find("Cat");
-                        if (catChild != null)
-                        {
-                            catScript = catChild.GetComponent<Cat>();
-                            if (catScript == null)
-                            {
-                                Debug.LogError("Компонент Cat не найден на дочернем объекте 'Cat'");
-                            }
-                        }
-                        else
-                        {
-                            Debug.LogError("Дочерний объект с именем 'Cat' не найден в выбранном скине");
-                        }
-                    }
-                    else
-                    {
-                        Debug.LogError("Выбранный скин равен null!");
-                    }
-                }
-                else
-                {
-                    Debug.LogError("Массив скинов пуст или индекс выбранного скина некорректен!");
-                }
-            }
-            else
-            {
-                Debug.LogError("Компонент PlayerChanger не найден на объекте PlayerChanger!");
-            }
+            Debug.LogError("PlayerChanger не найден в сцене!");
+            return;
         }
-        else
+
+        int selectedSkinId = PlayerPrefs.GetInt("skin", 0);
+        if (selectedSkinId < 0 || selectedSkinId >= playerChanger.skins.Length)
         {
-            Debug.LogError("Объект PlayerChanger не найден в сцене!");
+            Debug.LogError($"Некорректный индекс скина: {selectedSkinId}");
+            return;
         }
-        victoryMenu.SetActive(false);
-        victory3Lives.SetActive(false);
-        victory2Lives.SetActive(false);
-        victory1Life.SetActive(false);
+
+        GameObject selectedSkin = playerChanger.skins[selectedSkinId];
+        if (selectedSkin == null)
+        {
+            Debug.LogError("Выбранный скин не назначен в инспекторе!");
+            return;
+        }
+
+        catScript = selectedSkin.GetComponentInChildren<Cat>(true); // Ищем даже в неактивных объектах
+        if (catScript == null)
+        {
+            Debug.LogError("Cat компонент не найден в выбранном скине!");
+            return;
+        }
+
+        Debug.Log($"Успешно найден Cat в скине {selectedSkin.name}");
     }
 
     public static void Pause()
@@ -96,66 +81,56 @@ public class Timer : MonoBehaviour
 
         if (lifeTime <= 0)
         {
-            GameObject playerChangerObj = GameObject.Find("PlayerChanger");
-            if (playerChangerObj != null)
-            {
-                PlayerChanger playerChanger = playerChangerObj.GetComponent<PlayerChanger>();
-                if (playerChanger != null)
-                {
-                    // Получаем выбранный скин
-                    if (playerChanger.skins != null && playerChanger.skins.Length > 0 && playerChanger.skinsId < playerChanger.skins.Length)
-                    {
-                        GameObject selectedSkin = playerChanger.skins[playerChanger.skinsId];
-                        if (selectedSkin != null)
-                        {
-                            selectedSkin.SetActive(false);
-
-                        }
-                        else
-                        {
-                            Debug.LogError("Не могу отклчить Кота после выигрыша");
-                        }
-                    }
-                }
-            }
-
-            if (catScript == null) return; // Защита от отсутствия кота
-            Debug.LogError("Не могу найти жизни кота");
-            victoryMenu.SetActive(true);
-
-
             int lives = catScript.GetLifeCounter();
-            Debug.Log($"[Timer] Получено жизней: {lives} у объекта {catScript.gameObject.name}");
-
-            PlayerPrefs.SetFloat(nextlevelName + "open", 1);
-
-            lifeTime = 0;
-
-
-            // Активация интерфейса
+            if (catScript == null)
+            {
+                Debug.LogError("Ссылка на Cat потеряна!");
+                return;
+            }
+            Debug.Log($"Показываю меню для {lives} жизней");
+            //DeactivateAllVictoryUI();
             switch (lives)
             {
                 case 3:
                     victory3Lives.SetActive(true);
                     victory.Play();
-                    UnityEngine.PlayerPrefs.SetInt(levelName + "stars", 3);
+                    PlayerPrefs.SetInt(levelName + "stars", 3);
                     break;
                 case 2:
                     victory2Lives.SetActive(true);
                     victory.Play();
-                    UnityEngine.PlayerPrefs.SetInt(levelName + "stars", 2);
+                    PlayerPrefs.SetInt(levelName + "stars", 2);
                     break;
                 case 1:
                     victory1Life.SetActive(true);
                     victory.Play();
-                    UnityEngine.PlayerPrefs.SetInt(levelName + "stars", 1);
+                    PlayerPrefs.SetInt(levelName + "stars", 1);
                     break;
                 default:
                     // Если жизней нет или больше 3, можно показать какой-то дефолтный интерфейс или ничего
                     Debug.LogWarning("Unexpected life count: " + lives);
                     break;
             }
+            HandleLevelCompletion();
         }
     }
+    private void HandleLevelCompletion()
+    {
+        catScript.gameObject.SetActive(false);
+        victoryMenu.SetActive(true);
 
+        int lives = catScript.GetLifeCounter();
+        Debug.Log($"Текущее количество жизней: {lives}");
+
+        PlayerPrefs.SetFloat(nextlevelName + "open", 1);
+        lifeTime = 0;
+    }
+
+    private void DeactivateAllVictoryUI()
+    {
+        victoryMenu.SetActive(false);
+        victory3Lives.SetActive(false);
+        victory2Lives.SetActive(false);
+        victory1Life.SetActive(false);
+    }
 }

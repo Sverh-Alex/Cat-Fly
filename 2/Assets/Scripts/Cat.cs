@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Cat : MonoBehaviour
 {
     
-    public int lifeCounter = 0;
+    public static int lifeCounter = 0;
     [SerializeField] private int bulletCounter = 30;
     [SerializeField] private int bulletGift = 3;
     // [SerializeField] TextMeshProUGUI lifeStatus;
