@@ -8,6 +8,7 @@ public class Gift : MonoBehaviour
     private float randomSpeed;
     [SerializeField] public int upBullet = +1;
     private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
+    private int koff = 6;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class Gift : MonoBehaviour
 
         randomSpeed = Random.Range(2, speedGift);
         moveVector = new Vector3(-randomSpeed * scale, 0);
-        transform.localScale = new Vector3(scale / 5, scale / 5); // изменяем размер в зависимости экрана
+        transform.localScale = new Vector3(scale / koff, scale / koff); // изменяем размер в зависимости экрана
     }
     private void OnTriggerEnter2D(Collider2D collision)   // обрабатывает столкновения с тапком
     {

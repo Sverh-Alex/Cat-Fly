@@ -11,13 +11,15 @@ public class Timer : MonoBehaviour
     public string levelName;
     public string nextlevelName;
     public float lifeTime = 60;
-    public Cat catScript;
+    [SerializeField] public int colorYellow = 0;
+    [SerializeField] public int colorRed = 0;
     [SerializeField] private GameObject victoryMenu; // интерфейс при 3 жизнях
     [SerializeField] private GameObject victory3Lives; // интерфейс при 3 жизнях
     [SerializeField] private GameObject victory2Lives; // интерфейс при 2 жизнях
     [SerializeField] private GameObject victory1Life;  // интерфейс при 1 жизни
     [SerializeField] private GameObject loseMenu;  // интерфейс при 0 жизни
     [SerializeField] AudioSource victory;
+    public Cat catScript;
 
 
     void Start()

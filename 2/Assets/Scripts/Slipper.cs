@@ -8,6 +8,8 @@ public class Slipper : MonoBehaviour
     private float randomSpeed;
     private GameObject scoreManager;
     private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
+    private int koff = 8;
+    private int koffSpeed = 15/10;
 
     void Start()
     {
@@ -17,8 +19,8 @@ public class Slipper : MonoBehaviour
         float scale = Mathf.Min(screenWidth / baseResolution.x, screenHeight / baseResolution.y);
 
         randomSpeed = Random.Range(2, speed); // рандомная скорость
-        moveVector = new Vector3(-randomSpeed * scale, 0); // создаем перменную для скорости
-        transform.localScale = new Vector3(scale / 8, scale / 8); // изменяем размер в зависимости экрана
+        moveVector = new Vector3(-randomSpeed * scale / koffSpeed, 0); // создаем перменную для скорости
+        transform.localScale = new Vector3(scale / koff, scale / koff); // изменяем размер в зависимости экрана
         
         scoreManager = GameObject.Find("ScoreManager");
 

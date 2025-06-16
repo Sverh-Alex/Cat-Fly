@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: be0ca7a06b7f28442bc51d872df4a979
+guid: 6c0579f1dec4acb48b7c38c674bf292c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1274209005415885394
-    second: ok_btn (16)_0
+      213: -154143135815995157
+    second: ok_btn (27)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ok_btn (16)_0
+      name: ok_btn (27)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 750
-        height: 156
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 125, y: 16, z: 117, w: 9}
+      border: {x: 117, y: 14, z: 117, w: 10}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25aea61e656eea110800000000000000
-      internalID: 1274209005415885394
+      spriteID: be07f1972af5cddf0800000000000000
+      internalID: -154143135815995157
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eab6cfd89a9443443b2e519e9b112407
+    spriteID: abd9341f6ddcc1445a0c7607ee0c2c72
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ok_btn (16)_0: 1274209005415885394
+      ok_btn (27)_0: -154143135815995157
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -115,8 +115,8 @@ public class TestMove : MonoBehaviour
         else
             moveDirection = keyboardMoveDirection;
 
-        float horizontal = moveDirection.x * speed * scale * Time.deltaTime;
-        float vertical = moveDirection.y * speed * scale * Time.deltaTime;
+        float horizontal = moveDirection.x * speed * scale/2 * Time.deltaTime;
+        float vertical = moveDirection.y * speed * scale/2 * Time.deltaTime;
 
         MoveWithLimits(horizontal, vertical);
         UpdateAnimations(horizontal, vertical);

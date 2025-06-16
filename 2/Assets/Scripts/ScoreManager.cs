@@ -52,22 +52,26 @@ public class ScoreManager : MonoBehaviour
         }
         effectPSCoin.SetActive(false); // изначально эффект монеток выключен
         
-        int coins = UnityEngine.PlayerPrefs.GetInt("coins"); // Получаем текущее количество монет из сохранений
+        int coins = PlayerPrefs.GetInt("coins"); // Получаем текущее количество монет из сохранений
         score.text = coins.ToString();
-        isAddBonusText.text = $"+{addBonus}";
-
+        
+        if(isAddBonusText)
+        {
+            isAddBonusText.text = $"+{addBonus}";
+        }
+        
     }
 
     private void UpdateCoins(int newCoins) // Вспомогательный метод обновления монет и вызова события
     {
-        UnityEngine.PlayerPrefs.SetInt("coins", newCoins); // сохраняем новое значение монет
+        PlayerPrefs.SetInt("coins", newCoins); // сохраняем новое значение монет
         score.text = newCoins.ToString(); // обновляем UI
        // OnCoinsChanged?.Invoke(newCoins); // вызываем событие для подписчиков
     }
 
     public void AddToScore() // Добавляет 1 монету и обновляет UI и событие
     {
-        int coins = UnityEngine.PlayerPrefs.GetInt("coins") + 1;
+        int coins = PlayerPrefs.GetInt("coins") + 1;
         UpdateCoins(coins);
         ScoreManager.SendCoinsChanged();
     }
@@ -158,5 +162,8 @@ public class ScoreManager : MonoBehaviour
         // Создаём эффект в позиции мыши
         Instantiate(effectPSClick, worldPos, Quaternion.identity);
     }
-   
+    void Update()
+    {
+        Debug.Log($"Current coin text: {score.text}");
+    }
 }
