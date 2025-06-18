@@ -45,7 +45,8 @@ public class ButtonGameManager : MonoBehaviour
     }
     public void onRestartScene()
     {
-        SceneManager.LoadScene("Start");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         EffectClick();
     }
     public void OnLevels()
@@ -68,6 +69,26 @@ public class ButtonGameManager : MonoBehaviour
     {
         SceneManager.LoadScene("LVL_2");
         EffectClick();
+    }
+    public void LVL_3()
+    {
+        SceneManager.LoadScene("LVL_3");
+        EffectClick();
+    }
+    public void LoadNextLevel()
+    {
+        // Если вы ставили паузу, обязательно сбросьте Time.timeScale
+        Time.timeScale = 1f;
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.LogWarning("Следующий уровень не найден. Возможно, это был последний уровень.");
+            // Можно загрузить меню или повторить уровень
+        }
     }
     public void CloseShop()
     {

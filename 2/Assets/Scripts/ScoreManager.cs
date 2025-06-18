@@ -31,17 +31,17 @@ public class ScoreManager : MonoBehaviour
     }
     public static void SendContinue()
     {
-        OnAlive.Invoke();
+        OnAlive?.Invoke();
 
     }
     public static void SendTutorialWeb()
     {
-        OnTutorWeb.Invoke();
+        OnTutorWeb?.Invoke();
 
     }
     public static void SendTutorialApp()
     {
-        OnTutorApp.Invoke();
+        OnTutorApp?.Invoke();
 
     }
     void Start()

@@ -472,7 +472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c8928e342f69c4b9e3c18de9f08e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeCounter: 0
   bulletCounter: 3
   bulletGift: 3
   spawnBulletPoint: {fileID: 6404839224024791044}
@@ -490,6 +489,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   effect: {fileID: 6486878784404805073, guid: f6dcc463d4556dd42b5de4f6dabbc3d1, type: 3}
   effectWool: {fileID: 6486878784404805073, guid: 6bc1a52abfa099844aa22ae1127a39c4, type: 3}
+  textCoinCounter: {fileID: 0}
 --- !u!212 &6246343506238470583
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -635,7 +635,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 0
   startDelay:

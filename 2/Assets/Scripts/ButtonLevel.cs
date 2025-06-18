@@ -16,10 +16,10 @@ public class ButtonLevel : MonoBehaviour
 
     void Start()
     {
-        //PlayerPrefs.DeleteKey(levelName + "stars"); // для теста сбрасываем сохранение звезд
-        //PlayerPrefs.DeleteKey(levelName + "open"); // для теста сбрасываем сохранение открытого уровня
-        //PlayerPrefs.SetFloat(nextlevelName + "open", 0); // для теста закрываю блок следующего уровня
-        //PlayerPrefs.GetFloat(nextlevelName + "open"); // для теста закрываю блок следующего уровня
+        PlayerPrefs.DeleteKey(levelName + "stars"); // для теста сбрасываем сохранение звезд
+        PlayerPrefs.DeleteKey(levelName + "open"); // для теста сбрасываем сохранение открытого уровня
+        PlayerPrefs.SetFloat(nextlevelName + "open", 0); // для теста закрываю блок следующего уровня
+        PlayerPrefs.GetFloat(nextlevelName + "open"); // для теста закрываю блок следующего уровня
 
         PlayerPrefs.GetFloat(levelName);
         PlayerPrefs.GetInt(levelName + "stars");
