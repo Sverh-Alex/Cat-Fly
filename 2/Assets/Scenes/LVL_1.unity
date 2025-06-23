@@ -22438,9 +22438,9 @@ MonoBehaviour:
   Fon1: {fileID: 2023563574}
   Fon2: {fileID: 431608373}
   Fon3: {fileID: 242824562}
-  speed1: 6
-  speed2: 3
-  speed3: 1
+  speed1: 3
+  speed2: 1.5
+  speed3: 0.3
 --- !u!4 &1247325509
 Transform:
   m_ObjectHideFlags: 0
