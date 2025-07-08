@@ -1,8 +1,6 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -46,6 +44,8 @@ public class ScoreManager : MonoBehaviour
     }
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         if (revard)
         {
             revard.SetActive(false);

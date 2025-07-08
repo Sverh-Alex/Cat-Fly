@@ -22172,7 +22172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1283948969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25099,7 +25099,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.7
+  m_fontSize: 66.5
   m_fontSizeBase: 73.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -27319,7 +27319,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.6
+  m_fontSize: 74.75
   m_fontSizeBase: 73.7
   m_fontWeight: 400
   m_enableAutoSizing: 1

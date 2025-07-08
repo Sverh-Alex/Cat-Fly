@@ -1,6 +1,4 @@
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;

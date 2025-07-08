@@ -2,7 +2,6 @@ using System.Security.Cryptography;
 using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class Timer : MonoBehaviour
