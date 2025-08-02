@@ -73,6 +73,11 @@ public class ButtonGameManager : MonoBehaviour
         SceneManager.LoadScene("LVL_3");
         EffectClick();
     }
+    public void LVL_0()
+    {
+        SceneManager.LoadScene("LVL_0");
+        EffectClick();
+    }
     public void LoadNextLevel()
     {
         // Если вы ставили паузу, обязательно сбросьте Time.timeScale
@@ -132,8 +137,7 @@ public class ButtonGameManager : MonoBehaviour
     public void OnClickMenu()
     {
         menuInGame.SetActive(true);
-        DisableAll();
-        // Включаем или выключаем звуковые эффекты
+        DisableAll(); // Включаем или выключаем звуковые эффекты
         Time.timeScale = 0;
     }
     public void DisableAll()
