@@ -1,16 +1,20 @@
+using System.Collections;
 using UnityEngine;
-
+using UnityEngine.Localization.Settings;
 public class Language : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private bool active = false; // если несколько раз подряд нажимать, будет проблема. Исключаем это
+    public void ChangeLocale(int localeID)
     {
-        
+        if (active)
+            return;
+        StartCoroutine(SetLocale(localeID));
     }
-
-    // Update is called once per frame
-    void Update()
+    IEnumerator SetLocale(int _localeID)
     {
-        
+        active = true;
+        yield return LocalizationSettings.InitializationOperation;
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
+        active = false;
     }
 }

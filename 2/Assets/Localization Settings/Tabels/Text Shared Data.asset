@@ -19,6 +19,10 @@ MonoBehaviour:
     m_Key: Menu.Continue
     m_Metadata:
       m_Items: []
+  - m_Id: 77432492498944
+    m_Key: Menu.Fly
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
