@@ -23,7 +23,35 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 77432492498944
-    m_Localized: Let's go
+    m_Localized: LET'S GO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854219455143936
+    m_Localized: CATS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1857502013923328
+    m_Localized: HOME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1859265903304704
+    m_Localized: BONUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1867029958467584
+    m_Localized: CAT'S FLY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1874437430681600
+    m_Localized: 2X GOLD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1876335655231488
+    m_Localized: EXCELLENT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1876930994741248
+    m_Localized: AGAIN
     m_Metadata:
       m_Items: []
   references:
