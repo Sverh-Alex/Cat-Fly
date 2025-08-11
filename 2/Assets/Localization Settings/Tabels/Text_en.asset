@@ -54,6 +54,32 @@ MonoBehaviour:
     m_Localized: AGAIN
     m_Metadata:
       m_Items: []
+  - m_Id: 3247200619454464
+    m_Localized: SET EVERYONE FREE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3247957737463808
+    m_Localized: "VIEW ADVERTISING AND \r\nRECEIVE A REWARD!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3249409268637696
+    m_Localized: COLLECT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3259321168158720
+    m_Localized: PAUSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3259972761673728
+    m_Localized: 'Just don''t leave me...
+
+      We can do it!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3261445675409408
+    m_Localized: Unlucky
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
