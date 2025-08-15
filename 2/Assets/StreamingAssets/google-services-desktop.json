@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "67925110825",
+    "project_id": "kittly-fly",
+    "storage_bucket": "kittly-fly.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67925110825:android:b714e2b04fae4399256c38",
+        "android_client_info": {
+          "package_name": "com.Sverh.Kittyfly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTfDPgPdk4ju4sqTi8ItI5ayhA65Mq4Xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
