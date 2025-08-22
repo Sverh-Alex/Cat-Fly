@@ -3010,7 +3010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &457924365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22646,7 +22646,7 @@ MonoBehaviour:
   timer: {fileID: 902246020}
   levelName: LVL_1
   nextlevelName: LVL_2
-  lifeTime: 2
+  lifeTime: 20
   colorYellow: 4
   colorRed: 3
   victoryMenu: {fileID: 1608029898}
@@ -23926,7 +23926,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 121.4
+  m_fontSize: 136.55
   m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24609,7 +24609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1608029899
 RectTransform:
   m_ObjectHideFlags: 0
