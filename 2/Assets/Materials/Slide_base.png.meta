@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 3a9e1ef6287664c389bb09e2ac1b23b7
+guid: 6dea15048c64f6b4589e1d58546b649e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6689340315098233496
-    second: fb_auth_dark_0
-  - first:
-      213: -5812157760086890346
-    second: fb_auth_dark_1
-  - first:
-      213: -2550249924320193060
-    second: fb_auth_dark_2
+      213: 8824010293074928481
+    second: Score_ui_base_empty_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -132,67 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fb_auth_dark_0
+      name: Score_ui_base_empty_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 20
-        height: 7
+        y: 0
+        width: 97
+        height: 88
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 47, y: 0, z: 47, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89a312f239f45dc50800000000000000
-      internalID: 6689340315098233496
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fb_auth_dark_1
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 10
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 698ad73bf41175fa0800000000000000
-      internalID: -5812157760086890346
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fb_auth_dark_2
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 10
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cd59d64a431bb9cd0800000000000000
-      internalID: -2550249924320193060
+      spriteID: 1632f152c9e257a70800000000000000
+      internalID: 8824010293074928481
       vertices: []
       indices: 
       edges: []
@@ -201,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5ab5e53ae53d1c14a901b07e98428bea
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fb_auth_dark_0: 6689340315098233496
-      fb_auth_dark_1: -5812157760086890346
-      fb_auth_dark_2: -2550249924320193060
+      Score_ui_base_empty_0: 8824010293074928481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

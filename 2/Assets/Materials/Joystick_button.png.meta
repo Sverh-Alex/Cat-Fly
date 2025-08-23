@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eaaacb35e776c5c4a9e5297407b40761
+guid: 2f1854ece92400f4ca9dca288807c9f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7902423462925980400
-    second: "\u041F\u0435\u0440\u043E 1_0"
+      213: 5208596919635231168
+    second: Joystick_button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u041F\u0435\u0440\u043E 1_0"
+      name: Joystick_button_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 425
-        height: 471
+        width: 85
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f25a6c454c0bad60800000000000000
-      internalID: 7902423462925980400
+      spriteID: 0c14d055d47a84840800000000000000
+      internalID: 5208596919635231168
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      "\u041F\u0435\u0440\u043E 1_0": 7902423462925980400
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
