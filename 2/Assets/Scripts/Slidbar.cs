@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class Slidbar : MonoBehaviour
 {
     public Slider slider;       // —сылка на UI слайдер
-    public Timer timerScript;   // —сылка на скрипт Timer с lifeTime
+    public float timerScript;   // —сылка на скрипт Timer с lifeTime
+    public int xx;
+
 
     private float elapsedTime = 0f;
     void Update()
     {
+        Debug.Log($"test");
         if (timerScript == null || slider == null) return;
 
         elapsedTime += Time.deltaTime;
-        slider.value = Mathf.Clamp01(elapsedTime / timerScript.lifeTime);
+
     }
 }
