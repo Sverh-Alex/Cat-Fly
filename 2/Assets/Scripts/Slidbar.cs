@@ -13,10 +13,6 @@ public class Slidbar : MonoBehaviour
     private float elapsedTime = 0f;
     void Update()
     {
-        Debug.Log($"test");
-        if (timerScript == null || slider == null) return;
-
-        elapsedTime += Time.deltaTime;
-
+        Debug.Log(elapsedTime);
     }
 }
