@@ -75,6 +75,7 @@ public class Timer : MonoBehaviour
     {
         lifeTime -= Time.deltaTime;
         timer.text = Mathf.Round(lifeTime).ToString();
+        
 
         // Изменение цвета таймера
         if (lifeTime < 27) timer.color = Color.yellow;
