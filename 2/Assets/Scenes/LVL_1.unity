@@ -3132,7 +3132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &457924365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16427,6 +16427,10 @@ PrefabInstance:
       propertyPath: ShapeModule.alignToDirection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82060528589153243, guid: 3f937fb072ea43f4dacbc9692519393c, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dfbff568bee4d6e498e295aaaa06b7e1, type: 3}
     - target: {fileID: 2703802036086742604, guid: 3f937fb072ea43f4dacbc9692519393c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -24109,7 +24113,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 136.55
+  m_fontSize: 121.4
   m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24867,7 +24871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1608029899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25175,8 +25179,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.7984223}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.76001, y: 81.36008}
-  m_SizeDelta: {x: -201.97998, y: 169.28003}
+  m_AnchoredPosition: {x: -3.3339233, y: 187.88998}
+  m_SizeDelta: {x: -700.77, y: -41.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1633288252
 MonoBehaviour:
@@ -25198,7 +25202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6953730727883546483, guid: 420d923f1e25f3a4e965f8d516ffc8fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b18865b2f01676049bb4d203de80e9a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
