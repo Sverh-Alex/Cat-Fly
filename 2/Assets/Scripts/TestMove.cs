@@ -2,28 +2,29 @@ using UnityEngine;
 
 public class TestMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    public GameObject UpStop;
-    public GameObject DownStop;
-    public GameObject LeftStop;
-    public GameObject RightStop;
-    [SerializeField] private Cat catScript;
-    [SerializeField] private Animator animator;
-    [SerializeField] private GameObject buttonFire;
+    [SerializeField] private float speed = 5f; // Скорость движения персонажа
+    public GameObject UpStop; // Верхняя граница движения
+    public GameObject DownStop; // Нижняя граница движения
+    public GameObject LeftStop; // Левая граница движения
+    public GameObject RightStop; // Правая граница движения
+    [SerializeField] private Cat catScript; // Ссылка на скрипт, управляющий "котом", для выполнения действия fire
+    [SerializeField] private Animator animator; // Аниматор для управления анимацией персонажа
+    [SerializeField] private GameObject buttonFire; // Кнопка огня для мобильных устройств
 
-    private Vector2 baseResolution = new Vector2(1920, 1080);
-    private Vector2 touchStartPosition;
-    private Vector2 moveDirection;
-    private Vector2 touchMoveDirection = Vector2.zero;
-    private Vector2 keyboardMoveDirection = Vector2.zero;
+    private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение для масштабирования движения
+    private Vector2 touchStartPosition; // Позиция касания в момент начала
+    private Vector2 moveDirection; // Итоговое направление движения
+    private Vector2 touchMoveDirection = Vector2.zero; // Направление движения с касания
+    private Vector2 keyboardMoveDirection = Vector2.zero; // Направление движения с клавиатуры
 
     void Start()
     {
-        bool isMobile =
-            Application.platform == RuntimePlatform.Android
+        bool isMobile = // Определение платформы — мобильная или нет
+            Application.platform == RuntimePlatform.Android 
             || Application.platform == RuntimePlatform.IPhonePlayer
-            || Application.platform == RuntimePlatform.WindowsEditor;
-        if (isMobile)
+            || Application.platform == RuntimePlatform.WindowsEditor; // WindowsEditor хоть и ПК, здесь учитывается для тестирования касания
+
+        if (isMobile) // Отправка сигнала в ScoreManager в зависимости от платформы (для показа туториала)
         {
             ScoreManager.SendTutorialApp();
         }
@@ -31,20 +32,20 @@ public class TestMove : MonoBehaviour
         {
             ScoreManager.SendTutorialWeb();
         }
-            buttonFire.SetActive(isMobile);
+            buttonFire.SetActive(isMobile); // Скрываем/показываем кнопку огня в зависимости от платформы (на мобильных показываем)
     }
 
     void Update()
     {
-        HandleTouchInput();
-        HandleKeyboardInput();
+        HandleTouchInput(); // Обработка касаний
+        HandleKeyboardInput(); // Обработка нажатий клавиатуры
     }
 
     void FixedUpdate()
     {
-        float scale = GetScreenScale();
-        MoveCharacter(scale);
-        HandleKeyboardInput();
+        float scale = GetScreenScale(); // Получение коэффициента масштабирования для разрешения экрана
+        MoveCharacter(scale); // Перемещение персонажа с учетом масштабирования
+        HandleKeyboardInput(); // Обработка клавиатуры во FixedUpdate для плавности (повторное)
     }
 
     void HandleTouchInput()
@@ -55,24 +56,24 @@ public class TestMove : MonoBehaviour
 
             switch (touch.phase)
             {
-                case TouchPhase.Began:
+                case TouchPhase.Began: // Запомнить начальную позицию касания
                     touchStartPosition = touch.position;
                     break;
 
-                case TouchPhase.Moved:
+                case TouchPhase.Moved: // Рассчитать направление движения пальца
                     Vector2 delta = touch.position - touchStartPosition;
                     touchMoveDirection = delta.normalized;
                     break;
 
                 case TouchPhase.Ended:
-                case TouchPhase.Canceled:
+                case TouchPhase.Canceled: // При окончании касания сбросить движение
                     touchMoveDirection = Vector2.zero;
                     break;
             }
         }
         else
         {
-            touchMoveDirection = Vector2.zero;
+            touchMoveDirection = Vector2.zero; // Нет касания - движение по касанию отсутствует
         }
     }
 
@@ -92,6 +93,7 @@ public class TestMove : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow)) keyboardInput.x -= 1;
         if (Input.GetKey(KeyCode.RightArrow)) keyboardInput.x += 1;
 
+        // Если есть ввод, нормализуем направление движения
         if (keyboardInput != Vector2.zero)
         {
             keyboardMoveDirection = keyboardInput.normalized;
@@ -101,6 +103,7 @@ public class TestMove : MonoBehaviour
             keyboardMoveDirection = Vector2.zero;
         }
 
+        // При нажатии пробела вызывается метод fire у объекта catScript (например, стрельба)
         if (Input.GetKeyDown(KeyCode.Space))
         {
             catScript.fire();
@@ -115,18 +118,19 @@ public class TestMove : MonoBehaviour
         else
             moveDirection = keyboardMoveDirection;
 
+        // Расчет смещения по горизонтали и вертикали с учетом скорости, масштаба экрана и времени кадра
         float horizontal = moveDirection.x * speed * scale/2 * Time.deltaTime;
         float vertical = moveDirection.y * speed * scale/2 * Time.deltaTime;
 
-        MoveWithLimits(horizontal, vertical);
-        UpdateAnimations(horizontal, vertical);
+        MoveWithLimits(horizontal, vertical); // Перемещение объекта с ограничениями по краям
+        UpdateAnimations(horizontal, vertical); // Обновление анимаций движения
     }
 
     void MoveWithLimits(float horizontal, float vertical)
     {
-        Vector3 targetPosition = transform.position +
-            new Vector3(horizontal, vertical, 0);
-
+        Vector3 targetPosition = transform.position + new Vector3(horizontal, vertical, 0); // Новая позиция объекта с добавленным смещением
+        
+        // Ограничение позиции по осям X и Y в пределах установленных границ-объектов
         targetPosition.x = Mathf.Clamp(targetPosition.x,
             LeftStop.transform.position.x,
             RightStop.transform.position.x);
@@ -151,7 +155,7 @@ public class TestMove : MonoBehaviour
         */
     }
 
-    float GetScreenScale()
+    float GetScreenScale() // Расчет коэффициента масштабирования по минимальному соотношению текущего разрешения к базовому
     {
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
