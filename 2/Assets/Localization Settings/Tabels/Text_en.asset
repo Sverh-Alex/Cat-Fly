@@ -80,6 +80,26 @@ MonoBehaviour:
     m_Localized: Unlucky
     m_Metadata:
       m_Items: []
+  - m_Id: 35824147094151168
+    m_Localized: USE BUTTONS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35824889376907264
+    m_Localized: USE CONTROLER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35846998312460288
+    m_Localized: OR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35847067510087680
+    m_Localized: FOR DEFENSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35847441528758272
+    m_Localized: SPACE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
