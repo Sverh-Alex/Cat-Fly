@@ -111,16 +111,16 @@ public class ScoreManager : MonoBehaviour
         EffectClick();
         SendCoinsChanged();
     }
-    public void OnOpenX2()
+    public void OnOpenX3()
     {
         if (revard)
         {
             revard.SetActive(true);
             int value = Cat.coinCounterLevel;
-            int valueX2 = value * 2;
-            Debug.Log("catCoinValue" + valueX2);
-            UnityEngine.PlayerPrefs.SetInt("valueX2", valueX2);
-            textCatCoinValue.text = $"+{valueX2}";
+            int valueX3 = value * 3;
+            Debug.Log("catCoinValue" + valueX3);
+            UnityEngine.PlayerPrefs.SetInt("valueX2", valueX3);
+            textCatCoinValue.text = $"+{valueX3}";
 
             EffectClick();
         }
