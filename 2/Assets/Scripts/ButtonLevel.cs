@@ -5,7 +5,7 @@ public class ButtonLevel : MonoBehaviour
 {
     public string levelName;
     public string nextlevelName;
-    public int lavelStars;
+    public int levelStars;
     [SerializeField] public GameObject block; // Объект, который блокирует выбор
     [SerializeField] public GameObject stars3; // Объект, который показывет 3 звезды
     [SerializeField] public GameObject stars2; // Объект, который показывет 2 звезды
@@ -64,23 +64,23 @@ public class ButtonLevel : MonoBehaviour
         stars2.SetActive(false);
         stars3.SetActive(false);
 
-        lavelStars = UnityEngine.PlayerPrefs.GetInt(levelName + "stars");
-        if (lavelStars == 3)
+        levelStars = UnityEngine.PlayerPrefs.GetInt(levelName + "stars");
+        if (levelStars == 3)
         {
             stars3.SetActive(true);
             Debug.Log(levelName + " 3 звезды");
         }
-        if (lavelStars == 2)
+        if (levelStars == 2)
         {
             stars2.SetActive(true);
             Debug.Log(levelName + " 2 звезды");
         }
-        if (lavelStars == 1)
+        if (levelStars == 1)
         {
             stars1.SetActive(true);
             Debug.Log(levelName + " 1 звезда");
         }
-        if (lavelStars == 0)
+        if (levelStars == 0)
         {
             stars1.SetActive(false);
             stars2.SetActive(false);
