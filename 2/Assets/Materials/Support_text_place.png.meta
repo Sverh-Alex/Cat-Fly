@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 466c36bcb8be7b14d98aae91e82f37bd
+guid: 7aea0d43877d1234f8d2fe81027c6f6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1416983835385977525
-    second: Menu_levels_scroll_button_0
+      213: 7935446569222762175
+    second: Support_text_place_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Menu_levels_scroll_button_0
+      name: Support_text_place_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 107
+        width: 831
+        height: 166
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5bad6a07a432aa310800000000000000
-      internalID: 1416983835385977525
+      spriteID: fbe6d946c9e502e60800000000000000
+      internalID: 7935446569222762175
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Menu_levels_scroll_button_0: 1416983835385977525
+      Support_text_place_0: 7935446569222762175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
