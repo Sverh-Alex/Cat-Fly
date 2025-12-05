@@ -100,6 +100,55 @@ MonoBehaviour:
     m_Localized: SPACE
     m_Metadata:
       m_Items: []
+  - m_Id: 45277871348150272
+    m_Localized: "\u0420\u0423\u0421\u0421\u041A\u0418\u0419"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45278281890820096
+    m_Localized: ENGLISH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45278529799352320
+    m_Localized: "\u4E2D\u6587"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286088824352768
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286393083359232
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286667583778816
+    m_Localized: OK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45288004832751616
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45296093602541568
+    m_Localized: Support
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45296227119820800
+    m_Localized: Write to us
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45298912548122624
+    m_Localized: ENGLISH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45299915364265984
+    m_Localized: If you encounter any problems or just want to share your emotions,
+      please contact us!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45300360635772928
+    m_Localized: Send
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

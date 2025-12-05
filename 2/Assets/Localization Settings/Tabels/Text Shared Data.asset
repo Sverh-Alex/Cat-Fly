@@ -99,6 +99,54 @@ MonoBehaviour:
     m_Key: Tutor_Space2
     m_Metadata:
       m_Items: []
+  - m_Id: 45277871348150272
+    m_Key: LanguageRus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45278281890820096
+    m_Key: LanguageEng
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45278529799352320
+    m_Key: LanguageChina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286393083359232
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286088824352768
+    m_Key: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286667583778816
+    m_Key: Ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45288004832751616
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45296093602541568
+    m_Key: Support
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45296227119820800
+    m_Key: WriteToUs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45298912548122624
+    m_Key: LanguageMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45299915364265984
+    m_Key: SupportText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45300360635772928
+    m_Key: Send
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

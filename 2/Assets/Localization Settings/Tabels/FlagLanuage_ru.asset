@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: '5e6c8ce06969e3a42946df580814f889[flag-rossii2_0]'
     m_Metadata:
       m_Items: []
+  - m_Id: 43747318127947776
+    m_Localized: 'c1ce683f6f4c3ac40938cdfbe7a5f217[Settings_language_flag_rus_0]'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

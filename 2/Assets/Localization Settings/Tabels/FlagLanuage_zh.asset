@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: '299d2dc6f13e3b444a590decf6a96753[china_0]'
     m_Metadata:
       m_Items: []
+  - m_Id: 43747318127947776
+    m_Localized: '3c127791067b5914391373906889bf44[Settings_language_flag_chn_0]'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

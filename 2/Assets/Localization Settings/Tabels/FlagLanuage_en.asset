@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: 'b287aa3272f50ca4596c5f7832601568[usa_0]'
     m_Metadata:
       m_Items: []
+  - m_Id: 43747318127947776
+    m_Localized: '85c7be1189b3ae144a42e23f62a0f7fe[Settings_language_flag_usa_0]'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

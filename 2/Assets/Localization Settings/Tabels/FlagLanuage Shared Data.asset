@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: FlagKey
     m_Metadata:
       m_Items: []
+  - m_Id: 43747318127947776
+    m_Key: Flag
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 5034198806710452225
@@ -40,6 +44,11 @@ MonoBehaviour:
       data:
         m_Entries:
         - m_KeyId: 163447152640
+          m_TableCodes:
+          - ru
+          - en
+          - zh
+        - m_KeyId: 43747318127947776
           m_TableCodes:
           - ru
           - en

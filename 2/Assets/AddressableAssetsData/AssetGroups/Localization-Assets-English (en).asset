@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-English (en)
   m_GUID: e5f2b207d235ba84aae6821f7fd82bf7
   m_SerializeEntries:
+  - m_GUID: 85c7be1189b3ae144a42e23f62a0f7fe
+    m_Address: Settings_language_flag_usa
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b287aa3272f50ca4596c5f7832601568
     m_Address: usa
     m_ReadOnly: 1
