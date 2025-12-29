@@ -1,143 +1,88 @@
-using UnityEngine;
+п»їusing UnityEngine;
 
 public class TestMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f; // Скорость движения персонажа
-    public GameObject UpStop; // Верхняя граница движения
-    public GameObject DownStop; // Нижняя граница движения
-    public GameObject LeftStop; // Левая граница движения
-    public GameObject RightStop; // Правая граница движения
-    [SerializeField] private Cat catScript; // Ссылка на скрипт, управляющий "котом", для выполнения действия fire
-    [SerializeField] private Animator animator; // Аниматор для управления анимацией персонажа
-    [SerializeField] private GameObject buttonFire; // Кнопка огня для мобильных устройств
+    [SerializeField] private float speed = 5f;
+    public GameObject UpStop, DownStop, LeftStop, RightStop;
+    [SerializeField] private Cat catScript;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject buttonFire;
+    [SerializeField] private Joystick joystick; // РњРѕР¶РµС‚ Р±С‹С‚СЊ null
 
-    private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение для масштабирования движения
-    private Vector2 touchStartPosition; // Позиция касания в момент начала
-    private Vector2 moveDirection; // Итоговое направление движения
-    private Vector2 touchMoveDirection = Vector2.zero; // Направление движения с касания
-    private Vector2 keyboardMoveDirection = Vector2.zero; // Направление движения с клавиатуры
+    private Vector2 baseResolution = new Vector2(1920, 1080);
+    private Vector2 moveDirection;
 
     void Start()
     {
-        bool isMobile = // Определение платформы — мобильная или нет
-            Application.platform == RuntimePlatform.Android 
+        bool isMobile = Application.platform == RuntimePlatform.Android
             || Application.platform == RuntimePlatform.IPhonePlayer
-            || Application.platform == RuntimePlatform.WindowsEditor; // WindowsEditor хоть и ПК, здесь учитывается для тестирования касания
+            || Application.platform == RuntimePlatform.WindowsEditor;
 
-        if (isMobile) // Отправка сигнала в ScoreManager в зависимости от платформы (для показа туториала)
-        {
-            ScoreManager.SendTutorialApp();
-        }
-        else
-        {
-            ScoreManager.SendTutorialWeb();
-        }
-            buttonFire.SetActive(isMobile); // Скрываем/показываем кнопку огня в зависимости от платформы (на мобильных показываем)
+        if (isMobile) ScoreManager.SendTutorialApp();
+        else ScoreManager.SendTutorialWeb();
+
+        buttonFire.SetActive(isMobile);
     }
 
     void Update()
     {
-        HandleTouchInput(); // Обработка касаний
-        HandleKeyboardInput(); // Обработка нажатий клавиатуры
+        HandleInput();
     }
 
     void FixedUpdate()
     {
-        float scale = GetScreenScale(); // Получение коэффициента масштабирования для разрешения экрана
-        MoveCharacter(scale); // Перемещение персонажа с учетом масштабирования
-        HandleKeyboardInput(); // Обработка клавиатуры во FixedUpdate для плавности (повторное)
+        float scale = GetScreenScale();
+        MoveCharacter(scale);
     }
 
-    void HandleTouchInput()
+    void HandleInput()
     {
-        if (Input.touchCount > 0)
+        Vector2 inputDirection = Vector2.zero;
+
+        // Р”Р–РћР™РЎРўРРљ
+        if (joystick != null)
         {
-            Touch touch = Input.GetTouch(0);
-
-            switch (touch.phase)
-            {
-                case TouchPhase.Began: // Запомнить начальную позицию касания
-                    touchStartPosition = touch.position;
-                    break;
-
-                case TouchPhase.Moved: // Рассчитать направление движения пальца
-                    Vector2 delta = touch.position - touchStartPosition;
-                    touchMoveDirection = delta.normalized;
-                    break;
-
-                case TouchPhase.Ended:
-                case TouchPhase.Canceled: // При окончании касания сбросить движение
-                    touchMoveDirection = Vector2.zero;
-                    break;
-            }
+            inputDirection = joystick.Direction;
         }
-        else
-        {
-            touchMoveDirection = Vector2.zero; // Нет касания - движение по касанию отсутствует
-        }
-    }
 
-    void HandleKeyboardInput()
-    {
+        // РљР›РђР’РРђРўРЈР Рђ (РїСЂРёРѕСЂРёС‚РµС‚!)
         Vector2 keyboardInput = Vector2.zero;
-
-        // WASD
         if (Input.GetKey(KeyCode.W)) keyboardInput.y += 1;
         if (Input.GetKey(KeyCode.S)) keyboardInput.y -= 1;
         if (Input.GetKey(KeyCode.A)) keyboardInput.x -= 1;
         if (Input.GetKey(KeyCode.D)) keyboardInput.x += 1;
-
-        // Стрелки
         if (Input.GetKey(KeyCode.UpArrow)) keyboardInput.y += 1;
         if (Input.GetKey(KeyCode.DownArrow)) keyboardInput.y -= 1;
         if (Input.GetKey(KeyCode.LeftArrow)) keyboardInput.x -= 1;
         if (Input.GetKey(KeyCode.RightArrow)) keyboardInput.x += 1;
 
-        // Если есть ввод, нормализуем направление движения
+        // РџР РРћР РРўР•Рў: РєР»Р°РІРёР°С‚СѓСЂР° > РґР¶РѕР№СЃС‚РёРє
         if (keyboardInput != Vector2.zero)
-        {
-            keyboardMoveDirection = keyboardInput.normalized;
-        }
-        else
-        {
-            keyboardMoveDirection = Vector2.zero;
-        }
+            inputDirection = keyboardInput.normalized;
+        else if (joystick != null)
+            inputDirection = joystick.Direction;
 
-        // При нажатии пробела вызывается метод fire у объекта catScript (например, стрельба)
+        moveDirection = inputDirection;
+
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             catScript.fire();
-        }
     }
 
     void MoveCharacter(float scale)
     {
-        // Приоритет — касание, если есть движение пальцем, иначе клавиатура
-        if (touchMoveDirection != Vector2.zero)
-            moveDirection = touchMoveDirection;
-        else
-            moveDirection = keyboardMoveDirection;
+        float horizontal = moveDirection.x * speed * scale / 2 * Time.fixedDeltaTime;
+        float vertical = moveDirection.y * speed * scale / 2 * Time.fixedDeltaTime;
 
-        // Расчет смещения по горизонтали и вертикали с учетом скорости, масштаба экрана и времени кадра
-        float horizontal = moveDirection.x * speed * scale/2 * Time.deltaTime;
-        float vertical = moveDirection.y * speed * scale/2 * Time.deltaTime;
-
-        MoveWithLimits(horizontal, vertical); // Перемещение объекта с ограничениями по краям
-        UpdateAnimations(horizontal, vertical); // Обновление анимаций движения
+        MoveWithLimits(horizontal, vertical);
+        UpdateAnimations(horizontal, vertical);
     }
 
     void MoveWithLimits(float horizontal, float vertical)
     {
-        Vector3 targetPosition = transform.position + new Vector3(horizontal, vertical, 0); // Новая позиция объекта с добавленным смещением
-        
-        // Ограничение позиции по осям X и Y в пределах установленных границ-объектов
-        targetPosition.x = Mathf.Clamp(targetPosition.x,
-            LeftStop.transform.position.x,
-            RightStop.transform.position.x);
+        Vector3 targetPosition = transform.position + new Vector3(horizontal, vertical, 0);
 
-        targetPosition.y = Mathf.Clamp(targetPosition.y,
-            DownStop.transform.position.y,
-            UpStop.transform.position.y);
+        targetPosition.x = Mathf.Clamp(targetPosition.x, LeftStop.transform.position.x, RightStop.transform.position.x);
+        targetPosition.y = Mathf.Clamp(targetPosition.y, DownStop.transform.position.y, UpStop.transform.position.y);
 
         transform.position = targetPosition;
     }
@@ -145,20 +90,11 @@ public class TestMove : MonoBehaviour
     void UpdateAnimations(float horizontal, float vertical)
     {
         bool isMoving = Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f;
-        animator.SetBool("isMoving", false);
-
-        /*if (isMoving)
-        {
-            animator.SetFloat("Horizontal", horizontal);
-            animator.SetFloat("Vertical", vertical);
-        }
-        */
+        animator.SetBool("isMoving", isMoving);
     }
 
-    float GetScreenScale() // Расчет коэффициента масштабирования по минимальному соотношению текущего разрешения к базовому
+    float GetScreenScale()
     {
-        float screenWidth = Screen.width;
-        float screenHeight = Screen.height;
-        return Mathf.Min(screenWidth / baseResolution.x, screenHeight / baseResolution.y);
+        return Mathf.Min(Screen.width / baseResolution.x, Screen.height / baseResolution.y);
     }
 }
