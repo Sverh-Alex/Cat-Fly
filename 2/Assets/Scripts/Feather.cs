@@ -8,7 +8,7 @@ public class Feather : MonoBehaviour
     private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
     private float randomSpeed;
     private GameObject scoreManager;
-    private float scaleSize = 4; // коэффициент регулируем размер монеток
+    [SerializeField] private float scaleSize = 4; // коэффициент регулируем размер монеток
 
     void Start()
     {
