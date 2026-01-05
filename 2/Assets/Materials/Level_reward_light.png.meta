@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 81d1d510a299cf246acdaebb7394f915
+guid: 4a94ab955709828418ca09c9b0035470
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7618762020007762061
-    second: Pause_button_main_menu_0
+      213: 1585703577960698185
+    second: Level_reward_light_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pause_button_main_menu_0
+      name: Level_reward_light_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 642
-        height: 147
+        width: 963
+        height: 963
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 115, y: 26, z: 51, w: 13}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d88dcc6f0b74bb960800000000000000
-      internalID: 7618762020007762061
+      spriteID: 941d963b00d810610800000000000000
+      internalID: 1585703577960698185
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c2021913300438346a3f26b53f3bd2b4
-    internalID: 1069555042
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pause_button_main_menu_0: 7618762020007762061
+      Level_reward_light_0: 1585703577960698185
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -16,7 +16,7 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: ac4d2d7f623c7404e86305905a5ff92e
   m_Entries:
   - m_Id: 628578689024
-    m_Key: Ski
+    m_Key: Next
     m_Metadata:
       m_Items: []
   - m_Id: 77432492498944
@@ -149,6 +149,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 47482870176190464
     m_Key: Skip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56535421519757312
+    m_Key: Perfect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56535579401748480
+    m_Key: Succeeded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56536014623703040
+    m_Key: Good
     m_Metadata:
       m_Items: []
   m_Metadata:
