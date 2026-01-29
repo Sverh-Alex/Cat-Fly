@@ -31,6 +31,7 @@ public class Cat : MonoBehaviour
 
     void Start()
     {
+        
         animator = GetComponent<Animator>();
         // lifeStatus.text = lifeCounter.ToString(); // преобразуем в строку
         lifeCounter = hearts.Length; // чтобы не прописывать lifeCounter, а чтобы задавалось в зависимости от изображений
