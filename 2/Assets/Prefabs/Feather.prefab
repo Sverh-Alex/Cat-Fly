@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3576465460706618477}
+  - component: {fileID: 748773984647044749}
   - component: {fileID: 6494754648648323275}
   - component: {fileID: 1392610534778291982}
   - component: {fileID: 8012002867738497230}
   - component: {fileID: 4399508780063625744}
-  - component: {fileID: 748773984647044749}
   - component: {fileID: 5955461620295725418}
   - component: {fileID: -8746351488625961107}
   m_Layer: 5
@@ -42,6 +42,20 @@ RectTransform:
   m_AnchoredPosition: {x: -25, y: -147}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &748773984647044749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440637531209691941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1971a4cb33afa4d816d05bece0d67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 9
+  scaleSize: 5
 --- !u!222 &6494754648648323275
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -97,6 +111,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -118,6 +134,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -178,19 +195,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 5}
   m_EdgeRadius: 0
---- !u!114 &748773984647044749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440637531209691941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be1971a4cb33afa4d816d05bece0d67f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 9
 --- !u!198 &5955461620295725418
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4935,6 +4939,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4956,6 +4962,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

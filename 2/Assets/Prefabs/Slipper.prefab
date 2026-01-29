@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4168349235627190886}
-  - component: {fileID: 3535940118060332118}
   - component: {fileID: 7112038094581684637}
+  - component: {fileID: 3535940118060332118}
   - component: {fileID: 369919798357684985}
   m_Layer: 0
   m_Name: Slipper
@@ -34,6 +34,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7112038094581684637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947930908925686483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da27fe7e7a493ca41b7c99fb5311e723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 9
+  damage: -1
+  koff: 9
 --- !u!212 &3535940118060332118
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -54,6 +69,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -75,6 +92,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -89,20 +107,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7112038094581684637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947930908925686483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da27fe7e7a493ca41b7c99fb5311e723, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 9
-  damage: -1
 --- !u!61 &369919798357684985
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,7 +145,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 13.383333, y: 6.0666666}
+    oldSize: {x: 13.383333, y: 6.075611}
     newSize: {x: 16.06, y: 7.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

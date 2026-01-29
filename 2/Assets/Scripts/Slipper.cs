@@ -8,7 +8,7 @@ public class Slipper : MonoBehaviour
     private float randomSpeed;
     private GameObject scoreManager;
     private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
-    private int koff = 8;
+    [SerializeField] private int koff = 8;
     private int koffSpeed = 15/10;
 
     void Start()
