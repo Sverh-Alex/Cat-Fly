@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1867029958467584
-    m_Localized: CAT'S FLY
+    m_Localized: KITTEN'S DREAM
     m_Metadata:
       m_Items: []
   - m_Id: 1874437430681600
@@ -163,6 +163,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 56536014623703040
     m_Localized: GOOD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66264978689462272
+    m_Localized: FREE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66265161061994496
+    m_Localized: GAIN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66266135340093440
+    m_Localized: REGULAR AWARD
     m_Metadata:
       m_Items: []
   references:

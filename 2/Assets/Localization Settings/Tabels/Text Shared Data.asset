@@ -163,6 +163,18 @@ MonoBehaviour:
     m_Key: Good
     m_Metadata:
       m_Items: []
+  - m_Id: 66264978689462272
+    m_Key: Free
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66265161061994496
+    m_Key: Gain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66266135340093440
+    m_Key: REGULAR AWARD
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
