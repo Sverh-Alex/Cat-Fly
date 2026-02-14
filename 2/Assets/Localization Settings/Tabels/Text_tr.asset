@@ -1,0 +1,204 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Text_tr
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: ac4d2d7f623c7404e86305905a5ff92e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 45298912548122624
+    m_Localized: "T\xFCrk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71004169371115520
+    m_Localized: "T\xFCrk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71034929813643264
+    m_Localized: "SEV\u0130YELER"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1857502013923328
+    m_Localized: EV
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1867029958467584
+    m_Localized: "KED\u0130'N\u0130N R\xDCYASI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66264978689462272
+    m_Localized: "\xDCCRETS\u0130Z"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66265161061994496
+    m_Localized: ELDE ETMEK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1859265903304704
+    m_Localized: BONUSLAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45288004832751616
+    m_Localized: AYARLAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45296093602541568
+    m_Localized: Destek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77432492498944
+    m_Localized: "U\xC7UYORUZ"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66266135340093440
+    m_Localized: "D\xDCZENL\u0130 \xD6D\xDCL"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286393083359232
+    m_Localized: "D\u0130L"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45296227119820800
+    m_Localized: "Bize yaz\u0131n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286088824352768
+    m_Localized: SES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286667583778816
+    m_Localized: TAMAM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45278281890820096
+    m_Localized: ENGLISH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3247200619454464
+    m_Localized: "HEPS\u0130 \xDCCRETS\u0130Z"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45277871348150272
+    m_Localized: "\u0420\u0423\u0421\u0421\u041A\u0418\u0419"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854219455143936
+    m_Localized: "KED\u0130LER"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 628578689024
+    m_Localized: Atlamak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35824147094151168
+    m_Localized: "HAREKET D\xDC\u011EMELER\u0130N\u0130 KULLANIN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45299915364265984
+    m_Localized: "Herhangi bir sorunla kar\u015F\u0131la\u015F\u0131rsan\u0131z veya
+      sadece duygular\u0131n\u0131z\u0131 payla\u015Fmak istiyorsan\u0131z bize yaz\u0131n!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71060005434941440
+    m_Localized: "KORUMA \u0130\xC7\u0130N D\xDC\u011EMEY\u0130 KULLANIN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71061418038779904
+    m_Localized: "SADECE \nBEN\u0130 BIRAKMA..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1876930994741248
+    m_Localized: TEKRAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71062973664190464
+    m_Localized: "B\u0130Z YAPAB\u0130L\u0130R\u0130Z!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35847441528758272
+    m_Localized: UZAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1876335655231488
+    m_Localized: "HAR\u0130KA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3261445675409408
+    m_Localized: "\u015EANSSIZ"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71064575770877952
+    m_Localized: Metni girin...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71064930374115328
+    m_Localized: DEVAM ETMEK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35847067510087680
+    m_Localized: "VE KORUMA \u0130\xC7\u0130N \u201CUZAY\u201D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1874437430681600
+    m_Localized: "X3'\xDC AL"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56536014623703040
+    m_Localized: "\u0130Y\u0130"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45300360635772928
+    m_Localized: "G\xD6NDERMEK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35846998312460288
+    m_Localized: VEYA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56535579401748480
+    m_Localized: "Ba\u015Far\u0131l\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56535421519757312
+    m_Localized: "M\xDCKEMMEL"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3259321168158720
+    m_Localized: DURAKLAT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45278529799352320
+    m_Localized: "\u4E2D\u6587"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71075575144374272
+    m_Localized: "Fran\xE7ais"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71075761308557312
+    m_Localized: "Espa\xF1ol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71075978145685504
+    m_Localized: "Portugu\xEAs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71076114632531968
+    m_Localized: Deutsch
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

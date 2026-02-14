@@ -16,7 +16,7 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: ac4d2d7f623c7404e86305905a5ff92e
   m_Entries:
   - m_Id: 628578689024
-    m_Key: Next
+    m_Key: Skip
     m_Metadata:
       m_Items: []
   - m_Id: 77432492498944
@@ -33,10 +33,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1859265903304704
     m_Key: Bonus
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1859549517946880
-    m_Key: Cat
     m_Metadata:
       m_Items: []
   - m_Id: 1867029958467584
@@ -59,20 +55,8 @@ MonoBehaviour:
     m_Key: Menu.Shop
     m_Metadata:
       m_Items: []
-  - m_Id: 3247957737463808
-    m_Key: Menu.Bonus
-    m_Metadata:
-      m_Items: []
-  - m_Id: 3249409268637696
-    m_Key: Menu.Bonus.Ok
-    m_Metadata:
-      m_Items: []
   - m_Id: 3259321168158720
     m_Key: Pause
-    m_Metadata:
-      m_Items: []
-  - m_Id: 3259972761673728
-    m_Key: Lose.Text
     m_Metadata:
       m_Items: []
   - m_Id: 3261445675409408
@@ -81,10 +65,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 35824147094151168
     m_Key: Tutor_Use
-    m_Metadata:
-      m_Items: []
-  - m_Id: 35824889376907264
-    m_Key: Tutor_Use2
     m_Metadata:
       m_Items: []
   - m_Id: 35846998312460288
@@ -97,22 +77,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 35847441528758272
     m_Key: Tutor_Space2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 45277871348150272
-    m_Key: LanguageRus
-    m_Metadata:
-      m_Items: []
-  - m_Id: 45278281890820096
-    m_Key: LanguageEng
-    m_Metadata:
-      m_Items: []
-  - m_Id: 45278529799352320
-    m_Key: LanguageChina
-    m_Metadata:
-      m_Items: []
-  - m_Id: 45286393083359232
-    m_Key: Language
     m_Metadata:
       m_Items: []
   - m_Id: 45286088824352768
@@ -135,20 +99,12 @@ MonoBehaviour:
     m_Key: WriteToUs
     m_Metadata:
       m_Items: []
-  - m_Id: 45298912548122624
-    m_Key: LanguageMenu
-    m_Metadata:
-      m_Items: []
   - m_Id: 45299915364265984
     m_Key: SupportText
     m_Metadata:
       m_Items: []
   - m_Id: 45300360635772928
     m_Key: Send
-    m_Metadata:
-      m_Items: []
-  - m_Id: 47482870176190464
-    m_Key: Skip
     m_Metadata:
       m_Items: []
   - m_Id: 56535421519757312
@@ -173,6 +129,70 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 66266135340093440
     m_Key: REGULAR AWARD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71034929813643264
+    m_Key: Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71060005434941440
+    m_Key: TutorUseBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71061418038779904
+    m_Key: DontLeaveMe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71062973664190464
+    m_Key: WeCan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71064575770877952
+    m_Key: EnterText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71064930374115328
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45277871348150272
+    m_Key: LanguageRus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45286393083359232
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71004169371115520
+    m_Key: LanguageTur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45278529799352320
+    m_Key: LanguageChina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45278281890820096
+    m_Key: LanguageEng
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71075575144374272
+    m_Key: LanguageFran
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71075761308557312
+    m_Key: LanguageSpanish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71075978145685504
+    m_Key: LanguagePortug
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45298912548122624
+    m_Key: LanguageMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71076114632531968
+    m_Key: LanguageGerman
     m_Metadata:
       m_Items: []
   m_Metadata:
