@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using YG;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -12,14 +13,18 @@ public class ScoreManager : MonoBehaviour
     public static event Action OnTutorApp; // Событие, о включенном джостике
 
     [SerializeField] private TextMeshProUGUI score; // UI текст для отображения монет
-    [SerializeField] public int addBonus = 0; // бонус за обычное действие
-    [SerializeField] private int addBonusADS = 0; // бонус за просмотр рекламы
+    [SerializeField] public int addBonusReg = 0; // бонус за обычное действие
+    [SerializeField] private int addBonusMin = 0; // Сколько монет давать за одну просмотренную рекламу
+    [SerializeField] private int addBonusMax = 0; // Сколько монет давать за одну просмотренную рекламу
     [SerializeField] private GameObject effectPSClick; // эффект при клике
     [SerializeField] private GameObject effectPSCoin; // эффект монеток
     [SerializeField] private GameObject effectPSCoinADS; // эффект монеток для кнопки рекламы
     [SerializeField] private TextMeshProUGUI isAddBonusText; // UI текст для отображения монет
     [SerializeField] private GameObject revard; // меню получения х2 монеток
     [SerializeField] private TextMeshProUGUI textCatCoinValue; // текст монет полученных за уровень
+
+    public string rewardID = "10"; // ID награды для рекламы 
+
 
 
     public static void SendCoinsChanged()
@@ -57,7 +62,7 @@ public class ScoreManager : MonoBehaviour
         
         if(isAddBonusText)
         {
-            isAddBonusText.text = $"+{addBonus}";
+            isAddBonusText.text = $"+{addBonusReg}";
         }
         
     }
@@ -75,10 +80,37 @@ public class ScoreManager : MonoBehaviour
         UpdateCoins(coins);
         ScoreManager.SendCoinsChanged();
     }
-
-    public void AddBonus() // Добавляет бонусные монеты (например, за действие)
+    public void ShowRewardAd(string id)
     {
-        int coins = UnityEngine.PlayerPrefs.GetInt("coins") + addBonus;
+
+        YG2.RewardedAdvShow(id, () => OnReward(id)); // вызовется, когда пользователь досмотрит рекламу до конца.
+    }
+
+    private void OnReward(string id)
+    {
+        switch (id)
+        {
+            case "AddBonusMin":      // мало монет
+                AddBonusMin();
+                break;
+
+            case "AddBonusMax":      // много монет
+                AddBonusMax();
+                break;
+
+            case "AddBonusX3":      // много монет
+                AddBonusX3();
+                break;
+
+            case "AddLife":      // много монет
+                AddLife();
+                break;
+        }
+    }
+
+    public void AddBonusReg() // Добавляет бонусные монеты (например, за действие)
+    {
+        int coins = PlayerPrefs.GetInt("coins") + addBonusReg;
         UpdateCoins(coins);
 
         EffectClick();
@@ -93,9 +125,9 @@ public class ScoreManager : MonoBehaviour
         ScoreManager.SendCoinsChanged();
     }
 
-    public void AddBonusADS() // Добавляет бонусные монеты за просмотр рекламы
+    public void AddBonusMin() // Добавляет бонусные монеты за просмотр рекламы
     {
-        int coins = UnityEngine.PlayerPrefs.GetInt("coins") + addBonusADS;
+        int coins = PlayerPrefs.GetInt("coins") + addBonusMin;
         UpdateCoins(coins);
         //effectPSCoinADS.GetComponent<ParticleSystem>().Play();
         //effectPSCoinADS.Play(); // включаем эффект монеток
@@ -107,11 +139,27 @@ public class ScoreManager : MonoBehaviour
             particleSystem.Play(); // Запустить заново
             //particleSystem.Emit(30); // Выпустить частицы
         }
-
-        EffectClick();
-        SendCoinsChanged();
+        EffectClick(); // Визуальный эффект нажатия или другой отклик
+        SendCoinsChanged(); // Сообщаем другим системам (UI, аналитика и т.п.), что количество монет изменилось
     }
-    public void OnOpenX3()
+    public void AddBonusMax() // Добавляет бонусные монеты за просмотр рекламы
+    {
+        int coins = PlayerPrefs.GetInt("coins") + addBonusMax;
+        UpdateCoins(coins);
+        //effectPSCoinADS.GetComponent<ParticleSystem>().Play();
+        //effectPSCoinADS.Play(); // включаем эффект монеток
+        effectPSCoinADS.SetActive(true);
+        ParticleSystem particleSystem = effectPSCoinADS.GetComponent<ParticleSystem>();
+        if (particleSystem != null) // Если компонент Particle System найден
+        {
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
+            particleSystem.Play(); // Запустить заново
+            //particleSystem.Emit(30); // Выпустить частицы
+        }
+        EffectClick(); // Визуальный эффект нажатия или другой отклик
+        SendCoinsChanged(); // Сообщаем другим системам (UI, аналитика и т.п.), что количество монет изменилось
+    }
+    public void AddBonusX3()
     {
         if (revard)
         {
@@ -119,17 +167,20 @@ public class ScoreManager : MonoBehaviour
             int value = Cat.coinCounterLevel;
             int valueX3 = value * 3;
             Debug.Log("catCoinValue" + valueX3);
-            UnityEngine.PlayerPrefs.SetInt("valueX2", valueX3);
+            PlayerPrefs.SetInt("valueX2", valueX3);
             textCatCoinValue.text = $"+{valueX3}";
 
             EffectClick();
         }
     }
+    public void AddLife() // Добавляет бонусные монеты за просмотр рекламы
+    {
+        EffectClick(); // Визуальный эффект нажатия или другой отклик
+    }
     public void CloseOnOpenX2()
     {
         if (revard)
         {
-            
             int valuX2 = UnityEngine.PlayerPrefs.GetInt("valueX2");
             int coins = UnityEngine.PlayerPrefs.GetInt("coins") + valuX2;
             UpdateCoins(coins);

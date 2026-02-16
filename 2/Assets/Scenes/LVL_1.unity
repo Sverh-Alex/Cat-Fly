@@ -2245,7 +2245,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34214962, y: 0.231239}
   m_AnchorMax: {x: 0.6574029, y: 0.35700002}
-  m_AnchoredPosition: {x: 0.25979614, y: 2.9993896}
+  m_AnchoredPosition: {x: 0.25979614, y: 2.9990845}
   m_SizeDelta: {x: -27.699951, y: -17.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &171022559
@@ -2465,7 +2465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.11734216, y: 0.65651125}
   m_AnchorMax: {x: 0.87965786, y: 0.8087221}
-  m_AnchoredPosition: {x: -7.75, y: 288.4}
+  m_AnchoredPosition: {x: -7.75, y: 288.40005}
   m_SizeDelta: {x: -52.82, y: -4.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &201772807
@@ -4678,7 +4678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.017888514}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.130005, y: -26.409973}
+  m_AnchoredPosition: {x: -10.130005, y: -26.409943}
   m_SizeDelta: {x: -228.03, y: 51.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &334419823
@@ -21204,7 +21204,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
+  m_fontSize: 89.1
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -21801,7 +21801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 400.00018, y: -280}
+  m_AnchoredPosition: {x: 400.00024, y: -280}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &720663783
@@ -30428,7 +30428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 400.00018, y: -420}
+  m_AnchoredPosition: {x: 400.00024, y: -420}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983213735
@@ -36590,14 +36590,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1108840862}
         m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
-        m_MethodName: OnOpenX3
-        m_Mode: 1
+        m_MethodName: ShowRewardAd
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: AddBonusX3
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1577278533}
@@ -36755,14 +36755,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 814180508}
-  addBonus: 0
-  addBonusADS: 0
+  addBonusReg: 0
+  addBonusMin: 0
+  addBonusMax: 0
   effectPSClick: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
   effectPSCoin: {fileID: 765150047}
   effectPSCoinADS: {fileID: 0}
   isAddBonusText: {fileID: 0}
   revard: {fileID: 583061605}
   textCatCoinValue: {fileID: 714848772}
+  rewardID: 10
 --- !u!4 &1108840863
 Transform:
   m_ObjectHideFlags: 0
@@ -37932,7 +37934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 400.00018, y: 240}
+  m_AnchoredPosition: {x: 400.00024, y: 240}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1167436511
@@ -38032,7 +38034,7 @@ MonoBehaviour:
   timer: {fileID: 902246020}
   levelName: LVL_1
   nextlevelName: LVL_2
-  lifeTime: 40
+  lifeTime: 11
   colorYellow: 4
   colorRed: 3
   victoryMenu: {fileID: 1608029898}
@@ -39423,7 +39425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 400.00018, y: -140}
+  m_AnchoredPosition: {x: 400.00024, y: -140}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357619910
@@ -39843,7 +39845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 400.00018, y: -20}
+  m_AnchoredPosition: {x: 400.00024, y: -20}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1429006572
@@ -40577,7 +40579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2605024, y: 0.6921278}
   m_AnchorMax: {x: 0.7377464, y: 0.8016295}
-  m_AnchoredPosition: {x: 2.566986, y: 290}
+  m_AnchoredPosition: {x: 2.566986, y: 290.00003}
   m_SizeDelta: {x: -5.1339, y: -0.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491578007
@@ -40667,7 +40669,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
+  m_fontSize: 59.45
   m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -41257,7 +41259,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 92.25
+  m_fontSize: 104.1
   m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -43999,7 +44001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 400.00018, y: 370}
+  m_AnchoredPosition: {x: 400.00024, y: 370}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1744048330
@@ -49970,7 +49972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 400.00018, y: 110}
+  m_AnchoredPosition: {x: 400.00024, y: 110}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798917399
@@ -52289,6 +52291,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1108840862}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: ShowRewardAd
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: AddLife
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1981422921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52640,7 +52654,7 @@ MonoBehaviour:
       hy: 0
       ka: 0
       et: 0
-      fr: 1
+      fr: 0
       kk: 0
       ky: 0
       lt: 0
@@ -52650,13 +52664,13 @@ MonoBehaviour:
       tk: 0
       uk: 0
       uz: 0
-      es: 1
-      pt: 1
+      es: 0
+      pt: 0
       ar: 0
       id: 0
       ja: 0
       it: 0
-      de: 1
+      de: 0
       hi: 0
     fonts:
       defaultFont: []
