@@ -15,6 +15,13 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: 11a9fe204767ffd4eb9893025c57bddc
   m_SerializeEntries:
+  - m_GUID: 3c127791067b5914391373906889bf44
+    m_Address: Settings_language_flag_chn
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    - Locale-zh
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41f5d670438604243888748b153a49ad
     m_Address: Assets/Localization Settings/Tabels/FlagLanuage Shared Data.asset
     m_ReadOnly: 1

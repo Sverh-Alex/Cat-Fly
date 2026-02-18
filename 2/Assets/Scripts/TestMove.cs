@@ -27,6 +27,7 @@ public class TestMove : MonoBehaviour
     void Update()
     {
         HandleInput();
+
     }
 
     void FixedUpdate()
@@ -91,6 +92,7 @@ public class TestMove : MonoBehaviour
     {
         bool isMoving = Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f;
         animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isDamage", false); // передаем значение из аниматора
     }
 
     float GetScreenScale()

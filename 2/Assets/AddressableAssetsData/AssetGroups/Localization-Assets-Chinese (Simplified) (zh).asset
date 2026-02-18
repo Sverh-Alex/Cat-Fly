@@ -21,12 +21,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-zh
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3c127791067b5914391373906889bf44
-    m_Address: Settings_language_flag_chn
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-zh
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: cbe059bbff196e843ba1c717aa50e85f, type: 2}
   m_SchemaSet:

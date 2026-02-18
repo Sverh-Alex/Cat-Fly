@@ -151,7 +151,7 @@ public class Cat : MonoBehaviour
             explosionSound.Play(); 
             UpdateLife(collision.gameObject.GetComponent<Slipper>().damage);
             gameObject.GetComponent<ParticleSystem>().Play(); // путь до значения жизней
-            animator.SetBool("isMoving", true); // передаем значение из аниматора
+            animator.SetBool("isDamage", true); // передаем значение из аниматора
         }
 
         if (collision.gameObject.tag.Equals("gift"))

@@ -53,5 +53,10 @@ MonoBehaviour:
           - ru
           - en
           - zh
+          - tr
+          - fr
+          - es
+          - pt
+          - de
         m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
