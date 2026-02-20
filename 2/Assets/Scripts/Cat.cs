@@ -8,6 +8,7 @@ public class Cat : MonoBehaviour
 {
     
     public static int lifeCounter = 0;
+    [SerializeField] public static int coinCounterLevel = 0;
     [SerializeField] private int bulletCounter = 30;
     [SerializeField] private int bulletGift = 3;
     // [SerializeField] TextMeshProUGUI lifeStatus;
@@ -25,8 +26,8 @@ public class Cat : MonoBehaviour
     private GameObject scoreManager;
     public GameObject effect; // —сылка на объект с Particle System ѕеро
     public GameObject effectWool; // —сылка на объект с Particle System Ўерсть
+
     
-    public static int coinCounterLevel = 0;
     [SerializeField] private TextMeshProUGUI textCoinCounter; // UI текст дл€ отображени€ монет
 
     void Start()

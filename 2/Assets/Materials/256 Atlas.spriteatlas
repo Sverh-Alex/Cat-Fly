@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 256 Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 5030e1033bf61cf46a3fe81a36034a63, type: 3}
+    - {fileID: 2800000, guid: 7f8d684c7d2c06145956a90ec675002a, type: 3}
+    - {fileID: 2800000, guid: 5780299f68de51e4e8a1edc114cd4894, type: 3}
+    - {fileID: 2800000, guid: 4f1c821dc2fad4544b3efdfbf97b2396, type: 3}
+    - {fileID: 2800000, guid: 27ddac82a5d88894ba93d69698592ced, type: 3}
+    - {fileID: 2800000, guid: 0191004604bf88e46a4b93944970cd21, type: 3}
+    - {fileID: 2800000, guid: 5bfe6a336c007b5458b324f4fda3b3d3, type: 3}
+    - {fileID: 2800000, guid: 4fb21193d784f234cb3d3d3a6b528553, type: 3}
+    - {fileID: 2800000, guid: 6e2598c83427c584da91b5d1f556a45f, type: 3}
+    - {fileID: 2800000, guid: 270d15e0eba6a5e4c858336e594faa89, type: 3}
+    - {fileID: 2800000, guid: a4376bb1486c12448ac83b17b85eb808, type: 3}
+    - {fileID: 2800000, guid: 6e07d57234de2bf49a38b918f9647f48, type: 3}
+    - {fileID: 2800000, guid: bf5c15027ce0aa849bdf106752e208e3, type: 3}
+    - {fileID: 2800000, guid: 2f1854ece92400f4ca9dca288807c9f5, type: 3}
+    - {fileID: 2800000, guid: b0ccef0ac7ca6f744a11a2c4f4986239, type: 3}
+    - {fileID: 2800000, guid: 2520eb6842dc3354fa7ee8dcda5431d4, type: 3}
+    - {fileID: 2800000, guid: 9e7e1b4ab5db687419c52d2c3f727629, type: 3}
+    - {fileID: 2800000, guid: 6c0bd791b12945e418b684031dafdd8c, type: 3}
+    - {fileID: 2800000, guid: 46a47d190f6847249af6a3a44c7d7e7c, type: 3}
+    - {fileID: 2800000, guid: 5d3edffcc494ea644b20ef9432cad178, type: 3}
+    - {fileID: 2800000, guid: 87b88c16cedc4334ea371f7c1f743d8e, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 270d15e0eba6a5e4c858336e594faa89: -7096978167281932490
+    - 6c0bd791b12945e418b684031dafdd8c: 693246012366305492
+    - a4376bb1486c12448ac83b17b85eb808: 3335402712797807063
+    - bf5c15027ce0aa849bdf106752e208e3: -4630905028696018326
+    - 6e07d57234de2bf49a38b918f9647f48: -745499880940888880
+    - 27ddac82a5d88894ba93d69698592ced: 1692898614050100676
+    - 5030e1033bf61cf46a3fe81a36034a63: -104448603636713038
+    - 5bfe6a336c007b5458b324f4fda3b3d3: -3491735384234875830
+    - 4fb21193d784f234cb3d3d3a6b528553: -12581577696675979
+    - 87b88c16cedc4334ea371f7c1f743d8e: 21300000
+    - 0191004604bf88e46a4b93944970cd21: -7232916523052221498
+    - 2520eb6842dc3354fa7ee8dcda5431d4: -4950056720560321610
+    - 6e2598c83427c584da91b5d1f556a45f: -1922979618149193216
+    - 46a47d190f6847249af6a3a44c7d7e7c: 21300000
+    - b0ccef0ac7ca6f744a11a2c4f4986239: -7449148944499120013
+    - 9e7e1b4ab5db687419c52d2c3f727629: 7791632993199273138
+    - 7f8d684c7d2c06145956a90ec675002a: -3919779002189068522
+    - 2f1854ece92400f4ca9dca288807c9f5: 5208596919635231168
+    - 5d3edffcc494ea644b20ef9432cad178: 21300000
+    - 4f1c821dc2fad4544b3efdfbf97b2396: 1221655074039784027
+    - 5780299f68de51e4e8a1edc114cd4894: -6400696204266737191
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -7096978167281932490, guid: 270d15e0eba6a5e4c858336e594faa89, type: 3}
+  - {fileID: 693246012366305492, guid: 6c0bd791b12945e418b684031dafdd8c, type: 3}
+  - {fileID: 3335402712797807063, guid: a4376bb1486c12448ac83b17b85eb808, type: 3}
+  - {fileID: -4630905028696018326, guid: bf5c15027ce0aa849bdf106752e208e3, type: 3}
+  - {fileID: -745499880940888880, guid: 6e07d57234de2bf49a38b918f9647f48, type: 3}
+  - {fileID: 1692898614050100676, guid: 27ddac82a5d88894ba93d69698592ced, type: 3}
+  - {fileID: -104448603636713038, guid: 5030e1033bf61cf46a3fe81a36034a63, type: 3}
+  - {fileID: -3491735384234875830, guid: 5bfe6a336c007b5458b324f4fda3b3d3, type: 3}
+  - {fileID: -12581577696675979, guid: 4fb21193d784f234cb3d3d3a6b528553, type: 3}
+  - {fileID: 21300000, guid: 87b88c16cedc4334ea371f7c1f743d8e, type: 3}
+  - {fileID: -7232916523052221498, guid: 0191004604bf88e46a4b93944970cd21, type: 3}
+  - {fileID: -4950056720560321610, guid: 2520eb6842dc3354fa7ee8dcda5431d4, type: 3}
+  - {fileID: -1922979618149193216, guid: 6e2598c83427c584da91b5d1f556a45f, type: 3}
+  - {fileID: 21300000, guid: 46a47d190f6847249af6a3a44c7d7e7c, type: 3}
+  - {fileID: -7449148944499120013, guid: b0ccef0ac7ca6f744a11a2c4f4986239, type: 3}
+  - {fileID: 7791632993199273138, guid: 9e7e1b4ab5db687419c52d2c3f727629, type: 3}
+  - {fileID: -3919779002189068522, guid: 7f8d684c7d2c06145956a90ec675002a, type: 3}
+  - {fileID: 5208596919635231168, guid: 2f1854ece92400f4ca9dca288807c9f5, type: 3}
+  - {fileID: 21300000, guid: 5d3edffcc494ea644b20ef9432cad178, type: 3}
+  - {fileID: 1221655074039784027, guid: 4f1c821dc2fad4544b3efdfbf97b2396, type: 3}
+  - {fileID: -6400696204266737191, guid: 5780299f68de51e4e8a1edc114cd4894, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Group 1000007288_0
+  - Level_reward_Bubble_2_0
+  - Group 1000007289_0
+  - Joystick_base_0
+  - Heart_ui_0
+  - Cat_paw_cursor_3_0
+  - 389275763856650243 23_0
+  - CoinStack_0
+  - CoinStack 1_0
+  - Menu_levels_3_stars
+  - Coins_ui_0
+  - Language_scroll_button_2 (1)_0
+  - Exit_0
+  - Menu_levels_1_stars
+  - Language_scroll_base_2 (1)_0
+  - Level_reward_Bubble_1_0
+  - Ball_0
+  - Joystick_button_0
+  - Menu_levels_2_stars
+  - Cat_paw_cursor_1_0
+  - Ball_ui 1_0
+  m_RenderDataMap: {}
+  m_Tag: 256 Atlas
+  m_IsVariant: 0

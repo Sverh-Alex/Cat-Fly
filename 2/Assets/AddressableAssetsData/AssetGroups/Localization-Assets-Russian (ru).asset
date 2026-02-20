@@ -15,12 +15,6 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Russian (ru)
   m_GUID: 1867314e31b1cbd4ea3dcb34ef55261b
   m_SerializeEntries:
-  - m_GUID: 5e6c8ce06969e3a42946df580814f889
-    m_Address: flag-rossii2
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ru
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1ce683f6f4c3ac40938cdfbe7a5f217
     m_Address: Settings_language_flag_rus
     m_ReadOnly: 1

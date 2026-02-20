@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using YG;
 
 public class TestMove : MonoBehaviour
 {
@@ -14,14 +15,18 @@ public class TestMove : MonoBehaviour
 
     void Start()
     {
-        bool isMobile = Application.platform == RuntimePlatform.Android
-            || Application.platform == RuntimePlatform.IPhonePlayer
-            || Application.platform == RuntimePlatform.WindowsEditor;
+        bool isMobile = YG2.envir.deviceType == "mobile" || YG2.envir.deviceType == "tablet";
 
-        if (isMobile) ScoreManager.SendTutorialApp();
-        else ScoreManager.SendTutorialWeb();
-
+        if (isMobile)
+        {
+            ScoreManager.SendTutorialApp();
+        }
+        else
+        {
+            ScoreManager.SendTutorialWeb();
+        }
         buttonFire.SetActive(isMobile);
+        if (joystick != null) joystick.gameObject.SetActive(isMobile);
     }
 
     void Update()
