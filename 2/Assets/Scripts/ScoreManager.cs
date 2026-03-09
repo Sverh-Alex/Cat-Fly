@@ -39,11 +39,14 @@ public class ScoreManager : MonoBehaviour
     }
     public static void SendTutorialWeb()
     {
-        OnTutorWeb?.Invoke();
+        Debug.Log("[ScoreManager] SendTutorialWeb вызван");
 
+        Debug.Log("[ScoreManager] OnTutorWeb == null? " + (OnTutorWeb == null));
+        OnTutorWeb?.Invoke();
     }
     public static void SendTutorialApp()
     {
+        Debug.Log("[ScoreManager] SendTutorialApp вызван");
         OnTutorApp?.Invoke();
 
     }

@@ -5,71 +5,112 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     [Header("Туториалы для ПК / Web")]
-    [SerializeField] private List<GameObject> webTutorials = new List<GameObject>();       // Туториалы, которые показываются на ПК / в браузере
+    [SerializeField] private List<GameObject> webTutorials = new();   // Туториалы для ПК / Web
 
     [Header("Туториалы для мобильного приложения")]
-    [SerializeField] private List<GameObject> appTutorials = new List<GameObject>();       // Туториалы, которые показываются на мобильных устройствах
+    [SerializeField] private List<GameObject> appTutorials = new();   // Туториалы для мобилок
 
     [Header("Скрыть на ПК")]
-    [SerializeField] private List<GameObject> hideOnPC = new List<GameObject>();           // Объекты, которые нужно выключить, если запуск на ПК
+    [SerializeField] private List<GameObject> hideOnPC = new();       // Элементы только для мобилки
 
     [Header("Настройки")]
-    [SerializeField] private float closeTutorialDelay = 10f;                               // Время показа туториала перед автозакрытием (в секундах)
+    [SerializeField] private float closeTutorialDelay = 10f;          // Время показа туториала
 
-    private bool isTutorialShown = false;                                                  // Флаг: сейчас какой-то туториал уже показан
+    private bool isTutorialShown = false;                             // Флаг: туториал уже показан
 
     private void Start()
     {
-        if (!Application.isMobilePlatform)                                                 // Если это не мобильная платформа (значит ПК)
+        Debug.Log("[Tutorial] Start, платформа мобильная: " + Application.isMobilePlatform);
+
+        // Если это не мобильная платформа (ПК / WebGL), прячем мобильные элементы
+        if (!Application.isMobilePlatform)
         {
-            SetActiveForList(hideOnPC, false);                                             // Отключаем все объекты, которые должны быть только на мобилке
+            SetActiveForList(hideOnPC, false);
         }
 
-        SetActiveForList(webTutorials, false);                                             // В начале скрываем все веб-туториалы
-        SetActiveForList(appTutorials, false);                                             // И все мобильные туториалы
+        // В начале скрываем все туториалы
+        SetActiveForList(webTutorials, false);
+        SetActiveForList(appTutorials, false);
 
-        ScoreManager.OnTutorWeb += ShowWebTutorial;                                        // Подписываемся на событие показа веб-туториала
-        ScoreManager.OnTutorApp += ShowAppTutorial;                                        // Подписываемся на событие показа мобильного туториала
+        // Подписываемся на события ScoreManager
+        Debug.Log("[Tutorial] Start, подписываемся на события");
+
+        ScoreManager.OnTutorWeb += ShowWebTutorial;
+        ScoreManager.OnTutorApp += ShowAppTutorial;
+        Debug.Log("[Tutorial] Подписались на события OnTutorWeb и OnTutorApp");
     }
 
     private void OnDestroy()
     {
-        ScoreManager.OnTutorWeb -= ShowWebTutorial;                                        // Отписываемся от события при уничтожении объекта
-        ScoreManager.OnTutorApp -= ShowAppTutorial;                                        // Отписываемся от второго события
+        ScoreManager.OnTutorWeb -= ShowWebTutorial;
+        ScoreManager.OnTutorApp -= ShowAppTutorial;
+
+        Debug.Log("[Tutorial] Отписались от событий");
     }
 
-    public void ShowWebTutorial() => ShowTutorial(webTutorials, appTutorials);             // Показать веб-туториалы и скрыть мобильные
-    public void ShowAppTutorial() => ShowTutorial(appTutorials, webTutorials);             // Показать мобильные туториалы и скрыть веб
+    // Показ веб‑туториалов
+    public void ShowWebTutorial()
+    {
+        Debug.Log("[Tutorial] Вызван ShowWebTutorial");
+        ShowTutorial(webTutorials, appTutorials);
+    }
 
+    // Показ мобильных туториалов
+    public void ShowAppTutorial()
+    {
+        Debug.Log("[Tutorial] Вызван ShowAppTutorial");
+        ShowTutorial(appTutorials, webTutorials);
+    }
+
+    // Общий метод показа
     private void ShowTutorial(List<GameObject> toShow, List<GameObject> toHide)
     {
-        if (isTutorialShown) return;                                                       // Если туториал уже показан — выходим
+        if (isTutorialShown)
+        {
+            Debug.Log("[Tutorial] Туториал уже показан, новый вызов проигнорирован");
+            return;
+        }
 
-        isTutorialShown = true;                                                            // Помечаем, что туториал активен
+        isTutorialShown = true;
 
-        SetActiveForList(toHide, false);                                                   // Скрываем список "другой" платформы
-        SetActiveForList(toShow, true);                                                    // Показываем список текущей платформы
+        // Скрываем другой набор
+        SetActiveForList(toHide, false);
 
-        StartCoroutine(HideTutorialAfterDelay());                                          // Запускаем корутину автозакрытия
+        // Показываем нужный набор
+        SetActiveForList(toShow, true);
+
+        Debug.Log("[Tutorial] Туториал показан, будет скрыт через " + closeTutorialDelay + " секунд");
+
+        // Стартуем корутину автозакрытия
+        StartCoroutine(HideTutorialAfterDelay());
     }
 
+    // Включение/выключение списка объектов
     private void SetActiveForList(List<GameObject> list, bool value)
     {
-        foreach (var obj in list)                                                          // Проходим по всем объектам в списке
+        foreach (var obj in list)
         {
-            if (obj != null) obj.SetActive(value);                                         // Включаем/выключаем объект, если ссылка не пустая
+            if (obj != null)
+            {
+                obj.SetActive(value);
+            }
+            else
+            {
+                Debug.LogWarning("[Tutorial] В списке есть пустая ссылка (null)");
+            }
         }
     }
 
+    // Корутинa для автозакрытия
     private IEnumerator HideTutorialAfterDelay()
     {
-        yield return new WaitForSeconds(closeTutorialDelay);                               // Ждём указанное количество секунд
+        yield return new WaitForSeconds(closeTutorialDelay);
 
-        SetActiveForList(webTutorials, false);                                             // Скрываем все веб-туториалы
-        SetActiveForList(appTutorials, false);                                             // Скрываем все мобильные туториалы
+        SetActiveForList(webTutorials, false);
+        SetActiveForList(appTutorials, false);
 
-        isTutorialShown = false;                                                           // Разрешаем снова показывать туториалы
+        isTutorialShown = false;
 
-        Debug.Log("Туториал закрыт");                                                      // Сообщение в консоль для отладки
+        Debug.Log("[Tutorial] Туториал закрыт");
     }
 }

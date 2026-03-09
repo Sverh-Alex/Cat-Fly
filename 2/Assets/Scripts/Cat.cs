@@ -133,14 +133,7 @@ public class Cat : MonoBehaviour
     }
 
 
-    public void Update()
-    {
-        //if (transform.position.y < -4.0f)
-        //{
-        //    loseMenu.SetActive(true);
-        //    SceneManager.LoadScene("GameOverScene");
-        //}
-    }
+
     private void OnTriggerEnter2D(Collider2D collision) // объект с которым столкнулись, мы его разрушаем
     {
 

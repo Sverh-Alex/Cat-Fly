@@ -7,7 +7,7 @@ public class Gift : MonoBehaviour
     //private float speedGiftInterval = 2.0f; // частота появления подарка
     private float randomSpeed;
     [SerializeField] public int upBullet = +1;
-    private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
+    private Vector2 baseResolution = new(1920, 1080); // Базовое разрешение
     [SerializeField] private int koff = 6;
 
     void Start()

@@ -10,23 +10,37 @@ public class TestMove : MonoBehaviour
     [SerializeField] private GameObject buttonFire;
     [SerializeField] private Joystick joystick; // Может быть null
 
-    private Vector2 baseResolution = new Vector2(1920, 1080);
+    private Vector2 baseResolution = new(1920, 1080);
     private Vector2 moveDirection;
 
     void Start()
+    {
+        // Вместо прямого вызова в Start — чуть откладываем,
+        // чтобы все Start() в сцене успели отработать
+        Invoke(nameof(ShowControlTutorial), 0.1f);
+
+        // Остальной код можно оставить как есть
+        bool isMobile = YG2.envir.deviceType == "mobile" || YG2.envir.deviceType == "tablet";
+
+        buttonFire.SetActive(isMobile);
+        if (joystick != null) joystick.gameObject.SetActive(isMobile);
+    }
+
+    // Этот метод будет вызван через 0.5 секунды
+    void ShowControlTutorial()
     {
         bool isMobile = YG2.envir.deviceType == "mobile" || YG2.envir.deviceType == "tablet";
 
         if (isMobile)
         {
+            Debug.Log("[TestMove] Показываем мобильный туториал");
             ScoreManager.SendTutorialApp();
         }
         else
         {
+            Debug.Log("[TestMove] Показываем веб/ПК туториал");
             ScoreManager.SendTutorialWeb();
         }
-        buttonFire.SetActive(isMobile);
-        if (joystick != null) joystick.gameObject.SetActive(isMobile);
     }
 
     void Update()

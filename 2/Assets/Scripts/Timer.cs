@@ -1,138 +1,181 @@
-using System.Security.Cryptography;
-using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 
-
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI timer;
-    public string levelName;
-    public string nextlevelName;
-    public float lifeTime = 60;
-    [SerializeField] public int colorYellow = 0;
-    [SerializeField] public int colorRed = 0;
-    [SerializeField] private GameObject victoryMenu; // интерфейс при 3 жизнях
-    [SerializeField] private GameObject victory3Lives; // интерфейс при 3 жизнях
-    [SerializeField] private GameObject victory2Lives; // интерфейс при 2 жизнях
-    [SerializeField] private GameObject victory1Life;  // интерфейс при 1 жизни
-    [SerializeField] private GameObject loseMenu;  // интерфейс при 0 жизни
-    [SerializeField] AudioSource victory;
-    public Cat catScript;
+    [Header("UI таймера")]
+    [SerializeField] private TextMeshProUGUI timer;   // Текст таймера
+    public float lifeTime = 60f;    // Время на уровень
 
+    [Header("Имена уровней для сохранения прогресса")]
+    [SerializeField] private string levelName;        // Текущее название уровня (для stars)
+    [SerializeField] private string nextlevelName;    // Следующий уровень (для open)
 
-    void Start()
+    [Header("UI экранов победы/поражения")]
+    [SerializeField] private GameObject victoryMenu;   // Общий экран победы
+    [SerializeField] private GameObject victory3Lives; // Экран при 3 жизнях
+    [SerializeField] private GameObject victory2Lives; // Экран при 2 жизнях
+    [SerializeField] private GameObject victory1Life;  // Экран при 1 жизни
+    [SerializeField] private GameObject loseMenu;      // Экран при 0 жизней (если понадобится)
+
+    [Header("Звук победы")]
+    [SerializeField] private AudioSource victory;      // Аудио для победы
+
+    [Header("Ссылка на скрипт кота")]
+    [SerializeField] private Cat catScript;           // Сюда перетаскиваем Cat из инспектора
+
+    private bool isLevelFinished = false;             // Флаг, чтобы не выполнять логику конца уровня много раз
+
+    private void Start()
     {
-        timer.text = lifeTime.ToString();
-        InitializeCatScript();
+        // Проверяем, что ссылка на текст таймера назначена
+        if (timer == null)
+        {
+            Debug.LogError("[Timer] Поле 'timer' не назначено в инспекторе!");
+        }
+        else
+        {
+            // Показываем стартовое время в UI
+            timer.text = lifeTime.ToString("0");
+        }
+
+        // Проверяем, что назначен Cat
+        if (catScript == null)
+        {
+            Debug.LogError("[Timer] Поле 'catScript' не назначено в инспекторе! Перетащи сюда объект с компонентом Cat.");
+        }
+
+        // Отключаем все UI-плашки победы/поражения в начале
         DeactivateAllVictoryUI();
     }
 
-    private void InitializeCatScript()
-    {
-        PlayerChanger playerChanger = FindObjectOfType<PlayerChanger>();
-        if (playerChanger == null)
-        {
-            Debug.LogError("PlayerChanger не найден в сцене!");
-            return;
-        }
-
-        int selectedSkinId = PlayerPrefs.GetInt("skin", 0);
-        if (selectedSkinId < 0 || selectedSkinId >= playerChanger.skins.Length)
-        {
-            Debug.LogError($"Некорректный индекс скина: {selectedSkinId}");
-            return;
-        }
-
-        GameObject selectedSkin = playerChanger.skins[selectedSkinId];
-        if (selectedSkin == null)
-        {
-            Debug.LogError("Выбранный скин не назначен в инспекторе!");
-            return;
-        }
-
-        catScript = selectedSkin.GetComponentInChildren<Cat>(true); // Ищем даже в неактивных объектах
-        if (catScript == null)
-        {
-            Debug.LogError("Cat компонент не найден в выбранном скине!");
-            return;
-        }
-
-        Debug.Log($"Успешно найден Cat в скине {selectedSkin.name}");
-    }
-
+    /// <summary>
+    /// Пауза игры (останавливаем время).
+    /// </summary>
     public static void Pause()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
     }
+
+    /// <summary>
+    /// Продолжение игры (возвращаем время).
+    /// </summary>
     public static void Continue()
     {
-        Time.timeScale = 1;
-
-
+        Time.timeScale = 1f;
     }
-    void Update()
+
+    private void Update()
     {
+        // Если уровень уже завершён, ничего не делаем
+        if (isLevelFinished)
+            return;
+
+        // Обновляем таймер
         lifeTime -= Time.deltaTime;
-        timer.text = Mathf.Round(lifeTime).ToString();
-        
-
-        // Изменение цвета таймера
-        if (lifeTime < 27) timer.color = Color.yellow;
-        if (lifeTime < 25) timer.color = Color.green;
-
-        if (lifeTime <= 0)
+        if (timer != null)
         {
-            int lives = catScript.GetLifeCounter();
-            if (catScript == null)
-            {
-                Debug.LogError("Ссылка на Cat потеряна!");
-                return;
-            }
-            Debug.Log($"Показываю меню для {lives} жизней");
-            //DeactivateAllVictoryUI();
-            switch (lives)
-            {
-                case 3:
-                    victory3Lives.SetActive(true);
-                    victory.Play();
-                    PlayerPrefs.SetInt(levelName + "stars", 3);
-                    break;
-                case 2:
-                    victory2Lives.SetActive(true);
-                    victory.Play();
-                    PlayerPrefs.SetInt(levelName + "stars", 2);
-                    break;
-                case 1:
-                    victory1Life.SetActive(true);
-                    victory.Play();
-                    PlayerPrefs.SetInt(levelName + "stars", 1);
-                    break;
-                default:
-                    // Если жизней нет или больше 3, можно показать какой-то дефолтный интерфейс или ничего
-                    Debug.LogWarning("Unexpected life count: " + lives);
-                    break;
-            }
-            HandleLevelCompletion();
+            timer.text = Mathf.Round(lifeTime).ToString();
+        }
+
+        // Изменение цвета таймера (пороги можешь под себя настроить)
+        if (timer != null)
+        {
+            if (lifeTime < 27f) timer.color = Color.yellow;
+            if (lifeTime < 25f) timer.color = Color.green;
+        }
+
+        // Когда время кончилось — считаем жизни и показываем соответствующее меню
+        if (lifeTime <= 0f)
+        {
+            HandleTimeIsOver();
         }
     }
-    private void HandleLevelCompletion()
+
+    /// <summary>
+    /// Обработка ситуации, когда время вышло.
+    /// </summary>
+    private void HandleTimeIsOver()
     {
-        catScript.gameObject.SetActive(false);
-        victoryMenu.SetActive(true);
+        // Чтобы не заходить сюда несколько кадров подряд
+        if (isLevelFinished)
+            return;
+
+        isLevelFinished = true;
+
+        if (catScript == null)
+        {
+            Debug.LogError("[Timer] CatScript == null при завершении уровня! Проверь, назначен ли он в инспекторе.");
+            return;
+        }
 
         int lives = catScript.GetLifeCounter();
-        Debug.Log($"Текущее количество жизней: {lives}");
+        Debug.Log($"[Timer] Показываю меню для {lives} жизней");
 
-        PlayerPrefs.SetFloat(nextlevelName + "open", 1);
-        lifeTime = 0;
+        switch (lives)
+        {
+            case 3:
+                if (victory3Lives != null) victory3Lives.SetActive(true);
+                if (victory != null) victory.Play();
+                PlayerPrefs.SetInt(levelName + "stars", 3);
+                break;
+
+            case 2:
+                if (victory2Lives != null) victory2Lives.SetActive(true);
+                if (victory != null) victory.Play();
+                PlayerPrefs.SetInt(levelName + "stars", 2);
+                break;
+
+            case 1:
+                if (victory1Life != null) victory1Life.SetActive(true);
+                if (victory != null) victory.Play();
+                PlayerPrefs.SetInt(levelName + "stars", 1);
+                break;
+
+            default:
+                Debug.LogWarning("[Timer] Unexpected life count: " + lives);
+                // Пример: если хочешь показывать loseMenu при 0 жизней:
+                // if (lives <= 0 && loseMenu != null) loseMenu.SetActive(true);
+                break;
+        }
+
+        HandleLevelCompletion();
     }
 
+    /// <summary>
+    /// Обработка завершения уровня: выключаем персонажа, показываем общий экран победы и открываем следующий уровень.
+    /// </summary>
+    private void HandleLevelCompletion()
+    {
+        if (catScript != null)
+        {
+            catScript.gameObject.SetActive(false);
+        }
+
+        if (victoryMenu != null)
+        {
+            victoryMenu.SetActive(true);
+        }
+
+        int lives = catScript != null ? catScript.GetLifeCounter() : 0;
+        Debug.Log($"[Timer] Текущее количество жизней: {lives}");
+
+        // Открываем следующий уровень (флаг в PlayerPrefs)
+        PlayerPrefs.SetFloat(nextlevelName + "open", 1f);
+
+        // Фиксируем время на нуле
+        lifeTime = 0f;
+    }
+
+    /// <summary>
+    /// Выключаем все UI элементы победы/поражения в начале уровня.
+    /// </summary>
     private void DeactivateAllVictoryUI()
     {
-        victoryMenu.SetActive(false);
-        victory3Lives.SetActive(false);
-        victory2Lives.SetActive(false);
-        victory1Life.SetActive(false);
+        if (victoryMenu != null) victoryMenu.SetActive(false);
+        if (victory3Lives != null) victory3Lives.SetActive(false);
+        if (victory2Lives != null) victory2Lives.SetActive(false);
+        if (victory1Life != null) victory1Life.SetActive(false);
+        if (loseMenu != null) loseMenu.SetActive(false);
     }
 }

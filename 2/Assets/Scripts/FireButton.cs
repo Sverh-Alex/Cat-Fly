@@ -1,16 +1,15 @@
 using UnityEngine;
 
-
 public class FireButton : MonoBehaviour
 {
-    private Cat catScript;
+    // Сюда в инспекторе перетаскиваешь компонент Cat (или объект, Unity сама подставит компонент)
+    [SerializeField] private Cat catScript;
 
-    void Start()
+    private void Start()
     {
-        catScript = FindObjectOfType<Cat>();
         if (catScript == null)
         {
-            Debug.LogError("Cat script not found in scene!");
+            Debug.LogError("[FireButton] Поле 'catScript' не назначено в инспекторе!");
         }
     }
 
@@ -19,6 +18,10 @@ public class FireButton : MonoBehaviour
         if (catScript != null)
         {
             catScript.fire();
+        }
+        else
+        {
+            Debug.LogWarning("[FireButton] Нельзя вызвать fire(), catScript == null");
         }
     }
 }
