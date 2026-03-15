@@ -199,6 +199,10 @@ MonoBehaviour:
     m_Localized: Deutsch
     m_Metadata:
       m_Items: []
+  - m_Id: 72841827672121344
+    m_Localized: "TER ESPERAN\xC7A"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
