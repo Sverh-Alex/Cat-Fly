@@ -203,6 +203,18 @@ MonoBehaviour:
     m_Localized: "TER ESPERAN\xC7A"
     m_Metadata:
       m_Items: []
+  - m_Id: 84446413780410368
+    m_Localized: "evite obst\xE1culos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84446560979509248
+    m_Localized: "PEIXE para prote\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84446724402176000
+    m_Localized: Colete moedas
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

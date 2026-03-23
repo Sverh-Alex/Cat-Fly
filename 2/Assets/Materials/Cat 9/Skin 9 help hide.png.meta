@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c67cc67f8a320f45a24d90c5c02fc96
+guid: da1b411e90af06d4c90db3e9cc477cad
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -129,10 +129,10 @@ TextureImporter:
       name: Skin 9 help hide_0
       rect:
         serializedVersion: 2
-        x: 21
+        x: 11
         y: 11
-        width: 353
-        height: 499
+        width: 326
+        height: 511
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

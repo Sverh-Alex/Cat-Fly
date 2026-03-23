@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c6107d5dfd43d384ab821bd56f3e7dcc
+guid: e9f0bb59b24989046b4d54253e74f088
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5367656929561447278
-    second: Cat 2_0
+      213: 7053380687650982841
+    second: Cat 3_0
+  - first:
+      213: 2563826961564354426
+    second: Cat 3_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat 2_0
+      name: Cat 3_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 339
-        height: 308
+        x: 0
+        y: 37
+        width: 423
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6b8ca2d98fbd7a40800000000000000
-      internalID: 5367656929561447278
+      spriteID: 9bb89017d54a2e160800000000000000
+      internalID: 7053380687650982841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat 3_1
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 15
+        width: 39
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a77cc9da90b849320800000000000000
+      internalID: 2563826961564354426
       vertices: []
       indices: 
       edges: []
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cat 2_0: 5367656929561447278
+      Cat 3_0: 7053380687650982841
+      Cat 3_1: 2563826961564354426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

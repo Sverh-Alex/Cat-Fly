@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e1d8d5bf6c9785a4a96ba487b735ea65
+guid: 5e52c4cdd8c38794fb58a4c2a22827a6
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -135,10 +135,10 @@ TextureImporter:
       name: Skin 7_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 55
-        width: 381
-        height: 433
+        x: 6
+        y: 106
+        width: 261
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,10 +157,10 @@ TextureImporter:
       name: Skin 7_1
       rect:
         serializedVersion: 2
-        x: 449
-        y: 84
-        width: 410
-        height: 383
+        x: 283
+        y: 85
+        width: 255
+        height: 241
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,10 +179,10 @@ TextureImporter:
       name: Skin 7_2
       rect:
         serializedVersion: 2
-        x: 898
-        y: 83
-        width: 404
-        height: 401
+        x: 548
+        y: 16
+        width: 188
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

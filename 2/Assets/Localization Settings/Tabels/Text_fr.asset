@@ -203,6 +203,18 @@ MonoBehaviour:
     m_Localized: ESPOIR
     m_Metadata:
       m_Items: []
+  - m_Id: 84446413780410368
+    m_Localized: "\xE9viter les obstacles"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84446560979509248
+    m_Localized: "POISSON pour se prot\xE9ger"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84446724402176000
+    m_Localized: "Collecter des pi\xE8ces"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

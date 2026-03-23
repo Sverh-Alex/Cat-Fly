@@ -203,6 +203,18 @@ MonoBehaviour:
     m_Localized: HOPE
     m_Metadata:
       m_Items: []
+  - m_Id: 84446413780410368
+    m_Localized: avoid obstacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84446560979509248
+    m_Localized: FISH for protection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84446724402176000
+    m_Localized: Collect coins
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

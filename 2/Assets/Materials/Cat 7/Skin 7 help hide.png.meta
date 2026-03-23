@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 98786fd974075f54fb8534950591d971
+guid: bcfa70fdb9b05bb4db190aaadae63305
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4039607469307213595
-    second: Skin 7 help hide_0
+      213: -2918345375212042797
+    second: skin 7 help hide_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skin 7 help hide_0
+      name: skin 7 help hide_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 11
-        width: 381
-        height: 433
+        x: 17
+        y: 13
+        width: 310
+        height: 504
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e8cdefc86e60f7c0800000000000000
-      internalID: -4039607469307213595
+      spriteID: 3d50592e754ff77d0800000000000000
+      internalID: -2918345375212042797
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Skin 7 help hide_0: -4039607469307213595
+      skin 7 help hide_0: -2918345375212042797
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

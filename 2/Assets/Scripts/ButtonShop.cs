@@ -13,6 +13,7 @@ public class ButtonShop : MonoBehaviour
     public TextMeshProUGUI coinsText; // Текст, отображающий количество монет игрока
     private Color normalColor = Color.white;
     private Color notEnoughColor = Color.red;
+    [SerializeField] GameObject _psExpl;
 
 
 
@@ -40,9 +41,13 @@ public class ButtonShop : MonoBehaviour
         {
             if (block != null)
                 block.SetActive(false);
+                
 
             if (objectPriceText != null)
                 objectPriceText.gameObject.SetActive(false);
+            _psExpl.SetActive(true); 
+            _psExpl.GetComponent<ParticleSystem>().Play();
+            
         }
     }
     public void OnBuy()
@@ -58,9 +63,11 @@ public class ButtonShop : MonoBehaviour
                 coinsText.text = PlayerPrefs.GetInt("coins").ToString();
                 AccessUpdate();
                 ScoreManager.SendCoinsChanged(); // Оповещаем всех подписчиков о изменении монет
+                
             }
         }
     }
+
     private void ChangeColor()
     {
         int coins = PlayerPrefs.GetInt("coins");

@@ -203,6 +203,18 @@ MonoBehaviour:
     m_Localized: UMUT
     m_Metadata:
       m_Items: []
+  - m_Id: 84446413780410368
+    m_Localized: "engellerden ka\xE7\u0131n\u0131n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84446560979509248
+    m_Localized: "Koruma i\xE7in BALIK"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84446724402176000
+    m_Localized: Para topla
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
