@@ -1280,7 +1280,6 @@ GameObject:
   - component: {fileID: 1140486664}
   - component: {fileID: 1140486663}
   - component: {fileID: 1140486662}
-  - component: {fileID: 1140486665}
   m_Layer: 5
   m_Name: "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C"
   m_TagString: Untagged
@@ -1352,9 +1351,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1140486665}
-        m_TargetAssemblyTypeName: ButtonChangeLevel, Assembly-CSharp
-        m_MethodName: ChangeScene
+      - m_Target: {fileID: 1577278533}
+        m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
+        m_MethodName: LVL_0_1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1402,19 +1401,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140486660}
   m_CullTransparentMesh: 1
---- !u!114 &1140486665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140486660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612177215a71288498492a97dc3bbb83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonChangeLevel
-  scene: LVL_0_1
 --- !u!1 &1217021956
 GameObject:
   m_ObjectHideFlags: 0

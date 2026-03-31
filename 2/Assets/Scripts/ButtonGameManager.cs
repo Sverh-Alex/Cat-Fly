@@ -78,6 +78,11 @@ public class ButtonGameManager : MonoBehaviour
         SceneManager.LoadScene("LVL_0");
         EffectClick();
     }
+    public void LVL_0_1()
+    {
+        SceneManager.LoadScene("LVL_0_1");
+        EffectClick();
+    }
     public void LoadNextLevel()
     {
         // Если вы ставили паузу, обязательно сбросьте Time.timeScale

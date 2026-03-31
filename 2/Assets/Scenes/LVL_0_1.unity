@@ -28494,8 +28494,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 902246020}
   lifeTime: 2
-  levelName: LVL_1
-  nextlevelName: LVL_2
+  levelName: LVL_0_1
+  nextlevelName: LVL_1
   victoryMenu: {fileID: 1608029898}
   victory3Lives: {fileID: 1633288250}
   victory2Lives: {fileID: 1452666821}

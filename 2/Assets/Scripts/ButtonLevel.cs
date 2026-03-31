@@ -1,95 +1,72 @@
-using UnityEngine;
-using UnityEngine.UI;
+п»їusing UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonLevel : MonoBehaviour
 {
-    public string levelName;
-    public string nextlevelName;
-    public int levelStars;
-    [SerializeField] public GameObject block; // Объект, который блокирует выбор
-    [SerializeField] public GameObject stars3; // Объект, который показывет 3 звезды
-    [SerializeField] public GameObject stars2; // Объект, который показывет 2 звезды
-    [SerializeField] public GameObject stars1; // Объект, который показывет 1 звезду
-    public float isLevelOpen; // флаг открытия уровня
-    [SerializeField] private Button myButton;
+    [Header("РЎС†РµРЅР° СЌС‚РѕРіРѕ СѓСЂРѕРІРЅСЏ")]
+    [SerializeField] private string scene;      // РРјСЏ СЃС†РµРЅС‹ (LVL_1, LVL_2, ...)
 
-    void Start()
+    [Header("РРјРµРЅР° РґР»СЏ PlayerPrefs")]
+    [SerializeField] private string levelName;      // РўРµРєСѓС‰РµРµ РёРјСЏ СѓСЂРѕРІРЅСЏ (РґР»СЏ stars Рё open), РЅР°РїСЂРёРјРµСЂ "LVL_1"
+    [SerializeField] private string nextLevelName;  // РРјСЏ СЃР»РµРґСѓСЋС‰РµРіРѕ СѓСЂРѕРІРЅСЏ (РґР»СЏ open), РЅР°РїСЂРёРјРµСЂ "LVL_2"
+
+    [Header("Р—РІРµР·РґС‹ СЌС‚РѕРіРѕ СѓСЂРѕРІРЅСЏ")]
+    [SerializeField] private GameObject stars0;
+    [SerializeField] private GameObject stars1;
+    [SerializeField] private GameObject stars2;
+    [SerializeField] private GameObject stars3;
+
+    [Header("Block СЃР»РµРґСѓСЋС‰РµРіРѕ СѓСЂРѕРІРЅСЏ")]
+    [SerializeField] private GameObject nextLevelBlock; // РћР±СЉРµРєС‚ block РЅР° РєРЅРѕРїРєРµ СЃР»РµРґСѓСЋС‰РµРіРѕ СѓСЂРѕРІРЅСЏ
+
+    private const string OPEN_SUFFIX = "open";
+    private const string STARS_SUFFIX = "stars";
+
+    private void Start()
     {
-        //PlayerPrefs.DeleteKey(levelName + "stars"); // для теста сбрасываем сохранение звезд
-        //PlayerPrefs.DeleteKey(levelName + "open"); // для теста сбрасываем сохранение открытого уровня
-        //PlayerPrefs.SetFloat(nextlevelName + "open", 0); // для теста закрываю блок следующего уровня
-        //PlayerPrefs.GetFloat(nextlevelName + "open"); // для теста закрываю блок следующего уровня
+        //PlayerPrefs.DeleteKey(levelName + "stars"); // РґР»СЏ С‚РµСЃС‚Р° СЃР±СЂР°СЃС‹РІР°РµРј СЃРѕС…СЂР°РЅРµРЅРёРµ Р·РІРµР·Рґ
+        //PlayerPrefs.DeleteKey(levelName + "open"); // РґР»СЏ С‚РµСЃС‚Р° СЃР±СЂР°СЃС‹РІР°РµРј СЃРѕС…СЂР°РЅРµРЅРёРµ РѕС‚РєСЂС‹С‚РѕРіРѕ СѓСЂРѕРІРЅСЏ
+        //PlayerPrefs.SetFloat(nextlevelName + "open", 0); // РґР»СЏ С‚РµСЃС‚Р° Р·Р°РєСЂС‹РІР°СЋ Р±Р»РѕРє СЃР»РµРґСѓСЋС‰РµРіРѕ СѓСЂРѕРІРЅСЏ
+        //PlayerPrefs.GetFloat(nextlevelName + "open"); // РґР»СЏ С‚РµСЃС‚Р° Р·Р°РєСЂС‹РІР°СЋ Р±Р»РѕРє СЃР»РµРґСѓСЋС‰РµРіРѕ СѓСЂРѕРІРЅСЏ
 
-        PlayerPrefs.GetFloat(levelName);
-        PlayerPrefs.GetInt(levelName + "stars");
-        LevelUpdate();
-        StarsUpdate();
-    }
-    
-    void LevelUpdate()
-    {
-        if (block)
-        {
-            block.SetActive(true);
-            Debug.Log(levelName + " включил Block при старте");
-            myButton.interactable = false;
-        }
-
-        isLevelOpen = UnityEngine.PlayerPrefs.GetFloat(levelName + "open");
-        if(isLevelOpen == 1)
-        {
-            if (block)
-            {
-                block.SetActive(false);
-                Debug.Log("выключил Block " + levelName + " 1");
-                myButton.interactable = true;
-            }
-            
-        }
-        if (isLevelOpen == 0)
-        {
-            if (block)
-            {
-                block.SetActive(true);
-                Debug.Log("включил Block " + levelName + " 0");
-                myButton.interactable = false;
-            }
-
-        }
-
-    }
-    void StarsUpdate()
-    {
-        stars1.SetActive(false);
-        stars2.SetActive(false);
-        stars3.SetActive(false);
-
-        levelStars = UnityEngine.PlayerPrefs.GetInt(levelName + "stars");
-        if (levelStars == 3)
-        {
-            stars3.SetActive(true);
-            Debug.Log(levelName + " 3 звезды");
-        }
-        if (levelStars == 2)
-        {
-            stars2.SetActive(true);
-            Debug.Log(levelName + " 2 звезды");
-        }
-        if (levelStars == 1)
-        {
-            stars1.SetActive(true);
-            Debug.Log(levelName + " 1 звезда");
-        }
-        if (levelStars == 0)
-        {
-            stars1.SetActive(false);
-            stars2.SetActive(false);
-            stars3.SetActive(false);
-        }
-    }
-    public void Update()
-    {
-
+        UpdateStars();
+        UpdateNextLevelBlock();
     }
 
+    // РџРѕРєР°Р·С‹РІР°РµРј РїСЂР°РІРёР»СЊРЅС‹Р№ РѕР±СЉРµРєС‚ (0/1/2/3 Р·РІРµР·РґС‹) РґР»СЏ Р­РўРћР“Рћ СѓСЂРѕРІРЅСЏ
+    private void UpdateStars()
+    {
+        int stars = PlayerPrefs.GetInt(levelName + STARS_SUFFIX, 0);
+
+        if (stars0 != null) stars0.SetActive(stars == 0);
+        if (stars1 != null) stars1.SetActive(stars == 1);
+        if (stars2 != null) stars2.SetActive(stars == 2);
+        if (stars3 != null) stars3.SetActive(stars == 3);
+    }
+
+    // РЈРїСЂР°РІР»СЏРµРј Р±Р»РѕРєРѕРј СЃР»РµРґСѓСЋС‰РµРіРѕ СѓСЂРѕРІРЅСЏ РїРѕ С„Р»Р°РіСѓ open СЌС‚РѕРіРѕ СЃР»РµРґСѓСЋС‰РµРіРѕ СѓСЂРѕРІРЅСЏ
+    private void UpdateNextLevelBlock()
+    {
+        if (nextLevelBlock == null || string.IsNullOrEmpty(nextLevelName))
+            return;
+
+        // РЎРјРѕС‚СЂРёРј, РѕС‚РєСЂС‹С‚ Р»Рё СЃР»РµРґСѓСЋС‰РёР№ СѓСЂРѕРІРµРЅСЊ
+        float openFlag = PlayerPrefs.GetFloat(nextLevelName + OPEN_SUFFIX, 0f);
+        bool isNextOpen = openFlag == 1f;
+
+        // Р•СЃР»Рё СЃР»РµРґСѓСЋС‰РёР№ РѕС‚РєСЂС‹С‚ вЂ” СѓР±РёСЂР°РµРј block; РµСЃР»Рё РЅРµС‚ вЂ” РІРєР»СЋС‡Р°РµРј
+        nextLevelBlock.SetActive(!isNextOpen);
+    }
+
+    // Р—Р°РіСЂСѓР·РєР° СЃС†РµРЅС‹ СЌС‚РѕРіРѕ СѓСЂРѕРІРЅСЏ
+    public void ChangeScene()
+    {
+        if (string.IsNullOrEmpty(scene))
+        {
+            Debug.LogError($"[ButtonLevel] РќР° {name} РЅРµ Р·Р°РґР°РЅРѕ РёРјСЏ СЃС†РµРЅС‹");
+            return;
+        }
+
+        SceneManager.LoadScene(scene);
+    }
 }
