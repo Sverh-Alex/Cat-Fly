@@ -218,6 +218,6 @@ public class ScoreManager : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log($"Current coin text: {score.text}");
+        ///Debug.Log($"Current coin text: {score.text}");
     }
 }
