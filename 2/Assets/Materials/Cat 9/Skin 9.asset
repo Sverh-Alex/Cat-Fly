@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22006e36d299c24b9dcde22a5f6582b, type: 3}
   m_Name: Skin 9
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  skinSprite: {fileID: 7602957386642069902, guid: c73d9335b99b41d4787c6e3475239170, type: 3}
+  skinSprite: {fileID: -8785322876162373707, guid: 75d1e12e7db059948b58c8c67ac640e9, type: 3}
   animatorController: {fileID: 9100000, guid: 2a1fa994a0a6bdc409f3bb49a310ee8a, type: 2}
   colliderOffset: {x: 0.2817607, y: -0.05582261}
   colliderSize: {x: 2.743521, y: 1.8}
