@@ -42501,7 +42501,7 @@ PrefabInstance:
     - target: {fileID: 4100863993601582783, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e133fcd3735109d459aa9b9e3bdbab6e, type: 2}
+      objectReference: {fileID: 9100000, guid: 556288c6eb25b6449845775a4e186bdf, type: 2}
     - target: {fileID: 4100863993601582783, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
       propertyPath: m_UpdateMode
       value: 2
@@ -42514,6 +42514,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: de5a26526a82df844b55655d717c9a4d, type: 2}
+    - target: {fileID: 6246343506238470583, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
+      propertyPath: m_Size.x
+      value: 2.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246343506238470583, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
+      propertyPath: m_Size.y
+      value: 2.56
+      objectReference: {fileID: 0}
     - target: {fileID: 6246343506238470583, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
       propertyPath: m_Enabled
       value: 1
