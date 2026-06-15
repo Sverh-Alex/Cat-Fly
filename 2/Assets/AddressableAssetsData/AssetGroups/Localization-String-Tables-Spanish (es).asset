@@ -18,8 +18,7 @@ MonoBehaviour:
   - m_GUID: 489824ad15736a445aac375f8fd91c04
     m_Address: Text_es
     m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-es
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: cbe059bbff196e843ba1c717aa50e85f, type: 2}
