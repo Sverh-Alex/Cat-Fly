@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Atlas
+  m_Name: New Sprite Atlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -28,7 +28,7 @@ SpriteAtlas:
       m_TextureFormat: -1
       m_TextureCompression: 1
       m_CompressionQuality: 50
-      m_CrunchedCompression: 0
+      m_CrunchedCompression: 1
       m_AllowsAlphaSplitting: 0
       m_Overridden: 0
       m_IgnorePlatformSupport: 0
@@ -39,39 +39,33 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 0
-      enableTightPacking: 0
+      enableRotation: 1
+      enableTightPacking: 1
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: c6107d5dfd43d384ab821bd56f3e7dcc, type: 3}
-    - {fileID: 2800000, guid: e9acc9c6181d2244faefcde1e131daf9, type: 3}
-    - {fileID: 2800000, guid: ce1308ba979297a428bba0c5f3667af3, type: 3}
-    - {fileID: 2800000, guid: f297bddeec815b84fbf3717c728c00f3, type: 3}
-    - {fileID: 2800000, guid: dcc8232801d28c542a728090098f639f, type: 3}
+    - {fileID: 2800000, guid: 13c80a44c3af3d94788e1737e4d94b4f, type: 3}
+    - {fileID: 2800000, guid: 437fa4d104b56324ab2bb9ae3d678d4a, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
-    - e9acc9c6181d2244faefcde1e131daf9: 2254280785044541566
-    - dcc8232801d28c542a728090098f639f: 5300146867630408138
-    - ce1308ba979297a428bba0c5f3667af3: -404533146751619968
-    - c6107d5dfd43d384ab821bd56f3e7dcc: 5367656929561447278
-    - f297bddeec815b84fbf3717c728c00f3: -3110309824221560274
+    - 437fa4d104b56324ab2bb9ae3d678d4a: 9103751976068351046
+    - 13c80a44c3af3d94788e1737e4d94b4f: -1960113693088174183
+    - 13c80a44c3af3d94788e1737e4d94b4f: -2112169329757512202
+    - 13c80a44c3af3d94788e1737e4d94b4f: 1319962532786333343
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 2254280785044541566, guid: e9acc9c6181d2244faefcde1e131daf9, type: 3}
-  - {fileID: 5300146867630408138, guid: dcc8232801d28c542a728090098f639f, type: 3}
-  - {fileID: -404533146751619968, guid: ce1308ba979297a428bba0c5f3667af3, type: 3}
-  - {fileID: 5367656929561447278, guid: c6107d5dfd43d384ab821bd56f3e7dcc, type: 3}
-  - {fileID: -3110309824221560274, guid: f297bddeec815b84fbf3717c728c00f3, type: 3}
+  - {fileID: 9103751976068351046, guid: 437fa4d104b56324ab2bb9ae3d678d4a, type: 3}
+  - {fileID: -1960113693088174183, guid: 13c80a44c3af3d94788e1737e4d94b4f, type: 3}
+  - {fileID: -2112169329757512202, guid: 13c80a44c3af3d94788e1737e4d94b4f, type: 3}
+  - {fileID: 1319962532786333343, guid: 13c80a44c3af3d94788e1737e4d94b4f, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Cat 1 Cry_0
-  - Victory 1_0
-  - Cat 1 Help_0
-  - Cat 2_0
-  - Cat 2 Help hide22222_0
+  - Skin 4 help hide_0
+  - Skin 4_1
+  - Skin 4_0
+  - Skin 4_2
   m_RenderDataMap: {}
-  m_Tag: Atlas
+  m_Tag: New Sprite Atlas
   m_IsVariant: 0

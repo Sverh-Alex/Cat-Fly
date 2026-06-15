@@ -35,11 +35,10 @@ SpriteAtlas:
     - {fileID: 2800000, guid: d7cb8b7eea551df459fa9468d70ea4b9, type: 3}
     - {fileID: 2800000, guid: ae7d604b0250c0940bbd59e94560fa1e, type: 3}
     - {fileID: 2800000, guid: 4a94ab955709828418ca09c9b0035470, type: 3}
-    - {fileID: 2800000, guid: 0e900a0dc31172f4b890babfba63ed1d, type: 3}
+    - {fileID: 2800000, guid: 14d8410cb7c2dc94c96b0757958f1daf, type: 3}
     - {fileID: 2800000, guid: 6b47772247c6b7144bd31fca6043f12a, type: 3}
     - {fileID: 2800000, guid: a7c9f7604267e2b40911241827f52301, type: 3}
     - {fileID: 2800000, guid: b18865b2f01676049bb4d203de80e9a6, type: 3}
-    - {fileID: 2800000, guid: 14d8410cb7c2dc94c96b0757958f1daf, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -50,7 +49,6 @@ SpriteAtlas:
     - 4a94ab955709828418ca09c9b0035470: 1585703577960698185
     - ae7d604b0250c0940bbd59e94560fa1e: -6383518560574864326
     - 14d8410cb7c2dc94c96b0757958f1daf: -8916234547515129206
-    - 0e900a0dc31172f4b890babfba63ed1d: -8965141213539535727
     - d7cb8b7eea551df459fa9468d70ea4b9: 5605300535748831662
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -60,7 +58,6 @@ SpriteAtlas:
   - {fileID: 1585703577960698185, guid: 4a94ab955709828418ca09c9b0035470, type: 3}
   - {fileID: -6383518560574864326, guid: ae7d604b0250c0940bbd59e94560fa1e, type: 3}
   - {fileID: -8916234547515129206, guid: 14d8410cb7c2dc94c96b0757958f1daf, type: 3}
-  - {fileID: -8965141213539535727, guid: 0e900a0dc31172f4b890babfba63ed1d, type: 3}
   - {fileID: 5605300535748831662, guid: d7cb8b7eea551df459fa9468d70ea4b9, type: 3}
   m_PackedSpriteNamesToIndex:
   - Stars_2
@@ -69,7 +66,6 @@ SpriteAtlas:
   - Level_reward_light_0
   - Group 1000007273 (2)_0
   - Menu_levels_base_02_0
-  - 387013869015810052_0
   - Group 1000007273_0
   m_RenderDataMap: {}
   m_Tag: Atlas
