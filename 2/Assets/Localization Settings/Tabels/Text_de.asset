@@ -215,6 +215,26 @@ MonoBehaviour:
     m_Localized: "Sammle M\xFCnzen"
     m_Metadata:
       m_Items: []
+  - m_Id: 84446695138516992
+    m_Localized: "Sammle M\xFCnzen und befreie die Katzen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412209167278080
+    m_Localized: "Fische fangen und Hindernisse \xFCberwinden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412487841030144
+    m_Localized: 'Hindernissen ausweichen oder sie durchbrechen
+
+      (sie unterscheiden
+      sich auf den Ebenen)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412783979864064
+    m_Localized: Ich habe Angst und bin einsam. Bitte helfen Sie mir, eine freundliche
+      und liebevolle Familie zu finden ...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

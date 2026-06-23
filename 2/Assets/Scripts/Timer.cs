@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class Timer : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class Timer : MonoBehaviour
     public float lifeTime = 60f;    // Время на уровень
 
     [Header("Имена уровней для сохранения прогресса")]
-    [SerializeField] private string levelName;        // Текущее название уровня (для stars)
-    [SerializeField] private string nextlevelName;    // Следующий уровень (для open)
+    [SerializeField] private AssetReference levelName;        // Текущее название уровня (для stars)
+    [SerializeField] private AssetReference nextlevelName;    // Следующий уровень (для open)
 
     [Header("UI экранов победы/поражения")]
     [SerializeField] private GameObject victoryMenu;   // Общий экран победы

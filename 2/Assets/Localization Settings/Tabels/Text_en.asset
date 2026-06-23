@@ -215,6 +215,24 @@ MonoBehaviour:
     m_Localized: Collect coins
     m_Metadata:
       m_Items: []
+  - m_Id: 84446695138516992
+    m_Localized: collect coins and free the cats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412209167278080
+    m_Localized: catch fish and break obstacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412487841030144
+    m_Localized: 'dodge or break obstacles
+
+      (they are different at levels)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412783979864064
+    m_Localized: I'm scared and lonely, help me find a kind and loving family, please...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

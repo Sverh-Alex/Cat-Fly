@@ -152,7 +152,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 71064930374115328
-    m_Key: Continue
+    m_Key: CONTIN
     m_Metadata:
       m_Items: []
   - m_Id: 45277871348150272
@@ -212,11 +212,27 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 84446695138516992
-    m_Key: New Entry
+    m_Key: collect coins and
     m_Metadata:
       m_Items: []
   - m_Id: 84446724402176000
     m_Key: Collect coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 115586331458248704
+    m_Key: New Entry 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412209167278080
+    m_Key: catch fish and
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412487841030144
+    m_Key: dodge or break
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412783979864064
+    m_Key: I'm scared and lonely
     m_Metadata:
       m_Items: []
   m_Metadata:

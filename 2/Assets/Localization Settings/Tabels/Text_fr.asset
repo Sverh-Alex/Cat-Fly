@@ -215,6 +215,24 @@ MonoBehaviour:
     m_Localized: "Collecter des pi\xE8ces"
     m_Metadata:
       m_Items: []
+  - m_Id: 84446695138516992
+    m_Localized: "collectez des pi\xE8ces et lib\xE9rez les chats"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412209167278080
+    m_Localized: attraper du poisson et briser les obstacles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412487841030144
+    m_Localized: "\xE9viter ou briser les obstacles\n(ils sont diff\xE9rents \xE0
+      niveaux)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412783979864064
+    m_Localized: "J'ai peur et je me sens seule, aide-moi \xE0 trouver une famille
+      gentille et aimante, s'il te pla\xEEt..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -215,6 +215,23 @@ MonoBehaviour:
     m_Localized: Recoger monedas
     m_Metadata:
       m_Items: []
+  - m_Id: 84446695138516992
+    m_Localized: recoge monedas y libera a los gatos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412209167278080
+    m_Localized: "pescar y romper obst\xE1culos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412487841030144
+    m_Localized: "esquivar o romper obst\xE1culos\n(son diferentes en niveles)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412783979864064
+    m_Localized: "Estoy asustado y solo, ay\xFAdame a encontrar una familia amable
+      y amorosa, por favor..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

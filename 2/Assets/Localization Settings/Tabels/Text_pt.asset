@@ -215,6 +215,23 @@ MonoBehaviour:
     m_Localized: Colete moedas
     m_Metadata:
       m_Items: []
+  - m_Id: 84446695138516992
+    m_Localized: colete moedas e liberte os gatos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412209167278080
+    m_Localized: "pegar peixes e quebrar obst\xE1culos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412487841030144
+    m_Localized: "desviar ou quebrar obst\xE1culos\n(eles s\xE3o diferentes em n\xEDveis)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 117412783979864064
+    m_Localized: "Estou com medo e sozinho, me ajude a encontrar uma fam\xEDlia gentil
+      e amorosa, por favor..."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
