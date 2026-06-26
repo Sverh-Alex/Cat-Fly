@@ -7,7 +7,7 @@ public class Rainbow : MonoBehaviour
     private Vector3 moveVector; // 
     private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
     [SerializeField] private GameObject effectDestroy; // эффект при клике
-    //[SerializeField] private AudioClip explClip;
+    [SerializeField] private AudioSource explSource; // это child AudioSource внутри префаба
 
 
     void Start()
@@ -25,10 +25,15 @@ public class Rainbow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-               
-        Instantiate(effectDestroy, collision.transform.position, Quaternion.identity); // содает префаб взрыва в месте соприкосновения
+        if (explSource != null)
+        {
+            explSource.transform.SetParent(null);
+            explSource.Play();
+            Destroy(explSource.gameObject, 2f);
+        }
+
+        Instantiate(effectDestroy, collision.transform.position, Quaternion.identity);
         Destroy(gameObject);
-        
     }
 
     void Update()
