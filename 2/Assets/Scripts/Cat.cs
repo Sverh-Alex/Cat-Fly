@@ -20,6 +20,7 @@ public class Cat : MonoBehaviour
     [SerializeField] AudioSource explosionSound;
     [SerializeField] AudioSource featherSound;
     [SerializeField] AudioSource woolSound;
+    [SerializeField] AudioSource reau;
     [SerializeField] public float reloadTime = 0.1f;
     public Animator animator;
     private bool canFire = true; // Флаг готовности к выстрелу
@@ -116,6 +117,7 @@ public class Cat : MonoBehaviour
         bulletCounter--; // отнимаем патрон 
         bulletCounterText.text = bulletCounter.ToString(); // обнавляем текст на экране 
         canFire = false;
+        reau.Play();
         StartCoroutine(Reload());
         return;
     }

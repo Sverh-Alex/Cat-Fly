@@ -9,6 +9,7 @@ public class Feather : MonoBehaviour
     private float randomSpeed;
     private GameObject scoreManager;
     [SerializeField] private float scaleSize = 4; // коэффициент регулируем размер монеток
+    [SerializeField] private AudioClip explClip;
 
     void Start()
     {
@@ -26,7 +27,9 @@ public class Feather : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("rainbow"))
         {
+            AudioSource.PlayClipAtPoint(explClip, transform.position); // создаёт временный AudioSource и не мешает Destroy
             Destroy(gameObject);
+
         }
     }
         // Update is called once per frame

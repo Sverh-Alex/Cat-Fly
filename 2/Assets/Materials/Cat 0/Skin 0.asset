@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
   skinSprite: {fileID: -7642986446173420197, guid: bb0a97e87ac13974587309482347b8d3, type: 3}
   animatorController: {fileID: 9100000, guid: 556288c6eb25b6449845775a4e186bdf, type: 2}
-  colliderOffset: {x: 0.003029108, y: 0.00000005960464}
+  colliderOffset: {x: -1.51, y: 0.00000005960464}
   colliderSize: {x: 2.186059, y: 1.92}

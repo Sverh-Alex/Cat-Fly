@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ButtonShop : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ButtonShop : MonoBehaviour
     public int access;
     public int select;
     public GameObject block; // Объект, который блокирует покупку
+    [SerializeField] AudioSource unlock;
     public TextMeshProUGUI objectPriceText; // Текст, отображающий цену товара
     public TextMeshProUGUI coinsText; // Текст, отображающий количество монет игрока
     private Color normalColor = Color.white;
@@ -41,7 +43,9 @@ public class ButtonShop : MonoBehaviour
         {
             if (block != null)
                 block.SetActive(false);
-                
+                unlock.Play();
+
+
 
             if (objectPriceText != null)
                 objectPriceText.gameObject.SetActive(false);

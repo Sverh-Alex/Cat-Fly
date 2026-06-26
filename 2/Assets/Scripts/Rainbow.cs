@@ -7,6 +7,8 @@ public class Rainbow : MonoBehaviour
     private Vector3 moveVector; // 
     private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
     [SerializeField] private GameObject effectDestroy; // эффект при клике
+    //[SerializeField] private AudioClip explClip;
+
 
     void Start()
     {
@@ -23,8 +25,10 @@ public class Rainbow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+               
         Instantiate(effectDestroy, collision.transform.position, Quaternion.identity); // содает префаб взрыва в месте соприкосновения
         Destroy(gameObject);
+        
     }
 
     void Update()

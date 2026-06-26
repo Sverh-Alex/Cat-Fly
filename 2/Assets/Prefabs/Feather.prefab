@@ -56,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   scaleSize: 5
+  explClip: {fileID: 8300000, guid: c4f37a82c89e19f4f931f2a330b07976, type: 3}
 --- !u!222 &6494754648648323275
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.89, y: 2.08}
+    oldSize: {x: 1.89, y: 2.0855174}
     newSize: {x: 4.25, y: 4.71}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
