@@ -1,29 +1,32 @@
-using System;
+п»їusing System;
 using TMPro;
 using UnityEngine;
 using YG;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 using static UnityEngine.Rendering.DebugUI;
 
+
 public class ScoreManager : MonoBehaviour
 {
-    public static event Action OnCoinsChanged; // Событие, которое уведомляет подписчиков об изменении количества монет
-    public static event Action OnAlive; // Событие, которое уведомляет подписчиков о проолжении игры
-    public static event Action OnTutorWeb; // Событие, о включеной клавиатуре
-    public static event Action OnTutorApp; // Событие, о включенном джостике
+    public static event Action OnCoinsChanged; // РЎРѕР±С‹С‚РёРµ, РєРѕС‚РѕСЂРѕРµ СѓРІРµРґРѕРјР»СЏРµС‚ РїРѕРґРїРёСЃС‡РёРєРѕРІ РѕР± РёР·РјРµРЅРµРЅРёРё РєРѕР»РёС‡РµСЃС‚РІР° РјРѕРЅРµС‚
+    public static event Action OnAlive; // РЎРѕР±С‹С‚РёРµ, РєРѕС‚РѕСЂРѕРµ СѓРІРµРґРѕРјР»СЏРµС‚ РїРѕРґРїРёСЃС‡РёРєРѕРІ Рѕ РїСЂРѕРѕР»Р¶РµРЅРёРё РёРіСЂС‹
+    public static event Action OnTutorWeb; // РЎРѕР±С‹С‚РёРµ, Рѕ РІРєР»СЋС‡РµРЅРѕР№ РєР»Р°РІРёР°С‚СѓСЂРµ
+    public static event Action OnTutorApp; // РЎРѕР±С‹С‚РёРµ, Рѕ РІРєР»СЋС‡РµРЅРЅРѕРј РґР¶РѕСЃС‚РёРєРµ
 
-    [SerializeField] private TextMeshProUGUI score; // UI текст для отображения монет
-    [SerializeField] public int addBonusReg = 0; // бонус за обычное действие
-    [SerializeField] private int addBonusMin = 0; // Сколько монет давать за одну просмотренную рекламу
-    [SerializeField] private int addBonusMax = 0; // Сколько монет давать за одну просмотренную рекламу
-    [SerializeField] private GameObject effectPSClick; // эффект при клике
-    [SerializeField] private GameObject effectPSCoin; // эффект монеток
-    [SerializeField] private GameObject effectPSCoinADS; // эффект монеток для кнопки рекламы
-    [SerializeField] private TextMeshProUGUI isAddBonusText; // UI текст для отображения монет
-    [SerializeField] private GameObject revard; // меню получения х2 монеток
-    [SerializeField] private TextMeshProUGUI textCatCoinValue; // текст монет полученных за уровень
+    [SerializeField] private TextMeshProUGUI score; // UI С‚РµРєСЃС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РјРѕРЅРµС‚
+    [SerializeField] public int addBonusReg = 0; // Р±РѕРЅСѓСЃ Р·Р° РѕР±С‹С‡РЅРѕРµ РґРµР№СЃС‚РІРёРµ
+    [SerializeField] private int addBonusMin = 0; // РЎРєРѕР»СЊРєРѕ РјРѕРЅРµС‚ РґР°РІР°С‚СЊ Р·Р° РѕРґРЅСѓ РїСЂРѕСЃРјРѕС‚СЂРµРЅРЅСѓСЋ СЂРµРєР»Р°РјСѓ
+    [SerializeField] private int addBonusMax = 0; // РЎРєРѕР»СЊРєРѕ РјРѕРЅРµС‚ РґР°РІР°С‚СЊ Р·Р° РѕРґРЅСѓ РїСЂРѕСЃРјРѕС‚СЂРµРЅРЅСѓСЋ СЂРµРєР»Р°РјСѓ
+    [SerializeField] private GameObject effectPSClick; // СЌС„С„РµРєС‚ РїСЂРё РєР»РёРєРµ
+    [SerializeField] private GameObject effectPSCoin; // СЌС„С„РµРєС‚ РјРѕРЅРµС‚РѕРє
+    [SerializeField] private GameObject effectPSCoinADS; // СЌС„С„РµРєС‚ РјРѕРЅРµС‚РѕРє РґР»СЏ РєРЅРѕРїРєРё СЂРµРєР»Р°РјС‹
+    [SerializeField] private GameObject effectPSCoinInapp; // СЌС„С„РµРєС‚ РјРѕРЅРµС‚РѕРє РґР»СЏ РєРЅРѕРїРєРё РёРЅР°РїР°
+    [SerializeField] private string inappProductId = "1"; // ID РёРЅР°РївЂ‘С‚РѕРІР°СЂР° РІ РєР°С‚Р°Р»РѕРіРµ Payments
+    [SerializeField] private TextMeshProUGUI isAddBonusText; // UI С‚РµРєСЃС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РјРѕРЅРµС‚
+    [SerializeField] private GameObject revard; // РјРµРЅСЋ РїРѕР»СѓС‡РµРЅРёСЏ С…2 РјРѕРЅРµС‚РѕРє
+    [SerializeField] private TextMeshProUGUI textCatCoinValue; // С‚РµРєСЃС‚ РјРѕРЅРµС‚ РїРѕР»СѓС‡РµРЅРЅС‹С… Р·Р° СѓСЂРѕРІРµРЅСЊ
 
-    public string rewardID = "10"; // ID награды для рекламы 
+    public string rewardID = "10"; // ID РЅР°РіСЂР°РґС‹ РґР»СЏ СЂРµРєР»Р°РјС‹ 
 
 
 
@@ -39,14 +42,14 @@ public class ScoreManager : MonoBehaviour
     }
     public static void SendTutorialWeb()
     {
-        Debug.Log("[ScoreManager] SendTutorialWeb вызван");
+        Debug.Log("[ScoreManager] SendTutorialWeb РІС‹Р·РІР°РЅ");
 
         Debug.Log("[ScoreManager] OnTutorWeb == null? " + (OnTutorWeb == null));
         OnTutorWeb?.Invoke();
     }
     public static void SendTutorialApp()
     {
-        Debug.Log("[ScoreManager] SendTutorialApp вызван");
+        Debug.Log("[ScoreManager] SendTutorialApp РІС‹Р·РІР°РЅ");
         OnTutorApp?.Invoke();
 
     }
@@ -58,9 +61,9 @@ public class ScoreManager : MonoBehaviour
         {
             revard.SetActive(false);
         }
-        effectPSCoin.SetActive(false); // изначально эффект монеток выключен
+        effectPSCoin.SetActive(false); // РёР·РЅР°С‡Р°Р»СЊРЅРѕ СЌС„С„РµРєС‚ РјРѕРЅРµС‚РѕРє РІС‹РєР»СЋС‡РµРЅ
         
-        int coins = PlayerPrefs.GetInt("coins"); // Получаем текущее количество монет из сохранений
+        int coins = PlayerPrefs.GetInt("coins"); // РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРѕРЅРµС‚ РёР· СЃРѕС…СЂР°РЅРµРЅРёР№
         score.text = coins.ToString();
         
         if(isAddBonusText)
@@ -70,14 +73,14 @@ public class ScoreManager : MonoBehaviour
         
     }
 
-    private void UpdateCoins(int newCoins) // Вспомогательный метод обновления монет и вызова события
+    private void UpdateCoins(int newCoins) // Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РјРµС‚РѕРґ РѕР±РЅРѕРІР»РµРЅРёСЏ РјРѕРЅРµС‚ Рё РІС‹Р·РѕРІР° СЃРѕР±С‹С‚РёСЏ
     {
-        PlayerPrefs.SetInt("coins", newCoins); // сохраняем новое значение монет
-        score.text = newCoins.ToString(); // обновляем UI
-       // OnCoinsChanged?.Invoke(newCoins); // вызываем событие для подписчиков
+        PlayerPrefs.SetInt("coins", newCoins); // СЃРѕС…СЂР°РЅСЏРµРј РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РјРѕРЅРµС‚
+        score.text = newCoins.ToString(); // РѕР±РЅРѕРІР»СЏРµРј UI
+       // OnCoinsChanged?.Invoke(newCoins); // РІС‹Р·С‹РІР°РµРј СЃРѕР±С‹С‚РёРµ РґР»СЏ РїРѕРґРїРёСЃС‡РёРєРѕРІ
     }
 
-    public void AddToScore() // Добавляет 1 монету и обновляет UI и событие
+    public void AddToScore() // Р”РѕР±Р°РІР»СЏРµС‚ 1 РјРѕРЅРµС‚Сѓ Рё РѕР±РЅРѕРІР»СЏРµС‚ UI Рё СЃРѕР±С‹С‚РёРµ
     {
         int coins = PlayerPrefs.GetInt("coins") + 1;
         UpdateCoins(coins);
@@ -86,81 +89,105 @@ public class ScoreManager : MonoBehaviour
     public void ShowRewardAd(string id)
     {
 
-        YG2.RewardedAdvShow(id, () => OnReward(id)); // вызовется, когда пользователь досмотрит рекламу до конца.
+        YG2.RewardedAdvShow(id, () => OnReward(id)); // РІС‹Р·РѕРІРµС‚СЃСЏ, РєРѕРіРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РґРѕСЃРјРѕС‚СЂРёС‚ СЂРµРєР»Р°РјСѓ РґРѕ РєРѕРЅС†Р°.
     }
 
     private void OnReward(string id)
     {
         switch (id)
         {
-            case "AddBonusMin":      // мало монет
+            case "AddBonusMin":      // РјР°Р»Рѕ РјРѕРЅРµС‚
                 AddBonusMin();
                 break;
 
-            case "AddBonusMax":      // много монет
+            case "AddBonusMax":      // РјРЅРѕРіРѕ РјРѕРЅРµС‚
                 AddBonusMax();
                 break;
 
-            case "AddBonusX3":      // много монет
+            case "AddBonusX3":      // РјРЅРѕРіРѕ РјРѕРЅРµС‚
                 AddBonusX3();
                 break;
 
-            case "AddLife":      // много монет
+            case "AddLife":      // РјРЅРѕРіРѕ РјРѕРЅРµС‚
                 AddLife();
                 break;
         }
     }
 
-    public void AddBonusReg() // Добавляет бонусные монеты (например, за действие)
+    public void AddBonusReg() // Р”РѕР±Р°РІР»СЏРµС‚ Р±РѕРЅСѓСЃРЅС‹Рµ РјРѕРЅРµС‚С‹ (РЅР°РїСЂРёРјРµСЂ, Р·Р° РґРµР№СЃС‚РІРёРµ)
     {
         int coins = PlayerPrefs.GetInt("coins") + addBonusReg;
         UpdateCoins(coins);
 
         EffectClick();
-        effectPSCoin.SetActive(true); // включаем эффект монеток
+        effectPSCoin.SetActive(true); // РІРєР»СЋС‡Р°РµРј СЌС„С„РµРєС‚ РјРѕРЅРµС‚РѕРє
         ParticleSystem particleSystem = effectPSCoin.GetComponent<ParticleSystem>();
-        if (particleSystem != null) // Если компонент Particle System найден
+        if (particleSystem != null) // Р•СЃР»Рё РєРѕРјРїРѕРЅРµРЅС‚ Particle System РЅР°Р№РґРµРЅ
         {
-            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
-            particleSystem.Play(); // Запустить заново
-            //particleSystem.Emit(30); // Выпустить частицы
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // РћСЃС‚Р°РЅРѕРІРёС‚СЊ Рё РѕС‡РёСЃС‚РёС‚СЊ С‡Р°СЃС‚РёС†С‹
+            particleSystem.Play(); // Р—Р°РїСѓСЃС‚РёС‚СЊ Р·Р°РЅРѕРІРѕ
+            //particleSystem.Emit(30); // Р’С‹РїСѓСЃС‚РёС‚СЊ С‡Р°СЃС‚РёС†С‹
         }
         ScoreManager.SendCoinsChanged();
     }
 
-    public void AddBonusMin() // Добавляет бонусные монеты за просмотр рекламы
+    public void AddBonusMin() // Р”РѕР±Р°РІР»СЏРµС‚ Р±РѕРЅСѓСЃРЅС‹Рµ РјРѕРЅРµС‚С‹ Р·Р° РїСЂРѕСЃРјРѕС‚СЂ СЂРµРєР»Р°РјС‹
     {
         int coins = PlayerPrefs.GetInt("coins") + addBonusMin;
         UpdateCoins(coins);
         //effectPSCoinADS.GetComponent<ParticleSystem>().Play();
-        //effectPSCoinADS.Play(); // включаем эффект монеток
+        //effectPSCoinADS.Play(); // РІРєР»СЋС‡Р°РµРј СЌС„С„РµРєС‚ РјРѕРЅРµС‚РѕРє
         effectPSCoinADS.SetActive(true);
         ParticleSystem particleSystem = effectPSCoinADS.GetComponent<ParticleSystem>();
-        if (particleSystem != null) // Если компонент Particle System найден
+        if (particleSystem != null) // Р•СЃР»Рё РєРѕРјРїРѕРЅРµРЅС‚ Particle System РЅР°Р№РґРµРЅ
         {
-            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
-            particleSystem.Play(); // Запустить заново
-            //particleSystem.Emit(30); // Выпустить частицы
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // РћСЃС‚Р°РЅРѕРІРёС‚СЊ Рё РѕС‡РёСЃС‚РёС‚СЊ С‡Р°СЃС‚РёС†С‹
+            particleSystem.Play(); // Р—Р°РїСѓСЃС‚РёС‚СЊ Р·Р°РЅРѕРІРѕ
+            //particleSystem.Emit(30); // Р’С‹РїСѓСЃС‚РёС‚СЊ С‡Р°СЃС‚РёС†С‹
         }
-        EffectClick(); // Визуальный эффект нажатия или другой отклик
-        SendCoinsChanged(); // Сообщаем другим системам (UI, аналитика и т.п.), что количество монет изменилось
+        EffectClick(); // Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЌС„С„РµРєС‚ РЅР°Р¶Р°С‚РёСЏ РёР»Рё РґСЂСѓРіРѕР№ РѕС‚РєР»РёРє
+        SendCoinsChanged(); // РЎРѕРѕР±С‰Р°РµРј РґСЂСѓРіРёРј СЃРёСЃС‚РµРјР°Рј (UI, Р°РЅР°Р»РёС‚РёРєР° Рё С‚.Рї.), С‡С‚Рѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРѕРЅРµС‚ РёР·РјРµРЅРёР»РѕСЃСЊ
     }
-    public void AddBonusMax() // Добавляет бонусные монеты за просмотр рекламы
+    public void AddBonusMax() // Р”РѕР±Р°РІР»СЏРµС‚ Р±РѕРЅСѓСЃРЅС‹Рµ РјРѕРЅРµС‚С‹ Р·Р° РїСЂРѕСЃРјРѕС‚СЂ СЂРµРєР»Р°РјС‹
     {
         int coins = PlayerPrefs.GetInt("coins") + addBonusMax;
         UpdateCoins(coins);
-        //effectPSCoinADS.GetComponent<ParticleSystem>().Play();
-        //effectPSCoinADS.Play(); // включаем эффект монеток
-        effectPSCoinADS.SetActive(true);
-        ParticleSystem particleSystem = effectPSCoinADS.GetComponent<ParticleSystem>();
-        if (particleSystem != null) // Если компонент Particle System найден
+        //effectPSCoinInapp.GetComponent<ParticleSystem>().Play();
+        //effectPSCoinInapp.Play(); // РІРєР»СЋС‡Р°РµРј СЌС„С„РµРєС‚ РјРѕРЅРµС‚РѕРє
+        effectPSCoinInapp.SetActive(true);
+        ParticleSystem particleSystem = effectPSCoinInapp.GetComponent<ParticleSystem>();
+        if (particleSystem != null) // Р•СЃР»Рё РєРѕРјРїРѕРЅРµРЅС‚ Particle System РЅР°Р№РґРµРЅ
         {
-            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
-            particleSystem.Play(); // Запустить заново
-            //particleSystem.Emit(30); // Выпустить частицы
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // РћСЃС‚Р°РЅРѕРІРёС‚СЊ Рё РѕС‡РёСЃС‚РёС‚СЊ С‡Р°СЃС‚РёС†С‹
+            particleSystem.Play(); // Р—Р°РїСѓСЃС‚РёС‚СЊ Р·Р°РЅРѕРІРѕ
+            //particleSystem.Emit(30); // Р’С‹РїСѓСЃС‚РёС‚СЊ С‡Р°СЃС‚РёС†С‹
         }
-        EffectClick(); // Визуальный эффект нажатия или другой отклик
-        SendCoinsChanged(); // Сообщаем другим системам (UI, аналитика и т.п.), что количество монет изменилось
+        EffectClick(); // Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЌС„С„РµРєС‚ РЅР°Р¶Р°С‚РёСЏ РёР»Рё РґСЂСѓРіРѕР№ РѕС‚РєР»РёРє
+        SendCoinsChanged(); // РЎРѕРѕР±С‰Р°РµРј РґСЂСѓРіРёРј СЃРёСЃС‚РµРјР°Рј (UI, Р°РЅР°Р»РёС‚РёРєР° Рё С‚.Рї.), С‡С‚Рѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРѕРЅРµС‚ РёР·РјРµРЅРёР»РѕСЃСЊ
+    }
+    void OnEnable()
+    {
+        YG2.onPurchaseSuccess += OnPurchaseSuccess;
+    }
+        void OnDisable()
+    {
+        YG2.onPurchaseSuccess -= OnPurchaseSuccess;
+    }
+    private void OnPurchaseSuccess(string id)
+    {
+        Debug.Log($"[ScoreManager] Purchase success: {id}");
+
+        YG2.SetState(id, 1); // РћР±РЅРѕРІР»СЏРµРј СЃРѕСЃС‚РѕСЏРЅРёРµ С‚РѕРІР°СЂР° (РµСЃР»Рё РёСЃРїРѕР»СЊР·СѓРµС€СЊ SetState РґР»СЏ С…СЂР°РЅРµРЅРёСЏ)
+                
+        if (id == inappProductId) // Р•СЃР»Рё СЌС‚Рѕ РЅР°С€ С‚РѕРІР°СЂ СЃ ID "1" вЂ” РЅР°С‡РёСЃР»СЏРµРј РјРѕРЅРµС‚С‹ С‡РµСЂРµР· AddBonusMax
+        {
+            AddBonusMax();
+        }
+    }
+    public void BuyInapp()
+    {
+        Debug.Log("[ScoreManager] Try purchase inapp product with ID: " + inappProductId);
+        YG2.PurchaseByID(inappProductId); // Р—Р°РїСѓСЃРєР°РµРј С„СЂРµР№Рј РѕРїР»Р°С‚С‹ С‚РѕРІР°СЂР° "1"
     }
     public void AddBonusX3()
     {
@@ -176,9 +203,9 @@ public class ScoreManager : MonoBehaviour
             EffectClick();
         }
     }
-    public void AddLife() // Добавляет бонусные монеты за просмотр рекламы
+    public void AddLife() // Р”РѕР±Р°РІР»СЏРµС‚ Р±РѕРЅСѓСЃРЅС‹Рµ РјРѕРЅРµС‚С‹ Р·Р° РїСЂРѕСЃРјРѕС‚СЂ СЂРµРєР»Р°РјС‹
     {
-        EffectClick(); // Визуальный эффект нажатия или другой отклик
+        EffectClick(); // Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЌС„С„РµРєС‚ РЅР°Р¶Р°С‚РёСЏ РёР»Рё РґСЂСѓРіРѕР№ РѕС‚РєР»РёРє
     }
     public void CloseOnOpenX2()
     {
@@ -196,24 +223,24 @@ public class ScoreManager : MonoBehaviour
     }
     public void PSCoin()
     {
-        effectPSCoin.SetActive(true); // включаем эффект монеток
+        effectPSCoin.SetActive(true); // РІРєР»СЋС‡Р°РµРј СЌС„С„РµРєС‚ РјРѕРЅРµС‚РѕРє
         ParticleSystem particleSystem = effectPSCoin.GetComponent<ParticleSystem>();
-        if (particleSystem != null) // Если компонент Particle System найден
+        if (particleSystem != null) // Р•СЃР»Рё РєРѕРјРїРѕРЅРµРЅС‚ Particle System РЅР°Р№РґРµРЅ
         {
-            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // Остановить и очистить частицы
-            particleSystem.Play(); // Запустить заново
-                                   //particleSystem.Emit(30); // Выпустить частицы
+            particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // РћСЃС‚Р°РЅРѕРІРёС‚СЊ Рё РѕС‡РёСЃС‚РёС‚СЊ С‡Р°СЃС‚РёС†С‹
+            particleSystem.Play(); // Р—Р°РїСѓСЃС‚РёС‚СЊ Р·Р°РЅРѕРІРѕ
+                                   //particleSystem.Emit(30); // Р’С‹РїСѓСЃС‚РёС‚СЊ С‡Р°СЃС‚РёС†С‹
         }
     }
     public void EffectClick()
     {
-        // Получаем позицию мыши в мировых координатах
+        // РџРѕР»СѓС‡Р°РµРј РїРѕР·РёС†РёСЋ РјС‹С€Рё РІ РјРёСЂРѕРІС‹С… РєРѕРѕСЂРґРёРЅР°С‚Р°С…
         Vector3 mouseScreenPos = Input.mousePosition;
-        mouseScreenPos.z = 10f; // расстояние от камеры до плоскости, на которой создаём объект (подбери под свою сцену)
+        mouseScreenPos.z = 10f; // СЂР°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ РєР°РјРµСЂС‹ РґРѕ РїР»РѕСЃРєРѕСЃС‚Рё, РЅР° РєРѕС‚РѕСЂРѕР№ СЃРѕР·РґР°С‘Рј РѕР±СЉРµРєС‚ (РїРѕРґР±РµСЂРё РїРѕРґ СЃРІРѕСЋ СЃС†РµРЅСѓ)
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-        worldPos.z = 0f; // если у тебя 2D, чтобы объект был на нужном слое
+        worldPos.z = 0f; // РµСЃР»Рё Сѓ С‚РµР±СЏ 2D, С‡С‚РѕР±С‹ РѕР±СЉРµРєС‚ Р±С‹Р» РЅР° РЅСѓР¶РЅРѕРј СЃР»РѕРµ
 
-        // Создаём эффект в позиции мыши
+        // РЎРѕР·РґР°С‘Рј СЌС„С„РµРєС‚ РІ РїРѕР·РёС†РёРё РјС‹С€Рё
         Instantiate(effectPSClick, worldPos, Quaternion.identity);
     }
     void Update()
