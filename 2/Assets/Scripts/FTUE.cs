@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class FTUEEntryPoint : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class FTUEEntryPoint : MonoBehaviour
             img.SetActive(true);
             Time.timeScale = 0f;
         }
+        PlayerPrefs.Save();
 
     }
     public void Continue()

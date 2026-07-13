@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class FTUEController : MonoBehaviour
 {

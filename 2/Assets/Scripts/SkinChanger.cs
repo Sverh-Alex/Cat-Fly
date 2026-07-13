@@ -1,6 +1,7 @@
 // SkinChanger.cs: Повесьте на персонажа. Меняет всё по skinIndex из PlayerPrefs.
 // Оптимально: Загрузка один раз в Awake, pooling-ready.
 using UnityEngine;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class SkinChanger : MonoBehaviour
 {

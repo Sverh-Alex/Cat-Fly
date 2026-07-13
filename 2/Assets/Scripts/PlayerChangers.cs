@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 public class PlayerChanger : MonoBehaviour
 {
     public GameObject[] skins; // —сылки на объекты скинов

@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using YG;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 using static UnityEngine.Rendering.DebugUI;
 

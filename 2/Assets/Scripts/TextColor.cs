@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class TextColor : MonoBehaviour
 {

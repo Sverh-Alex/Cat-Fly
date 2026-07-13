@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class ImageChangerLose : MonoBehaviour
 {

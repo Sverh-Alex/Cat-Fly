@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 //using static UnityEngine.InputManagerEntry;
 
 public class ImageChangerMain : MonoBehaviour

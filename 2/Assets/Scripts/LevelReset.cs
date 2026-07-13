@@ -1,4 +1,5 @@
 using UnityEngine;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class LevelsReset : MonoBehaviour
 {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class TimerBonus : MonoBehaviour
 {

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class ButtonShop : MonoBehaviour
 {
