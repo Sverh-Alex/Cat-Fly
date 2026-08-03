@@ -1,0 +1,27 @@
+{
+    "stringKeys": [],
+    "stringValues": [],
+    "floatKeys": [
+        "MasterVolume"
+    ],
+    "floatValues": [
+        0.2672487795352936
+    ],
+    "intKeys": [
+        "coins",
+        "FTUE_Shown"
+    ],
+    "intValues": [
+        1,
+        1
+    ],
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 41
+}
