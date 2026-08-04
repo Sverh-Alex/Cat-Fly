@@ -2,23 +2,31 @@
     "stringKeys": [],
     "stringValues": [],
     "floatKeys": [
-        "MasterVolume"
+        "MasterVolume",
+        "[bc60a8d243c2931499b014c6f4740a90]LVL_0_2_Cut (UnityEngine.SceneAsset)open",
+        "[bc60a8d243c2931499b014c6f4740a90]open",
+        "[]open"
     ],
     "floatValues": [
-        0.22165720164775849
+        0.22165720164775849,
+        1.0,
+        1.0,
+        1.0
     ],
     "intKeys": [
         "coins",
         "FTUE_Shown",
-        "ga_tutor_coin_sent",
-        "ga_tutor_fish_sent",
-        "ga_tutor_dmg_sent"
+        "[989613e30e67e7f4eaf6f1948a10b312]LVL_0_1_Tutor (UnityEngine.SceneAsset)stars",
+        "[989613e30e67e7f4eaf6f1948a10b312]stars",
+        "[]stars",
+        "ga_tutor_coin_sent"
     ],
     "intValues": [
+        13,
+        1,
+        2,
+        2,
         3,
-        1,
-        1,
-        1,
         1
     ],
     "intExample": 5,
@@ -29,5 +37,5 @@
         false,
         false
     ],
-    "idSave": 58
+    "idSave": 116
 }

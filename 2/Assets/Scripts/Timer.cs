@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using PlayerPrefs = RedefineYG.PlayerPrefs;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class Timer : MonoBehaviour
     [Header("Имена уровней для сохранения прогресса")]
     [SerializeField] private AssetReference levelName;        // Текущее название уровня (для stars)
     [SerializeField] private AssetReference nextlevelName;    // Следующий уровень (для open)
+    public static event Action LevelCompleted;
+
+    public AssetReference CurrentLevel => levelName;
+    public AssetReference NextLevel => nextlevelName;
 
     [Header("UI экранов победы/поражения")]
     [SerializeField] private GameObject victoryMenu;   // Общий экран победы
@@ -144,9 +149,7 @@ public class Timer : MonoBehaviour
         HandleLevelCompletion();
     }
 
-    /// <summary>
     /// Обработка завершения уровня: выключаем персонажа, показываем общий экран победы и открываем следующий уровень.
-    /// </summary>
     private void HandleLevelCompletion()
     {
         if (catScript != null)
@@ -164,14 +167,15 @@ public class Timer : MonoBehaviour
 
         // Открываем следующий уровень (флаг в PlayerPrefs)
         PlayerPrefs.SetFloat(nextlevelName + "open", 1f);
+        Debug.Log("Перед LevelCompleted.Invoke()");
+        LevelCompleted?.Invoke(); // Отправляем событие для GA
 
         // Фиксируем время на нуле
         lifeTime = 0f;
+        
     }
 
-    /// <summary>
     /// Выключаем все UI элементы победы/поражения в начале уровня.
-    /// </summary>
     private void DeactivateAllVictoryUI()
     {
         if (victoryMenu != null) victoryMenu.SetActive(false);
