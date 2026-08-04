@@ -1,173 +1,184 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class FTUEController : MonoBehaviour
 {
-    [Header("Время")]
-    [Tooltip("Задержка до паузы перед Шагом 1")]
+    [System.Serializable]
+    public class StepData
+    {
+        public GameObject ui;
+        public GameObject prefab;
+    }
+
     public float firstPauseDelay = 2f;
-
-    [Tooltip("Интервал между шагами (после нажатия кнопки)")]
     public float delayBetweenSteps = 3f;
-
-    [Header("UI — шаги")]
-    public GameObject step1UI;
-    public GameObject step2UI;
-    public GameObject step3UI;
-
-    [Header("Префабы для шагов")]
-    public GameObject step1Prefab;
-    public GameObject step2Prefab;
-    public GameObject step3Prefab;
-
-    [Header("Кнопка продолжения")]
     public Button continueButton;
-    private GameObject continueButtonGO;
+    public StepData[] steps;
 
-    private bool gameIsPaused = false;
-    private int currentStep = 0;      // 0 = до первого шага
+    private int currentStepIndex = -1;     // Текущий шаг, -1 = шаг ещё не показан
+    private bool isPausedByMenu;           // Туториал временно остановлен меню
+    private bool isGamePaused;             // Игра сейчас на паузе из-за туториала
+    private GameObject continueButtonGO;   // Ссылка на объект кнопки
+
+    private bool waitingForFirstStep;      // Ждём первый шаг
+    private bool waitingForNextStep;       // Ждём следующий шаг
+    private float timer;                  // Текущий отсчёт времени
+    private float targetDelay;            // Нужная задержка
 
     private void Start()
     {
-        // Игра в начале идёт без паузы
         Time.timeScale = 1f;
-        gameIsPaused = false;
 
         if (continueButton != null)
         {
             continueButtonGO = continueButton.gameObject;
-            continueButton.onClick.RemoveListener(OnContinueButtonClicked);
-            continueButton.onClick.AddListener(OnContinueButtonClicked);
+            continueButton.onClick.RemoveAllListeners();
+            continueButton.onClick.AddListener(OnContinueClicked);
         }
 
-        HideAllStepUI(); // прячем и шаги, и кнопку
+        HideAll();
 
-        StartCoroutine(ShowFirstStepWithDelay());
+        // Запускаем ожидание первого шага
+        waitingForFirstStep = true;
+        waitingForNextStep = false;
+        timer = 0f;
+        targetDelay = firstPauseDelay;
     }
 
-    private IEnumerator ShowFirstStepWithDelay()
+    private void Update()
     {
-        yield return new WaitForSecondsRealtime(firstPauseDelay);
-
-        SetPause(true);
-        ShowStep(1); // UI шага + префаб + кнопка
-    }
-
-    // Нажатие на кнопку "Продолжить"
-    public void OnContinueButtonClicked()
-    {
-        if (!gameIsPaused)
+        // Если туториал остановлен через меню — ничего не считаем
+        if (isPausedByMenu)
             return;
 
-        // 1) Прячем кнопку
-        if (continueButtonGO != null)
-            continueButtonGO.SetActive(false);
+        // Если сейчас не ждём никаких шагов — выходим
+        if (!waitingForFirstStep && !waitingForNextStep)
+            return;
 
-        // 2) Прячем текущий UI шага
-        switch (currentStep)
+        // Считаем время
+        timer += Time.deltaTime;
+
+        // Если время ещё не вышло — ждём дальше
+        if (timer < targetDelay)
+            return;
+
+        // Сбрасываем счётчик
+        timer = 0f;
+
+        // Показ первого шага
+        if (waitingForFirstStep)
         {
-            case 1:
-                if (step1UI != null) step1UI.SetActive(false);
-                break;
-            case 2:
-                if (step2UI != null) step2UI.SetActive(false);
-                break;
-            case 3:
-                if (step3UI != null) step3UI.SetActive(false);
-                break;
+            waitingForFirstStep = false;
+            ShowStep(0);
+            return;
         }
 
-        // 3) Снимаем паузу — игра продолжает идти
-        SetPause(false);
-
-        // 4) Ждём задержку и потом покажем следующий шаг
-        StartCoroutine(StartNextStepAfterDelay());
-    }
-
-    private IEnumerator StartNextStepAfterDelay()
-    {
-        yield return new WaitForSecondsRealtime(delayBetweenSteps);
-
-        int nextStep = currentStep + 1;
-
-        if (nextStep <= 3)
+        // Показ следующего шага
+        if (waitingForNextStep)
         {
-            SetPause(true);
-            ShowStep(nextStep); // внутри снова включится UI шага + кнопка
-        }
-        else
-        {
-            HideAllStepUI();
-            SetPause(false);
+            waitingForNextStep = false;
 
-            // отмечаем, что FTUE пройден
-            PlayerPrefs.SetInt("FTUE_Shown", 1);
-            PlayerPrefs.Save();
-            // дальше на этой сцене ты можешь делать катсцену, переходы и т.д.
+            int nextIndex = currentStepIndex + 1;
+
+            if (nextIndex < steps.Length)
+            {
+                ShowStep(nextIndex);
+            }
+            else
+            {
+                HideAll();
+                SetGamePause(false);
+
+                PlayerPrefs.SetInt("FTUE_Shown", 1);
+                PlayerPrefs.Save();
+            }
         }
     }
 
-    // Показ шага: UI шага + префаб + кнопка одновременно
-    private void ShowStep(int step)
+    public void OnContinueClicked()
     {
-        currentStep = step;
+        if (!isGamePaused)
+            return;
 
-        HideAllStepUI(); // на всякий случай чистим старый UI
+        // Прячем текущий шаг
+        HideCurrentStep();
 
-        // включаем кнопку вместе с новым шагом
+        // Снимаем паузу
+        SetGamePause(false);
+
+        // Запускаем ожидание до следующего шага
+        timer = 0f;
+        targetDelay = delayBetweenSteps;
+        waitingForNextStep = true;
+    }
+
+    private void ShowStep(int index)
+    {
+        currentStepIndex = index;
+
+        // Прячем всё перед показом нового шага
+        HideAll();
+
+        // Показываем кнопку продолжения
         if (continueButtonGO != null)
             continueButtonGO.SetActive(true);
 
-        switch (step)
+        // Проверяем границы массива
+        if (index < 0 || index >= steps.Length)
+            return;
+
+        // Показываем UI шага
+        if (steps[index].ui != null)
+            steps[index].ui.SetActive(true);
+
+        // Спавним префаб шага
+        if (steps[index].prefab != null)
+            Instantiate(steps[index].prefab, Vector3.zero, Quaternion.identity);
+
+        // Ставим игру на паузу
+        SetGamePause(true);
+    }
+
+    private void HideCurrentStep()
+    {
+        if (currentStepIndex < 0 || currentStepIndex >= steps.Length)
+            return;
+
+        if (steps[currentStepIndex].ui != null)
+            steps[currentStepIndex].ui.SetActive(false);
+
+        if (continueButtonGO != null)
+            continueButtonGO.SetActive(false);
+    }
+
+    private void HideAll()
+    {
+        for (int i = 0; i < steps.Length; i++)
         {
-            case 1:
-                if (step1UI != null)
-                    step1UI.SetActive(true);
-                if (step1Prefab != null)
-                    SpawnPrefab(step1Prefab);
-                break;
-
-            case 2:
-                if (step2UI != null)
-                    step2UI.SetActive(true);
-                if (step2Prefab != null)
-                    SpawnPrefab(step2Prefab);
-                break;
-
-            case 3:
-                if (step3UI != null)
-                    step3UI.SetActive(true);
-                if (step3Prefab != null)
-                    SpawnPrefab(step3Prefab);
-                break;
+            if (steps[i].ui != null)
+                steps[i].ui.SetActive(false);
         }
+
+        if (continueButtonGO != null)
+            continueButtonGO.SetActive(false);
     }
 
-    private void SpawnPrefab(GameObject prefab)
-    {
-        Vector3 spawnPos = Camera.main.ScreenToWorldPoint(new Vector3(
-            Screen.width * 0.5f,
-            Screen.height * 0.5f,
-            10f
-        ));
-        Instantiate(prefab, spawnPos, Quaternion.identity);
-    }
-
-    // Прячем все шаги и кнопку
-    private void HideAllStepUI()
-    {
-        if (step1UI != null) step1UI.SetActive(false);
-        if (step2UI != null) step2UI.SetActive(false);
-        if (step3UI != null) step3UI.SetActive(false);
-
-        if (continueButtonGO != null) continueButtonGO.SetActive(false);
-    }
-
-    private void SetPause(bool paused)
+    private void SetGamePause(bool paused)
     {
         Time.timeScale = paused ? 0f : 1f;
-        gameIsPaused = paused;
+        isGamePaused = paused;
+    }
+
+    public void PauseByMenu()
+    {
+        // Меню открылось — туториал перестаёт считать время
+        isPausedByMenu = true;
+    }
+
+    public void ResumeByMenu()
+    {
+        // Меню закрылось — продолжаем считать дальше
+        isPausedByMenu = false;
     }
 }

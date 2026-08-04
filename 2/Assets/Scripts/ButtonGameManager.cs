@@ -14,7 +14,7 @@ public class ButtonGameManager : MonoBehaviour
     public GameObject levels;
     [SerializeField] private GameObject effectPSClick; // эффект при клике
     [SerializeField] private GameObject[] objectOff; // объекты которые отключаются
-
+    [SerializeField] private FTUEController ftueController; // Ссылка на туториал
 
     void Start()
     {
@@ -85,7 +85,7 @@ public class ButtonGameManager : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        // Если вы ставили паузу, обязательно сбросьте Time.timeScale
+        // Если игра была на паузе, обязательно сбрасываем Time.timeScale
         Time.timeScale = 1f;
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
@@ -142,7 +142,7 @@ public class ButtonGameManager : MonoBehaviour
     public void OnClickMenu()
     {
         menuInGame.SetActive(true);
-        DisableAll(); // Включаем или выключаем звуковые эффекты
+        DisableAll();
         Time.timeScale = 0;
     }
     public void DisableAll()
@@ -171,7 +171,6 @@ public class ButtonGameManager : MonoBehaviour
         menuInGame.SetActive(false);
         ActiveAll();
         EffectClick();
-
     }
     public void OnAlive()
     {
