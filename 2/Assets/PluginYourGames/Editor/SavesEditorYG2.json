@@ -5,13 +5,19 @@
         "MasterVolume"
     ],
     "floatValues": [
-        0.2672487795352936
+        0.22165720164775849
     ],
     "intKeys": [
         "coins",
-        "FTUE_Shown"
+        "FTUE_Shown",
+        "ga_tutor_coin_sent",
+        "ga_tutor_fish_sent",
+        "ga_tutor_dmg_sent"
     ],
     "intValues": [
+        3,
+        1,
+        1,
         1,
         1
     ],
@@ -23,5 +29,5 @@
         false,
         false
     ],
-    "idSave": 41
+    "idSave": 58
 }

@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 1175212227}
   - component: {fileID: 1175212226}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: FTUECheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175212225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45aa4265241644f4dbb1c7e470f3a162, type: 3}
   m_Name: 
@@ -1237,9 +1237,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1296518239}
+      - m_Target: {fileID: 1319816659}
         m_TargetAssemblyTypeName: GameAnalyticsScript, Assembly-CSharp
-        m_MethodName: test_button
+        m_MethodName: GA0Btn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1345,25 +1345,71 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 165288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1296518239}
+      addedObject: {fileID: 1425412993}
   m_SourcePrefab: {fileID: 100100000, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
---- !u!1 &1296518238 stripped
+--- !u!1 &1319816658
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 165288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
-  m_PrefabInstance: {fileID: 1296518237}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1296518239
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319816660}
+  - component: {fileID: 1319816659}
+  m_Layer: 0
+  m_Name: GA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1319816659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296518238}
+  m_GameObject: {fileID: 1319816658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a10aa8d4759024c803822f60e93acd, type: 3}
+  m_Script: {fileID: 11500000, guid: af00e3e98fe02354b8b7d35484c18ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameAnalyticsScript
+  resetAnalyticsPrefsOnStart: 1
+--- !u!4 &1319816660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319816658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.09318, y: 0.56834, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1425412992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 165288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+  m_PrefabInstance: {fileID: 1296518237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425412993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425412992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af00e3e98fe02354b8b7d35484c18ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameAnalyticsScript
+  resetAnalyticsPrefsOnStart: 0
 --- !u!1 &1552446876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +2031,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 239148307}
   - {fileID: 1175212227}
+  - {fileID: 1296518237}
+  - {fileID: 1319816660}
   - {fileID: 373521916}
   - {fileID: 232103808}
-  - {fileID: 1296518237}
