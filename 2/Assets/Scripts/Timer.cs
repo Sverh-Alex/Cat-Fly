@@ -15,8 +15,6 @@ public class Timer : MonoBehaviour
     [SerializeField] private AssetReference nextlevelName;    // Следующий уровень (для open)
     public static event Action LevelCompleted;
 
-    public AssetReference CurrentLevel => levelName;
-    public AssetReference NextLevel => nextlevelName;
 
     [Header("UI экранов победы/поражения")]
     [SerializeField] private GameObject victoryMenu;   // Общий экран победы

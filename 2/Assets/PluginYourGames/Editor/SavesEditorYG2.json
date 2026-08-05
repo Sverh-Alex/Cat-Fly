@@ -21,10 +21,10 @@
         "[]stars"
     ],
     "intValues": [
-        36,
+        42,
         1,
         3,
-        3,
+        2,
         3
     ],
     "intExample": 5,
@@ -35,5 +35,5 @@
         false,
         false
     ],
-    "idSave": 338
+    "idSave": 399
 }

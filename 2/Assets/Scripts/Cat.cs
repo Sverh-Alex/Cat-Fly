@@ -110,12 +110,15 @@ public class Cat : MonoBehaviour
 
     public void fire()
     {
-        if(bulletCounter == 0) return; // когда меньше нуля, то выходит из функции
+        if (bulletCounter == 0) return; // когда меньше нуля, то выходит из функции
         if (!canFire) return;
+
         GameObject bulletObject = Instantiate(bullet);
         bulletObject.transform.position = spawnBulletPoint.transform.position;
+
         bulletCounter--; // отнимаем патрон 
         bulletCounterText.text = bulletCounter.ToString(); // обнавляем текст на экране 
+
         canFire = false;
         reau.Play();
         StartCoroutine(Reload());
@@ -134,11 +137,8 @@ public class Cat : MonoBehaviour
 
     }
 
-
-
     private void OnTriggerEnter2D(Collider2D collision) // объект с которым столкнулись, мы его разрушаем
     {
-
 
         Destroy(collision.gameObject); 
         

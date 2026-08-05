@@ -85,7 +85,12 @@ public class TestMove : MonoBehaviour
         moveDirection = inputDirection;
 
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space pressed");
             catScript.fire();
+        }    
+            
+            
     }
 
     void MoveCharacter(float scale)
