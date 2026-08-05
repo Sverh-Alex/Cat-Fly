@@ -90,8 +90,7 @@ public class FTUEController : MonoBehaviour
                 HideAll();
                 SetGamePause(false);
 
-                PlayerPrefs.SetInt("FTUE_Shown", 1);
-                PlayerPrefs.Save();
+
             }
         }
     }

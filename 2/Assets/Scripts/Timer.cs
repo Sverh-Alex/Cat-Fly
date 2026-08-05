@@ -145,6 +145,7 @@ public class Timer : MonoBehaviour
         }
 
         HandleLevelCompletion();
+
     }
 
     /// ќбработка завершени€ уровн€: выключаем персонажа, показываем общий экран победы и открываем следующий уровень.
@@ -159,6 +160,10 @@ public class Timer : MonoBehaviour
         {
             victoryMenu.SetActive(true);
         }
+
+        PlayerPrefs.SetInt("FTUE_Shown", 1);
+        PlayerPrefs.Save();
+        Debug.Log("FTUE_Shown = 1");
 
         int lives = catScript != null ? catScript.GetLifeCounter() : 0;
         Debug.Log($"[Timer] “екущее количество жизней: {lives}");
