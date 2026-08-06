@@ -20,8 +20,9 @@ public class SkinChanger : MonoBehaviour
     void Awake()
     {
         // Получаем индекс скина из PlayerPrefs (если нет - 0).
-        currentSkinIndex = PlayerPrefs.GetInt(skinPrefsKey, 0);
+        currentSkinIndex = PlayerPrefs.GetInt(skinPrefsKey);
         ApplySkin(currentSkinIndex); // Применяем сразу при загрузке сцены
+        Debug.Log($"загружен {currentSkinIndex}");
     }
 
     // Публичный метод: Меняем скин (вызывайте из UI/магазина).
@@ -64,4 +65,5 @@ public class SkinChanger : MonoBehaviour
 
     // Геттер для UI (текущий индекс).
     public int GetCurrentSkinIndex() => currentSkinIndex;
+    
 }

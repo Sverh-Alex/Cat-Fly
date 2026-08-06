@@ -13,6 +13,7 @@ public class ImageChangerMain : MonoBehaviour
     {
         // Загружаем сохранённый скин, по умолчанию 0
         skinId = PlayerPrefs.GetInt("skin", 0);
+        
     }
 
     public void Update()
@@ -21,31 +22,7 @@ public class ImageChangerMain : MonoBehaviour
         if (image != null && skins != null && skinId < skins.Length)
         {
             image.sprite = skins[skinId];
+            Debug.Log($"установлена картинка скина{skinId}");
         }
     }
-    //public void ShowSkin(int skinId)
-    //{
-    //    if (skins == null || skins.Length == 0)
-    //        return;
-
-    //    // Ограничиваем индекс в пределах массива
-    //    skinId = Mathf.Clamp(skinId, 0, skins.Length - 1);
-
-    //    // Перебираем все скины и включаем только выбранный
-    //    for (int i = 0; i < skins.Length; i++)
-    //    {
-    //        if (skins[i] != null)
-    //            skins[i].SetActive(i == skinId);
-    //    }
-    //}
-
-//    // Метод для смены скина и сохранения выбора
-//    public void SetSkin(int skinId)
-//    {
-//        skinId = Mathf.Clamp(skinId, 0, skins.Length - 1);
-//        PlayerPrefs.SetInt("skinMain", skinId);
-//        PlayerPrefs.Save();
-
-//        ShowSkin(skinId);
-//    }
 }

@@ -19,14 +19,18 @@
         "[989613e30e67e7f4eaf6f1948a10b312]stars",
         "[]stars",
         "FTUE_Shown",
-        "ga_0_btn_sent",
-        "ga_tutor_complete_sent"
+        "ga_tutor_complete_sent",
+        "Cat 2Access",
+        "Cat 5Access",
+        "Cat 6Access"
     ],
     "intValues": [
-        47,
+        26,
         3,
         3,
         3,
+        1,
+        1,
         1,
         1,
         1
@@ -39,5 +43,5 @@
         false,
         false
     ],
-    "idSave": 535
+    "idSave": 589
 }

@@ -10,6 +10,8 @@ public class DataSaver : MonoBehaviour
     public void SaveInt()
     {
         UnityEngine.PlayerPrefs.SetInt("skin", id);
+        PlayerPrefs.Save();
+        Debug.Log($"скин {id} выбран");
     }
 
 }

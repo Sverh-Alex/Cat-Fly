@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -11,6 +12,7 @@ public class FTUEEntryPoint : MonoBehaviour
     [SerializeField] private bool resetFTUEPrfs = false;
     // Ключ в PlayerPrefs: 0 = FTUE ещё не показывали, 1 = уже проходили
     private const string FTUE_KEY = "FTUE_Shown";
+    [SerializeField] private TextMeshProUGUI debug;
 
     [Header("Scenes")]
     public string ftueSceneName = "FTUE";
@@ -20,6 +22,7 @@ public class FTUEEntryPoint : MonoBehaviour
 
     private AsyncOperationHandle<SceneInstance> startSceneHandle; // Хендл предзагрузки сцены
     private bool startSceneLoaded;                                // Флаг: сцена успешно загружена
+    
 
     private void ResetFTUEPrfs()
     {
@@ -80,7 +83,8 @@ public class FTUEEntryPoint : MonoBehaviour
 
             // Загружаем сцену FTUE
             SceneManager.LoadScene(ftueSceneName);
-            //ftueSceneName.LoadSceneAsync(LoadSceneMode.Single);
+            Debug.Log($"{ftueSceneName} загружена");
+            debug.text = ftueSceneName.ToString();
         }
     }
 }
