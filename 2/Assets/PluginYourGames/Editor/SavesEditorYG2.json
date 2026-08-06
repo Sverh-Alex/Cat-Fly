@@ -20,17 +20,19 @@
         "[]stars",
         "FTUE_Shown",
         "ga_tutor_complete_sent",
-        "Cat 2Access",
-        "Cat 5Access",
-        "Cat 6Access"
+        "skin",
+        "Cat 13Access",
+        "Cat 17Access",
+        "Cat 16Access"
     ],
     "intValues": [
-        26,
+        100,
         3,
         3,
         3,
         1,
         1,
+        15,
         1,
         1,
         1
@@ -43,5 +45,5 @@
         false,
         false
     ],
-    "idSave": 589
+    "idSave": 659
 }
