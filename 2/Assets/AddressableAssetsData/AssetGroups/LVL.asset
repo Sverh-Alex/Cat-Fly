@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: LVL
   m_GUID: 99e122e1cf348354899befa7b3545975
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: fa36d3364ed102542bb171fe1e61d1a9
+    m_Address: Assets/Scenes/Start.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cbe059bbff196e843ba1c717aa50e85f, type: 2}
   m_SchemaSet:

@@ -26468,7 +26468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 902246020}
-  lifeTime: 5
+  lifeTime: 20
   levelName:
     m_AssetGUID: 
     m_SubObjectName: 
@@ -43222,6 +43222,10 @@ PrefabInstance:
       propertyPath: loseMenu
       value: 
       objectReference: {fileID: 457924364}
+    - target: {fileID: 6836447505463430355, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
+      propertyPath: bulletGift
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6836447505463430355, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
       propertyPath: textCoinCounter
       value: 

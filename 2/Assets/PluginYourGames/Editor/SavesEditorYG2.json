@@ -18,22 +18,16 @@
         "[989613e30e67e7f4eaf6f1948a10b312]LVL_0_1_Tutor (UnityEngine.SceneAsset)stars",
         "[989613e30e67e7f4eaf6f1948a10b312]stars",
         "[]stars",
-        "FTUE_Shown",
-        "ga_tutor_complete_sent",
         "skin",
-        "Cat 13Access",
-        "Cat 17Access",
-        "Cat 16Access"
+        "FTUE_Shown",
+        "ga_tutor_complete_sent"
     ],
     "intValues": [
-        100,
+        81,
         3,
-        3,
-        3,
+        2,
         1,
-        1,
-        15,
-        1,
+        0,
         1,
         1
     ],
@@ -45,5 +39,5 @@
         false,
         false
     ],
-    "idSave": 659
+    "idSave": 876
 }

@@ -120,14 +120,19 @@ public class Cat : MonoBehaviour
         bulletCounterText.text = bulletCounter.ToString(); // обнавляем текст на экране 
 
         canFire = false;
-        reau.Play();
+        if (reau != null)
+        {
+            reau.Play();
+        }
+            
         StartCoroutine(Reload());
-        return;
+        
     }
     private IEnumerator Reload()
     {
-        yield return new WaitForSeconds(reloadTime);
+        yield return new WaitForSecondsRealtime(reloadTime);
         canFire = true;
+        Debug.Log("Перезарядка завершена. Следующий выстрел разрешён.");
     }
 
     public void updateGift(int upBullet)

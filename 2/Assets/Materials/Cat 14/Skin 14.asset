@@ -15,4 +15,4 @@ MonoBehaviour:
   skinSprite: {fileID: -1537102061517147241, guid: b3c1d0b4780b3e34fa962e6b31a2a11e, type: 3}
   animatorController: {fileID: 9100000, guid: 9bf966c200fa47c44bd1a956a1f95939, type: 2}
   colliderOffset: {x: -0.12, y: -0.05582261}
-  colliderSize: {x: 2.22, y: 1.8}
+  colliderSize: {x: 1.95, y: 1.8}

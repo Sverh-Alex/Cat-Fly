@@ -65,6 +65,7 @@ public class Addressables : MonoBehaviour
     // Активировать сцену (по кнопке "Switch")
     public void SwitchToLoadedScene()
     {
+        Time.timeScale = 1;
         if (!isLoaded || !loadHandle.IsValid())
         {
             Debug.LogWarning("Сцена ещё не загружена");
@@ -86,7 +87,7 @@ public class Addressables : MonoBehaviour
         };
 
         // Восстанавливаем время (если было timeScale = 0)
-        Time.timeScale = 1;
+        
     }
 
     // Выгрузить сцену (по кнопке "Unload")
