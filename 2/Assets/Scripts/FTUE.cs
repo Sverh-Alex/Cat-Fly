@@ -45,21 +45,33 @@ public class FTUEEntryPoint : MonoBehaviour
 
     private void Start()
     {
-        // При необходимости сбрасываем сохранение FTUE.
+        // При необходимости сбрасываем сохранение FTUE
         if (resetFTUEPrefs)
         {
             ResetFTUEPrefs();
         }
 
-        // Показываем экран загрузки.
+        // Показываем экран загрузки
         ShowLoadingScreen();
 
-        // Возвращаем обычную скорость времени.
+        // Возвращаем нормальную скорость игры
         Time.timeScale = 1f;
 
-        // Начинаем заранее загружать Addressable-сцену.
-        // Важно: сцена загружается, но пока не активируется.
-        StartCoroutine(PreloadStartScene());
+        // Проверяем, был ли FTUE уже пройден
+        bool ftueWasShown = PlayerPrefs.GetInt(FTUE_KEY, 0) == 1;
+
+        if (ftueWasShown)
+        {
+            // Если FTUE уже пройден, заранее загружаем Start
+            WriteDebug("FTUE уже пройден. Загружаем Start заранее.");
+            StartCoroutine(PreloadStartScene());
+        }
+        else
+        {
+            // Если FTUE ещё не пройден, Start сейчас не нужен.
+            // Не создаём параллельную загрузку.
+            WriteDebug("FTUE ещё не пройден. Start пока не загружаем.");
+        }
     }
 
     private IEnumerator PreloadStartScene()

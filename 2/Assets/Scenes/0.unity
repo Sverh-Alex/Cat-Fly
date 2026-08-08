@@ -1255,7 +1255,7 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   img: {fileID: 760100015}
-  resetFTUEPrefs: 0
+  resetFTUEPrefs: 1
 --- !u!4 &1175212227
 Transform:
   m_ObjectHideFlags: 0
