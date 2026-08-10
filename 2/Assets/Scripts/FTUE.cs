@@ -6,6 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using PlayerPrefs = RedefineYG.PlayerPrefs;
+using UnityEngine.UI;
 
 public class FTUEEntryPoint : MonoBehaviour
 {
@@ -41,7 +42,8 @@ public class FTUEEntryPoint : MonoBehaviour
 
     // Защита от повторного нажатия на кнопку Continue.
     private bool transitionStarted;
-    private bool LVLStarted;
+    [SerializeField] private Slider loadingSlider;
+    [SerializeField] private Button btn;
 
     private void Start()
     {
@@ -62,74 +64,49 @@ public class FTUEEntryPoint : MonoBehaviour
 
         if (ftueWasShown)
         {
+            // Сбрасываем Slider перед загрузкой
+            loadingSlider.value = 0f;
+            btn.interactable = false;
+            Debug.Log("Кнопка выключена");
+
             // Если FTUE уже пройден, заранее загружаем Start
-            WriteDebug("FTUE уже пройден. Загружаем Start заранее.");
             StartCoroutine(PreloadStartScene());
         }
         else
         {
             // Если FTUE ещё не пройден, Start сейчас не нужен.
             // Не создаём параллельную загрузку.
-            WriteDebug("FTUE ещё не пройден. Start пока не загружаем.");
         }
     }
-
     private IEnumerator PreloadStartScene()
     {
-        // Проверяем, назначена ли ссылка на сцену.
-        if (startSceneName == null)
-        {
-            WriteDebug("Ошибка: startSceneName не назначена.");
-            Debug.LogError("[FTUE] Addressable-ссылка startSceneName не назначена.");
-            yield break;
-        }
-
-        // Проверяем корректность Addressables-ссылки.
-        if (!startSceneName.RuntimeKeyIsValid())
-        {
-            WriteDebug("Ошибка: недействительный ключ startSceneName.");
-            Debug.LogError("[FTUE] У startSceneName недействительный RuntimeKey.");
-            yield break;
-        }
-
-        WriteDebug("Начинаем загрузку основной сцены...");
-        Debug.Log("[FTUE] Начинаем предварительную загрузку основной сцены.");
-
-        // Загружаем сцену в режиме Single,
-        // но false запрещает её немедленную активацию.
+        // Начинаем загрузку Start-сцены,
+        // но пока не активируем её
         startSceneHandle = startSceneName.LoadSceneAsync(
             LoadSceneMode.Single,
             false
         );
 
-        // Ждём окончания загрузки Addressables-операции.
-        yield return startSceneHandle;
-
-        // Проверяем результат загрузки.
-        if (startSceneHandle.Status == AsyncOperationStatus.Succeeded)
+        // Показываем прогресс загрузки
+        while (!startSceneHandle.IsDone)
         {
-            startSceneLoaded = true;
+            // Получаем прогресс Addressables от 0 до 1
+            loadingSlider.value =
+                startSceneHandle.PercentComplete;
 
-            WriteDebug("Основная сцена загружена и ожидает активации.");
-            Debug.Log("[FTUE] Основная сцена успешно загружена и ожидает активации.");
+            // Ждём следующий кадр
+            yield return null;
         }
-        else
-        {
-            startSceneLoaded = false;
 
-            string errorMessage =
-                startSceneHandle.OperationException != null
-                    ? startSceneHandle.OperationException.Message
-                    : "Неизвестная ошибка загрузки.";
+        // После завершения устанавливаем 100%
+        loadingSlider.value = 1f;
+        btn.interactable = true;
+        Debug.Log("Кнопка Включена");
 
-            WriteDebug($"Ошибка загрузки основной сцены:\n{errorMessage}");
-
-            Debug.LogError(
-                $"[FTUE] Не удалось загрузить основную сцену: {errorMessage}"
-            );
-        }
+        // Проверяем, завершилась ли загрузка успешно
+        startSceneLoaded =
+            startSceneHandle.Status == AsyncOperationStatus.Succeeded;
     }
-
     public void Continue()
     {
         // Не допускаем повторного запуска перехода.
@@ -146,8 +123,6 @@ public class FTUEEntryPoint : MonoBehaviour
         // Проверяем, был ли FTUE уже пройден.
         bool ftueWasShown = PlayerPrefs.GetInt(FTUE_KEY, 0) == 1;
 
-        WriteDebug($"FTUE_KEY = {PlayerPrefs.GetInt(FTUE_KEY, 0)}");
-
         if (ftueWasShown)
         {
             // Если туториал уже был пройден,
@@ -156,12 +131,6 @@ public class FTUEEntryPoint : MonoBehaviour
         }
         else
         {
-            // Если туториал ещё не был пройден,
-            // сначала сохраняем этот факт.
-            //PlayerPrefs.SetInt(FTUE_KEY, 1);
-            //PlayerPrefs.Save();
-
-            WriteDebug($"Загружаем сцену FTUE: {ftueSceneName}");
             Debug.Log($"[FTUE] Загружаем обычную сцену: {ftueSceneName}");
 
             // Загружаем FTUE через обычный SceneManager.
@@ -177,7 +146,6 @@ public class FTUEEntryPoint : MonoBehaviour
             !startSceneHandle.IsValid() ||
             startSceneHandle.Status != AsyncOperationStatus.Succeeded)
         {
-            WriteDebug("Основная сцена ещё не готова.");
 
             Debug.LogError(
                 "[FTUE] Нельзя активировать основную сцену: " +
@@ -189,7 +157,6 @@ public class FTUEEntryPoint : MonoBehaviour
             yield break;
         }
 
-        WriteDebug("Активируем основную сцену...");
         Debug.Log("[FTUE] Активируем заранее загруженную основную сцену.");
 
         // Активируем сцену только после нажатия Continue.
@@ -199,7 +166,6 @@ public class FTUEEntryPoint : MonoBehaviour
         // Ждём завершения активации.
         yield return activateOperation;
 
-        WriteDebug("Основная сцена активирована.");
         Debug.Log("[FTUE] Основная сцена успешно активирована.");
     }
 
@@ -218,31 +184,7 @@ public class FTUEEntryPoint : MonoBehaviour
         // Удаляем сохранённый ключ прохождения FTUE.
         PlayerPrefs.DeleteKey(FTUE_KEY);
         PlayerPrefs.Save();
-
-        WriteDebug("FTUE PlayerPrefs сброшен.");
         Debug.Log("[FTUE] PlayerPrefs был сброшен.");
     }
 
-    private void WriteDebug(string message)
-    {
-        // Выводим сообщение в обычную консоль.
-        Debug.Log(message);
-
-        // Дополнительно показываем сообщение на экране,
-        // если TextMeshProUGUI назначен в Inspector.
-        if (debug != null)
-        {
-            debug.text = message;
-        }
-    }
-    public void LVL()
-    {
-        if(LVLStarted)
-        {
-            return;
-        }
-        LVLStarted = true;
-
-        SceneManager.LoadScene("Start");
-    }
 }

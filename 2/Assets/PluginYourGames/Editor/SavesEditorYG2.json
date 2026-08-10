@@ -21,9 +21,9 @@
         "skin"
     ],
     "intValues": [
-        81,
+        82,
         3,
-        3,
+        2,
         1,
         0
     ],
@@ -35,5 +35,5 @@
         false,
         false
     ],
-    "idSave": 912
+    "idSave": 978
 }
