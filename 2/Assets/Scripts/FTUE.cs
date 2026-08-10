@@ -10,78 +10,48 @@ using UnityEngine.UI;
 
 public class FTUEEntryPoint : MonoBehaviour
 {
-    // Ключ сохранения прохождения туториала:
-    // 0 — туториал ещё не пройден;
-    // 1 — туториал уже пройден.
-    private const string FTUE_KEY = "FTUE_Shown";
-
-    [Header("Debug")]
-    [SerializeField] private TextMeshProUGUI debug;
-
-    [Header("FTUE")]
-    [Tooltip("Имя обычной сцены FTUE. Она должна быть добавлена в Build Settings.")]
-    [SerializeField] private string ftueSceneName = "FTUE";
-
-    [Header("Addressables")]
-    [Tooltip("Addressable-ссылка на основную стартовую сцену.")]
-    [SerializeField] private AssetReference startSceneName;
-
-    [Header("UI")]
-    [Tooltip("Экран загрузки или изображение, которое показывается во время загрузки.")]
-    [SerializeField] private GameObject img;
-
-    [Header("Settings")]
-    [Tooltip("Если включено, ключ FTUE будет удалён при запуске.")]
-    [SerializeField] private bool resetFTUEPrefs = false;
-
-    // Хендл предварительной загрузки основной сцены.
-    private AsyncOperationHandle<SceneInstance> startSceneHandle;
-
-    // Показывает, была ли основная сцена успешно загружена.
-    private bool startSceneLoaded;
-
-    // Защита от повторного нажатия на кнопку Continue.
-    private bool transitionStarted;
+    [SerializeField] private string ftueSceneName = "FTUE"; //сцена FTUE Ключ сохранения: 0 — туториал не пройден; 1 — туториал пройден.
+    [SerializeField] private AssetReference startSceneName; //ссылка на основную стартовую сцену
+    [SerializeField] private bool resetFTUEPrefs = false; //Если включено, ключ FTUE будет удалён при запуске
     [SerializeField] private Slider loadingSlider;
     [SerializeField] private Button btn;
+    [SerializeField] private GameObject imgFtue;
+
+    private const string FTUE_KEY = "FTUE_Shown";
+    private AsyncOperationHandle<SceneInstance> startSceneHandle; // Хендл предварительной загрузки основной сцены.
+    private bool startSceneLoaded; // Показывает, была ли основная сцена успешно загружена.
+    private bool transitionStarted; // Защита от повторного нажатия на кнопку Continue.
 
     private void Start()
     {
-        // При необходимости сбрасываем сохранение FTUE
-        if (resetFTUEPrefs)
+        Time.timeScale = 1f;
+        imgFtue.SetActive(false);
+        
+        if (resetFTUEPrefs) // При необходимости сбрасываем сохранение FTUE
         {
             ResetFTUEPrefs();
         }
 
-        // Показываем экран загрузки
-        ShowLoadingScreen();
-
-        // Возвращаем нормальную скорость игры
-        Time.timeScale = 1f;
-
-        // Проверяем, был ли FTUE уже пройден
-        bool ftueWasShown = PlayerPrefs.GetInt(FTUE_KEY, 0) == 1;
+        bool ftueWasShown = PlayerPrefs.GetInt(FTUE_KEY, 0) == 1; // Проверяем, был ли FTUE уже пройден
+        Debug.Log(ftueWasShown);
 
         if (ftueWasShown)
         {
-            // Сбрасываем Slider перед загрузкой
-            loadingSlider.value = 0f;
-            btn.interactable = false;
-            Debug.Log("Кнопка выключена");
-
-            // Если FTUE уже пройден, заранее загружаем Start
-            StartCoroutine(PreloadStartScene());
+            return;
         }
         else
         {
-            // Если FTUE ещё не пройден, Start сейчас не нужен.
-            // Не создаём параллельную загрузку.
+            //imgFtue.SetActive(true);
+            imgFtue.SetActive(true);
+            loadingSlider.value = 0f; // Сбрасываем Slider перед загрузкой
+            btn.interactable = false;
+            Debug.Log("Кнопка выключена");
+            StartCoroutine(PreloadStartScene()); // Если FTUE не пройден, заранее загружаем уровень
         }
     }
     private IEnumerator PreloadStartScene()
     {
-        // Начинаем загрузку Start-сцены,
-        // но пока не активируем её
+        // Начинаем загрузку сцены, но пока не активируем её
         startSceneHandle = startSceneName.LoadSceneAsync(
             LoadSceneMode.Single,
             false
@@ -116,27 +86,11 @@ public class FTUEEntryPoint : MonoBehaviour
         }
 
         transitionStarted = true;
-
+        StartCoroutine(ActivateStartScene());
+        Debug.Log("[FTUE] Пытается активироваться.");
         // Возвращаем нормальную скорость игры.
         Time.timeScale = 1f;
 
-        // Проверяем, был ли FTUE уже пройден.
-        bool ftueWasShown = PlayerPrefs.GetInt(FTUE_KEY, 0) == 1;
-
-        if (ftueWasShown)
-        {
-            // Если туториал уже был пройден,
-            // активируем заранее загруженную основную сцену.
-            StartCoroutine(ActivateStartScene());
-        }
-        else
-        {
-            Debug.Log($"[FTUE] Загружаем обычную сцену: {ftueSceneName}");
-
-            // Загружаем FTUE через обычный SceneManager.
-            // Сцена должна быть добавлена в File > Build Settings.
-            SceneManager.LoadScene(ftueSceneName);
-        }
     }
 
     private IEnumerator ActivateStartScene()
@@ -146,11 +100,7 @@ public class FTUEEntryPoint : MonoBehaviour
             !startSceneHandle.IsValid() ||
             startSceneHandle.Status != AsyncOperationStatus.Succeeded)
         {
-
-            Debug.LogError(
-                "[FTUE] Нельзя активировать основную сцену: " +
-                "она не была успешно загружена."
-            );
+            Debug.LogError("[FTUE] Нельзя активировать основную сцену: она не была успешно загружена.");
 
             // Разрешаем повторить нажатие после ошибки.
             transitionStarted = false;
@@ -169,15 +119,6 @@ public class FTUEEntryPoint : MonoBehaviour
         Debug.Log("[FTUE] Основная сцена успешно активирована.");
     }
 
-    private void ShowLoadingScreen()
-    {
-        // Проверяем ссылку перед использованием,
-        // чтобы избежать NullReferenceException.
-        if (img != null)
-        {
-            img.SetActive(true);
-        }
-    }
 
     private void ResetFTUEPrefs()
     {
@@ -186,5 +127,4 @@ public class FTUEEntryPoint : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("[FTUE] PlayerPrefs был сброшен.");
     }
-
 }

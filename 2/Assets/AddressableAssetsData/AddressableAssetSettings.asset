@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 0d50572aba45342448a62b70a4740db0
   m_currentHash:
     serializedVersion: 2
-    Hash: 3b7459c282487ced54d11279c66c2f8d
+    Hash: 11d226ea01c45ccc40aa78ab7bb57533
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -80,8 +80,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e526a0867d0912a4c97bac3a99d55011, type: 2}
   - {fileID: 11400000, guid: fca883eb0abe8e14182158ef634beaee, type: 2}
   - {fileID: 11400000, guid: 1a1dd94c07eb6f84789679c5ef54759b, type: 2}
-  - {fileID: 11400000, guid: fdf43ba06da89e240aace4a4bdc7665d, type: 2}
   - {fileID: 11400000, guid: 6a47a81e27b449648860fe46b7776aaa, type: 2}
+  - {fileID: 11400000, guid: 114463b97ae49b94b908856c649d56b6, type: 2}
+  - {fileID: 11400000, guid: 862de2c2f6e6d054883cc5c8cd546096, type: 2}
   - {fileID: 11400000, guid: 91732c15588f08b448eeaa08977c60b4, type: 2}
   - {fileID: 11400000, guid: b79f11fb67f79fc45a46c2681938378c, type: 2}
   - {fileID: 11400000, guid: 1339a2d4c7de7d54d93f6da4c11d9333, type: 2}
@@ -101,7 +102,7 @@ MonoBehaviour:
       - m_Id: 30ff7a56e76fd75459a98ed8c141ae23
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 6e15146688346f7488e4b2cdbfa410e9
-        m_Value: http://localhost/Server/
+        m_Value: https://storage.yandexcloud.net/cat-fly/Bundle
       - m_Id: 7f99a95d14a214c48a2b586e6c12e434
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: a8b5220f14d2ffd4c91f5038dcf65b6a

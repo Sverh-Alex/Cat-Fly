@@ -1,31 +1,44 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="AddressableSceneLoader" preserve="all" />
+    <type fullname="BackGroundScript" preserve="all" />
     <type fullname="ButtonClose" preserve="all" />
     <type fullname="ButtonGameManager" preserve="all" />
-    <type fullname="ButtonLevel" preserve="all" />
-    <type fullname="ButtonShop" preserve="all" />
-    <type fullname="ButtonToggleManager" preserve="all" />
-    <type fullname="DataSaver" preserve="all" />
-    <type fullname="ImageChangerMain" preserve="all" />
+    <type fullname="Cat" preserve="all" />
+    <type fullname="CatParentMove" preserve="all" />
+    <type fullname="Cloud" preserve="all" />
+    <type fullname="DelayedShowSelf" preserve="all" />
+    <type fullname="Feather" preserve="all" />
+    <type fullname="FireButton" preserve="all" />
+    <type fullname="FixedJoystick" preserve="all" />
+    <type fullname="FTUEController" preserve="all" />
+    <type fullname="GameAnalyticsScript" preserve="all" />
+    <type fullname="Gift" preserve="all" />
+    <type fullname="ImageChangerLose" preserve="all" />
     <type fullname="LanguageManager" preserve="all" />
-    <type fullname="LevelsReset" preserve="all" />
-    <type fullname="OrientationSetter" preserve="all" />
+    <type fullname="MultiTextAppearAndFade" preserve="all" />
+    <type fullname="PlayerChanger" preserve="all" />
+    <type fullname="Rainbow" preserve="all" />
     <type fullname="ScoreManager" preserve="all" />
-    <type fullname="ScreenTest" preserve="all" />
+    <type fullname="SkinChanger" preserve="all" />
+    <type fullname="SkinData" preserve="all" />
+    <type fullname="Slidbar" preserve="all" />
+    <type fullname="Slipper" preserve="all" />
     <type fullname="Sounds" preserve="all" />
     <type fullname="SoundSlider" preserve="all" />
-    <type fullname="TimerBonus" preserve="all" />
-    <type fullname="YG.ConsumePurchasesYG" preserve="all" />
-    <type fullname="YG.EventsYG2" preserve="all" />
+    <type fullname="SpamClouds" preserve="all" />
+    <type fullname="TestMove" preserve="all" />
+    <type fullname="TextFade" preserve="all" />
+    <type fullname="Timer" preserve="all" />
+    <type fullname="TimerPause" preserve="all" />
+    <type fullname="Tutorial" preserve="all" />
     <type fullname="YG.LanguageLegacy.LanguageYG" preserve="all" />
-    <type fullname="YG.PurchaseYG" preserve="all" />
     <type fullname="YG.InfoYG/AutoTranslateLangsSettings" preserve="nothing" serialized="true" />
     <type fullname="YG.InfoYG/AutoTranslateLangsSettings/Fonts" preserve="nothing" serialized="true" />
     <type fullname="YG.InfoYG/AutoTranslateLangsSettings/FontsSizeCorrect" preserve="nothing" serialized="true" />
     <type fullname="YG.InfoYG/AutoTranslateLangsSettings/FontsTMP" preserve="nothing" serialized="true" />
     <type fullname="YG.InfoYG/AutoTranslateLangsSettings/Languages" preserve="nothing" serialized="true" />
-    <type fullname="YG.PurchaseYG/TextLegasy" preserve="nothing" serialized="true" />
-    <type fullname="YG.PurchaseYG/TextMP" preserve="nothing" serialized="true" />
+    <type fullname="FTUEController/StepData" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="CFXRRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="CartoonFX.CFXR_Effect" preserve="all" />
@@ -34,6 +47,7 @@
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+    <type fullname="UnityEngine.AddressableAssets.AssetReference" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.InputSystem, Version=1.14.2.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="all" />
@@ -79,6 +93,7 @@
   <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
     <type fullname="TMPro.TMP_FontAsset" preserve="all" />
+    <type fullname="TMPro.TMP_InputField" preserve="all" />
     <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
     <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
     <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
@@ -86,9 +101,19 @@
     <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/OnChangeEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/SelectionEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/SubmitEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
   </assembly>
+  <assembly fullname="Unity.VisualScripting.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Unity.VisualScripting.Variables" preserve="all" />
+    <type fullname="Unity.VisualScripting.SerializationData" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Animation" preserve="all" />
     <type fullname="UnityEngine.AnimationClip" preserve="all" />
     <type fullname="UnityEngine.Animator" preserve="all" />
     <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
@@ -100,14 +125,15 @@
   </assembly>
   <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Camera" preserve="all" />
-    <type fullname="UnityEngine.Cubemap" preserve="all" />
     <type fullname="UnityEngine.GameObject" preserve="all" />
     <type fullname="UnityEngine.Light" preserve="all" />
     <type fullname="UnityEngine.LightmapSettings" preserve="all" />
     <type fullname="UnityEngine.Material" preserve="all" />
     <type fullname="UnityEngine.Mesh" preserve="all" />
+    <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
     <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.Rendering.SortingGroup" preserve="all" />
     <type fullname="UnityEngine.RenderSettings" preserve="all" />
     <type fullname="UnityEngine.Shader" preserve="all" />
     <type fullname="UnityEngine.Sprite" preserve="all" />
@@ -126,6 +152,10 @@
     <type fullname="UnityEngine.ParticleSystemForceField" preserve="all" />
     <type fullname="UnityEngine.ParticleSystemRenderer" preserve="all" />
   </assembly>
+  <assembly fullname="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.BoxCollider2D" preserve="all" />
+    <type fullname="UnityEngine.Rigidbody2D" preserve="all" />
+  </assembly>
   <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Font" preserve="all" />
   </assembly>
@@ -137,7 +167,9 @@
     <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
     <type fullname="UnityEngine.UI.GridLayoutGroup" preserve="all" />
     <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
     <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.RectMask2D" preserve="all" />
     <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
     <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
     <type fullname="UnityEngine.UI.Slider" preserve="all" />
@@ -153,6 +185,7 @@
   </assembly>
   <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasGroup" preserve="all" />
     <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.TextCoreFontEngineModule">
