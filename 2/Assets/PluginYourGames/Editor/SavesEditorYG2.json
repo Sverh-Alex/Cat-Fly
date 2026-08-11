@@ -18,16 +18,14 @@
         "[989613e30e67e7f4eaf6f1948a10b312]LVL_0_1_Tutor (UnityEngine.SceneAsset)stars",
         "[989613e30e67e7f4eaf6f1948a10b312]stars",
         "[]stars",
-        "skin",
-        "FTUE_Shown"
+        "skin"
     ],
     "intValues": [
         82,
         3,
         3,
         1,
-        0,
-        1
+        0
     ],
     "intExample": 5,
     "strExample": "Hello!",
@@ -37,5 +35,5 @@
         false,
         false
     ],
-    "idSave": 1090
+    "idSave": 1155
 }

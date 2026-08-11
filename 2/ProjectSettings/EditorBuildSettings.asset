@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/PluginYourGames/Example/Scenes/ExampleYG2.unity
     guid: e49bf7e58fdb4db4c9df51f0ddb8f327
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/0.unity
     guid: 722ab7abdba8ca6448c2b9f82e338fd6
   - enabled: 1

@@ -24794,7 +24794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 902246020}
-  lifeTime: 2
+  lifeTime: 20
   levelName:
     m_AssetGUID: 989613e30e67e7f4eaf6f1948a10b312
     m_SubObjectName: 

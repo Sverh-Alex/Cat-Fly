@@ -10,16 +10,15 @@ using UnityEngine.UI;
 
 public class FTUEEntryPoint : MonoBehaviour
 {
-    [SerializeField] private string ftueSceneName = "FTUE"; //сцена FTUE Ключ сохранения: 0 — туториал не пройден; 1 — туториал пройден.
-    [SerializeField] private AssetReference startSceneName; //ссылка на основную стартовую сцену
+    [SerializeField] private AssetReference ftueSceneName; //ссылка на основную стартовую сцену
     [SerializeField] private bool resetFTUEPrefs = false; //Если включено, ключ FTUE будет удалён при запуске
     [SerializeField] private Slider loadingSlider;
     [SerializeField] private Button btn;
     [SerializeField] private GameObject imgFtue;
 
     private const string FTUE_KEY = "FTUE_Shown";
-    private AsyncOperationHandle<SceneInstance> startSceneHandle; // Хендл предварительной загрузки основной сцены.
-    private bool startSceneLoaded; // Показывает, была ли основная сцена успешно загружена.
+    private AsyncOperationHandle<SceneInstance> ftueSceneHandle; // Хендл предварительной загрузки основной сцены.
+    private bool ftueSceneLoaded; // Показывает, была ли основная сцена успешно загружена.
     private bool transitionStarted; // Защита от повторного нажатия на кнопку Continue.
 
     private void Start()
@@ -37,6 +36,7 @@ public class FTUEEntryPoint : MonoBehaviour
 
         if (ftueWasShown)
         {
+            btn.interactable = true;
             return;
         }
         else
@@ -51,31 +51,28 @@ public class FTUEEntryPoint : MonoBehaviour
     }
     private IEnumerator PreloadStartScene()
     {
-        // Начинаем загрузку сцены, но пока не активируем её
-        startSceneHandle = startSceneName.LoadSceneAsync(
-            LoadSceneMode.Single,
-            false
-        );
+        ftueSceneHandle = ftueSceneName.LoadSceneAsync(LoadSceneMode.Single, false);
 
-        // Показываем прогресс загрузки
-        while (!startSceneHandle.IsDone)
+        while (!ftueSceneHandle.IsDone)
         {
-            // Получаем прогресс Addressables от 0 до 1
-            loadingSlider.value =
-                startSceneHandle.PercentComplete;
-
-            // Ждём следующий кадр
+            loadingSlider.value = ftueSceneHandle.PercentComplete;
             yield return null;
         }
 
-        // После завершения устанавливаем 100%
         loadingSlider.value = 1f;
-        btn.interactable = true;
-        Debug.Log("Кнопка Включена");
 
-        // Проверяем, завершилась ли загрузка успешно
-        startSceneLoaded =
-            startSceneHandle.Status == AsyncOperationStatus.Succeeded;
+        ftueSceneLoaded = ftueSceneHandle.Status == AsyncOperationStatus.Succeeded;
+
+        if (ftueSceneLoaded)
+        {
+            btn.interactable = true;
+            Debug.Log("Кнопка включена");
+        }
+        else
+        {
+            Debug.LogError($"[FTUE] Ошибка загрузки сцены: {ftueSceneHandle.OperationException}");
+            // Можно показать сообщение игроку или перезагрузить
+        }
     }
     public void Continue()
     {
@@ -96,9 +93,9 @@ public class FTUEEntryPoint : MonoBehaviour
     private IEnumerator ActivateStartScene()
     {
         // Проверяем, что сцена действительно была загружена.
-        if (!startSceneLoaded ||
-            !startSceneHandle.IsValid() ||
-            startSceneHandle.Status != AsyncOperationStatus.Succeeded)
+        if (!ftueSceneLoaded ||
+            !ftueSceneHandle.IsValid() ||
+            ftueSceneHandle.Status != AsyncOperationStatus.Succeeded)
         {
             Debug.LogError("[FTUE] Нельзя активировать основную сцену: она не была успешно загружена.");
 
@@ -111,7 +108,7 @@ public class FTUEEntryPoint : MonoBehaviour
 
         // Активируем сцену только после нажатия Continue.
         AsyncOperation activateOperation =
-            startSceneHandle.Result.ActivateAsync();
+            ftueSceneHandle.Result.ActivateAsync();
 
         // Ждём завершения активации.
         yield return activateOperation;
