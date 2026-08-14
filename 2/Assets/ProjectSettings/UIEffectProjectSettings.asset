@@ -13,15 +13,84 @@ ShaderVariantCollection:
       variants:
       - keywords: COLOR_FILTER
         passType: 0
+      - keywords: COLOR_FILTER DETAIL_MASKING EDGE_SHINY TRANSITION_SHINY
+        passType: 0
+      - keywords: COLOR_FILTER DETAIL_MULTIPLY EDGE_SHINY TRANSITION_SHINY
+        passType: 0
+      - keywords: COLOR_FILTER DETAIL_MULTIPLY_ADDITIVE EDGE_SHINY TRANSITION_SHINY
+        passType: 0
+      - keywords: COLOR_FILTER DETAIL_REPLACE EDGE_SHINY TRANSITION_SHINY
+        passType: 0
+      - keywords: COLOR_FILTER DETAIL_SUBTRACTIVE EDGE_SHINY TRANSITION_SHINY
+        passType: 0
       - keywords: COLOR_FILTER EDGE_SHINY
+        passType: 0
+      - keywords: COLOR_FILTER EDGE_SHINY TRANSITION_SHINY
+        passType: 0
+      - keywords: COLOR_FILTER TARGET_HUE TRANSITION_PATTERN
+        passType: 0
+      - keywords: COLOR_FILTER TARGET_LUMINANCE TRANSITION_PATTERN
+        passType: 0
+      - keywords: COLOR_FILTER TRANSITION_PATTERN
         passType: 0
       - keywords: COLOR_FILTER TRANSITION_SHINY
         passType: 0
       - keywords: EDGE_SHINY
         passType: 0
+      - keywords: EDGE_SHINY SAMPLING_BLUR_FAST
+        passType: 0
+      - keywords: EDGE_SHINY TRANSITION_FADE
+        passType: 0
       - keywords: EDGE_SHINY TRANSITION_SHINY
         passType: 0
+      - keywords: SAMPLING_BLUR_DETAIL
+        passType: 0
+      - keywords: SAMPLING_BLUR_FAST
+        passType: 0
+      - keywords: SAMPLING_BLUR_MEDIUM
+        passType: 0
+      - keywords: SAMPLING_EDGE_ALPHA
+        passType: 0
+      - keywords: SAMPLING_EDGE_LUMINANCE
+        passType: 0
+      - keywords: SAMPLING_PIXELATION
+        passType: 0
+      - keywords: SAMPLING_RGB_SHIFT
+        passType: 0
+      - keywords: TARGET_HUE TRANSITION_PATTERN
+        passType: 0
+      - keywords: TONE_GRAYSCALE
+        passType: 0
+      - keywords: TONE_NEGATIVE
+        passType: 0
+      - keywords: TONE_POSTERIZE
+        passType: 0
+      - keywords: TONE_RETRO
+        passType: 0
+      - keywords: TONE_SEPIA
+        passType: 0
+      - keywords: TRANSITION_BLAZE
+        passType: 0
+      - keywords: TRANSITION_BURN
+        passType: 0
+      - keywords: TRANSITION_CUTOFF
+        passType: 0
+      - keywords: TRANSITION_DISSOLVE
+        passType: 0
+      - keywords: TRANSITION_FADE
+        passType: 0
+      - keywords: TRANSITION_MASK
+        passType: 0
+      - keywords: TRANSITION_MELT
+        passType: 0
+      - keywords: TRANSITION_PATTERN
+        passType: 0
       - keywords: TRANSITION_SHINY
+        passType: 0
+  - first: {fileID: 4800000, guid: e65241fa80a374114b3f55ed746c04d9, type: 3}
+    second:
+      variants:
+      - keywords: TRANSITION_SHINY UNDERLAY_ON
         passType: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -44,8 +113,25 @@ MonoBehaviour:
     m_OptionalShaders:
     - key: Hidden/UI/Default (SoftMaskable)
       value: Hidden/UI/Default (UIEffect)
+    - key: Hidden/TextMeshPro/Bitmap (SoftMaskable)
+      value: Hidden/TextMeshPro/Bitmap (UIEffect)
+    - key: Hidden/TextMeshPro/Distance Field (SoftMaskable)
+      value: Hidden/TextMeshPro/Distance Field (UIEffect)
+    - key: Hidden/TextMeshPro/Distance Field Overlay (SoftMaskable)
+      value: Hidden/TextMeshPro/Distance Field Overlay (UIEffect)
+    - key: Hidden/TextMeshPro/Distance Field SSD (SoftMaskable)
+      value: Hidden/TextMeshPro/Distance Field SSD (UIEffect)
+    - key: Hidden/TextMeshPro/Mobile/Bitmap (SoftMaskable)
+      value: Hidden/TextMeshPro/Mobile/Bitmap (UIEffect)
+    - key: Hidden/TextMeshPro/Mobile/Distance Field (SoftMaskable)
+      value: Hidden/TextMeshPro/Mobile/Distance Field (UIEffect)
+    - key: Hidden/TextMeshPro/Mobile/Distance Field Overlay (SoftMaskable)
+      value: Hidden/TextMeshPro/Mobile/Distance Field Overlay (UIEffect)
+    - key: Hidden/TextMeshPro/Mobile/Distance Field SSD (SoftMaskable)
+      value: Hidden/TextMeshPro/Mobile/Distance Field SSD (UIEffect)
     m_Asset: {fileID: -242877560593380048}
     m_RegisteredShaders:
     - {fileID: 4800000, guid: 96246b1ead49a4c5a996fd477bc5a117, type: 3}
+    - {fileID: 4800000, guid: e65241fa80a374114b3f55ed746c04d9, type: 3}
     m_ErrorOnUnregisteredVariant: 0
     m_UnregisteredVariants: []
