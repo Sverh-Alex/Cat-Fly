@@ -90,6 +90,8 @@ ShaderVariantCollection:
   - first: {fileID: 4800000, guid: e65241fa80a374114b3f55ed746c04d9, type: 3}
     second:
       variants:
+      - keywords: EDGE_SHINY UNDERLAY_ON
+        passType: 0
       - keywords: TRANSITION_SHINY UNDERLAY_ON
         passType: 0
 --- !u!114 &11400000
