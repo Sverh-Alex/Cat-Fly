@@ -83,7 +83,7 @@ public class ButtonGameManager : MonoBehaviour
         SceneManager.LoadScene("LVL_0_1");
         EffectClick();
     }
-    public void LVL()
+    public void LVLStart()
     {
 
         SceneManager.LoadScene("Start");
@@ -150,6 +150,7 @@ public class ButtonGameManager : MonoBehaviour
         DisableAll();
         Time.timeScale = 0;
     }
+
     public void DisableAll()
     {
         foreach(GameObject i in objectOff)
@@ -193,18 +194,26 @@ public class ButtonGameManager : MonoBehaviour
         Time.timeScale = 1;
         EffectClick();
     }
+
+    public void OnContinueFTUE()
+    {
+        menuInGame.SetActive(false);
+        ActiveAll();
+        EffectClick();
+    }
+    public void OnClickMenuFTUE()
+    {
+        menuInGame.SetActive(true);
+        DisableAll();
+        Time.timeScale = 0;
+    }
     public void OnMenu()
     {
         SceneManager.LoadScene("Start");
         Time.timeScale = 1;
         EffectClick();
     }
-    public void OnRestart()
-    {
-        SceneManager.LoadScene("GameScene");
-        Time.timeScale = 1;
-        EffectClick();
-    }
+
     public void EffectClick()
     {
         // ѕолучаем позицию мыши в мировых координатах

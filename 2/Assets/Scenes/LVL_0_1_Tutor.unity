@@ -5184,9 +5184,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1577278533}
-        m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
-        m_MethodName: OnClickMenu
+      - m_Target: {fileID: 419817880}
+        m_TargetAssemblyTypeName: Addressables, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5196,9 +5196,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 419817880}
-        m_TargetAssemblyTypeName: Addressables, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 2114821621}
+        m_TargetAssemblyTypeName: FTUEController, Assembly-CSharp
+        m_MethodName: PauseByMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1577278533}
+        m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
+        m_MethodName: OnClickMenuFTUE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7149,7 +7161,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1577278533}
         m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
-        m_MethodName: OnContinue
+        m_MethodName: OnContinueFTUE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2114821621}
+        m_TargetAssemblyTypeName: FTUEController, Assembly-CSharp
+        m_MethodName: ResumeByMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22919,7 +22943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22283335, y: 0}
   m_AnchorMax: {x: 0.77500004, y: 1}
-  m_AnchoredPosition: {x: -5.5, y: -112}
+  m_AnchoredPosition: {x: -4.704895, y: -112}
   m_SizeDelta: {x: 680.02, y: 628.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &970786483
@@ -24344,7 +24368,6 @@ GameObject:
   - component: {fileID: 1058162200}
   - component: {fileID: 1058162199}
   - component: {fileID: 1058162198}
-  - component: {fileID: 1058162197}
   m_Layer: 5
   m_Name: btnAdds
   m_TagString: Untagged
@@ -24372,28 +24395,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1.6500244, y: -2.5}
   m_SizeDelta: {x: -6.9000244, y: 0.27001953}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1058162197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058162195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe27f645ae7400c40b9dc42ee764cdbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shop: {fileID: 0}
-  catShop: {fileID: 0}
-  mainMenu: {fileID: 0}
-  bonusMenu: {fileID: 0}
-  menuInGame: {fileID: 0}
-  loseMenu: {fileID: 0}
-  levels: {fileID: 0}
-  effectPSClick: {fileID: 0}
-  objectOff: []
-  ftueController: {fileID: 0}
 --- !u!114 &1058162198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24703,9 +24704,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2114821621}
+        m_TargetAssemblyTypeName: FTUEController, Assembly-CSharp
+        m_MethodName: ResumeByMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1577278533}
         m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
-        m_MethodName: OnContinue
+        m_MethodName: OnContinueFTUE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25455,7 +25468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 902246020}
-  lifeTime: 20
+  lifeTime: 2
   levelName:
     m_AssetGUID: 989613e30e67e7f4eaf6f1948a10b312
     m_SubObjectName: 
@@ -29036,7 +29049,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1577278533}
         m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
-        m_MethodName: LVL
+        m_MethodName: LVLStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

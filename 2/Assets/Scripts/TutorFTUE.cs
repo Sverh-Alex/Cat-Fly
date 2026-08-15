@@ -7,177 +7,184 @@ public class FTUEController : MonoBehaviour
     [System.Serializable]
     public class StepData
     {
-        public GameObject ui;
-        public GameObject prefab;
+        public GameObject ui; // UI текущего шага
+        public GameObject prefab; // Prefab текущего шага
     }
 
-    public float firstPauseDelay = 2f;
-    public float delayBetweenSteps = 3f;
-    public Button continueButton;
-    public StepData[] steps;
+    public float firstPauseDelay = 2f; // Задержка перед первым popup
+    public float delayBetweenSteps = 3f; // Задержка между popup
+    public Button continueButton; // Кнопка продолжения туториала
+    public StepData[] steps; // Последовательность шагов туториала
 
-    private int currentStepIndex = -1;     // Текущий шаг, -1 = шаг ещё не показан
-    private bool isPausedByMenu;           // Туториал временно остановлен меню
-    private bool isGamePaused;             // Игра сейчас на паузе из-за туториала
-    private GameObject continueButtonGO;   // Ссылка на объект кнопки
-
-    private bool waitingForFirstStep;      // Ждём первый шаг
-    private bool waitingForNextStep;       // Ждём следующий шаг
-    private float timer;                  // Текущий отсчёт времени
-    private float targetDelay;            // Нужная задержка
+    private int currentStepIndex = -1; // Индекс текущего шага
+    private bool isPausedByMenu; // Меню удерживает паузу
+    private bool isGamePaused; // Popup туториала удерживает паузу
+    private GameObject continueButtonGO; // GameObject кнопки продолжения
+    private bool waitingForFirstStep; // Ожидание первого шага
+    private bool waitingForNextStep; // Ожидание следующего шага
+    private float timer; // Текущее время ожидания
+    private float targetDelay; // Требуемая задержка
 
     private void Start()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Запускаем игру на нормальной скорости
 
-        if (continueButton != null)
+        if (continueButton != null) // Проверяем наличие кнопки
         {
-            continueButtonGO = continueButton.gameObject;
-            continueButton.onClick.RemoveAllListeners();
-            continueButton.onClick.AddListener(OnContinueClicked);
+            continueButtonGO = continueButton.gameObject; // Сохраняем GameObject кнопки
+            continueButton.onClick.RemoveAllListeners(); // Удаляем старые обработчики
+            continueButton.onClick.AddListener(OnContinueClicked); // Добавляем обработчик продолжения
         }
 
-        HideAll();
+        HideAll(); // Скрываем все popup
 
-        // Запускаем ожидание первого шага
-        waitingForFirstStep = true;
-        waitingForNextStep = false;
-        timer = 0f;
-        targetDelay = firstPauseDelay;
+        waitingForFirstStep = true; // Запускаем ожидание первого шага
+        waitingForNextStep = false; // Отключаем ожидание следующего шага
+        timer = 0f; // Сбрасываем таймер
+        targetDelay = firstPauseDelay; // Назначаем задержку первого шага
     }
 
     private void Update()
     {
-        // Если туториал остановлен через меню — ничего не считаем
-        if (isPausedByMenu)
-            return;
-
-        // Если сейчас не ждём никаких шагов — выходим
-        if (!waitingForFirstStep && !waitingForNextStep)
-            return;
-
-        // Считаем время
-        timer += Time.deltaTime;
-
-        // Если время ещё не вышло — ждём дальше
-        if (timer < targetDelay)
-            return;
-
-        // Сбрасываем счётчик
-        timer = 0f;
-
-        // Показ первого шага
-        if (waitingForFirstStep)
+        if (isPausedByMenu) // Если меню открыто
         {
-            waitingForFirstStep = false;
-            ShowStep(0);
-            return;
+            return; // Не запускаем следующий popup
         }
 
-        // Показ следующего шага
-        if (waitingForNextStep)
+        if (!waitingForFirstStep && !waitingForNextStep) // Если ждать нечего
         {
-            waitingForNextStep = false;
+            return; // Выходим из Update
+        }
 
-            int nextIndex = currentStepIndex + 1;
+        timer += Time.unscaledDeltaTime; // Считаем реальное время при любой паузе
 
-            if (nextIndex < steps.Length)
+        if (timer < targetDelay) // Если задержка ещё не закончилась
+        {
+            return; // Продолжаем ожидание
+        }
+
+        timer = 0f; // Сбрасываем таймер
+
+        if (waitingForFirstStep) // Если ожидается первый шаг
+        {
+            waitingForFirstStep = false; // Отключаем ожидание первого шага
+            ShowStep(0); // Показываем первый шаг
+            return; // Завершаем текущий кадр
+        }
+
+        if (waitingForNextStep) // Если ожидается следующий шаг
+        {
+            waitingForNextStep = false; // Отключаем ожидание следующего шага
+            int nextIndex = currentStepIndex + 1; // Вычисляем индекс следующего шага
+
+            if (nextIndex < steps.Length) // Проверяем наличие следующего шага
             {
-                ShowStep(nextIndex);
+                ShowStep(nextIndex); // Показываем следующий шаг
             }
             else
             {
-                HideAll();
-                SetGamePause(false);
-
-
+                HideAll(); // Скрываем все popup
+                SetGamePause(false); // Снимаем паузу туториала
             }
         }
     }
 
     public void OnContinueClicked()
     {
-        if (!isGamePaused)
-            return;
+        if (!isGamePaused) // Если popup не активен
+        {
+            return; // Ничего не делаем
+        }
 
-        // Прячем текущий шаг
-        HideCurrentStep();
-
-        // Снимаем паузу
-        SetGamePause(false);
-
-        // Запускаем ожидание до следующего шага
-        timer = 0f;
-        targetDelay = delayBetweenSteps;
-        waitingForNextStep = true;
+        HideCurrentStep(); // Скрываем текущий popup
+        SetGamePause(false); // Снимаем паузу только туториала
+        timer = 0f; // Сбрасываем таймер
+        targetDelay = delayBetweenSteps; // Назначаем задержку до следующего popup
+        waitingForNextStep = true; // Запускаем ожидание следующего шага
     }
 
     private void ShowStep(int index)
     {
-        currentStepIndex = index;
+        if (index < 0 || index >= steps.Length) // Проверяем индекс
+        {
+            return; // Выходим при ошибочном индексе
+        }
 
-        // Прячем всё перед показом нового шага
-        HideAll();
+        currentStepIndex = index; // Сохраняем индекс текущего шага
+        HideAll(); // Скрываем предыдущие элементы
 
-        // Показываем кнопку продолжения
-        if (continueButtonGO != null)
-            continueButtonGO.SetActive(true);
+        if (continueButtonGO != null) // Проверяем кнопку
+        {
+            continueButtonGO.SetActive(true); // Показываем кнопку продолжения
+        }
 
-        // Проверяем границы массива
-        if (index < 0 || index >= steps.Length)
-            return;
+        if (steps[index].ui != null) // Проверяем UI шага
+        {
+            steps[index].ui.SetActive(true); // Показываем UI шага
+        }
 
-        // Показываем UI шага
-        if (steps[index].ui != null)
-            steps[index].ui.SetActive(true);
+        if (steps[index].prefab != null) // Проверяем prefab шага
+        {
+            Instantiate(steps[index].prefab, Vector3.zero, Quaternion.identity); // Создаём prefab
+        }
 
-        // Спавним префаб шага
-        if (steps[index].prefab != null)
-            Instantiate(steps[index].prefab, Vector3.zero, Quaternion.identity);
-
-        // Ставим игру на паузу
-        SetGamePause(true);
+        SetGamePause(true); // Ставим игру на паузу
     }
 
     private void HideCurrentStep()
     {
-        if (currentStepIndex < 0 || currentStepIndex >= steps.Length)
-            return;
+        if (currentStepIndex < 0 || currentStepIndex >= steps.Length) // Проверяем индекс
+        {
+            return; // Выходим при ошибочном индексе
+        }
 
-        if (steps[currentStepIndex].ui != null)
-            steps[currentStepIndex].ui.SetActive(false);
+        if (steps[currentStepIndex].ui != null) // Проверяем UI текущего шага
+        {
+            steps[currentStepIndex].ui.SetActive(false); // Скрываем UI текущего шага
+        }
 
-        if (continueButtonGO != null)
-            continueButtonGO.SetActive(false);
+        if (continueButtonGO != null) // Проверяем кнопку
+        {
+            continueButtonGO.SetActive(false); // Скрываем кнопку
+        }
     }
 
     private void HideAll()
     {
-        for (int i = 0; i < steps.Length; i++)
+        for (int i = 0; i < steps.Length; i++) // Перебираем все шаги
         {
-            if (steps[i].ui != null)
-                steps[i].ui.SetActive(false);
+            if (steps[i].ui != null) // Проверяем UI шага
+            {
+                steps[i].ui.SetActive(false); // Скрываем UI шага
+            }
         }
 
-        if (continueButtonGO != null)
-            continueButtonGO.SetActive(false);
+        if (continueButtonGO != null) // Проверяем кнопку
+        {
+            continueButtonGO.SetActive(false); // Скрываем кнопку
+        }
     }
 
     private void SetGamePause(bool paused)
     {
-        Time.timeScale = paused ? 0f : 1f;
-        isGamePaused = paused;
+        isGamePaused = paused; // Сохраняем состояние popup туториала
+        Time.timeScale = isGamePaused || isPausedByMenu ? 0f : 1f; // Учитываем паузу popup и меню
     }
 
     public void PauseByMenu()
     {
-        // Меню открылось — туториал перестаёт считать время
-        isPausedByMenu = true;
+        isPausedByMenu = true; // Меню ставит игру на паузу
+        SetGamePause(isGamePaused); // Popup также учитывается
     }
 
     public void ResumeByMenu()
     {
-        // Меню закрылось — продолжаем считать дальше
-        isPausedByMenu = false;
+        isPausedByMenu = false; // Меню снимает только свою паузу
+        SetGamePause(isGamePaused); // Popup может оставить игру на паузе
+    }
+
+    private void OnDestroy()
+    {
+        Time.timeScale = 1f; // Возвращаем время при уничтожении объекта
     }
 }

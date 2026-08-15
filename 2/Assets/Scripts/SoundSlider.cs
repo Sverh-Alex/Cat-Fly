@@ -6,8 +6,9 @@ public class SoundSlider : MonoBehaviour
 {
     public AudioSource[] soundSources2;   // ¬се источники звука (музыка + эффекты)
     public Slider volumeSlider;          // —лайдер общей громкости
-    private float masterVolume = 1f;     // ќбща€ громкость (0Ц1)
-
+    private float masterVolume = 0.2f;     // ќбща€ громкость (0Ц1)
+    [SerializeField] public GameObject imgSoundOff;
+    
     void Start()
     {
         // «агружаем сохранЄнную громкость, по умолчанию 1
@@ -45,5 +46,22 @@ public class SoundSlider : MonoBehaviour
             if (source == null) continue;
             source.volume = masterVolume; // 0 Ц тишина, 1 Ц максимум [web:12]
         }
+    }
+
+    public void SoundOff()
+    {
+        imgSoundOff.SetActive(false);
+        masterVolume = 0f;
+        PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+        PlayerPrefs.Save();
+        ApplyVolume();
+    }
+    public void SoundOn()
+    {
+        imgSoundOff.SetActive(true);
+        masterVolume = 0.15f;
+        PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+        PlayerPrefs.Save();
+        ApplyVolume();
     }
 }
