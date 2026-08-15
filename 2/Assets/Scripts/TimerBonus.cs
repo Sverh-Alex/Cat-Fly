@@ -12,15 +12,16 @@ public class TimerBonus : MonoBehaviour
     float remainingTime; // Сколько осталось времени
 
     private const string TimerEndTimeKey = "TimerEndTime"; // Ключ для сохранения времени окончания
+    private const string FIRSTBONUS_KEY = "FristBonus"; // Ключ для сохранения времени окончания
 
     private void Start()
     {
         buttonBonus.SetActive(false);
         buttonTimerBonus.SetActive(true);
 
-        if (UnityEngine.PlayerPrefs.HasKey(TimerEndTimeKey))
+        if (PlayerPrefs.HasKey(TimerEndTimeKey))
         {
-            string savedEndTimeStr = UnityEngine.PlayerPrefs.GetString(TimerEndTimeKey);
+            string savedEndTimeStr = PlayerPrefs.GetString(TimerEndTimeKey);
             DateTime endTime = DateTime.Parse(savedEndTimeStr);
 
             TimeSpan timeLeft = endTime - DateTime.Now;
@@ -32,7 +33,7 @@ public class TimerBonus : MonoBehaviour
                 remainingTime = 0;
                 buttonBonus.SetActive(true);
                 buttonTimerBonus.SetActive(false);
-                UnityEngine.PlayerPrefs.DeleteKey(TimerEndTimeKey);
+                PlayerPrefs.DeleteKey(TimerEndTimeKey);
             }
         }
         else
@@ -50,8 +51,11 @@ public class TimerBonus : MonoBehaviour
 
         // Сохраняем время окончания таймера
         DateTime endTime = DateTime.Now.AddSeconds(remainingTime);
-        UnityEngine.PlayerPrefs.SetString(TimerEndTimeKey, endTime.ToString());
-        UnityEngine.PlayerPrefs.Save();
+        PlayerPrefs.SetString(TimerEndTimeKey, endTime.ToString());
+        PlayerPrefs.SetInt(FIRSTBONUS_KEY, 1);
+        Debug.Log($"{FIRSTBONUS_KEY} установлен на 1");
+
+        PlayerPrefs.Save();
 
         buttonBonus.SetActive(false);
         buttonTimerBonus.SetActive(true);

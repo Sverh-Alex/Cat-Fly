@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -5,7 +6,7 @@ using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class ButtonShop : MonoBehaviour
 {
-
+    [SerializeField] private bool resetFIRSTBUY = false; //Если включено, ключ FirstBonus будет удалён при запуске
     public string objectName; // Уникальное имя товара для сохранения доступа
     public int price; // Цена товара
     public int access;
@@ -17,12 +18,17 @@ public class ButtonShop : MonoBehaviour
     private Color normalColor = Color.white;
     private Color notEnoughColor = Color.red;
     [SerializeField] GameObject _psExpl;
+    public static event Action UnlockSkin;
 
 
 
     void Start()
     {
-        PlayerPrefs.DeleteKey(objectName + "Access"); // для теста сбрасываем сохранение покупки
+        if (resetFIRSTBUY) // При необходимости сбрасываем сохранение FTUE
+        {
+            ResetFIRSTBUY();
+        }
+        
 
         //PlayerPrefs.SetInt("coins", 10);
         coinsText.text = PlayerPrefs.GetInt("coins").ToString();
@@ -30,10 +36,31 @@ public class ButtonShop : MonoBehaviour
         ScoreManager.OnCoinsChanged += ChangeColor;
 
     }
+    public void OnBuy()
+    {
+        int coins = PlayerPrefs.GetInt("coins");
+
+        if (access == 0)
+        {
+            if (coins >= price)
+            {
+                PlayerPrefs.SetInt(objectName + "_Access", 1);
+                UnlockSkin?.Invoke();
+                PlayerPrefs.SetInt("coins", coins - price);
+                PlayerPrefs.Save();
+                coinsText.text = PlayerPrefs.GetInt("coins").ToString();
+                AccessUpdate();
+                ScoreManager.SendCoinsChanged(); // Оповещаем всех подписчиков о изменении монет
+                ChangeColor();
+
+
+            }
+        }
+    }
 
     void AccessUpdate()
     {
-        access = PlayerPrefs.GetInt(objectName + "Access");
+        access = PlayerPrefs.GetInt(objectName + "_Access");
 
         if (objectPriceText != null)
         {
@@ -44,8 +71,9 @@ public class ButtonShop : MonoBehaviour
         {
             if (block != null)
                 block.SetActive(false);
-                unlock.Play();
-
+            unlock.Play();
+            
+            Debug.Log($"{objectName}Access = 1");
 
 
             if (objectPriceText != null)
@@ -53,23 +81,6 @@ public class ButtonShop : MonoBehaviour
             _psExpl.SetActive(true); 
             _psExpl.GetComponent<ParticleSystem>().Play();
             
-        }
-    }
-    public void OnBuy()
-    {
-        int coins = PlayerPrefs.GetInt("coins");
-
-        if (access == 0)
-        {
-            if (coins >= price)
-            {
-                PlayerPrefs.SetInt(objectName + "Access", 1);
-                PlayerPrefs.SetInt("coins", coins - price);
-                coinsText.text = PlayerPrefs.GetInt("coins").ToString();
-                AccessUpdate();
-                ScoreManager.SendCoinsChanged(); // Оповещаем всех подписчиков о изменении монет
-                
-            }
         }
     }
 
@@ -87,5 +98,10 @@ public class ButtonShop : MonoBehaviour
         {
             objectPriceText.color = notEnoughColor;
         }
+    }
+    private void ResetFIRSTBUY()
+    {
+        PlayerPrefs.DeleteKey(objectName + "_Access"); // для теста сбрасываем сохранение покупки
+        PlayerPrefs.Save();
     }
 }

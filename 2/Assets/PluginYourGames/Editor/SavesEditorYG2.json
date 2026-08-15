@@ -19,22 +19,16 @@
         "[989613e30e67e7f4eaf6f1948a10b312]stars",
         "[]stars",
         "skin",
-        "FTUE_Shown",
-        "Cat 2Access",
-        "ga_tutor_coin_sent",
-        "ga_tutor_fish_sent",
-        "ga_tutor_dmg_sent",
-        "ga_tutor_complete_sent"
+        "FristBonus",
+        "FirstBonus",
+        "Cat 2_Access"
     ],
     "intValues": [
-        44,
+        2757,
         3,
-        2,
+        3,
         1,
         0,
-        1,
-        1,
-        1,
         1,
         1,
         1
@@ -47,5 +41,5 @@
         false,
         false
     ],
-    "idSave": 1438
+    "idSave": 1940
 }
