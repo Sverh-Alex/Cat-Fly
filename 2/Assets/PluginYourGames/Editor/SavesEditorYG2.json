@@ -8,7 +8,7 @@
         "[]open"
     ],
     "floatValues": [
-        0.08058103173971176,
+        0.02066173404455185,
         1.0,
         1.0,
         1.0
@@ -21,7 +21,8 @@
         "skin",
         "FristBonus",
         "FirstBonus",
-        "FTUE_Shown"
+        "FTUE_Shown",
+        "ga_tutor_complete_sent"
     ],
     "intValues": [
         2765,
@@ -29,6 +30,7 @@
         3,
         3,
         0,
+        1,
         1,
         1,
         1
@@ -41,5 +43,5 @@
         false,
         false
     ],
-    "idSave": 2550
+    "idSave": 2598
 }

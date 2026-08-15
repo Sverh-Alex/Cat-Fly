@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LVL_0_1_Tutor.unity
     guid: 989613e30e67e7f4eaf6f1948a10b312
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LVL_0_2_Cut.unity
     guid: bc60a8d243c2931499b014c6f4740a90
   - enabled: 0

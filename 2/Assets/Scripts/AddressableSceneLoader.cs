@@ -9,190 +9,196 @@ using UnityEngine.UI;
 public class AddressableSceneLoader : MonoBehaviour
 {
     [Header("Сцена для загрузки")]
-    [SerializeField] private AssetReference sceneToLoad;
+    [SerializeField] private AssetReference sceneToLoad; // Addressable-ссылка на сцену
 
-    // Handle операции загрузки сцены
-    private AsyncOperationHandle<SceneInstance> loadHandle;
+    [SerializeField] private Slider loadingSlider; // Индикатор загрузки
 
-    // Состояние загрузки
-    private bool isLoaded;
-    private bool isLoading;
-    private bool isActivating;
-    [SerializeField] private Slider loadingSlider;
+    private AsyncOperationHandle<SceneInstance> loadHandle; // Handle загрузки сцены
+    private bool isReadyToActivate; // Сцена загружена и готова к активации
+    private bool isLoading; // Сцена сейчас загружается
+    private bool isActivating; // Сцена сейчас активируется
+
+    private void OnEnable()
+    {
+        Timer.LevelCompleted += LoadScene; // Подписываемся на завершение уровня
+    }
+
+    private void OnDisable()
+    {
+        Timer.LevelCompleted -= LoadScene; // Отписываемся от события
+    }
 
     public void LoadScene()
     {
-        loadingSlider.value = 0f;
-        // Не допускаем повторную загрузку
-        if (isLoading || isLoaded)
+        if (isLoading || isReadyToActivate || isActivating) // Проверяем активные операции
         {
-            Debug.LogWarning(
-                "[Loader] Сцена уже загружается или загружена."
-            );
-
-            return;
+            Debug.LogWarning("[Loader] Сцена уже загружается или готова."); // Сообщаем о повторном вызове
+            return; // Прерываем повторную загрузку
         }
 
-        // Проверяем ссылку на сцену
-        if (sceneToLoad == null)
+        if (sceneToLoad == null) // Проверяем ссылку на сцену
         {
-            Debug.LogError(
-                "[Loader] Scene To Load не назначена в Inspector."
-            );
-
-            return;
+            Debug.LogError("[Loader] Scene To Load не назначена."); // Показываем ошибку
+            return; // Прерываем загрузку
         }
 
-        // Проверяем корректность Addressables-ссылки
-        if (!sceneToLoad.RuntimeKeyIsValid())
+        if (!sceneToLoad.RuntimeKeyIsValid()) // Проверяем Addressables-ключ
         {
-            Debug.LogError(
-                "[Loader] У сцены недействительный RuntimeKey."
-            );
-
-            return;
+            Debug.LogError("[Loader] У сцены недействительный RuntimeKey."); // Показываем ошибку
+            return; // Прерываем загрузку
         }
 
-        // Запускаем корутину загрузки
-        StartCoroutine(LoadSceneCoroutine());
+        if (loadingSlider != null) // Проверяем наличие Slider
+        {
+            loadingSlider.value = 0f; // Сбрасываем прогресс
+        }
+
+        StartCoroutine(LoadSceneCoroutine()); // Запускаем coroutine загрузки
     }
 
     private IEnumerator LoadSceneCoroutine()
     {
-        isLoading = true;
+        isLoading = true; // Помечаем начало загрузки
+        isReadyToActivate = false; // Сбрасываем состояние готовности
 
-        Debug.Log("[Loader] Начинаем загрузку сцены.");
+        Debug.Log("[Loader] Начинаем загрузку сцены."); // Выводим сообщение
 
-        // Загружаем сцену в режиме Single,
-        // но не активируем её сразу
-        loadHandle = sceneToLoad.LoadSceneAsync(
-            LoadSceneMode.Single,
-            false
+        loadHandle = sceneToLoad.LoadSceneAsync( // Запускаем Addressables-загрузку
+            LoadSceneMode.Single, // Загружаем сцену вместо текущей
+            false // Откладываем активацию сцены
         );
-        
-        while (!loadHandle.IsDone)
-        {
-            // Получаем прогресс Addressables от 0 до 1
-            loadingSlider.value =
-                loadHandle.PercentComplete;
 
-            // Ждём следующий кадр
-            yield return null;
+        while (!loadHandle.IsDone) // Ждём завершения загрузки
+        {
+            if (loadingSlider != null) // Проверяем Slider
+            {
+                loadingSlider.value = loadHandle.PercentComplete; // Обновляем прогресс
+            }
+
+            yield return null; // Ждём следующий кадр
         }
-        // Ждём окончания загрузки
-        yield return loadHandle;
 
-        // Загрузка завершилась
-        isLoading = false;
+        isLoading = false; // Помечаем завершение загрузки
 
-        // После завершения устанавливаем 100%
-        loadingSlider.value = 1f;
-
-        // Проверяем результат
-        if (loadHandle.Status ==
-            AsyncOperationStatus.Succeeded)
+        if (loadHandle.Status != AsyncOperationStatus.Succeeded) // Проверяем результат
         {
-            isLoaded = true;
+            isReadyToActivate = false; // Сцена не готова к активации
 
-            Debug.Log(
-                "[Loader] Сцена загружена, " +
-                "но ещё не активирована."
+            if (loadingSlider != null) // Проверяем Slider
+            {
+                loadingSlider.value = 0f; // Сбрасываем прогресс при ошибке
+            }
+
+            Debug.LogError( // Выводим причину ошибки
+                $"[Loader] Ошибка загрузки сцены: " +
+                $"{loadHandle.OperationException}"
             );
+
+            yield break; // Завершаем coroutine
         }
-        else
+
+        if (loadingSlider != null) // Проверяем Slider
         {
-            isLoaded = false;
-
-            string errorMessage =
-                loadHandle.OperationException != null
-                    ? loadHandle.OperationException.Message
-                    : "Неизвестная ошибка.";
-
-            Debug.LogError(
-                $"[Loader] Ошибка загрузки сцены: {errorMessage}"
-            );
+            loadingSlider.value = 1f; // Показываем 100 процентов
         }
+
+        isReadyToActivate = true; // Разрешаем активацию сцены
+
+        Debug.Log( // Выводим сообщение
+            "[Loader] Сцена загружена, но ещё не активирована."
+        );
     }
 
     public void SwitchToLoadedScene()
     {
-        // Не допускаем активацию до окончания загрузки
-        if (!isLoaded ||
-            !loadHandle.IsValid() ||
-            loadHandle.Status !=
-            AsyncOperationStatus.Succeeded)
+        if (!isReadyToActivate) // Проверяем готовность сцены
         {
-            Debug.LogWarning(
-                "[Loader] Сцена ещё не загружена."
-            );
-
-            return;
+            Debug.LogWarning("[Loader] Сцена ещё не готова."); // Выводим предупреждение
+            return; // Прерываем активацию
         }
 
-        // Не допускаем повторную активацию
-        if (isActivating)
+        if (!loadHandle.IsValid()) // Проверяем корректность handle
         {
-            return;
+            Debug.LogError("[Loader] Handle сцены недействителен."); // Выводим ошибку
+            return; // Прерываем активацию
         }
 
-        // Возвращаем нормальную скорость времени
-        Time.timeScale = 1f;
+        if (isActivating) // Проверяем повторную активацию
+        {
+            return; // Не запускаем вторую активацию
+        }
 
-        // Запускаем активацию
-        StartCoroutine(ActivateSceneCoroutine());
+        isActivating = true; // Сразу блокируем повторный вызов
+        Time.timeScale = 1f; // Восстанавливаем игровое время
+        StartCoroutine(ActivateSceneCoroutine()); // Запускаем активацию
     }
 
     private IEnumerator ActivateSceneCoroutine()
     {
-        isActivating = true;
+        Debug.Log("[Loader] Активируем сцену."); // Выводим сообщение
 
-        Debug.Log("[Loader] Активируем сцену.");
-
-        // Активируем ранее загруженную сцену
-        AsyncOperation activateOperation =
+        AsyncOperation activateOperation = // Получаем операцию активации
             loadHandle.Result.ActivateAsync();
 
-        // Ждём окончания активации
-        yield return activateOperation;
+        yield return activateOperation; // Ждём окончания активации
 
-        isActivating = false;
+        isActivating = false; // Сбрасываем состояние активации
+        isReadyToActivate = false; // Сцена больше не ожидает активации
 
-        Debug.Log("[Loader] Сцена успешно активирована.");
+        Debug.Log("[Loader] Сцена успешно активирована."); // Выводим сообщение
     }
 
     public void UnloadScene()
     {
-        // Проверяем наличие загруженной сцены
-        if (!isLoaded ||
-            !loadHandle.IsValid())
+        if (!loadHandle.IsValid()) // Проверяем handle
         {
-            Debug.LogWarning(
-                "[Loader] Нет загруженной сцены для выгрузки."
-            );
-
-            return;
+            Debug.LogWarning("[Loader] Handle сцены недействителен."); // Выводим предупреждение
+            return; // Прерываем выгрузку
         }
 
-        Debug.Log("[Loader] Начинаем выгрузку сцены.");
+        if (!isReadyToActivate) // Неактивированную сцену выгружать этим методом нельзя
+        {
+            Debug.LogWarning("[Loader] Сцена ещё не активирована."); // Выводим предупреждение
+            return; // Прерываем выгрузку
+        }
 
-        // Запускаем выгрузку Addressables-сцены
-        StartCoroutine(UnloadSceneCoroutine());
+        StartCoroutine(UnloadSceneCoroutine()); // Запускаем выгрузку
     }
 
     private IEnumerator UnloadSceneCoroutine()
     {
-        AsyncOperationHandle<SceneInstance> unloadHandle =
-            Addressables.UnloadSceneAsync(loadHandle);
+        Debug.Log("[Loader] Начинаем выгрузку сцены."); // Выводим сообщение
 
-        // Ждём окончания выгрузки
-        yield return unloadHandle;
+        AsyncOperationHandle<SceneInstance> unloadHandle = // Создаём handle выгрузки
+            Addressables.UnloadSceneAsync(loadHandle); // Выгружаем Addressable-сцену
 
-        // Сбрасываем состояние
-        isLoaded = false;
-        isLoading = false;
-        isActivating = false;
-        loadHandle = default;
+        yield return unloadHandle; // Ждём завершения выгрузки
 
-        Debug.Log("[Loader] Сцена выгружена.");
+        if (unloadHandle.Status == AsyncOperationStatus.Succeeded) // Проверяем результат
+        {
+            isReadyToActivate = false; // Сбрасываем состояние загрузки
+            isLoading = false; // Сбрасываем состояние загрузки
+            isActivating = false; // Сбрасываем состояние активации
+            loadHandle = default; // Очищаем handle
+
+            Debug.Log("[Loader] Сцена выгружена."); // Выводим сообщение
+        }
+        else
+        {
+            Debug.LogError( // Выводим ошибку
+                $"[Loader] Ошибка выгрузки сцены: " +
+                $"{unloadHandle.OperationException}"
+            );
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (loadHandle.IsValid() && isReadyToActivate) // Проверяем активную Addressable-сцену
+        {
+            Debug.LogWarning( // Предупреждаем о незавершённой очистке
+                "[Loader] Объект уничтожается с загруженной сценой."
+            );
+        }
     }
 }

@@ -1392,7 +1392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &162621046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5184,18 +5184,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 419817880}
-        m_TargetAssemblyTypeName: Addressables, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2114821621}
         m_TargetAssemblyTypeName: FTUEController, Assembly-CSharp
         m_MethodName: PauseByMenu
@@ -5265,7 +5253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419817874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52c910fa016e42e4e86a31cca4382e0d, type: 3}
   m_Name: 
@@ -13382,7 +13370,7 @@ RectTransform:
   m_Father: {fileID: 1047987129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 4.899994, y: 0}
   m_SizeDelta: {x: 19.81, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26190,6 +26178,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   volumeSlider: {fileID: 2136166102}
+  imgSoundOff: {fileID: 0}
 --- !u!1 &1275200568
 GameObject:
   m_ObjectHideFlags: 0
@@ -26525,9 +26514,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1577278533}
-        m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
-        m_MethodName: LoadNextLevel
+      - m_Target: {fileID: 1608029900}
+        m_TargetAssemblyTypeName: AddressableSceneLoader, Assembly-CSharp
+        m_MethodName: SwitchToLoadedScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29106,6 +29095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1608029899}
+  - component: {fileID: 1608029900}
   m_Layer: 5
   m_Name: MenuVictory
   m_TagString: Untagged
@@ -29135,6 +29125,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -17}
   m_SizeDelta: {x: 484.62, y: 371.14}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1608029900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608029898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c910fa016e42e4e86a31cca4382e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddressableSceneLoader
+  sceneToLoad:
+    m_AssetGUID: bc60a8d243c2931499b014c6f4740a90
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  loadingSlider: {fileID: 1632555528}
 --- !u!1 &1621343489
 GameObject:
   m_ObjectHideFlags: 0
@@ -39161,7 +39170,7 @@ RectTransform:
   m_Father: {fileID: 874702881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

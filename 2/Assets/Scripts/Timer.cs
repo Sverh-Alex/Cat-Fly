@@ -170,9 +170,9 @@ public class Timer : MonoBehaviour
 
         // Открываем следующий уровень (флаг в PlayerPrefs)
         PlayerPrefs.SetFloat(nextlevelName + "open", 1f);
-        Debug.Log("Перед LevelCompleted.Invoke()");
+        
         LevelCompleted?.Invoke(); // Отправляем событие для GA
-
+        Debug.Log("Отправлен LevelCompleted.Invoke()");
         // Фиксируем время на нуле
         lifeTime = 0f;
         
