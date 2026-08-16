@@ -19,10 +19,7 @@
         "[989613e30e67e7f4eaf6f1948a10b312]stars",
         "[]stars",
         "skin",
-        "FristBonus",
-        "FirstBonus",
-        "FTUE_Shown",
-        "ga_tutor_complete_sent"
+        "FristBonus"
     ],
     "intValues": [
         2765,
@@ -30,9 +27,6 @@
         3,
         3,
         0,
-        1,
-        1,
-        1,
         1
     ],
     "intExample": 5,
@@ -43,5 +37,5 @@
         false,
         false
     ],
-    "idSave": 2598
+    "idSave": 2729
 }

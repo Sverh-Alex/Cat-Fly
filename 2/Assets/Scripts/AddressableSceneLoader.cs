@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Coffee.UIEffects;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -12,6 +13,9 @@ public class AddressableSceneLoader : MonoBehaviour
     [SerializeField] private AssetReference sceneToLoad; // Addressable-ссылка на сцену
 
     [SerializeField] private Slider loadingSlider; // Индикатор загрузки
+    [SerializeField] private UIEffect loadingButton; // Индикатор загрузки
+    [SerializeField] private Button btn;
+    [SerializeField] private float startLocation = 1f;  // Начальное значение location (1 = справа, 0 = слева)
 
     private AsyncOperationHandle<SceneInstance> loadHandle; // Handle загрузки сцены
     private bool isReadyToActivate; // Сцена загружена и готова к активации
@@ -54,6 +58,7 @@ public class AddressableSceneLoader : MonoBehaviour
         }
 
         StartCoroutine(LoadSceneCoroutine()); // Запускаем coroutine загрузки
+        loadingButton.samplingIntensity = 1;
     }
 
     private IEnumerator LoadSceneCoroutine()
@@ -68,11 +73,19 @@ public class AddressableSceneLoader : MonoBehaviour
             false // Откладываем активацию сцены
         );
 
-        while (!loadHandle.IsDone) // Ждём завершения загрузки
+        while (!loadHandle.IsDone) // Ждём окончания загрузки
         {
+            float progress = loadHandle.PercentComplete; // Получаем прогресс Addressables
+
             if (loadingSlider != null) // Проверяем Slider
             {
-                loadingSlider.value = loadHandle.PercentComplete; // Обновляем прогресс
+                loadingSlider.value = progress; // Обновляем Slider
+            }
+
+            if (loadingButton != null) // Проверяем UIEffect
+            {
+                loadingButton.samplingIntensity =
+                    Mathf.Lerp(1f, 0f, progress); // Уменьшаем RGB Shift от 1 до 0
             }
 
             yield return null; // Ждём следующий кадр
@@ -82,6 +95,7 @@ public class AddressableSceneLoader : MonoBehaviour
 
         if (loadHandle.Status != AsyncOperationStatus.Succeeded) // Проверяем результат
         {
+            
             isReadyToActivate = false; // Сцена не готова к активации
 
             if (loadingSlider != null) // Проверяем Slider
@@ -89,6 +103,10 @@ public class AddressableSceneLoader : MonoBehaviour
                 loadingSlider.value = 0f; // Сбрасываем прогресс при ошибке
             }
 
+            if (loadingButton != null) // Проверяем UIEffect
+            {
+                loadingButton.samplingIntensity = 1f; // Возвращаем RGB Shift при ошибке
+            }
             Debug.LogError( // Выводим причину ошибки
                 $"[Loader] Ошибка загрузки сцены: " +
                 $"{loadHandle.OperationException}"
@@ -102,7 +120,12 @@ public class AddressableSceneLoader : MonoBehaviour
             loadingSlider.value = 1f; // Показываем 100 процентов
         }
 
+        if (loadingButton != null) // Проверяем UIEffect
+        {
+            loadingButton.samplingIntensity = 0f; // Полностью отключаем RGB Shift
+        }
         isReadyToActivate = true; // Разрешаем активацию сцены
+        btn.interactable = true;
 
         Debug.Log( // Выводим сообщение
             "[Loader] Сцена загружена, но ещё не активирована."

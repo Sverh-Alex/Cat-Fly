@@ -27,6 +27,8 @@ ShaderVariantCollection:
         passType: 0
       - keywords: COLOR_FILTER EDGE_SHINY TRANSITION_SHINY
         passType: 0
+      - keywords: COLOR_FILTER SAMPLING_PIXELATION
+        passType: 0
       - keywords: COLOR_FILTER TARGET_HUE TRANSITION_PATTERN
         passType: 0
       - keywords: COLOR_FILTER TARGET_LUMINANCE TRANSITION_PATTERN
@@ -35,15 +37,35 @@ ShaderVariantCollection:
         passType: 0
       - keywords: COLOR_FILTER TRANSITION_SHINY
         passType: 0
+      - keywords: DETAIL_ADDITIVE
+        passType: 0
+      - keywords: DETAIL_MASKING
+        passType: 0
+      - keywords: DETAIL_MULTIPLY
+        passType: 0
+      - keywords: DETAIL_MULTIPLY_ADDITIVE
+        passType: 0
+      - keywords: DETAIL_REPLACE
+        passType: 0
+      - keywords: DETAIL_SUBTRACTIVE
+        passType: 0
+      - keywords: EDGE_PLAIN
+        passType: 0
       - keywords: EDGE_SHINY
         passType: 0
       - keywords: EDGE_SHINY SAMPLING_BLUR_FAST
+        passType: 0
+      - keywords: EDGE_SHINY SAMPLING_RGB_SHIFT
         passType: 0
       - keywords: EDGE_SHINY TRANSITION_FADE
         passType: 0
       - keywords: EDGE_SHINY TRANSITION_SHINY
         passType: 0
       - keywords: EDGE_SHINY UNITY_UI_ALPHACLIP
+        passType: 0
+      - keywords: GRADATION_COLOR2
+        passType: 0
+      - keywords: GRADATION_COLOR4
         passType: 0
       - keywords: SAMPLING_BLUR_DETAIL
         passType: 0
@@ -56,6 +78,14 @@ ShaderVariantCollection:
       - keywords: SAMPLING_EDGE_LUMINANCE
         passType: 0
       - keywords: SAMPLING_PIXELATION
+        passType: 0
+      - keywords: SAMPLING_PIXELATION TONE_GRAYSCALE
+        passType: 0
+      - keywords: SAMPLING_PIXELATION TONE_POSTERIZE
+        passType: 0
+      - keywords: SAMPLING_PIXELATION TONE_RETRO
+        passType: 0
+      - keywords: SAMPLING_PIXELATION TONE_SEPIA
         passType: 0
       - keywords: SAMPLING_RGB_SHIFT
         passType: 0

@@ -79,10 +79,12 @@ public class FTUEEntryPoint : MonoBehaviour
         if (ftueWasShown)
         {
             btn.interactable = true;
+            Time.timeScale = 1f;
             return;
         }
         else
         {
+            Time.timeScale = 1f;
             //imgFtue.SetActive(true);
             imgFtue.SetActive(true);
             loadingSlider.value = 0f; // Сбрасываем Slider перед загрузкой
