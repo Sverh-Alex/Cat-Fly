@@ -23,7 +23,7 @@ public class AddressableSceneLoader : MonoBehaviour
     private bool isLoading; // Сцена сейчас загружается
     private bool isActivating; // Сцена сейчас активируется
 
-    [SerializeField] private UIScreenPixelation screenPixelation; // Управление UI-пикселизацией
+    [SerializeField] private Pixel screenPixelation; // Управление UI-пикселизацией
     [SerializeField] private AnimationPulse animationPulse; // управление пульсацией
 
     private void OnEnable()
