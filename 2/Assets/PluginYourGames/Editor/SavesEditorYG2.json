@@ -8,7 +8,7 @@
         "[]open"
     ],
     "floatValues": [
-        0.02066173404455185,
+        0.0,
         1.0,
         1.0,
         1.0
@@ -19,14 +19,16 @@
         "[989613e30e67e7f4eaf6f1948a10b312]stars",
         "[]stars",
         "skin",
-        "FristBonus"
+        "FristBonus",
+        "FTUE_Shown"
     ],
     "intValues": [
-        2765,
+        2761,
         3,
         3,
         3,
         0,
+        1,
         1
     ],
     "intExample": 5,
@@ -37,5 +39,5 @@
         false,
         false
     ],
-    "idSave": 2729
+    "idSave": 3175
 }

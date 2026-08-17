@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Coffee.UIEffects;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -15,12 +16,15 @@ public class AddressableSceneLoader : MonoBehaviour
     [SerializeField] private Slider loadingSlider; // Индикатор загрузки
     [SerializeField] private UIEffect loadingButton; // Индикатор загрузки
     [SerializeField] private Button btn;
-    [SerializeField] private float startLocation = 1f;  // Начальное значение location (1 = справа, 0 = слева)
+    [SerializeField] private float startLocation = 0f;  // Начальное значение location (1 = справа, 0 = слева)
 
     private AsyncOperationHandle<SceneInstance> loadHandle; // Handle загрузки сцены
     private bool isReadyToActivate; // Сцена загружена и готова к активации
     private bool isLoading; // Сцена сейчас загружается
     private bool isActivating; // Сцена сейчас активируется
+
+    [SerializeField] private UIScreenPixelation screenPixelation; // Управление UI-пикселизацией
+    [SerializeField] private AnimationPulse animationPulse; // управление пульсацией
 
     private void OnEnable()
     {
@@ -58,7 +62,9 @@ public class AddressableSceneLoader : MonoBehaviour
         }
 
         StartCoroutine(LoadSceneCoroutine()); // Запускаем coroutine загрузки
-        loadingButton.samplingIntensity = 1;
+        loadingButton.samplingScale = 0;
+        screenPixelation.SetPixelation(5);
+        animationPulse.enabled = true;
     }
 
     private IEnumerator LoadSceneCoroutine()
@@ -84,10 +90,17 @@ public class AddressableSceneLoader : MonoBehaviour
 
             if (loadingButton != null) // Проверяем UIEffect
             {
-                loadingButton.samplingIntensity =
-                    Mathf.Lerp(1f, 0f, progress); // Уменьшаем RGB Shift от 1 до 0
+                loadingButton.samplingScale =
+                    Mathf.Lerp(0f, 5f, progress); // Уменьшаем от 0 до 1
             }
 
+            if (screenPixelation != null) // Проверяем контроллер пикселизации
+            {
+                screenPixelation.SetPixelation(
+                    Mathf.Lerp(0f, 1f, progress)
+                ); // Уменьшаем Pixelation от 1 до 0
+                Debug.Log("screenPixelation изменили с 0 до 5");
+            }
             yield return null; // Ждём следующий кадр
         }
 
@@ -105,7 +118,7 @@ public class AddressableSceneLoader : MonoBehaviour
 
             if (loadingButton != null) // Проверяем UIEffect
             {
-                loadingButton.samplingIntensity = 1f; // Возвращаем RGB Shift при ошибке
+                loadingButton.samplingScale = 5f; // Возвращаем RGB Shift при ошибке
             }
             Debug.LogError( // Выводим причину ошибки
                 $"[Loader] Ошибка загрузки сцены: " +
@@ -122,7 +135,7 @@ public class AddressableSceneLoader : MonoBehaviour
 
         if (loadingButton != null) // Проверяем UIEffect
         {
-            loadingButton.samplingIntensity = 0f; // Полностью отключаем RGB Shift
+            loadingButton.samplingScale = 5f; // Полностью отключаем RGB Shift
         }
         isReadyToActivate = true; // Разрешаем активацию сцены
         btn.interactable = true;

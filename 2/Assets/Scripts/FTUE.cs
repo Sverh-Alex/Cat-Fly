@@ -15,7 +15,7 @@ public class FTUEEntryPoint : MonoBehaviour
     [SerializeField] private bool resetFTUEPrefs = false; //Если включено, ключ FTUE будет удалён при запуске
     [SerializeField] private Slider loadingSlider;
     [SerializeField] private Button btn;
-    private AnimationPulseReusable buttonAnimation;
+    private AnimationPulse buttonAnimation;
     [SerializeField] private GameObject imgFtue;
 
     private const string FTUE_KEY = "FTUE_Shown";
@@ -93,7 +93,7 @@ public class FTUEEntryPoint : MonoBehaviour
             StartCoroutine(PreloadStartScene()); // Если FTUE не пройден, заранее загружаем уровень
         }
         buttonAnimation =
-        btn.GetComponent<AnimationPulseReusable>();
+        btn.GetComponent<AnimationPulse>();
         buttonAnimation.enabled = false;
 
 

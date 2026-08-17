@@ -5,7 +5,7 @@ using UnityEngine;
 /// Пульсация UI-объекта с безопасным повторным запуском
 /// после включения объекта.
 /// </summary>
-public class AnimationPulseReusable : MonoBehaviour
+public class AnimationPulse : MonoBehaviour
 {
     // Минимальный масштаб.
     [SerializeField] private float minScale = 0.9f;
