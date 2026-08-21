@@ -21,10 +21,10 @@
         "skin",
         "FristBonus",
         "FirstBonus",
-        "ga_tutor_coin_sent"
+        "FTUE_Shown"
     ],
     "intValues": [
-        2861,
+        2958,
         3,
         3,
         3,
@@ -41,5 +41,5 @@
         false,
         false
     ],
-    "idSave": 3211
+    "idSave": 3343
 }
