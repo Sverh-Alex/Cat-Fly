@@ -25,6 +25,8 @@ ShaderVariantCollection:
         passType: 0
       - keywords: COLOR_FILTER EDGE_SHINY
         passType: 0
+      - keywords: COLOR_FILTER EDGE_SHINY SAMPLING_PIXELATION
+        passType: 0
       - keywords: COLOR_FILTER EDGE_SHINY TRANSITION_SHINY
         passType: 0
       - keywords: COLOR_FILTER SAMPLING_PIXELATION
@@ -47,6 +49,8 @@ ShaderVariantCollection:
         passType: 0
       - keywords: DETAIL_MULTIPLY
         passType: 0
+      - keywords: DETAIL_MULTIPLY EDGE_SHINY SAMPLING_PIXELATION
+        passType: 0
       - keywords: DETAIL_MULTIPLY SAMPLING_PIXELATION
         passType: 0
       - keywords: DETAIL_MULTIPLY_ADDITIVE
@@ -54,6 +58,8 @@ ShaderVariantCollection:
       - keywords: DETAIL_MULTIPLY_ADDITIVE SAMPLING_PIXELATION
         passType: 0
       - keywords: DETAIL_REPLACE
+        passType: 0
+      - keywords: DETAIL_REPLACE EDGE_SHINY SAMPLING_PIXELATION
         passType: 0
       - keywords: DETAIL_REPLACE SAMPLING_PIXELATION
         passType: 0
@@ -67,9 +73,19 @@ ShaderVariantCollection:
         passType: 0
       - keywords: EDGE_SHINY
         passType: 0
+      - keywords: EDGE_SHINY GRADATION_COLOR2 SAMPLING_PIXELATION
+        passType: 0
       - keywords: EDGE_SHINY SAMPLING_BLUR_FAST
         passType: 0
       - keywords: EDGE_SHINY SAMPLING_PIXELATION
+        passType: 0
+      - keywords: EDGE_SHINY SAMPLING_PIXELATION TARGET_HUE
+        passType: 0
+      - keywords: EDGE_SHINY SAMPLING_PIXELATION TRANSITION_CUTOFF
+        passType: 0
+      - keywords: EDGE_SHINY SAMPLING_PIXELATION TRANSITION_DISSOLVE
+        passType: 0
+      - keywords: EDGE_SHINY SAMPLING_PIXELATION TRANSITION_SHINY
         passType: 0
       - keywords: EDGE_SHINY SAMPLING_RGB_SHIFT
         passType: 0

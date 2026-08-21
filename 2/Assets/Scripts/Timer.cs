@@ -28,6 +28,7 @@ public class Timer : MonoBehaviour
 
     [Header("—сылка на скрипт кота")]
     [SerializeField] private Cat catScript;           // —юда перетаскиваем Cat из инспектора
+    [SerializeField] private Pixel pixelScript;
 
     private bool isLevelFinished = false;             // ‘лаг, чтобы не выполн€ть логику конца уровн€ много раз
 
@@ -52,6 +53,11 @@ public class Timer : MonoBehaviour
 
         // ќтключаем все UI-плашки победы/поражени€ в начале
         DeactivateAllVictoryUI();
+        if(pixelScript != null)
+        {
+            pixelScript.DisablePixelation();
+        }
+        
     }
 
     /// <summary>

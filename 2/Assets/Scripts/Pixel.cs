@@ -90,7 +90,7 @@ public class Pixel : MonoBehaviour
 
     private void ApplyScale(float value)
     {
-        animationPulse.enabled = true;
+        
         if (effects == null)  // Проверяет массив компонентов
         {
             return;  // Завершает выполнение метода
@@ -104,6 +104,13 @@ public class Pixel : MonoBehaviour
             }
 
             effect.samplingScale = value;  // Изменяет только Sampling Scale
+        }
+    }
+    public void EnablePulse()
+    {
+        if (animationPulse != null)  // Проверяет ссылку
+        {
+            animationPulse.enabled = true;  // Включает AnimationPulse
         }
     }
 }
