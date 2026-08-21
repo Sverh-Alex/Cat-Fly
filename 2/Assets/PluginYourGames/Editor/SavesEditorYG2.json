@@ -1,10 +1,6 @@
 {
-    "stringKeys": [
-        "TimerEndTime"
-    ],
-    "stringValues": [
-        "17.08.2026 18:43:55"
-    ],
+    "stringKeys": [],
+    "stringValues": [],
     "floatKeys": [
         "MasterVolume",
         "[bc60a8d243c2931499b014c6f4740a90]LVL_0_2_Cut (UnityEngine.SceneAsset)open",
@@ -24,8 +20,8 @@
         "[]stars",
         "skin",
         "FristBonus",
-        "FTUE_Shown",
-        "FirstBonus"
+        "FirstBonus",
+        "ga_tutor_coin_sent"
     ],
     "intValues": [
         2861,
@@ -45,5 +41,5 @@
         false,
         false
     ],
-    "idSave": 3196
+    "idSave": 3211
 }

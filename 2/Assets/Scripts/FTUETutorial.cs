@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tutorial : MonoBehaviour
+public class FTUETutorial : MonoBehaviour
 {
     [Header("Туториалы для ПК / Web")]
     [SerializeField] private List<GameObject> webTutorials = new();   // Туториалы для ПК / Web
