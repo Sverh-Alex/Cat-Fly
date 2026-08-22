@@ -20,15 +20,15 @@
         "[]stars",
         "skin",
         "FristBonus",
-        "FirstBonus",
-        "FTUE_Shown"
+        "Cat 3_Access",
+        "Cat 4_Access"
     ],
     "intValues": [
-        2958,
+        3050,
         3,
         3,
         3,
-        0,
+        3,
         1,
         1,
         1
@@ -41,5 +41,5 @@
         false,
         false
     ],
-    "idSave": 3343
+    "idSave": 3400
 }
