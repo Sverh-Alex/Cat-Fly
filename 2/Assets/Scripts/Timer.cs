@@ -129,18 +129,21 @@ public class Timer : MonoBehaviour
                 if (victory3Lives != null) victory3Lives.SetActive(true);
                 if (victory != null) victory.Play();
                 PlayerPrefs.SetInt(levelName + "stars", 3);
+                Debug.Log("Уровень на 3 звезды");
                 break;
 
             case 2:
                 if (victory2Lives != null) victory2Lives.SetActive(true);
                 if (victory != null) victory.Play();
                 PlayerPrefs.SetInt(levelName + "stars", 2);
+                Debug.Log("Уровень на 2 звезды");
                 break;
 
             case 1:
                 if (victory1Life != null) victory1Life.SetActive(true);
                 if (victory != null) victory.Play();
                 PlayerPrefs.SetInt(levelName + "stars", 1);
+                Debug.Log("Уровень на 1 звезду");
                 break;
 
             default:

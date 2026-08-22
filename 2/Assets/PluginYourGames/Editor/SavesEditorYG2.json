@@ -5,10 +5,14 @@
         "MasterVolume",
         "[bc60a8d243c2931499b014c6f4740a90]LVL_0_2_Cut (UnityEngine.SceneAsset)open",
         "[bc60a8d243c2931499b014c6f4740a90]open",
-        "[]open"
+        "[]open",
+        "[c1b41e833200a0042beb1a894675b9c9]LVL_2 (UnityEngine.SceneAsset)open",
+        "[c1b41e833200a0042beb1a894675b9c9]open"
     ],
     "floatValues": [
         0.0,
+        1.0,
+        1.0,
         1.0,
         1.0,
         1.0
@@ -20,15 +24,25 @@
         "[]stars",
         "skin",
         "FristBonus",
+        "[8c9cfa26abfee488c85f1582747f6a02]LVL_1 (UnityEngine.SceneAsset)stars",
+        "FTUE_Shown",
+        "[8c9cfa26abfee488c85f1582747f6a02]stars",
+        "FirstBonus",
+        "Cat 2_Access",
         "Cat 3_Access",
         "Cat 4_Access"
     ],
     "intValues": [
-        3050,
+        3242,
         3,
         3,
         3,
+        0,
+        1,
         3,
+        1,
+        3,
+        1,
         1,
         1,
         1
@@ -41,5 +55,5 @@
         false,
         false
     ],
-    "idSave": 3400
+    "idSave": 3590
 }

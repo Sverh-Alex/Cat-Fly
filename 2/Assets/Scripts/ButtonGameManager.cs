@@ -43,13 +43,9 @@ public class ButtonGameManager : MonoBehaviour
     }
     public void OnRestartCurrentScene()
     {
-        Time.timeScale = 1f; // Сбрасываем игровую паузу
-
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // Получаем индекс текущей сцены
-
-        EffectClick(); // Создаём эффект клика до перезагрузки
-
-        SceneManager.LoadScene(currentSceneIndex); // Перезагружаем текущую сцену
+        Time.timeScale = 1f; // Сбрасываем Time.timeScale
+        EffectClick(); // Создаём эффект клика
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Загружаем текущую активную сцену
     }
     public void OnLevels()
     {
