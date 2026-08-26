@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
-  m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
-  m_GUID: 0d50572aba45342448a62b70a4740db0
-  m_SerializeEntries: []
+  m_Name: LVL_2
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: LVL_2
+  m_GUID: 8e5dacc80f0d2b84b9a57eafe489beaa
+  m_SerializeEntries:
+  - m_GUID: 1aa5facb34605b84bbe117e1e92f17dd
+    m_Address: Assets/Scenes/LVL_2.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cbe059bbff196e843ba1c717aa50e85f, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: bc4928e9affa28a4f82734b16d45d3f0, type: 2}
-    - {fileID: 11400000, guid: ea852da3aeaa56046a8161edb3aafa46, type: 2}
+    - {fileID: 11400000, guid: 4b343d7ae54bb584faf9c8a6ea6b616e, type: 2}

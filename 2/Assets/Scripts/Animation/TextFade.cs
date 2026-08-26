@@ -32,6 +32,6 @@ public class TextFade : MonoBehaviour
         }
 
         // Удаляем объект после окончания затухания (если нужно)
-        Destroy(gameObject, fadeDuration);
+        //Destroy(gameObject, fadeDuration);
     }
 }

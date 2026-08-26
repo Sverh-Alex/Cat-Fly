@@ -65,7 +65,7 @@ public class Cat : MonoBehaviour
             lifeCounter = 0;
            // animator.SetBool("isDead", true);
             loseMenu.SetActive(true);
-            Timer.Pause();
+            Time.timeScale = 0f;
             ScoreManager.OnAlive += OnContinue;
             //StartCoroutine(LoadSceneAfterDelay(1f));
         }
@@ -88,8 +88,8 @@ public class Cat : MonoBehaviour
         yield return new WaitForSeconds(delay);
         loseMenu.SetActive(true);
         animator.SetBool("isDead", false);
-        
-        Timer.Pause();
+
+        Time.timeScale = 0f;
         ScoreManager.OnAlive += OnContinue;
 
     }

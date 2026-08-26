@@ -25,12 +25,18 @@
         "skin",
         "FristBonus",
         "[8c9cfa26abfee488c85f1582747f6a02]LVL_1 (UnityEngine.SceneAsset)stars",
-        "FTUE_Shown",
         "[8c9cfa26abfee488c85f1582747f6a02]stars",
-        "FirstBonus",
-        "Cat 2_Access",
         "Cat 3_Access",
-        "Cat 4_Access"
+        "Cat 4_Access",
+        "LVL_0_1_Tutor_stars",
+        "LVL_0_1_Tutor_open",
+        "FTUE_Shown",
+        "LVL_1_stars",
+        "LVL_1_open",
+        "LVL_2_open",
+        "ga_tutor_complete_sent",
+        "LVL_2_stars",
+        "LVL_3_open"
     ],
     "intValues": [
         3242,
@@ -40,11 +46,17 @@
         0,
         1,
         3,
+        3,
+        1,
+        1,
+        3,
+        1,
         1,
         3,
         1,
         1,
         1,
+        3,
         1
     ],
     "intExample": 5,
@@ -55,5 +67,5 @@
         false,
         false
     ],
-    "idSave": 3590
+    "idSave": 3924
 }

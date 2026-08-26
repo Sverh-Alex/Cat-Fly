@@ -3,38 +3,93 @@ using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 public class LevelsReset : MonoBehaviour
 {
-    [Header("Сброс прогресса при старте сцены")]
-    [SerializeField] private bool resetOnStart = false;
+    [Header("Сброс при запуске сцены")]
+    [SerializeField] private bool resetOnStart; // Выполнять выбранный сброс при запуске сцены
 
-    [Header("Имена уровней для сброса")]
-    [SerializeField] private string[] levelNames; // Например: LVL_1, LVL_2, LVL_3
+    [Header("Что сбрасывать")]
+    [SerializeField] private bool resetAllStars; // Сбросить звёзды всех указанных уровней
+    [SerializeField] private bool resetAllLevels; // Сбросить открытие всех указанных уровней
 
-    private const string OPEN_SUFFIX = "open";
-    private const string STARS_SUFFIX = "stars";
+    [Header("Имена уровней")]
+    [SerializeField] private string[] levelNames; // Имена уровней, например LVL_1, LVL_2, LVL_3
+    private const string OpenSuffix = "_open"; // Суффикс ключа открытия уровня
+    private const string StarsSuffix = "_stars"; // Суффикс ключа звёзд уровня
 
     private void Start()
     {
-        if (resetOnStart)
+        if (!resetOnStart) // Проверяем, включён ли сброс при запуске
         {
-            ResetLevels();
-            // Один раз сбросили — выключаем, чтобы не сбрасывало каждый запуск
-            resetOnStart = false;
+            return; // Ничего не сбрасываем
         }
+        ResetLevels(); // Выполняем выбранный сброс
+        resetOnStart = false; // Выключаем флаг после выполнения
     }
 
-    [ContextMenu("Reset Levels Now")]
+    [ContextMenu("Reset Selected Progress")]
     public void ResetLevels()
     {
-        foreach (var levelName in levelNames)
+        if (!resetAllStars && !resetAllLevels) // Проверяем, выбрано ли хотя бы одно действие
         {
-            if (string.IsNullOrEmpty(levelName))
-                continue;
+            Debug.LogWarning(
+                "[LevelsReset] Не выбрано, что именно сбрасывать"
+            ); // Предупреждаем об отсутствии выбора
 
-            PlayerPrefs.DeleteKey(levelName + STARS_SUFFIX);
-            PlayerPrefs.DeleteKey(levelName + OPEN_SUFFIX);
+            return; // Завершаем выполнение
         }
 
-        PlayerPrefs.Save();
-        Debug.Log("[LevelsReset] Прогресс уровней сброшен");
+        if (levelNames == null || levelNames.Length == 0) // Проверяем массив уровней
+        {
+            Debug.LogWarning(
+                "[LevelsReset] Массив levelNames пуст"
+            ); // Предупреждаем об отсутствии уровней
+
+            return; // Завершаем выполнение
+        }
+
+        int resetLevelsCount = 0; // Считаем количество обработанных уровней
+
+        foreach (string levelName in levelNames) // Перебираем все уровни из массива
+        {
+            if (string.IsNullOrWhiteSpace(levelName)) // Проверяем имя уровня
+            {
+                Debug.LogWarning(
+                    "[LevelsReset] Найдено пустое имя уровня"
+                ); // Предупреждаем о пустом имени
+
+                continue; // Переходим к следующему элементу
+            }
+
+            string cleanLevelName = levelName.Trim(); // Убираем пробелы вокруг имени
+
+            if (resetAllStars) // Проверяем, нужно ли сбросить звёзды
+            {
+                string starsKey = cleanLevelName + StarsSuffix; // Формируем ключ звёзд
+
+                PlayerPrefs.DeleteKey(starsKey); // Удаляем звёзды уровня
+
+                Debug.Log(
+                    $"[LevelsReset] Удалён ключ звёзд: {starsKey}"
+                ); // Выводим информацию об удалении
+            }
+
+            if (resetAllLevels) // Проверяем, нужно ли сбросить открытие уровней
+            {
+                string openKey = cleanLevelName + OpenSuffix; // Формируем ключ открытия
+
+                PlayerPrefs.DeleteKey(openKey); // Удаляем открытие уровня
+
+                Debug.Log(
+                    $"[LevelsReset] Удалён ключ открытия: {openKey}"
+                ); // Выводим информацию об удалении
+            }
+
+            resetLevelsCount++; // Увеличиваем количество обработанных уровней
+        }
+
+        PlayerPrefs.Save(); // Сохраняем изменения в PlayerPrefs
+
+        Debug.Log(
+            $"[LevelsReset] Сброс завершён. Обработано уровней: {resetLevelsCount}"
+        ); // Выводим итоговую информацию
     }
 }

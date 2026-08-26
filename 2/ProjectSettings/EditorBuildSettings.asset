@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/PluginYourGames/Example/Scenes/ExampleYG2.unity
     guid: e49bf7e58fdb4db4c9df51f0ddb8f327
-  - enabled: 0
-    path: Assets/Scenes/0.unity
-    guid: 722ab7abdba8ca6448c2b9f82e338fd6
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: fa36d3364ed102542bb171fe1e61d1a9
@@ -25,7 +22,10 @@ EditorBuildSettings:
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 0
     path: Assets/Scenes/LVL_2.unity
-    guid: c1b41e833200a0042beb1a894675b9c9
+    guid: 1aa5facb34605b84bbe117e1e92f17dd
+  - enabled: 0
+    path: Assets/Scenes/LVL_3.unity
+    guid: af3572e1c8323da4da026a827923fe0b
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f684540b7d9699c409cd7c96d3f83178, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

@@ -119,6 +119,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &353296541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353296543}
+  - component: {fileID: 353296542}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &353296542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353296541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900dffa0e6939e643a7711c3eb34aab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundSlider
+  soundSources2: []
+  volumeSlider: {fileID: 0}
+  imgSoundOff: {fileID: 0}
+--- !u!4 &353296543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353296541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.42123, y: 0.24404, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &426597182
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +177,7 @@ GameObject:
   - component: {fileID: 426597183}
   - component: {fileID: 426597184}
   - component: {fileID: 426597185}
+  - component: {fileID: 426597186}
   m_Layer: 5
   m_Name: videoPlayer
   m_TagString: Untagged
@@ -204,6 +252,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5462420ef831fbb49b1b0220b158bb40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VideoEndSceneLoader
+  sceneLoader: {fileID: 426597186}
+--- !u!114 &426597186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426597182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c910fa016e42e4e86a31cca4382e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddressableSceneLoader
+  sceneToLoad:
+    m_AssetGUID: 8c9cfa26abfee488c85f1582747f6a02
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  loadingSlider: {fileID: 0}
+  btn: {fileID: 1140486662}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,9 +1420,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1577278533}
-        m_TargetAssemblyTypeName: ButtonGameManager, Assembly-CSharp
-        m_MethodName: LoadNextLevel
+      - m_Target: {fileID: 426597186}
+        m_TargetAssemblyTypeName: AddressableSceneLoader, Assembly-CSharp
+        m_MethodName: LoadAndSwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1376,7 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.54509807}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1537,6 +1606,7 @@ MonoBehaviour:
   speed1: 3
   speed2: 1.5
   speed3: 0.3
+  startDelay: 0
 --- !u!4 &1247325509
 Transform:
   m_ObjectHideFlags: 0
@@ -1591,6 +1661,7 @@ MonoBehaviour:
   effectPSClick: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
   objectOff:
   - {fileID: 0}
+  ftueController: {fileID: 0}
 --- !u!4 &1577278534
 Transform:
   m_ObjectHideFlags: 0
@@ -1854,5 +1925,6 @@ SceneRoots:
   - {fileID: 583087893}
   - {fileID: 1247325509}
   - {fileID: 1577278534}
+  - {fileID: 353296543}
   - {fileID: 1217021960}
   - {fileID: 2009188749}

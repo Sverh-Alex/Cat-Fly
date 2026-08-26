@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 60d22e5fbc49002479d9a00e805f106f
+guid: a85714d4ac3451e48b9df9f6de18af1a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1956202732889160531
-    second: Cat_game_background_ghetto_1_0
+      213: 196483095088822290
+    second: Cat_game_background_abandoned_suburb_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat_game_background_ghetto_1_0
+      name: Cat_game_background_abandoned_suburb_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 3270
-        height: 740
+        height: 637
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da44e759afb2ad4e0800000000000000
-      internalID: -1956202732889160531
+      spriteID: 218732f755c0ab200800000000000000
+      internalID: 196483095088822290
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cat_game_background_ghetto_1_0: -1956202732889160531
+      Cat_game_background_abandoned_suburb_2_0: 196483095088822290
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

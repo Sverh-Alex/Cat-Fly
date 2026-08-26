@@ -1,55 +1,96 @@
 using UnityEngine;
 using UnityEngine.Video;
-using UnityEngine.SceneManagement;
-using System.IO;  // Для Path.Combine
+using UnityEngine.AddressableAssets;
+using System.IO;
 
 public class VideoEndSceneLoader : MonoBehaviour
 {
-    private VideoPlayer videoPlayer;
+    private VideoPlayer videoPlayer; // Ссылка на VideoPlayer
 
-    void Awake()  // Раньше OnEnable
+    [SerializeField] private AddressableSceneLoader sceneLoader; // Ссылка на компонент загрузчика
+
+    private void Awake()
     {
-        videoPlayer = GetComponent<VideoPlayer>();
-        if (videoPlayer == null)
+        videoPlayer = GetComponent<VideoPlayer>(); // Получаем VideoPlayer на этом объекте
+
+        if (videoPlayer == null) // Проверяем наличие VideoPlayer
         {
-            Debug.LogError("VideoPlayer не найден на " + gameObject.name);
-            enabled = false;
-            return;
+            Debug.LogError(
+                $"[VideoEndSceneLoader] VideoPlayer не найден на объекте {gameObject.name}"
+            ); // Выводим ошибку
+
+            enabled = false; // Отключаем этот скрипт
+
+            return; // Завершаем Awake
+        }
+
+        if (sceneLoader == null) // Проверяем ссылку на загрузчик
+        {
+            Debug.LogError(
+                "[VideoEndSceneLoader] AddressableSceneLoader не назначен в Inspector"
+            ); // Выводим ошибку
+
+            enabled = false; // Отключаем этот скрипт
+
+            return; // Завершаем Awake
         }
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
-        if (videoPlayer != null)
-            videoPlayer.prepareCompleted += OnPrepareCompleted;
+        if (videoPlayer != null) // Проверяем VideoPlayer
+        {
+            videoPlayer.prepareCompleted += OnPrepareCompleted; // Подписываемся на завершение подготовки видео
+
+            videoPlayer.loopPointReached += OnVideoFinished; // Подписываемся на завершение видео
+        }
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        if (videoPlayer != null)
-            videoPlayer.prepareCompleted -= OnPrepareCompleted;
+        if (videoPlayer != null) // Проверяем VideoPlayer
+        {
+            videoPlayer.prepareCompleted -= OnPrepareCompleted; // Отписываемся от подготовки видео
+
+            videoPlayer.loopPointReached -= OnVideoFinished; // Отписываемся от завершения видео
+        }
     }
 
-    void Start()
+    private void Start()
     {
-        if (videoPlayer == null) return;
+        if (videoPlayer == null) // Проверяем VideoPlayer
+        {
+            return; // Завершаем Start
+        }
 
-        // StreamingAssets путь для WebGL
-        videoPlayer.source = VideoSource.Url;
-        videoPlayer.url = Path.Combine(Application.streamingAssetsPath, "Kitten.mp4");
-        videoPlayer.playOnAwake = false;
-        videoPlayer.loopPointReached += OnVideoFinished;
-        videoPlayer.Prepare();
+        videoPlayer.source = VideoSource.Url; // Указываем источник видео через URL
+
+        videoPlayer.url = Path.Combine(
+            Application.streamingAssetsPath,
+            "Kitten.mp4"
+        ); // Формируем путь к видео
+
+        videoPlayer.playOnAwake = false; // Запрещаем автоматическое воспроизведение
+
+        videoPlayer.Prepare(); // Запускаем подготовку видео
     }
 
-    void OnPrepareCompleted(VideoPlayer vp)
+    private void OnPrepareCompleted(VideoPlayer vp)
     {
-        vp.Play();
+        vp.Play(); // Запускаем видео после подготовки
     }
 
-    void OnVideoFinished(VideoPlayer vp)
+    private void OnVideoFinished(VideoPlayer vp)
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextSceneIndex);
+        if (sceneLoader == null) // Проверяем наличие загрузчика
+        {
+            Debug.LogError(
+                "[VideoEndSceneLoader] Невозможно загрузить сцену: AddressableSceneLoader отсутствует"
+            ); // Выводим ошибку
+
+            return; // Завершаем метод
+        }
+
+        sceneLoader.LoadAndSwitchScene(); // Запускаем загрузку сцены из AddressableSceneLoader
     }
 }

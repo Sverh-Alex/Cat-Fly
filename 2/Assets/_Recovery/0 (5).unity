@@ -24255,7 +24255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.2999573, y: 21.600098}
+  m_AnchoredPosition: {x: 7.2999573, y: 21.600067}
   m_SizeDelta: {x: 84, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &652592896
@@ -37766,7 +37766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -207.19995, y: 15}
+  m_AnchoredPosition: {x: -207.19998, y: 15}
   m_SizeDelta: {x: -147.5, y: 295.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961999570
@@ -52523,10 +52523,10 @@ RectTransform:
   - {fileID: 652592895}
   m_Father: {fileID: 608208155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.041, y: 0.81458443}
-  m_AnchorMax: {x: 0.16570835, y: 0.87479275}
-  m_AnchoredPosition: {x: 0.9000244, y: -4.5}
-  m_SizeDelta: {x: -44.20996, y: -13}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -380.09998, y: 242}
+  m_SizeDelta: {x: -884.20996, y: -686}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107858319
 MonoBehaviour:
@@ -93742,14 +93742,14 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  resetFTUEPrefs: 0
+  resetFTUEPrefs: 1
   loadingSlider: {fileID: 1907565899}
   btn: {fileID: 709659070}
   imgFtue: {fileID: 1296091854}
-  resetBuyPrefs: 0
+  resetBuyPrefs: 1
   imgBuy_1: {fileID: 1870431106}
   imgBuy_2: {fileID: 1046874113}
-  resetFirstBonusPrefs: 0
+  resetFirstBonusPrefs: 1
   imgBuy_3: {fileID: 156499200}
   imgBuy_4: {fileID: 1219375677}
 --- !u!4 &2047423074
@@ -96400,7 +96400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6022089, y: 0.24900001}
   m_AnchorMax: {x: 0.80700004, y: 0.8434079}
-  m_AnchoredPosition: {x: 0.5, y: -5.2250214}
+  m_AnchoredPosition: {x: 0.5, y: -5.225029}
   m_SizeDelta: {x: -0.099975586, y: 6.069994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140147153
