@@ -1731,16 +1731,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419817874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -223.18323}
-  m_LocalScale: {x: 0.6946906, y: 0.6946906, z: 0.6946906}
+  m_LocalPosition: {x: 0, y: 0, z: -321.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2009188749}
+  m_Father: {fileID: 1217021960}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.029520834, y: 0.8926666}
   m_AnchorMax: {x: 0.072000004, y: 0.9717038}
-  m_AnchoredPosition: {x: 0.4169922, y: 1.4186401}
-  m_SizeDelta: {x: 25.614723, y: 26.481003}
+  m_AnchoredPosition: {x: 0.6002197, y: 2.0421753}
+  m_SizeDelta: {x: 0.7099991, y: 0.42900085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419817877
 MonoBehaviour:
@@ -8585,7 +8585,6 @@ GameObject:
   - component: {fileID: 1216679112}
   - component: {fileID: 1216679113}
   - component: {fileID: 1216679114}
-  - component: {fileID: 1216679115}
   m_Layer: 5
   m_Name: TimeManager
   m_TagString: Untagged
@@ -8654,28 +8653,21 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  preloadWhenLevelCompleted: 1
+  nextLevelLoader: {fileID: 0}
   loadingSlider: {fileID: 395242640}
-  btn: {fileID: 1597394526}
---- !u!114 &1216679115
+  continueButton: {fileID: 1216771865}
+--- !u!114 &1216771865 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 998863239255296938, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
+  m_PrefabInstance: {fileID: 1103803771622140029}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216679111}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c910fa016e42e4e86a31cca4382e0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AddressableSceneLoader
-  sceneToLoad:
-    m_AssetGUID: af3572e1c8323da4da026a827923fe0b
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 0
-  loadingSlider: {fileID: 0}
-  btn: {fileID: 0}
+  m_EditorClassIdentifier: 
 --- !u!1 &1217021956
 GameObject:
   m_ObjectHideFlags: 0
@@ -8795,6 +8787,7 @@ RectTransform:
   - {fileID: 1091667084}
   - {fileID: 571135260}
   - {fileID: 1937729294}
+  - {fileID: 419817875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9743,17 +9736,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1597394526 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 998863239255296938, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
-  m_PrefabInstance: {fileID: 1103803771622140029}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1608029898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7166903669316701048, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
@@ -16062,7 +16044,6 @@ RectTransform:
   - {fileID: 162621046}
   - {fileID: 966437588}
   - {fileID: 1976119804}
-  - {fileID: 419817875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -17097,6 +17078,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.018
       objectReference: {fileID: 0}
+    - target: {fileID: 6404625098006986029, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
+      propertyPath: m_Name
+      value: btnContinue
+      objectReference: {fileID: 0}
     - target: {fileID: 7166903669316701048, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_Name
       value: MenuVictory
@@ -17258,7 +17243,7 @@ PrefabInstance:
     - target: {fileID: 3516153337334884415, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1216679115}
+      objectReference: {fileID: 1665721019712179526}
     - target: {fileID: 3516153337334884415, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadAndSwitchScene
@@ -17382,8 +17367,49 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 293035247170320543, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1665721019712179526}
   m_SourcePrefab: {fileID: 100100000, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
+--- !u!114 &1665721019712179524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3516153337334884415, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
+  m_PrefabInstance: {fileID: 1665721019712179523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665721019712179525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1665721019712179525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 293035247170320543, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
+  m_PrefabInstance: {fileID: 1665721019712179523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1665721019712179526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665721019712179525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c910fa016e42e4e86a31cca4382e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddressableSceneLoader
+  sceneToLoad:
+    m_AssetGUID: af3572e1c8323da4da026a827923fe0b
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  preloadWhenLevelCompleted: 0
+  nextLevelLoader: {fileID: 1216679114}
+  loadingSlider: {fileID: 0}
+  continueButton: {fileID: 1665721019712179524}
 --- !u!1001 &4257323911856775566
 PrefabInstance:
   m_ObjectHideFlags: 0

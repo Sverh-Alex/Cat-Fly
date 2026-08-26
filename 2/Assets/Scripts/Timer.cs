@@ -34,6 +34,7 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
         if (string.IsNullOrWhiteSpace(levelName)) // Проверяем имя текущего уровня
         {
             Debug.LogError(

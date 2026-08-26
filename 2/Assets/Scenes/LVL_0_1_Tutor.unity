@@ -1392,7 +1392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &162621046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5179,8 +5179,10 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  preloadWhenLevelCompleted: 0
+  nextLevelLoader: {fileID: 0}
   loadingSlider: {fileID: 1632555528}
-  btn: {fileID: 0}
+  continueButton: {fileID: 0}
 --- !u!1 &423154617
 GameObject:
   m_ObjectHideFlags: 0
@@ -20773,6 +20775,7 @@ GameObject:
   - component: {fileID: 777823354}
   - component: {fileID: 777823353}
   - component: {fileID: 777823352}
+  - component: {fileID: 777823355}
   m_Layer: 5
   m_Name: "\u0417\u0430\u043D\u043E\u0432\u043E"
   m_TagString: Untagged
@@ -20844,7 +20847,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1216679115}
+      - m_Target: {fileID: 777823355}
         m_TargetAssemblyTypeName: AddressableSceneLoader, Assembly-CSharp
         m_MethodName: LoadAndSwitchScene
         m_Mode: 1
@@ -20894,6 +20897,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777823350}
   m_CullTransparentMesh: 1
+--- !u!114 &777823355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777823350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c910fa016e42e4e86a31cca4382e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddressableSceneLoader
+  sceneToLoad:
+    m_AssetGUID: 989613e30e67e7f4eaf6f1948a10b312
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  preloadWhenLevelCompleted: 0
+  nextLevelLoader: {fileID: 1216679114}
+  loadingSlider: {fileID: 0}
+  continueButton: {fileID: 777823352}
 --- !u!1 &814180507
 GameObject:
   m_ObjectHideFlags: 0
@@ -25398,7 +25423,6 @@ GameObject:
   - component: {fileID: 1216679112}
   - component: {fileID: 1216679113}
   - component: {fileID: 1216679114}
-  - component: {fileID: 1216679115}
   m_Layer: 5
   m_Name: TimeManager
   m_TagString: Untagged
@@ -25467,28 +25491,10 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  preloadWhenLevelCompleted: 1
+  nextLevelLoader: {fileID: 0}
   loadingSlider: {fileID: 1632555528}
-  btn: {fileID: 1278692175}
---- !u!114 &1216679115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216679111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c910fa016e42e4e86a31cca4382e0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AddressableSceneLoader
-  sceneToLoad:
-    m_AssetGUID: 989613e30e67e7f4eaf6f1948a10b312
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 0
-  loadingSlider: {fileID: 0}
-  btn: {fileID: 0}
+  continueButton: {fileID: 0}
 --- !u!1 &1217021956
 GameObject:
   m_ObjectHideFlags: 0
