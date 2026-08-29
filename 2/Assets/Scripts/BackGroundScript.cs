@@ -122,6 +122,8 @@ public class BackGroundScript : MonoBehaviour
 
     private void SetupAllLayers()
     {
+
+        Debug.Log("SetupAllLayers вызван"); // Показывает повторную перестановку фона в Console
         previousAspect = gameCamera.aspect; // Сохраняет актуальное соотношение сторон камеры
         previousOrthographicSize = gameCamera.orthographicSize; // Сохраняет актуальный размер ортографической камеры
 
@@ -195,7 +197,7 @@ public class BackGroundScript : MonoBehaviour
         SpriteRenderer originalBackground = layer.Background; // Получает исходное изображение слоя
         SpriteRenderer copyBackground = layer.RuntimeCopy; // Получает копию изображения слоя
 
-        float movementDistance = layer.Speed * Time.deltaTime; // Вычисляет расстояние движения за текущий кадр
+        float movementDistance = layer.Speed * Time.smoothDeltaTime; // Вычисляет расстояние движения за текущий кадр
 
         originalBackground.transform.position += Vector3.left * movementDistance; // Двигает исходное изображение влево
         copyBackground.transform.position += Vector3.left * movementDistance; // Двигает созданную копию влево
