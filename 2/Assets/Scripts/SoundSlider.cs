@@ -12,7 +12,7 @@ public class SoundSlider : MonoBehaviour
     void Start()
     {
         // Загружаем сохранённую громкость, по умолчанию 1
-        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0.2f);
 
         if (volumeSlider != null)
         {
