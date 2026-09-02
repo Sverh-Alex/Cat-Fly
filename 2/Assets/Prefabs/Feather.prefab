@@ -56,7 +56,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   scaleSize: 5
-  explClip: {fileID: 8300000, guid: c4f37a82c89e19f4f931f2a330b07976, type: 3}
 --- !u!222 &6494754648648323275
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -138,7 +137,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3329468029669805071, guid: c7d32d3762c842c4b8fecdd8f91438f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
