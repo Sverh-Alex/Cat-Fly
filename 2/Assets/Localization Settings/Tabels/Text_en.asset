@@ -233,6 +233,10 @@ MonoBehaviour:
     m_Localized: I'm scared and lonely, help me find a kind and loving family, please...
     m_Metadata:
       m_Items: []
+  - m_Id: 143796653197205504
+    m_Localized: TUTORIAL
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
