@@ -26,21 +26,14 @@
         "FristBonus",
         "[8c9cfa26abfee488c85f1582747f6a02]LVL_1 (UnityEngine.SceneAsset)stars",
         "[8c9cfa26abfee488c85f1582747f6a02]stars",
-        "Cat 3_Access",
-        "Cat 4_Access",
         "LVL_0_1_Tutor_stars",
         "LVL_0_1_Tutor_open",
         "FTUE_Shown",
-        "LVL_1_stars",
-        "LVL_1_open",
-        "LVL_2_open",
-        "LVL_2_stars",
-        "LVL_3_open",
-        "LVL_3_stars",
-        "LVL_4_open"
+        "Cat 2_Access",
+        "Cat 1_Access"
     ],
     "intValues": [
-        3282,
+        3262,
         3,
         3,
         3,
@@ -48,17 +41,10 @@
         1,
         3,
         3,
-        1,
-        1,
         3,
         1,
         1,
-        3,
         1,
-        1,
-        3,
-        1,
-        3,
         1
     ],
     "intExample": 5,
@@ -69,5 +55,5 @@
         false,
         false
     ],
-    "idSave": 5369
+    "idSave": 5595
 }

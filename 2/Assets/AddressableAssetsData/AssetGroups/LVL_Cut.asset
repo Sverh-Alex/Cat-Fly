@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: LVL_Cut
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: LVL_Cut
-  m_GUID: 6ee92bc61dfef2d4197e91d1ebe86c7c
+  m_GUID: 682966117a31cd44990eca65583a490f
   m_SerializeEntries:
   - m_GUID: bc60a8d243c2931499b014c6f4740a90
-    m_Address: Assets/Scenes/LVL_0_2_Cut.unity
+    m_Address: Assets/Scenes/LVL_0_Cut.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: cbe059bbff196e843ba1c717aa50e85f, type: 2}
+  m_Settings: {fileID: 11400000, guid: 2bce8a0d30a37714ca9a73d54d77f553, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 8fdf5812c05043549b3577fcc15f6dcd, type: 2}
+    - {fileID: 11400000, guid: dc68f683fa782ae479b43cb60afbaa4a, type: 2}

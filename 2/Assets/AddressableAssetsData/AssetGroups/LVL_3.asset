@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LVL_3
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: LVL_3
-  m_GUID: 43fd744df3997744bb5f2383a2e7343f
+  m_GUID: 74c4436d759ebe34db8ac0573bf438a9
   m_SerializeEntries:
   - m_GUID: af3572e1c8323da4da026a827923fe0b
     m_Address: Assets/Scenes/LVL_3.unity
@@ -21,7 +21,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: cbe059bbff196e843ba1c717aa50e85f, type: 2}
+  m_Settings: {fileID: 11400000, guid: 2bce8a0d30a37714ca9a73d54d77f553, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: ecab1d2bb2e7a924eb191b4a5dbfd655, type: 2}
+    - {fileID: 11400000, guid: 6423ea5d08456fe489792ea72a6c99f0, type: 2}

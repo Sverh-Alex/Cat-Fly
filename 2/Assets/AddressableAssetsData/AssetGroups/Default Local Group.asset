@@ -11,13 +11,18 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Default Local Group
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
-  m_GUID: 0d50572aba45342448a62b70a4740db0
-  m_SerializeEntries: []
+  m_GUID: 0c9b4b9a373125141b9e018c6ce58216
+  m_SerializeEntries:
+  - m_GUID: 9fd06b476cb29f34c8e7d609cb5c72be
+    m_Address: Assets/Prefabs/Image.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: cbe059bbff196e843ba1c717aa50e85f, type: 2}
+  m_Settings: {fileID: 11400000, guid: 2bce8a0d30a37714ca9a73d54d77f553, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: bc4928e9affa28a4f82734b16d45d3f0, type: 2}
-    - {fileID: 11400000, guid: ea852da3aeaa56046a8161edb3aafa46, type: 2}
+    - {fileID: 11400000, guid: 49f574b9e856ac04b8b5fbc3a040c942, type: 2}
+    - {fileID: 11400000, guid: bf13f271ab9adaf41ad8c29f0aa725b9, type: 2}
