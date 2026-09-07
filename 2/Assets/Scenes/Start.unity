@@ -4976,7 +4976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AddressableSceneLoader
   sceneToLoad:
-    m_AssetGUID: 7a68b104856d1c74cb4b00c9bcfcd517
+    m_AssetGUID: 8c9cfa26abfee488c85f1582747f6a02
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -92763,7 +92763,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047423072}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45aa4265241644f4dbb1c7e470f3a162, type: 3}
   m_Name: 

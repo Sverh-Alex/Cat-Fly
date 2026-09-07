@@ -134,7 +134,7 @@ public class FTUEStart : MonoBehaviour
         }
 
         ftueSceneHandle = ftueSceneName.LoadSceneAsync(
-            LoadSceneMode.Additive,  // Добавляет туториал к стартовой сцене
+            LoadSceneMode.Single,  // Добавляет туториал к стартовой сцене
             false  // Откладывает активацию туториала
         );
 
