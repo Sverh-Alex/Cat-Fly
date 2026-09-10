@@ -16700,6 +16700,17 @@ PrefabInstance:
     - {fileID: 523863731112202769, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
     - {fileID: 5488995912199442589, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
     - {fileID: 7221444156584663234, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 760267521912470327, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 2418441390576751256, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 8400665108394445311, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 7138810089317838218, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 1556257756115071755, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 665579335952820580, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 5879500737174912174, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 6553249263038397236, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 3293236150039109479, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 1501540193395555352, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
+    - {fileID: 7121827568782040838, guid: 30a3df92d84191e429f64c31940e706b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16820,7 +16831,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1931304483873592880, guid: f0455b676f27bd84fac601c5079e78f2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16952,6 +16964,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7113718301338066092, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
     - {fileID: 4540645699327975480, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
+    - {fileID: 2098967397917797980, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
+    - {fileID: 1621806295085129142, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
+    - {fileID: 4807052394753064074, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17052,7 +17067,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3463206794106445217, guid: 7d2cbc92a6365694987ba43b6ee29c52, type: 3}
+    - {fileID: 5723669472336126563, guid: 7d2cbc92a6365694987ba43b6ee29c52, type: 3}
+    - {fileID: 1134234685276513927, guid: 7d2cbc92a6365694987ba43b6ee29c52, type: 3}
+    - {fileID: 6915833565539186744, guid: 7d2cbc92a6365694987ba43b6ee29c52, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17217,7 +17236,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnContinue
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5955101724994461392, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
+    - {fileID: 4788958754036889295, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
+    - {fileID: 6545160484946360452, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
+    - {fileID: 6321181766423550101, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
+    - {fileID: 8517591444294453759, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -17409,9 +17433,28 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 288.4
       objectReference: {fileID: 0}
+    - target: {fileID: 7705337214280623594, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
+      propertyPath: info.languages.de
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705337214280623594, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
+      propertyPath: info.languages.es
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705337214280623594, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
+      propertyPath: info.languages.fr
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705337214280623594, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
+      propertyPath: info.languages.pt
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6516303901192469193, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
     - {fileID: 7130810302290431922, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
+    - {fileID: 3442881479618581728, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
+    - {fileID: 4955143503784402757, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
+    - {fileID: 6713459291978436801, guid: ddedf78cb4fd94846b565ee4d0c96422, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

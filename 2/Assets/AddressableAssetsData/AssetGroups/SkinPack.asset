@@ -15,13 +15,8 @@ MonoBehaviour:
   m_GroupName: SkinPack
   m_GUID: 4351ba4d3fa81b945a7e97394d095181
   m_SerializeEntries:
-  - m_GUID: bb0a97e87ac13974587309482347b8d3
-    m_Address: Assets/Materials/Cat 0/Cat 0.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dcc8232801d28c542a728090098f639f
-    m_Address: Assets/Materials/Cat 1/Victory 1.png
+  - m_GUID: 9fd06b476cb29f34c8e7d609cb5c72be
+    m_Address: Assets/Prefabs/Image.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

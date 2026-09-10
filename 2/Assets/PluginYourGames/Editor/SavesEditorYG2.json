@@ -29,10 +29,11 @@
         "LVL_0_1_Tutor_stars",
         "LVL_0_1_Tutor_open",
         "FTUE_Shown",
-        "Cat 1_Access"
+        "Cat 1_Access",
+        "FirstBonus"
     ],
     "intValues": [
-        3262,
+        3362,
         3,
         3,
         3,
@@ -41,6 +42,7 @@
         3,
         3,
         3,
+        1,
         1,
         1,
         1
@@ -53,5 +55,5 @@
         false,
         false
     ],
-    "idSave": 5632
+    "idSave": 5665
 }
