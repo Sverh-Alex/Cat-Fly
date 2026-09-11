@@ -8671,7 +8671,7 @@ MonoBehaviour:
   preloadWhenLevelCompleted: 1
   nextLevelLoader: {fileID: 0}
   loadingSlider: {fileID: 395242640}
-  continueButton: {fileID: 1597394526}
+  continueButton: {fileID: 0}
 --- !u!1 &1217021956
 GameObject:
   m_ObjectHideFlags: 0
@@ -9778,17 +9778,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1597394526 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 998863239255296938, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
-  m_PrefabInstance: {fileID: 1103803771622140029}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1597962635 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 293035247170320543, guid: 2ddf814c8d1c5ce43a170435d2ce3f66, type: 3}
@@ -16846,12 +16835,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 2009188749}
     m_Modifications:
     - target: {fileID: 998863239255296938, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 998863239255296938, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1216679114}
     - target: {fileID: 3431234837441959130, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_fontSize
-      value: 80
+      value: 79.3
       objectReference: {fileID: 0}
     - target: {fileID: 4040536296148110242, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -16859,7 +16852,7 @@ PrefabInstance:
       objectReference: {fileID: 1108840862}
     - target: {fileID: 5068346970299730756, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_fontSize
-      value: 92.25
+      value: 68.05
       objectReference: {fileID: 0}
     - target: {fileID: 5852535998295162337, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_Pivot.x
@@ -16955,7 +16948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7779910144846860188, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_fontSize
-      value: 80
+      value: 67.15
       objectReference: {fileID: 0}
     - target: {fileID: 9194858931468892821, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_AnchorMax.y

@@ -162,10 +162,10 @@ public class AddressableSceneLoader : MonoBehaviour
             loadingSlider.value = 1f; // Показываем 100 процентов
         }
 
-        if (continueButton != null) // Проверяем наличие кнопки Continue
-        {
-            continueButton.interactable = true; // Разрешаем перейти дальше
-        }
+        //if (continueButton != null) // Проверяем наличие кнопки Continue
+        //{
+        //    continueButton.interactable = true; // Разрешаем перейти дальше
+        //}
 
         Debug.Log(
             "[Loader] Сцена загружена и ожидает активации."
@@ -302,10 +302,10 @@ public class AddressableSceneLoader : MonoBehaviour
             loadingSlider.value = 0f; // Сбрасываем индикатор
         }
 
-        if (continueButton != null) // Проверяем наличие Continue
-        {
-            continueButton.interactable = false; // Блокируем Continue до готовности сцены
-        }
+        //if (continueButton != null) // Проверяем наличие Continue
+        //{
+        //    continueButton.interactable = false; // Блокируем Continue до готовности сцены
+        //}
     }
 
     private bool ValidateSceneReference()
@@ -364,9 +364,9 @@ public class AddressableSceneLoader : MonoBehaviour
             loadingSlider.value = 0f; // Сбрасываем отображаемый прогресс
         }
 
-        if (continueButton != null) // Проверяем наличие Continue
-        {
-            continueButton.interactable = false; // Блокируем кнопку Continue
-        }
+        //if (continueButton != null) // Проверяем наличие Continue
+        //{
+        //    continueButton.interactable = false; // Блокируем кнопку Continue
+        //}
     }
 }
