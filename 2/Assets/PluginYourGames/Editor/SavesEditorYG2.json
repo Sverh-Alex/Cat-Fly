@@ -1,6 +1,10 @@
 {
-    "stringKeys": [],
-    "stringValues": [],
+    "stringKeys": [
+        "TimerEndTime"
+    ],
+    "stringValues": [
+        "13.09.2026 17:43:50"
+    ],
     "floatKeys": [
         "MasterVolume",
         "[bc60a8d243c2931499b014c6f4740a90]LVL_0_2_Cut (UnityEngine.SceneAsset)open",
@@ -33,11 +37,10 @@
         "FTUE_Shown",
         "LVL_1_stars",
         "LVL_1_open",
-        "LVL_2_open",
-        "ga_tutor_complete_sent"
+        "LVL_2_open"
     ],
     "intValues": [
-        3404,
+        3502,
         3,
         3,
         3,
@@ -52,7 +55,6 @@
         1,
         3,
         1,
-        1,
         1
     ],
     "intExample": 5,
@@ -63,5 +65,5 @@
         false,
         false
     ],
-    "idSave": 5899
+    "idSave": 5942
 }

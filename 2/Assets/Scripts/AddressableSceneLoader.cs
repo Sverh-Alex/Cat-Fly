@@ -8,6 +8,8 @@ using UnityEngine.UI; // Подключает Slider и Button
 
 public class AddressableSceneLoader : MonoBehaviour
 {
+    private static bool _isHardTransition; // Глобальный флаг: идёт ли сейчас жёсткий переход (LoadAndSwitch)
+
     [Header("Сцена для загрузки")]
     [SerializeField] private AssetReference sceneToLoad; // Единственная сцена, которую загружает этот компонент
 
@@ -44,11 +46,15 @@ public class AddressableSceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
+        if (_isHardTransition)  // Если сейчас идёт жёсткий переход (LoadAndSwitch) — не начинаем предзагрузку
+        {
+            Debug.LogWarning("[Loader] Предзагрузка отменена: идёт жёсткий переход между сценами.");
+            return;
+        }
+
         if (isLoading || isReadyToActivate || isActivating) // Проверяем активные операции
         {
-            Debug.LogWarning(
-                "[Loader] Сцена уже загружается или ожидает активации."
-            ); // Сообщаем о повторном запуске
+            Debug.LogWarning("[Loader] Сцена уже загружается или ожидает активации."); // Сообщаем о повторном запуске
 
             return; // Не запускаем вторую загрузку
         }
@@ -61,9 +67,7 @@ public class AddressableSceneLoader : MonoBehaviour
         PrepareLoadingUI(); // Сбрасываем UI перед предзагрузкой
         isLoading = true; // Блокируем повторные вызовы
 
-        StartCoroutine(
-            PreloadSceneCoroutine()
-        ); // Начинаем фоновую загрузку без активации
+        StartCoroutine(PreloadSceneCoroutine()); // Начинаем фоновую загрузку без активации
     }
 
     public void SwitchToLoadedScene()
@@ -191,6 +195,7 @@ public class AddressableSceneLoader : MonoBehaviour
 
     private IEnumerator LoadAndSwitchSceneCoroutine()
     {
+        _isHardTransition = true; // Начинаем жёсткий переход
         isActivating = true; // Блокируем повторный вызов Restart
 
         if (nextLevelLoader != null) // Проверяем наличие Loader следующего уровня
@@ -201,9 +206,7 @@ public class AddressableSceneLoader : MonoBehaviour
         PrepareLoadingUI(); // Сбрасываем UI перед загрузкой
         isLoading = true; // Помечаем начало загрузки
 
-        Debug.Log(
-            "[Loader] Загружаем сцену с немедленной активацией."
-        ); // Выводим сообщение о старте Restart
+        Debug.Log("[Loader] Загружаем сцену с немедленной активацией."); // Выводим сообщение о старте Restart
 
         loadHandle = Addressables.LoadSceneAsync(
             sceneToLoad,
@@ -214,14 +217,13 @@ public class AddressableSceneLoader : MonoBehaviour
         while (!loadHandle.IsDone) // Ждём полное завершение операции
         {
             UpdateLoadingProgress(); // Обновляем Slider
-
             yield return null; // Ждём следующий кадр
         }
 
         if (!IsSceneLoadSucceeded()) // Проверяем результат загрузки
         {
             HandleLoadError(); // Обрабатываем ошибку
-
+            _isHardTransition = false; // Завершаем жёсткий переход
             yield break; // Завершаем coroutine
         }
 
@@ -233,6 +235,8 @@ public class AddressableSceneLoader : MonoBehaviour
         Debug.Log(
             "[Loader] Сцена успешно загружена и активирована."
         ); // Выводим сообщение об успешном Restart
+
+        _isHardTransition = false; // Сцена активирована, теперь можно разрешить предзагрузку следующего уровня
     }
 
     private IEnumerator CancelPreloadedSceneCoroutine()
@@ -242,7 +246,6 @@ public class AddressableSceneLoader : MonoBehaviour
             Debug.LogWarning(
                 "[Loader] Предзагрузка ещё выполняется. Отмена пропущена."
             ); // Сообщаем, что операция ещё не завершена
-
             yield break; // Не зависаем в бесконечном ожидании
         }
 
@@ -254,7 +257,6 @@ public class AddressableSceneLoader : MonoBehaviour
         if (!loadHandle.IsValid()) // Проверяем корректность Handle
         {
             ResetState(); // Очищаем ошибочное состояние
-
             yield break; // Не выгружаем недействительную операцию
         }
 
@@ -280,10 +282,7 @@ public class AddressableSceneLoader : MonoBehaviour
         }
         else
         {
-            Debug.LogError(
-                $"[Loader] Ошибка выгрузки сцены: " +
-                $"{unloadHandle.OperationException}"
-            ); // Выводим текст ошибки
+            Debug.LogError($"[Loader] Ошибка выгрузки сцены: " + $"{unloadHandle.OperationException}"); // Выводим текст ошибки
         }
     }
 
@@ -318,18 +317,14 @@ public class AddressableSceneLoader : MonoBehaviour
     {
         if (sceneToLoad == null) // Проверяем назначение сцены в Inspector
         {
-            Debug.LogError(
-                "[Loader] Scene To Load не назначена."
-            ); // Выводим ошибку настройки
+            Debug.LogError("[Loader] Scene To Load не назначена."); // Выводим ошибку настройки
 
             return false; // Возвращаем отрицательный результат
         }
 
         if (!sceneToLoad.RuntimeKeyIsValid()) // Проверяем Addressables RuntimeKey
         {
-            Debug.LogError(
-                "[Loader] RuntimeKey сцены недействителен."
-            ); // Выводим ошибку ключа
+            Debug.LogError("[Loader] RuntimeKey сцены недействителен."); // Выводим ошибку ключа
 
             return false; // Возвращаем отрицательный результат
         }
@@ -344,8 +339,7 @@ public class AddressableSceneLoader : MonoBehaviour
             return false; // Возвращаем ошибку проверки
         }
 
-        return loadHandle.Status ==
-               AsyncOperationStatus.Succeeded; // Возвращаем результат операции
+        return loadHandle.Status ==  AsyncOperationStatus.Succeeded; // Возвращаем результат операции
     }
 
     private void HandleLoadError()
