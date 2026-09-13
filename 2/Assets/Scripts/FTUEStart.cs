@@ -134,7 +134,7 @@ public class FTUEStart : MonoBehaviour
         }
 
         ftueSceneHandle = ftueSceneName.LoadSceneAsync(
-            LoadSceneMode.Single,  // Добавляет туториал к стартовой сцене
+            LoadSceneMode.Single, // Загружает туториал, не выгружая стартовую сцену
             false  // Откладывает активацию туториала
         );
 
@@ -197,57 +197,33 @@ public class FTUEStart : MonoBehaviour
     private IEnumerator ActivateTutorialAndUnloadStartScene()
     {
         if (!ftueSceneHandle.IsValid() ||
-            ftueSceneHandle.Status != AsyncOperationStatus.Succeeded)  // Проверяет handle
+            ftueSceneHandle.Status != AsyncOperationStatus.Succeeded)
         {
-            Debug.LogError("[FTUE] Нельзя активировать туториал.");  // Выводит ошибку
-            transitionStarted = false;  // Разрешает повторную попытку
-            yield break;  // Завершает Coroutine
+            Debug.LogError("[FTUE] Нельзя активировать туториал.");
+            transitionStarted = false;
+            yield break;
         }
 
-        if (btn != null)  // Проверяет кнопку
+        if (btn != null)
+            btn.interactable = false;
+
+        yield return ftueSceneHandle.Result.ActivateAsync();
+
+        Scene tutorialScene = ftueSceneHandle.Result.Scene;
+
+        if (!tutorialScene.IsValid() || !tutorialScene.isLoaded)
         {
-            btn.interactable = false;  // Блокирует кнопку во время перехода
+            Debug.LogError("[FTUE] Сцена туториала недействительна.");
+            transitionStarted = false;
+            yield break;
         }
 
-        AsyncOperation activateOperation =
-            ftueSceneHandle.Result.ActivateAsync();  // Активирует туториал
+        SceneManager.SetActiveScene(tutorialScene);
 
-        yield return activateOperation;  // Ждёт завершения активации
+        if (imgFtue != null)
+            imgFtue.SetActive(false);
 
-        Scene tutorialScene = ftueSceneHandle.Result.Scene;  // Получает сцену туториала
-
-        if (!tutorialScene.IsValid() ||
-            !tutorialScene.isLoaded)  // Проверяет загруженную сцену
-        {
-            Debug.LogError("[FTUE] Сцена туториала недействительна.");  // Выводит ошибку
-            transitionStarted = false;  // Разрешает повторную попытку
-            yield break;  // Завершает Coroutine
-        }
-
-        SceneManager.SetActiveScene(tutorialScene);  // Делает туториал активной сценой
-
-        if (imgFtue != null)  // Проверяет окно FTUE
-        {
-            imgFtue.SetActive(false);  // Скрывает окно FTUE
-        }
-
-        if (startScene.IsValid() &&
-            startScene.isLoaded &&
-            startScene != tutorialScene)  // Проверяет стартовую сцену
-        {
-            AsyncOperation unloadOperation =
-                SceneManager.UnloadSceneAsync(startScene);  // Выгружает стартовую сцену
-
-            if (unloadOperation == null)  // Проверяет операцию выгрузки
-            {
-                Debug.LogError("[FTUE] Не удалось начать выгрузку стартовой сцены.");  // Выводит ошибку
-                yield break;  // Завершает Coroutine
-            }
-
-            yield return unloadOperation;  // Ждёт завершения выгрузки
-        }
-
-        Debug.Log("[FTUE] Туториал активирован, стартовая сцена выгружена.");  // Выводит результат
+        Debug.Log("[FTUE] Туториал активирован.");
     }
 
     private void SetupFirstBonus()

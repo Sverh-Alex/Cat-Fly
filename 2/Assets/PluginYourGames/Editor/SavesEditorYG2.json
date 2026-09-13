@@ -10,7 +10,7 @@
         "[c1b41e833200a0042beb1a894675b9c9]open"
     ],
     "floatValues": [
-        0.18905742466449738,
+        0.812580406665802,
         1.0,
         1.0,
         1.0,
@@ -28,16 +28,16 @@
         "[8c9cfa26abfee488c85f1582747f6a02]stars",
         "LVL_0_1_Tutor_stars",
         "LVL_0_1_Tutor_open",
-        "FTUE_Shown",
         "Cat 1_Access",
         "FirstBonus",
+        "FTUE_Shown",
         "LVL_1_stars",
         "LVL_1_open",
         "LVL_2_open",
         "ga_tutor_complete_sent"
     ],
     "intValues": [
-        3362,
+        3404,
         3,
         3,
         3,
@@ -63,5 +63,5 @@
         false,
         false
     ],
-    "idSave": 5670
+    "idSave": 5899
 }

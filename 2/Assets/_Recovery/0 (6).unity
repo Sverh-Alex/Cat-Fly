@@ -21851,7 +21851,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1222751676}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.3449944
+  m_Size: 0.34499437
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -76125,7 +76125,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100.85
+  m_fontSize: 100.8
   m_fontSizeBase: 73.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -92831,7 +92831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2047423073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92839,7 +92839,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047423072}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45aa4265241644f4dbb1c7e470f3a162, type: 3}
   m_Name: 

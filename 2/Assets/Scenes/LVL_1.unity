@@ -8639,7 +8639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 902246020}
-  lifeTime: 2
+  lifeTime: 20
   levelName: LVL_1
   nextLevelName: LVL_2
   victoryMenu: {fileID: 1608029898}
@@ -10080,13 +10080,13 @@ MonoBehaviour:
   - {fileID: 720663781}
   - {fileID: 983213733}
   cloud: {fileID: 2342276463919375618, guid: 673f878d79b58174584b10bcae83b67b, type: 3}
-  spamInterval: 1
+  spamInterval: 0.73
   slipper: {fileID: 947930908925686483, guid: 47e1a2db4a57e78419e9a2fa591c74cb, type: 3}
-  spamSlipperInterval: 1
+  spamSlipperInterval: 0.7
   gift: {fileID: 4013341186137885221, guid: 456b623eee4eb6a49a03f434b97c47ed, type: 3}
-  spamGiftInterval: 1
+  spamGiftInterval: 0.38
   feather: {fileID: 1440637531209691941, guid: a3b5afa3dd5e7c541a81656efb7566c6, type: 3}
-  spamFeatherInterval: 1
+  spamFeatherInterval: 0.47
 --- !u!4 &1749631320
 Transform:
   m_ObjectHideFlags: 0
@@ -16940,11 +16940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166903669316701048, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333822991508793233, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7779910144846860188, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_fontSize
@@ -16952,7 +16952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9194858931468892821, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7113718301338066092, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}

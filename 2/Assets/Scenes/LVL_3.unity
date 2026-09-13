@@ -17063,6 +17063,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2009188749}
     m_Modifications:
     - target: {fileID: 998863239255296938, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 998863239255296938, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1216679114}
@@ -17160,15 +17164,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7166903669316701048, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7333822991508793233, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9194858931468892821, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7113718301338066092, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}

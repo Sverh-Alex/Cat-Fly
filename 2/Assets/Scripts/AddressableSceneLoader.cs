@@ -138,8 +138,7 @@ public class AddressableSceneLoader : MonoBehaviour
             false
         ); // Загружаем сцену без её активации
 
-        while (loadHandle.PercentComplete < 0.9f &&
-               !loadHandle.IsDone) // Ждём данные сцены до точки ожидания активации
+        while (loadHandle.PercentComplete < 0.9f) // Ждём данные сцены до точки ожидания активации
         {
             UpdateLoadingProgress(); // Обновляем Slider
 
@@ -185,6 +184,9 @@ public class AddressableSceneLoader : MonoBehaviour
             loadHandle.Result.ActivateAsync(); // Запускаем активацию сцены
 
         yield return activateOperation; // Ждём смену сцены
+        isLoading = false; // Сбрасываем состояние загрузки
+        isReadyToActivate = false; // Сбрасываем ожидание активации
+        isActivating = false; // Сбрасываем состояние перехода
     }
 
     private IEnumerator LoadAndSwitchSceneCoroutine()
@@ -235,9 +237,13 @@ public class AddressableSceneLoader : MonoBehaviour
 
     private IEnumerator CancelPreloadedSceneCoroutine()
     {
-        while (isLoading) // Ждём завершения начатой предзагрузки
+        if (isLoading) // Проверяем, выполняется ли предзагрузка
         {
-            yield return null; // Не выгружаем сцену до готовности операции
+            Debug.LogWarning(
+                "[Loader] Предзагрузка ещё выполняется. Отмена пропущена."
+            ); // Сообщаем, что операция ещё не завершена
+
+            yield break; // Не зависаем в бесконечном ожидании
         }
 
         if (!isReadyToActivate) // Проверяем наличие сцены, ожидающей активации
