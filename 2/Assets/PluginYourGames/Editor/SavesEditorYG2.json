@@ -1,10 +1,6 @@
 {
-    "stringKeys": [
-        "TimerEndTime"
-    ],
-    "stringValues": [
-        "13.09.2026 17:43:50"
-    ],
+    "stringKeys": [],
+    "stringValues": [],
     "floatKeys": [
         "MasterVolume",
         "[bc60a8d243c2931499b014c6f4740a90]LVL_0_2_Cut (UnityEngine.SceneAsset)open",
@@ -40,7 +36,7 @@
         "LVL_2_open"
     ],
     "intValues": [
-        3502,
+        3547,
         3,
         3,
         3,
@@ -65,5 +61,5 @@
         false,
         false
     ],
-    "idSave": 5942
+    "idSave": 6016
 }

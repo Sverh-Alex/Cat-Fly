@@ -1,40 +1,27 @@
 using UnityEngine;
 
-public class Gift : MonoBehaviour
+// Подарок, наследуется от ObjectsBaseMovable
+public class Gift : ObjectsBaseMovable
 {
-    [SerializeField] private float speedGift = 9.0f;
-    private Vector3 moveVector;
-    //private float speedGiftInterval = 2.0f; // частота появления подарка
-    private float randomSpeed;
-    [SerializeField] public int upBullet = +1;
-    private Vector2 baseResolution = new(1920, 1080); // Базовое разрешение
-    [SerializeField] private int koff = 6;
+    [SerializeField] private int koff = 6;              // коэффициент размера подарка
 
-    void Start()
-    {
-        float screenWidth = Screen.width;
-        float screenHeight = Screen.height;
-        // Рассчитываем коэффициент масштабирования
-        float scale = Mathf.Min(screenWidth / baseResolution.x, screenHeight / baseResolution.y);
+    public int upBullet = 1;                              // сколько пуль добавить при подборе (используется в ScoreManager)
 
-        randomSpeed = Random.Range(2, speedGift);
-        moveVector = new Vector3(-randomSpeed * scale, 0);
-        transform.localScale = new Vector3(scale / koff, scale / koff); // изменяем размер в зависимости экрана
-    }
-    private void OnTriggerEnter2D(Collider2D collision)   // обрабатывает столкновения с тапком
+    protected override void OnCustomInit(float scale)
     {
-       if (collision.gameObject.tag.Equals("rainbow"))
-       {
-        Destroy(gameObject);
-       } 
+        // Размер подарка зависит от коэффициента koff
+        transform.localScale = new Vector3(scale / koff, scale / koff, 1f);
     }
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameObject.transform.Translate(moveVector * Time.deltaTime);
-        if (transform.position.x < -15)
+        if (collision.gameObject.CompareTag("rainbow")) // если столкнулось с игроком
         {
-            Destroy(gameObject);
+            ReturnToPool();                             // возвращаем в пул
         }
+    }
+    protected override void ReturnToPool()
+    {
+        ObjectPoolManager.Instance.ReturnToPool("Gift", gameObject);
     }
 }

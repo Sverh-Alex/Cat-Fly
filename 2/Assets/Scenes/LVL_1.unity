@@ -9460,6 +9460,66 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1121125890884747620, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
   m_PrefabInstance: {fileID: 1103803771622140029}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1467893869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467893871}
+  - component: {fileID: 1467893870}
+  m_Layer: 0
+  m_Name: ObjectPoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1467893870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467893869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bebfcc7d66591c4993255d3948a8679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectPoolManager
+  pools:
+  - tag: Cloud
+    prefab: {fileID: 2342276463919375618, guid: 673f878d79b58174584b10bcae83b67b, type: 3}
+    size: 15
+  - tag: Feather
+    prefab: {fileID: 1440637531209691941, guid: a3b5afa3dd5e7c541a81656efb7566c6, type: 3}
+    size: 15
+  - tag: Gift
+    prefab: {fileID: 4013341186137885221, guid: 456b623eee4eb6a49a03f434b97c47ed, type: 3}
+    size: 15
+  - tag: Slipper
+    prefab: {fileID: 947930908925686483, guid: 47e1a2db4a57e78419e9a2fa591c74cb, type: 3}
+    size: 15
+  - tag: Rainbow
+    prefab: {fileID: 2909532288526142592, guid: 917c441ef1d6f7945a5e6a19a4074ecf, type: 3}
+    size: 15
+--- !u!4 &1467893871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467893869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.14281, y: 0.03616, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1531680539 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5068346970299730756, guid: 6fd9e3a629836a14db41af0e2cd3695e, type: 3}
@@ -10071,7 +10131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc451e5507b4104db2219f9b54a0946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spamPoints:
+  spawnPoints:
   - {fileID: 1744048328}
   - {fileID: 1167436509}
   - {fileID: 1798917397}
@@ -10079,14 +10139,19 @@ MonoBehaviour:
   - {fileID: 1357619908}
   - {fileID: 720663781}
   - {fileID: 983213733}
-  cloud: {fileID: 2342276463919375618, guid: 673f878d79b58174584b10bcae83b67b, type: 3}
-  spamInterval: 0.73
-  slipper: {fileID: 947930908925686483, guid: 47e1a2db4a57e78419e9a2fa591c74cb, type: 3}
-  spamSlipperInterval: 0.7
-  gift: {fileID: 4013341186137885221, guid: 456b623eee4eb6a49a03f434b97c47ed, type: 3}
-  spamGiftInterval: 0.38
-  feather: {fileID: 1440637531209691941, guid: a3b5afa3dd5e7c541a81656efb7566c6, type: 3}
-  spamFeatherInterval: 0.47
+  spawnRules:
+  - poolTag: Cloud
+    spamInterval: 0.14
+    maxSpeed: 9
+  - poolTag: Feather
+    spamInterval: 0.09
+    maxSpeed: 9
+  - poolTag: Gift
+    spamInterval: 0.02
+    maxSpeed: 9
+  - poolTag: Slipper
+    spamInterval: 0.14
+    maxSpeed: 9
 --- !u!4 &1749631320
 Transform:
   m_ObjectHideFlags: 0
@@ -16450,7 +16515,7 @@ PrefabInstance:
       objectReference: {fileID: 457924364}
     - target: {fileID: 6836447505463430355, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
       propertyPath: bulletGift
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6836447505463430355, guid: db3986357f93c034b953ddfd4c2297aa, type: 3}
       propertyPath: textCoinCounter
@@ -17470,6 +17535,7 @@ SceneRoots:
   - {fileID: 1247325509}
   - {fileID: 2114821620}
   - {fileID: 1577278534}
+  - {fileID: 1467893871}
   - {fileID: 1749631320}
   - {fileID: 1264975392}
   - {fileID: 1567885002}

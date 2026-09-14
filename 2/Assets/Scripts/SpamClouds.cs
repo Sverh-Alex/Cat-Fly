@@ -1,62 +1,68 @@
+using System.Collections.Generic;
 using UnityEngine;
 
+// Универсальный спавнер объектов через пул
 public class SpamClouds : MonoBehaviour
 {
-    [SerializeField] private GameObject[] spamPoints;
-    [SerializeField] private GameObject cloud;
-    [SerializeField] private float spamInterval = 1.0f;
-    [SerializeField] private GameObject slipper;
-    [SerializeField] private float spamSlipperInterval = 2.0f;
-    [SerializeField] private GameObject gift;
-    [SerializeField] private float spamGiftInterval = 0.5f;
-    [SerializeField] private GameObject feather;
-    [SerializeField] private float spamFeatherInterval = 0.5f;
+    [System.Serializable]
+    public class SpawnRule
+    {
+        public string poolTag;          // тег пула (должен совпадать с тегом в ObjectPoolManager)
+        public float spamInterval = 1f; // интервал спавна (секунды)
+        public float maxSpeed = 5f;     // максимальная скорость спавна
 
+        [System.NonSerialized] public float timer; // таймер для отсчёта времени до следующего спавна
+    }
+
+    [SerializeField] private GameObject[] spawnPoints;  // общие точки спавна для всех объектов
+    [SerializeField] private List<SpawnRule> spawnRules = new List<SpawnRule>(); // список правил спавна
 
     void Start()
     {
-        Invoke("SpamCloud", spamInterval);
-        Invoke("SpamSlipper", spamSlipperInterval);
-        Invoke("SpamGift", spamGiftInterval);
-        Invoke("SpamFeather", spamFeatherInterval);
+        // Проверяем, что есть точки спавна
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogWarning("SpamClouds: no spawn points assigned!");
+        }
 
+        // Инициализируем таймеры для каждого правила
+        foreach (var rule in spawnRules)
+        {
+            rule.timer = 0f;
+        }
     }
-    private void SpamGift()
-    {
-        GameObject gft = Instantiate(gift); // создали объект
-        int index = UnityEngine.Random.Range(0, 7); // выбрали рандомное число
-        Vector3 position = spamPoints[index].transform.position; // создали точку спавна
-        gft.transform.position = position; // присвоили объекту точку спавна
-        Invoke("SpamGift", spamGiftInterval); // вызвали метод снова (зациклили)
 
-    }
-    private void SpamCloud()
-    {
-        int index = UnityEngine.Random.Range(0, 7); // рандомное число от 0 до 4
-        GameObject cl = Instantiate(cloud); // создание облака
-        Vector3 position = spamPoints[index].transform.position; // присваеваем позицию СпамПоинта в зависимости от рандомного числа
-        cl.transform.position = position;
-        Invoke("SpamCloud", spamInterval);
-    }
-    private void SpamSlipper()
-    {
-        int index = UnityEngine.Random.Range(0, 7);
-        GameObject sl = Instantiate(slipper);
-        Vector3 position = spamPoints[index].transform.position;
-        sl.transform.position = position;
-        Invoke("SpamSlipper", spamSlipperInterval);
-    }
-    private void SpamFeather()
-    {
-        int index = UnityEngine.Random.Range(0, 7);
-        GameObject sl = Instantiate(feather);
-        Vector3 position = spamPoints[index].transform.position;
-        sl.transform.position = position;
-        Invoke("SpamFeather", spamFeatherInterval);
-    }
-    // Update is called once per frame
     void Update()
     {
-        
+        // Если нет точек спавна или правил — ничего не делаем
+        if (spawnPoints == null || spawnPoints.Length == 0 || spawnRules == null || spawnRules.Count == 0)
+        {
+            return;
+        }
+
+        // Для каждого правила проверяем, пришло ли время спавна
+        foreach (var rule in spawnRules)
+        {
+            rule.timer += Time.deltaTime; // увеличиваем таймер
+
+            if (rule.timer >= rule.spamInterval) // если пришло время спавна
+            {
+                SpawnFromRule(rule); // спавним объект
+                rule.timer = 0f; // сбрасываем таймер
+            }
+        }
+    }
+
+    private void SpawnFromRule(SpawnRule rule)
+    {
+        // Выбираем случайную точку спавна из общего массива
+        int index = Random.Range(0, spawnPoints.Length);
+        Vector3 position = spawnPoints[index].transform.position;
+
+        // Выбираем случайную скорость от 0 до максимума
+        float speed = Random.Range(0f, rule.maxSpeed);
+
+        // Спавним объект из пула
+        ObjectPoolManager.Instance.SpawnFromPool(rule.poolTag, position, Quaternion.identity, speed);
     }
 }

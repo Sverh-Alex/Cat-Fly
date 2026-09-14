@@ -19,6 +19,7 @@
     <type fullname="ImageChangerLose" preserve="all" />
     <type fullname="LanguageManager" preserve="all" />
     <type fullname="MultiTextAppearAndFade" preserve="all" />
+    <type fullname="ObjectPoolManager" preserve="all" />
     <type fullname="Pixel" preserve="all" />
     <type fullname="PlayerChanger" preserve="all" />
     <type fullname="Rainbow" preserve="all" />
@@ -38,6 +39,8 @@
     <type fullname="YG.EventsYG2" preserve="all" />
     <type fullname="YG.LanguageLegacy.LanguageYG" preserve="all" />
     <type fullname="BackGroundScript/BackgroundLayer" preserve="nothing" serialized="true" />
+    <type fullname="ObjectPoolManager/Pool" preserve="nothing" serialized="true" />
+    <type fullname="SpamClouds/SpawnRule" preserve="nothing" serialized="true" />
     <type fullname="YG.EventsYG2/Entry" preserve="nothing" serialized="true" />
     <type fullname="YG.EventsYG2/TriggerEvent" preserve="nothing" serialized="true" />
     <type fullname="YG.InfoYG/AutoTranslateLangsSettings" preserve="nothing" serialized="true" />
@@ -53,7 +56,9 @@
     <type fullname="CartoonFX.CFXR_Effect/CameraShake" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Coffee.SoftMaskForUGUI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Coffee.UISoftMask.CanvasViewChangeTrigger" preserve="all" />
     <type fullname="Coffee.UISoftMask.SoftMask" preserve="all" />
+    <type fullname="Coffee.UISoftMask.SoftMaskable" preserve="all" />
     <type fullname="Coffee.UISoftMaskInternal.MinMax01" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Coffee.UIEffect, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">

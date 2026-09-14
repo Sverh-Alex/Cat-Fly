@@ -1,44 +1,26 @@
 using UnityEngine;
 
-
-public class Feather : MonoBehaviour
+// Перо, наследуется от ObjectsBaseMovable
+public class Feather : ObjectsBaseMovable
 {
-    private Vector3 moveVector;
-    [SerializeField] private float speed = 9.0f;  // Показываем на панели скорость
-    private Vector2 baseResolution = new Vector2(1920, 1080); // Базовое разрешение
-    private float randomSpeed;
-    private GameObject scoreManager;
-    [SerializeField] private float scaleSize = 4; // коэффициент регулируем размер монеток
-    //[SerializeField] private AudioClip explClip;
+    [SerializeField] private float scaleSize = 4f;      // коэффициент размера пера
 
-    void Start()
+    protected override void OnCustomInit(float scale)
     {
-        float screenWidth = Screen.width;
-        float screenHeight = Screen.height;
-        float scale = Mathf.Min(screenWidth / baseResolution.x, screenHeight / baseResolution.y); // Рассчитываем коэффициент масштабирования
-
-        randomSpeed = Random.Range(2, speed); // рандомная скорость
-        moveVector = new Vector3(-randomSpeed * scale, 0); // создаем перменную для скорости
-        transform.localScale = new Vector3(scale / scaleSize, scale / scaleSize); // изменяем размер в зависимости экрана
-       
-        scoreManager = GameObject.Find("ScoreManager"); 
+        // Размер пера зависит от коэффициента scaleSize
+        transform.localScale = new Vector3(scale / scaleSize, scale / scaleSize, 1f);
     }
-    private void OnTriggerEnter2D(Collider2D collision)   // обрабатывает столкновения с тапком
-    {
-        if (collision.gameObject.tag.Equals("rainbow"))
-        {
-            Destroy(gameObject);
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("rainbow")) // если столкнулось с игроком
+        {
+            ReturnToPool();                             // возвращаем в пул
         }
     }
-        // Update is called once per frame
-        void Update()
+    protected override void ReturnToPool()
     {
-        gameObject.transform.Translate(moveVector * Time.deltaTime);
-            if (transform.position.x < -15)
-            {
-                //scoreManager.GetComponent<ScoreManager>().addToScore();
-                Destroy(gameObject);
-            }
+        ObjectPoolManager.Instance.ReturnToPool("Feather", gameObject);
     }
+
 }

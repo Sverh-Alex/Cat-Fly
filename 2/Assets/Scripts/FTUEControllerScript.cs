@@ -159,11 +159,18 @@ public class FTUEController : MonoBehaviour
 
         if (steps[index].prefab != null) // Проверяем наличие prefab текущего шага
         {
-            Instantiate(
+            GameObject spawnedObject = Instantiate(
                 steps[index].prefab,
                 Vector3.zero,
                 Quaternion.identity
             ); // Создаём prefab текущего шага
+
+            // Инициализируем объект: задаём скорость 1 и скалирование
+            ObjectsBaseMovable movable = spawnedObject.GetComponent<ObjectsBaseMovable>();
+            if (movable != null)
+            {
+                movable.Init(1f); // инициализируем со скоростью 1
+            }
         }
 
         SetGamePause(true); // Ставим игровой процесс на паузу
