@@ -5131,7 +5131,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.6
+  m_fontSize: 73.1
   m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7017,7 +7017,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 81.75
+  m_fontSize: 82
   m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24905,7 +24905,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  preloadWhenLevelCompleted: 1
+  preloadWhenLevelCompleted: 0
   nextLevelLoader: {fileID: 0}
   loadingSlider: {fileID: 1632555528}
   continueButton: {fileID: 0}
@@ -25873,7 +25873,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1216679114}
         m_TargetAssemblyTypeName: AddressableSceneLoader, Assembly-CSharp
-        m_MethodName: SwitchToLoadedScene
+        m_MethodName: LoadAndSwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27793,7 +27793,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 92.25
+  m_fontSize: 68.05
   m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -29180,7 +29180,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
+  m_fontSize: 67.3
   m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 1

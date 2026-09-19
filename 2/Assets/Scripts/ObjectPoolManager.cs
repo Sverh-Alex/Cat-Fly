@@ -90,7 +90,7 @@ public class ObjectPoolManager : MonoBehaviour
         else
         {
             // Если пул пуст — создаём новый объект (авто-расширение пула)
-            Debug.LogWarning("Pool with tag " + tag + " is empty! Creating new object dynamically.");
+            //Debug.LogWarning("Pool with tag " + tag + " is empty! Creating new object dynamically.");
             objectToSpawn = Instantiate(poolPrefabs[tag]); // создаём новый объект из префаба
             objectToSpawn.SetActive(false);                // сразу выключаем (потом включим)
         }
