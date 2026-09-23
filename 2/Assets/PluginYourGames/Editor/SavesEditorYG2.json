@@ -35,10 +35,11 @@
         "LVL_1_open",
         "LVL_2_open",
         "LVL_2_stars",
-        "LVL_3_open"
+        "LVL_3_open",
+        "Cat 8_Access"
     ],
     "intValues": [
-        3596,
+        3654,
         3,
         3,
         3,
@@ -55,6 +56,7 @@
         1,
         1,
         3,
+        1,
         1
     ],
     "intExample": 5,
@@ -65,5 +67,5 @@
         false,
         false
     ],
-    "idSave": 6082
+    "idSave": 6112
 }
