@@ -1,0 +1,737 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Skins
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Skins
+  m_GUID: 550914a834a904e40b2626e0eb553a22
+  m_SerializeEntries:
+  - m_GUID: 020c1a76cd1495e4c8d498629151e196
+    m_Address: Assets/Materials/Cat 20/Skin 20.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02d90e04188099345a9452ae887c2911
+    m_Address: Assets/Animation/Cat 14 Anim/IdleCat 14.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 050ca128703cb67428a49d54f138504c
+    m_Address: Assets/Animation/Cat 10 Anim/Cat 10.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 083bde8364b900c42aaa63b61c6960fe
+    m_Address: Assets/Animation/Cat 2 Anim/Cat 2.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08c649eb79f3e7642a7113181ad07411
+    m_Address: Assets/Materials/Cat 17/Skin 17.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0aef758f3f13f6542a6d9b33cb2f6ce5
+    m_Address: Assets/Materials/Cat 6/Skin 6.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c8efc2fb552e324b9bf506b5d76112d
+    m_Address: Assets/Animation/Cat 17 Anim/CryCat 17.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d170c5bacb29774481a4f600f26c327
+    m_Address: Assets/Materials/Cat 15/Skin 15.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f2a34a0149058c4c92c87cacde35ef1
+    m_Address: Assets/Materials/Cat 11/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f57f6ec4074e2c4885e54e9dc9713e1
+    m_Address: Assets/Animation/Cat 14 Anim/CryCat 14.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13490441b59235547af539cd4fb29c9b
+    m_Address: Assets/Animation/Cat 6 Anim/Cat 6.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13c80a44c3af3d94788e1737e4d94b4f
+    m_Address: Assets/Materials/Cat 4/Skin 4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14142627113be4f49b6a240bec1bc0f4
+    m_Address: Assets/Materials/Cat 0/sprite-max-px-36 (1) 1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 150bc46c38f0c074ba3d052892526186
+    m_Address: Assets/Animation/Cat 0 Anim/CryCat.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 155e611560fbb1748898a7abaee3d742
+    m_Address: Assets/Materials/Cat 3/sprite-max-px-16.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1808755aa0f1fb24589c6b4c7a8fb16d
+    m_Address: Assets/Animation/Cat 7 Anim/IdleCat7.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 189ad3f3a51f8d44dbb0ee4c4dcabe90
+    m_Address: Assets/Materials/Cat 12/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a960b30b84f9a749b85f384ca49fb62
+    m_Address: Assets/Animation/Cat 3 Anim/Cat 3.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bb5c02d74b4c65409bf95c8d2ac23f9
+    m_Address: Assets/Materials/Cat 16/Skin 16.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bfcec6132cae034ab8476adb5bb5c2f
+    m_Address: Assets/Materials/Cat 19/Skin 19.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ca4993f37b0454479cf818a42059016
+    m_Address: Assets/Animation/Cat 6 Anim/CryCat6.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d51d6b88329eca46af5b610b733e23a
+    m_Address: Assets/Animation/Cat 0 Anim/IdleCat.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21d928f854439284ea939e2df34cc2bc
+    m_Address: Assets/Animation/Cat 1 Anim/CryCat1.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 239cecfc4dce065419df98693d3c4f0e
+    m_Address: Assets/Animation/Cat 4 Anim/IdleCat4.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23fb63f865b11b04f8de5495a27fee0a
+    m_Address: Assets/Animation/Cat 2 Anim/CryCat 2.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24aecf90f4c964d499ffccf3105fcc79
+    m_Address: Assets/Animation/Cat 19 Anim/IdleCat 19.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a1fa994a0a6bdc409f3bb49a310ee8a
+    m_Address: Assets/Animation/Cat 9 Anim/Cat 9.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b504600f299d4346be8cb0e4b0e82de
+    m_Address: Assets/Animation/Cat 17 Anim/Cat 17.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cb19dbc1e020c24981785835e413bb6
+    m_Address: Assets/Materials/Cat 14/Skin 14.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d465bd613989b940baf6e1a626b4809
+    m_Address: Assets/Animation/Cat 15 Anim/Cat 15.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e6a4a5ec917290418d4f68fcdb94970
+    m_Address: Assets/Materials/Cat 9/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e9479ff4c3a14342b29a4fdeb6af221
+    m_Address: Assets/Materials/Cat 7/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fb65adb6eea51f4181d028a4515d894
+    m_Address: Assets/Animation/Cat 10 Anim/CryCat10.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fc3db7bf2cee6944bf700bb86f6ebb3
+    m_Address: Assets/Materials/Cat 17/Skin 17.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 300424643f8e88a41b3e5fd16d11d9c8
+    m_Address: Assets/Materials/Cat 10/Skin 10.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33aab337d803beb48a0b74fa3a437ba8
+    m_Address: Assets/Animation/Cat 2 Anim/IdleCat2.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 371f9f689e6e069408bb5b175d3d9911
+    m_Address: Assets/Materials/Cat 5/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37e748ff85fc12147b03f753d295d293
+    m_Address: Assets/Materials/Cat 9/Skin 9.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a1233fab336a2e46bf66980e3be9216
+    m_Address: Assets/Materials/Cat 1/Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a68ee55ba560d44d8688a0196e5f66b
+    m_Address: Assets/Materials/Cat 15/sprite-max-px-36min.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4078d1177802cf748bc03901d02a2651
+    m_Address: Assets/Animation/Cat 13 Anim/Cat 13.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40a3bbaf88095b14894b2c6b3c36fc89
+    m_Address: Assets/Animation/Cat 15 Anim/IdleCat 15.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 437fa4d104b56324ab2bb9ae3d678d4a
+    m_Address: Assets/Materials/Cat 4/Skin 4 help hide.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44bf9de0a6c119a49b6684cbc0a704f1
+    m_Address: Assets/Materials/Cat 0/Cat 3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 486e7c616dfcd64429c63b6cf655d390
+    m_Address: Assets/Materials/Cat 2/Cat 2 cry 1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4921a4feeb9736a48a5bc102b8887944
+    m_Address: Assets/Materials/Cat 13/Skin 13.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 497164ec1b2c6c74baf0edaf8b1526ef
+    m_Address: Assets/Animation/Cat 15 Anim/CryCat 15.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b165e44219cc7d47b28288ff8daff12
+    m_Address: Assets/Animation/Cat 20 Anim/CryCat 20.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f2ae8be8a4040d4a8c791f5fb28be64
+    m_Address: Assets/Materials/Cat 20/Skin 20.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f6fd6d45dd49134b876d6a30474f44b
+    m_Address: Assets/Animation/Cat 20 Anim/IdleCat 20.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 506a079c4a5660d468aaf605aecd5179
+    m_Address: Assets/Animation/Cat 17 Anim/IdleCat 17.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5197d4b746246594cbd94f9ff41126a0
+    m_Address: Assets/Materials/Cat 5/Skin 5.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5399e87787f2a1d44af25e915f9f4e3a
+    m_Address: Assets/Animation/Cat 19 Anim/CryCat 19.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54e7132d30814de428ae604604b5f864
+    m_Address: Assets/Animation/Cat 11 Anim/CryCat 11.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 556288c6eb25b6449845775a4e186bdf
+    m_Address: Assets/Animation/Cat 0 Anim/Cat.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b4d5dc839e23ce48aeb05961ddbdbe5
+    m_Address: Assets/Materials/Cat 5/Skin 5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b94e02f30cdfba45a0ec418e2c9dd62
+    m_Address: Assets/Materials/Cat 11/Skin 11.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bb336b46ffd1134d950834c6f17ef33
+    m_Address: Assets/Materials/Cat 0/Group 1000007290 (1).png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c536c3d567ad2e4d964ce8aeca0fec5
+    m_Address: Assets/Animation/Cat 3 Anim/IdleCat3.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e52c4cdd8c38794fb58a4c2a22827a6
+    m_Address: Assets/Materials/Cat 7/Skin 7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fd224e07e2be2845bdc1c8734fc6c96
+    m_Address: Assets/Materials/Cat 2/sprite-max-px-36 (1).png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62c76a2c09e4e3b4a940bec308d2f980
+    m_Address: Assets/Animation/Cat 7 Anim/Cat 7.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6431e8b9076af0c4caaeeced01cdd09d
+    m_Address: Assets/Materials/Cat 11/Skin 11.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 654b3f0fa5e01a64382cb3394d6317c9
+    m_Address: Assets/Animation/Cat 12 Anim/Cat 12.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65ab8ffc4a09cf742928aefaeb10c570
+    m_Address: Assets/Materials/Cat 8/Skin 8.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66af850338417084ba2f18a0e9835002
+    m_Address: Assets/Animation/Cat 6 Anim/IdleCat6.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67e158f6bae92f04dbf29d7b543bc551
+    m_Address: Assets/Materials/Cat 13/Skin 13.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6aedc2b66a083e643b17d3bed9e27953
+    m_Address: Assets/Animation/Cat 8 Anim/Cat 8.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ca31603d10d91044bfb75c67873a1f7
+    m_Address: Assets/Materials/Cat 4/Skin 4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d450ca4c6f5c5b48b2d2e43c3d86a71
+    m_Address: Assets/Materials/Cat 20/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7022601e7821e0c4da072ab9c41c6ecf
+    m_Address: Assets/Animation/Cat 19 Anim/Cat 19.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7384744600729e845bbc35cc15858334
+    m_Address: Assets/Materials/Cat 2/Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73fe5c529208ad14ebbd377d41cc7c59
+    m_Address: Assets/Animation/Cat 13 Anim/IdleCat 13.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7417f036c52f93b478fbdb6a4a388ec7
+    m_Address: Assets/Animation/Cat 18 Anim/IdleCat 18.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 747761b3091e49744b28e77d71d00595
+    m_Address: Assets/Materials/Cat 4/sprite-max-px-frames-16-rows-4-cols-4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75d1e12e7db059948b58c8c67ac640e9
+    m_Address: Assets/Materials/Cat 9/Skin 9.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75fa9f42d5aba604a91fdac44d605ca9
+    m_Address: Assets/Animation/Cat 0 Anim/DeadCat.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8283bd95aaedc3b49bdcba779dcd828a
+    m_Address: Assets/Materials/Cat 3/Skin 3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83d78d5648deb4b4ea419d512d7c8d63
+    m_Address: Assets/Animation/Cat 9 Anim/IdleCat9.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8491abe9f37fecb4b835d3c8b629c970
+    m_Address: Assets/Materials/Cat 4/New Sprite Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8696a2ee05592484fbb285e3ac77aeba
+    m_Address: Assets/Materials/Cat 0/Victory cry.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 871fa0bf8cdf4614fa903451b1aaadea
+    m_Address: Assets/Materials/Cat 2/Skin 2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b0ed3bed6094e248a2e467947b39514
+    m_Address: Assets/Materials/Cat 17/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d242fb058c61f24ab4245bc94109e09
+    m_Address: Assets/Animation/Cat 8 Anim/CryCat8.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f14397dff01efb4999cb58295509998
+    m_Address: Assets/Animation/Cat 7 Anim/CryCat7.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95bee85d20fd34d4e8bcac8ba589edad
+    m_Address: "Assets/Materials/Cat 0/\u041A\u043E\u0442\u0438\u043A Cry.png"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 965d62e47aa17814595b18603c3e58df
+    m_Address: Assets/Animation/Cat 12 Anim/IdleCat 12.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97ba2d2c64dd3294ebd4fc5a82a74630
+    m_Address: Assets/Materials/Cat 19/Skin 19.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 988cfeac1ae9b104bb268deef00eefe5
+    m_Address: Assets/Materials/Cat 2/Cat 2 help.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a067d202b71508479450e609ac69898
+    m_Address: Assets/Materials/Cat 14/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a5dbcd242e79374d9915742fe72fa35
+    m_Address: Assets/Materials/Cat 18/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bf966c200fa47c44bd1a956a1f95939
+    m_Address: Assets/Animation/Cat 14 Anim/Cat 14.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ee56e750639a55448cc216dcc79d2dd
+    m_Address: Assets/Materials/Cat 13/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0a07996b0f18184a993252ef277b3e0
+    m_Address: Assets/Animation/Cat 1 Anim/Cat 1.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0ca75c0d9649ac4cad77d60307101f6
+    m_Address: Assets/Materials/Cat 18/Skin 18.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a19d8bf4ca0297e429fd718d54a3206c
+    m_Address: Assets/Materials/Cat 1/Skin 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a57aeeeb3f381314ab328826ffa2dada
+    m_Address: Assets/Materials/Cat 6/Skin 6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7426323ab5f2554884048974180db5e
+    m_Address: Assets/Animation/Cat 5 Anim/Cat 5.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7a0fd8e6dfaf694e81a0675ed25a74c
+    m_Address: Assets/Materials/Cat 0/Atlas.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa8b65dbda57e91409e32ad74559a6f9
+    m_Address: Assets/Materials/Cat 10/skin 10.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adaa441ba9fbe254c8c50f5dce1d3584
+    m_Address: Assets/Materials/Cat 16/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af83d84d8673d5948adff65ad6cd2972
+    m_Address: Assets/Materials/Cat 19/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b13e3fa96f3403c449d4523c9b09c282
+    m_Address: Assets/Materials/Cat 0/Skin 0.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3c1d0b4780b3e34fa962e6b31a2a11e
+    m_Address: Assets/Materials/Cat 14/Skin 14.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: baa527b7aecd95140bdbf137dba7c9a2
+    m_Address: Assets/Materials/Cat 12/Skin 12.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb0a97e87ac13974587309482347b8d3
+    m_Address: Assets/Materials/Cat 0/Cat 0.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb7b89c38c7df764d9b185a061e99abe
+    m_Address: Assets/Materials/Cat 7/Skin 7.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c45210aaf02360d4ca1c417ac80e35b4
+    m_Address: Assets/Animation/Cat 16 Anim/CryCat 16.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4aa4a90100adb1489ed2d37aefc586f
+    m_Address: Assets/Materials/Cat 8/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5c3e84100b51be4bb24a035c5ab10d6
+    m_Address: Assets/Animation/Cat 11 Anim/IdleCat 11.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6107d5dfd43d384ab821bd56f3e7dcc
+    m_Address: Assets/Materials/Cat 1/Cat 1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c73d9335b99b41d4787c6e3475239170
+    m_Address: Assets/Materials/Cat 8/Skin 8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce1308ba979297a428bba0c5f3667af3
+    m_Address: Assets/Materials/Cat 1/Cat 1 Help.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1bdf9df99db40246bc7a9c3a397b333
+    m_Address: Assets/Animation/Cat 4 Anim/CryCat4.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d29e47d55d3aa8d4bab6892fc6166f36
+    m_Address: Assets/Animation/Cat 11 Anim/Cat 11.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5940026b57c9d8449e317c6f49904c3
+    m_Address: Assets/Animation/Cat 18 Anim/CryCat 18.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7cf73ffa43709249adc82cee2e0cd0f
+    m_Address: Assets/Materials/Cat 15/Skin 15.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d900f2bdcf95091428ecf8f6e98cb07e
+    m_Address: Assets/Materials/Cat 3/Skin 3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dad9b892f0094d4498ba46a34d5d0857
+    m_Address: Assets/Animation/Cat 10 Anim/IdleCat10.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dae8cd14a4cd7f4408cc83b85c3af30e
+    m_Address: Assets/Animation/Cat 16 Anim/Cat 16.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcc8232801d28c542a728090098f639f
+    m_Address: Assets/Materials/Cat 1/Victory 1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e133fcd3735109d459aa9b9e3bdbab6e
+    m_Address: Assets/Animation/Cat 20 Anim/Cat 20.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e72a68cbcf431e4498a1ade1e60260c2
+    m_Address: Assets/Materials/Cat 6/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9023fbcfe2eae24b8e72c1178b3b51f
+    m_Address: Assets/Materials/Cat 10/sprite-max-px-frames-25-rows-5-cols-5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9acc9c6181d2244faefcde1e131daf9
+    m_Address: Assets/Materials/Cat 1/Cat 1 Cry.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9ece03fd1282e142903ea27a1c7c044
+    m_Address: Assets/Materials/Cat 16/Skin 16.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9f0bb59b24989046b4d54253e74f088
+    m_Address: Assets/Materials/Cat 2/Cat 2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9f8245de5369b349b86ddcb379fd4af
+    m_Address: Assets/Materials/Cat 1/sprite-max-px-1622.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb4b6ebbf517afc4e8f166073a40d2c9
+    m_Address: Assets/Animation/Cat 5 Anim/IdleCat5.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb9c7ac0102e7fd45bc007f9ee740287
+    m_Address: Assets/Animation/Cat 1 Anim/IdleCat1.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee3359972d1afec45b6188d9a8e358c7
+    m_Address: Assets/Materials/Cat 12/Skin 12.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f20ee8eac9b1c8943a4f6f320260c8a2
+    m_Address: Assets/Animation/Cat 9 Anim/CryCat9.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2185f32e4646eb4b8275d2725238391
+    m_Address: Assets/Animation/Cat 5 Anim/CryCat5.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f24b74e9d9777794fae6e80b7d560163
+    m_Address: Assets/Animation/Cat 3 Anim/CryCat 3.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f297bddeec815b84fbf3717c728c00f3
+    m_Address: Assets/Materials/Cat 1/Cat 2 Help hide22222.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f580d1015df4cde4b90473132aa49145
+    m_Address: Assets/Animation/Cat 16 Anim/IdleCat 16.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f79635fd062d9ab459347ff210728ccf
+    m_Address: Assets/Materials/Cat 18/skin 18.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8027e767c6677d479f0d4c15119e99e
+    m_Address: Assets/Animation/Cat 18 Anim/Cat 18.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f966412bc159e5746a077ba439715578
+    m_Address: Assets/Animation/Cat 4 Anim/Cat 4.controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa3db103ed9f8e54db79e8ac40bf65a3
+    m_Address: Assets/Animation/Cat 13 Anim/CryCat 13.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa7324e7151419b4e92cbcf84466e825
+    m_Address: Assets/Animation/Cat 8 Anim/IdleCat8.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdb0590d04714c940a9abc2b60a2e686
+    m_Address: Assets/Animation/Cat 1 Anim/DeadCat1.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe1163f37c4eede4ba13f4b407633870
+    m_Address: Assets/Animation/Cat 12 Anim/CryCat 12.anim
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2bce8a0d30a37714ca9a73d54d77f553, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 75a8190b5ed4ecc47b084ef459478bae, type: 2}
