@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: 0c9b4b9a373125141b9e018c6ce58216
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: c169ea9269ad59d4e9cd04ebc55dabb3
+    m_Address: Assets/Materials/Image_2222.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2bce8a0d30a37714ca9a73d54d77f553, type: 2}
   m_SchemaSet:
