@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/PluginYourGames/Example/Scenes/ExampleYG2.unity
     guid: e49bf7e58fdb4db4c9df51f0ddb8f327
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Start.unity
     guid: fa36d3364ed102542bb171fe1e61d1a9
   - enabled: 0
@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LVL_3.unity
     guid: af3572e1c8323da4da026a827923fe0b
+  - enabled: 1
+    path: Assets/Scenes/New Scene.unity
+    guid: c16a8358cf5add3448bd590c295c71e9
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: fe30746bd1301a04aad4e5c232c291dc, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
