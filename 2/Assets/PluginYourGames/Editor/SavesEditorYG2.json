@@ -1,10 +1,6 @@
 {
-    "stringKeys": [
-        "TimerEndTime"
-    ],
-    "stringValues": [
-        "16.10.2026 17:27:39"
-    ],
+    "stringKeys": [],
+    "stringValues": [],
     "floatKeys": [
         "MasterVolume",
         "[bc60a8d243c2931499b014c6f4740a90]LVL_0_2_Cut (UnityEngine.SceneAsset)open",
@@ -44,10 +40,12 @@
         "LVL_3_stars",
         "LVL_4_open",
         "Cat 21_Access",
-        "ga_tutor_complete_sent"
+        "Cat 13_Access",
+        "Cat 14_Access",
+        "Cat 15_Access"
     ],
     "intValues": [
-        4026,
+        3984,
         3,
         3,
         3,
@@ -69,6 +67,8 @@
         3,
         1,
         1,
+        1,
+        1,
         1
     ],
     "intExample": 5,
@@ -79,5 +79,5 @@
         false,
         false
     ],
-    "idSave": 6327
+    "idSave": 6353
 }
